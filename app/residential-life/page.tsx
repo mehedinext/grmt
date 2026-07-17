@@ -2,148 +2,107 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Link from "next/link";
 
+const G = "var(--font-garamond)";
+const I = "var(--font-inter)";
+const green = "#082F27";
+const gold = "#C89A3B";
+const cream = "#F7F2E8";
+
 const features = [
-  {
-    icon: "🏠",
-    title: "Accommodation",
-    desc: "Students stay in comfortable, supervised residential rooms on site. Single-sex accommodation with dedicated houseparents ensures a safe and homely environment throughout the week.",
-  },
-  {
-    icon: "🍽️",
-    title: "Meals & Social Time",
-    desc: "Three meals a day are provided, with menus designed around nutritional needs and dietary requirements. Mealtimes are a highlight — a chance to connect with students from all three courses.",
-  },
-  {
-    icon: "🌙",
-    title: "Evening Programme",
-    desc: "Each evening features something special: student concerts, collaborative jams, film screenings, or social events that make the week unforgettable beyond the rehearsal room.",
-  },
-  {
-    icon: "🛡️",
-    title: "Pastoral Care",
-    desc: "A dedicated pastoral team is on hand 24/7. All staff hold enhanced DBS checks and our safeguarding policy meets the highest standards. Parents receive daily updates.",
-  },
-  {
-    icon: "🎵",
-    title: "Practice Facilities",
-    desc: "Students have supervised access to practice rooms throughout the day, so personal preparation time sits alongside the timetabled programme.",
-  },
-  {
-    icon: "🤝",
-    title: "Community",
-    desc: "One of the most valued outcomes of the camp is the friendships formed. Students leave with a peer network of fellow musicians and performers that often lasts for years.",
-  },
+  { icon: "🏠", title: "Accommodation", desc: "Students stay in comfortable, supervised residential rooms at Stamford School. Single-sex accommodation with dedicated houseparents ensures a safe, homely environment throughout." },
+  { icon: "🍽️", title: "Meals & Social Time", desc: "Three meals a day provided, with menus designed around nutritional needs and dietary requirements. Mealtimes are a highlight — a chance to connect with students from all three courses." },
+  { icon: "🌙", title: "Evening Programme", desc: "Each evening features something special: student concerts, collaborative jams, film screenings, or social events that make the week unforgettable beyond the rehearsal room." },
+  { icon: "🛡️", title: "Pastoral Care", desc: "A dedicated pastoral team is on hand 24/7. All staff hold enhanced DBS checks and our safeguarding policy meets the highest standards. Parents receive daily updates." },
+  { icon: "🎵", title: "Practice Facilities", desc: "Students have supervised access to practice rooms throughout the day, so personal preparation time sits alongside the timetabled programme." },
+  { icon: "🤝", title: "Community", desc: "One of the most valued outcomes is the friendships formed. Students leave with a peer network of fellow musicians and performers that often lasts for years." },
 ];
 
 export default function ResidentialLifePage() {
   return (
     <>
       <Navbar />
-      <main className="pt-20">
-        {/* Header */}
-        <div className="bg-[#1B1B3A] py-24">
-          <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <main style={{ paddingTop: 68 }}>
+        <div style={{ background: green, position: "relative", overflow: "hidden" }}>
+          <div style={{ position: "absolute", inset: 0, backgroundImage: "url(https://greenroomtheory.com/wp-content/uploads/2025/09/101-GreenRoomMusicTheorySummer2025-scaled.jpg)", backgroundSize: "cover", backgroundPosition: "center", opacity: 0.3 }} />
+          <div style={{ position: "relative", zIndex: 1, maxWidth: 1200, margin: "0 auto", padding: "80px 24px", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 48, alignItems: "center" }}>
             <div>
-              <p className="text-[#C9A84C] text-xs uppercase tracking-widest mb-3">Life at Camp</p>
-              <h1
-                className="text-5xl font-bold text-white mb-6"
-                style={{ fontFamily: "var(--font-playfair)" }}
-              >
-                Residential Life
-              </h1>
-              <p className="text-white/60 leading-relaxed max-w-lg">
-                Green Room Summer Camp is far more than a series of lessons. The residential experience — shared meals, evening events, late-night conversations about music — is where the magic really happens.
+              <p style={{ color: gold, fontSize: "0.7rem", textTransform: "uppercase", letterSpacing: "0.2em", marginBottom: 16, fontFamily: I }}>Life at Camp</p>
+              <h1 style={{ fontFamily: G, fontSize: "clamp(2.5rem, 5vw, 4rem)", fontWeight: 500, color: "#fff", marginBottom: 20, lineHeight: 1.15 }}>Residential Life</h1>
+              <p style={{ color: "rgba(255,255,255,0.65)", lineHeight: 1.75, maxWidth: 480, fontSize: "0.95rem" }}>
+                Green Room Summer Course is far more than a series of lessons. The residential experience — shared meals, evening events, late-night conversations about music — is where the magic really happens.
               </p>
             </div>
-            <div className="border-l border-white/10 pl-12 hidden lg:block">
-              <div className="space-y-6">
-                {[
-                  ["7 days", "Full residential programme"],
-                  ["3 meals", "Daily, all dietary needs catered"],
-                  ["24/7", "Pastoral support on site"],
-                  ["DBS checked", "All staff, all sessions"],
-                ].map(([val, label]) => (
-                  <div key={label}>
-                    <div className="text-[#C9A84C] text-2xl font-bold" style={{ fontFamily: "var(--font-playfair)" }}>{val}</div>
-                    <div className="text-white/50 text-sm">{label}</div>
-                  </div>
-                ))}
-              </div>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 2 }}>
+              {[["5 Days", "Full residential programme"], ["3 Meals", "Daily, all dietary needs catered"], ["24/7", "Pastoral support on site"], ["DBS Checked", "All staff, all sessions"]].map(([val, label]) => (
+                <div key={label} style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)", padding: "24px 20px" }}>
+                  <div style={{ color: gold, fontFamily: G, fontSize: "1.4rem", fontWeight: 500, marginBottom: 6 }}>{val}</div>
+                  <div style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.72rem", textTransform: "uppercase", letterSpacing: "0.1em", fontFamily: I }}>{label}</div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
 
-        {/* Features */}
-        <section className="bg-[#FAF8F3] py-24">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="text-center mb-14">
-              <p className="text-[#C9A84C] text-xs uppercase tracking-widest mb-3">What to Expect</p>
-              <h2
-                className="text-4xl font-bold text-[#1B1B3A]"
-                style={{ fontFamily: "var(--font-playfair)" }}
-              >
-                Everything Taken Care Of
-              </h2>
-              <div className="w-16 h-0.5 bg-[#C9A84C] mx-auto mt-6" />
+        <section style={{ background: cream, padding: "80px 24px" }}>
+          <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+            <div style={{ textAlign: "center", marginBottom: 52 }}>
+              <p style={{ color: gold, fontSize: "0.7rem", textTransform: "uppercase", letterSpacing: "0.2em", marginBottom: 12, fontFamily: I }}>What to Expect</p>
+              <h2 style={{ fontFamily: G, fontSize: "clamp(1.8rem, 3.5vw, 2.6rem)", fontWeight: 500, color: green }}>Everything Taken Care Of</h2>
+              <div style={{ width: 36, height: 2, background: gold, margin: "16px auto 0" }} />
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 20 }}>
               {features.map((f) => (
-                <div key={f.title} className="bg-white p-8 border border-gray-100 card-hover">
-                  <div className="text-3xl mb-4">{f.icon}</div>
-                  <h3
-                    className="text-lg font-bold text-[#1B1B3A] mb-3"
-                    style={{ fontFamily: "var(--font-playfair)" }}
-                  >
-                    {f.title}
-                  </h3>
-                  <p className="text-gray-500 text-sm leading-relaxed">{f.desc}</p>
+                <div key={f.title} style={{ background: "#fff", padding: "32px", borderTop: "3px solid #C89A3B" }} className="card-hover">
+                  <div style={{ fontSize: "1.8rem", marginBottom: 16 }}>{f.icon}</div>
+                  <h3 style={{ fontFamily: G, fontSize: "1.2rem", fontWeight: 500, color: green, marginBottom: 12 }}>{f.title}</h3>
+                  <p style={{ color: "#5a7a6a", fontSize: "0.88rem", lineHeight: 1.7 }}>{f.desc}</p>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Week overview */}
-        <section className="bg-[#1B1B3A] py-24">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="text-center mb-14">
-              <p className="text-[#C9A84C] text-xs uppercase tracking-widest mb-3">The Week</p>
-              <h2
-                className="text-4xl font-bold text-white"
-                style={{ fontFamily: "var(--font-playfair)" }}
-              >
-                A Typical Week at Camp
-              </h2>
-              <div className="w-16 h-0.5 bg-[#C9A84C] mx-auto mt-6" />
+        {/* Photo strip */}
+        <section style={{ background: "#fff", padding: "0" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))" }}>
+            {[
+              "https://greenroomtheory.com/wp-content/uploads/2025/09/106-GreenRoomMusicTheorySummer2025-scaled.jpg",
+              "https://greenroomtheory.com/wp-content/uploads/2025/09/103-GreenRoomMusicTheorySummer2025-scaled.jpg",
+              "https://greenroomtheory.com/wp-content/uploads/2025/09/101-GreenRoomMusicTheorySummer2025-scaled.jpg",
+              "https://greenroomtheory.com/wp-content/uploads/2025/09/038-GreenRoomMusicTheorySummer2025-scaled.jpg",
+            ].map((src, i) => (
+              <img key={i} src={src} alt="Life at GRMSC" style={{ width: "100%", aspectRatio: "1", objectFit: "cover", display: "block" }} />
+            ))}
+          </div>
+        </section>
+
+        <section style={{ background: green, padding: "72px 24px" }}>
+          <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+            <div style={{ textAlign: "center", marginBottom: 40 }}>
+              <p style={{ color: gold, fontSize: "0.7rem", textTransform: "uppercase", letterSpacing: "0.2em", marginBottom: 12, fontFamily: I }}>The Week</p>
+              <h2 style={{ fontFamily: G, fontSize: "clamp(1.8rem, 3.5vw, 2.6rem)", fontWeight: 500, color: "#fff" }}>A Typical Week at GRMSC</h2>
+              <div style={{ width: 36, height: 2, background: gold, margin: "16px auto 0" }} />
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: 2 }}>
               {[
-                { day: "Mon", highlight: "Arrivals & welcome concert" },
-                { day: "Tue–Thu", highlight: "Intensive course sessions & evening events" },
-                { day: "Fri", highlight: "Open masterclass & guest artist" },
-                { day: "Sat", highlight: "Final showcase & farewell" },
+                { day: "Sat 19 Jul", highlight: "Arrivals & welcome concert" },
+                { day: "Sun–Mon", highlight: "Intensive course sessions & evening events" },
+                { day: "Tue", highlight: "Open masterclass & guest artist" },
+                { day: "Wed 23 Jul", highlight: "Final showcase & farewell" },
               ].map((d) => (
-                <div key={d.day} className="border border-white/10 p-6">
-                  <div className="text-[#C9A84C] font-bold text-sm uppercase tracking-widest mb-2">{d.day}</div>
-                  <div className="text-white/70 text-sm">{d.highlight}</div>
+                <div key={d.day} style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)", padding: "28px 24px" }}>
+                  <div style={{ color: gold, fontWeight: 600, fontSize: "0.75rem", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 10, fontFamily: I }}>{d.day}</div>
+                  <div style={{ color: "rgba(255,255,255,0.65)", fontSize: "0.88rem", lineHeight: 1.6 }}>{d.highlight}</div>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* CTA */}
-        <section className="bg-[#FAF8F3] py-20 text-center">
-          <h2
-            className="text-3xl font-bold text-[#1B1B3A] mb-4"
-            style={{ fontFamily: "var(--font-playfair)" }}
-          >
-            Join Us for Summer 2027
-          </h2>
-          <p className="text-gray-500 text-sm mb-8">Applications open soon.</p>
-          <Link href="/apply" className="btn-gold">
-            Register Your Interest
-          </Link>
+        <section style={{ background: cream, padding: "72px 24px", textAlign: "center" }}>
+          <h2 style={{ fontFamily: G, fontSize: "clamp(1.6rem, 3vw, 2.2rem)", fontWeight: 500, color: green, marginBottom: 12 }}>Join Us for Summer 2027</h2>
+          <p style={{ color: "#5a7a6a", fontSize: "0.88rem", marginBottom: 32 }}>Applications open soon · 19–23 July · Stamford School</p>
+          <Link href="/apply" className="btn-gold">Register Your Interest</Link>
         </section>
       </main>
       <Footer />

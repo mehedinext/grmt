@@ -1,23 +1,25 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Inter } from "next/font/google";
+import { EB_Garamond, Inter } from "next/font/google";
 import "./globals.css";
 
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
+const garamond = EB_Garamond({
+  variable: "--font-garamond",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
   display: "swap",
 });
 
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Green Room Music Summer Camp 2027",
-  description: "A week-long residential summer camp offering intensive courses in Piano, Music Theory, and Musical Theatre. Apply for Summer 2027.",
-  keywords: "music summer camp, piano course, music theory, musical theatre, residential music camp 2027",
+  title: "GRMSC — Green Room Music Summer Course 2027",
+  description: "A residential music summer course at Stamford School, 19–23 July 2027. Intensive Piano, Music Theory and Musical Theatre for ages 10–17.",
+  keywords: "music summer course, GRMSC, piano course, music theory, musical theatre, Stamford School, residential music 2027",
 };
 
 export default function RootLayout({
@@ -26,8 +28,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
-      <body className="min-h-screen flex flex-col">{children}</body>
+    <html lang="en" className={`${garamond.variable} ${inter.variable}`}>
+      <body className="min-h-screen flex flex-col" style={{ fontFamily: "var(--font-inter), sans-serif" }}>{children}</body>
     </html>
   );
 }

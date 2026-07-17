@@ -6,43 +6,39 @@ import Link from "next/link";
 const slides = [
   {
     id: 1,
-    course: "Piano",
-    tagline: "Master the keys in one transformative week",
-    sub: "Expert tuition from conservatoire-trained pianists in an intimate residential setting.",
-    cta: "Apply for Piano",
-    href: "/courses/piano",
-    accent: "#C9A84C",
-    icon: "🎹",
+    label: "Residential Course",
+    heading: "A residential music\nsummer course\nfor ages 10–17",
+    sub: "19–23 July 2027 · Stamford School",
+    cta: "Register Interest",
+    href: "/apply",
+    bg: "https://greenroomtheory.com/wp-content/uploads/2025/09/106-GreenRoomMusicTheorySummer2025-scaled.jpg",
   },
   {
     id: 2,
-    course: "Music Theory",
-    tagline: "Unlock the language of music",
-    sub: "Intensive theory, ear training and analysis — designed to elevate every musician.",
-    cta: "Apply for Music Theory",
-    href: "/courses/music-theory",
-    accent: "#C9A84C",
-    icon: "♪",
+    label: "Piano",
+    heading: "Master the keys in one\ntransformative week",
+    sub: "Expert tuition from conservatoire-trained pianists",
+    cta: "Explore Piano",
+    href: "/courses/piano",
+    bg: "https://greenroomtheory.com/wp-content/uploads/2025/09/014-GreenRoomMusicTheorySummer2025-scaled.jpg",
   },
   {
     id: 3,
-    course: "Musical Theatre",
-    tagline: "Find your voice on stage",
-    sub: "Singing, acting and movement combined — a full performing arts experience.",
-    cta: "Apply for Musical Theatre",
-    href: "/courses/musical-theatre",
-    accent: "#C9A84C",
-    icon: "🎭",
+    label: "Music Theory",
+    heading: "Unlock the\nlanguage of music",
+    sub: "ABRSM Grade 5 crash course and beyond",
+    cta: "Explore Music Theory",
+    href: "/courses/music-theory",
+    bg: "https://greenroomtheory.com/wp-content/uploads/2025/09/012-GreenRoomMusicTheorySummer2025-scaled.jpg",
   },
   {
     id: 4,
-    course: "Green Room Music Summer Camp 2027",
-    tagline: "Three courses. One unforgettable summer.",
-    sub: "A week-long residential programme for passionate young musicians and performers.",
-    cta: "Apply Now",
-    href: "/apply",
-    accent: "#C9A84C",
-    icon: "★",
+    label: "Musical Theatre",
+    heading: "Find your\nvoice on stage",
+    sub: "Singing, acting, movement and a final showcase performance",
+    cta: "Explore Musical Theatre",
+    href: "/courses/musical-theatre",
+    bg: "https://greenroomtheory.com/wp-content/uploads/2025/09/038-GreenRoomMusicTheorySummer2025-scaled.jpg",
   },
 ];
 
@@ -53,7 +49,7 @@ export default function HeroSlideshow() {
   useEffect(() => {
     const timer = setInterval(() => {
       goTo((current + 1) % slides.length);
-    }, 4500);
+    }, 5000);
     return () => clearInterval(timer);
   }, [current]);
 
@@ -69,90 +65,94 @@ export default function HeroSlideshow() {
   const slide = slides[current];
 
   return (
-    <section className="relative w-full min-h-screen bg-[#1B1B3A] flex items-center overflow-hidden">
-      {/* Background pattern */}
+    <section style={{ position: "relative", width: "100%", minHeight: "100vh", display: "flex", alignItems: "center", overflow: "hidden", background: "#082F27" }}>
+      {/* Background photo */}
       <div
-        className="absolute inset-0 opacity-5"
         style={{
-          backgroundImage: `radial-gradient(circle at 20% 50%, #C9A84C 0%, transparent 50%),
-                            radial-gradient(circle at 80% 50%, #C9A84C 0%, transparent 50%)`,
+          position: "absolute", inset: 0,
+          backgroundImage: `url(${slide.bg})`,
+          backgroundSize: "cover", backgroundPosition: "center",
+          opacity: animating ? 0 : 1,
+          transition: "opacity 0.6s ease",
         }}
       />
-      {/* Decorative lines */}
-      <div className="absolute top-0 left-0 w-px h-full bg-gradient-to-b from-transparent via-[#C9A84C]/20 to-transparent" />
-      <div className="absolute top-0 right-0 w-px h-full bg-gradient-to-b from-transparent via-[#C9A84C]/20 to-transparent" />
+      {/* Green overlay */}
+      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(105deg, rgba(8,47,39,0.90) 0%, rgba(8,47,39,0.60) 55%, rgba(8,47,39,0.35) 100%)" }} />
 
+      {/* Content */}
       <div
-        className="max-w-7xl mx-auto px-6 py-32 w-full transition-all duration-500"
-        style={{ opacity: animating ? 0 : 1, transform: animating ? "translateY(12px)" : "translateY(0)" }}
+        style={{
+          position: "relative", zIndex: 2, maxWidth: 1200, margin: "0 auto", padding: "120px 48px 100px",
+          opacity: animating ? 0 : 1, transform: animating ? "translateY(14px)" : "translateY(0)",
+          transition: "opacity 0.4s ease, transform 0.4s ease",
+          width: "100%",
+        }}
       >
-        <div className="max-w-3xl">
-          {/* Course badge */}
-          <div className="flex items-center gap-3 mb-6">
-            <span className="text-[#C9A84C] text-3xl">{slide.icon}</span>
-            <span className="text-[#C9A84C] text-xs uppercase tracking-[0.25em] font-medium">
-              {slide.id === 4 ? "Summer 2027" : `Course — ${slide.course}`}
+        <div style={{ maxWidth: 720 }}>
+          {/* Label */}
+          <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 24 }}>
+            <div style={{ width: 32, height: 1, background: "#C89A3B" }} />
+            <span style={{ color: "#C89A3B", fontSize: "0.72rem", textTransform: "uppercase", letterSpacing: "0.22em", fontFamily: "var(--font-inter)", fontWeight: 500 }}>
+              {slide.label}
             </span>
           </div>
 
           {/* Heading */}
-          <h1
-            className="text-white text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight mb-6"
-            style={{ fontFamily: "var(--font-playfair)" }}
-          >
-            {slide.tagline}
+          <h1 style={{
+            fontFamily: "var(--font-garamond)",
+            fontSize: "clamp(2.8rem, 6vw, 5.2rem)",
+            fontWeight: 500,
+            color: "#fff",
+            lineHeight: 1.12,
+            marginBottom: 24,
+            whiteSpace: "pre-line",
+          }}>
+            {slide.heading}
           </h1>
 
           {/* Sub */}
-          <p className="text-white/60 text-lg sm:text-xl leading-relaxed mb-10 max-w-xl">
+          <p style={{ color: "rgba(255,255,255,0.75)", fontSize: "1rem", marginBottom: 40, fontFamily: "var(--font-inter)", lineHeight: 1.6 }}>
             {slide.sub}
           </p>
 
           {/* CTAs */}
-          <div className="flex flex-wrap gap-4">
-            <Link href={slide.href} className="btn-gold">
-              {slide.cta}
-            </Link>
-            <Link href="/courses" className="btn-outline">
-              View All Courses
-            </Link>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 16 }}>
+            <Link href={slide.href} className="btn-gold">{slide.cta}</Link>
+            <Link href="/courses" className="btn-outline-white">View All Courses</Link>
+          </div>
+
+          {/* Fact strip */}
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 32, marginTop: 56, paddingTop: 32, borderTop: "1px solid rgba(255,255,255,0.15)" }}>
+            {[["19–23 July 2027", "Dates"], ["Ages 10–17", "Open to"], ["Stamford School", "Venue"], ["3 Courses", "Disciplines"]].map(([val, label]) => (
+              <div key={label}>
+                <div style={{ color: "#C89A3B", fontFamily: "var(--font-garamond)", fontSize: "1.1rem", fontWeight: 600 }}>{val}</div>
+                <div style={{ color: "rgba(255,255,255,0.45)", fontSize: "0.68rem", textTransform: "uppercase", letterSpacing: "0.14em", fontFamily: "var(--font-inter)" }}>{label}</div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
 
-      {/* Slide indicators */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-3">
+      {/* Slide dots */}
+      <div style={{ position: "absolute", bottom: 36, left: "50%", transform: "translateX(-50%)", display: "flex", gap: 10, zIndex: 3 }}>
         {slides.map((_, i) => (
           <button
             key={i}
             onClick={() => goTo(i)}
-            className={`transition-all duration-300 rounded-full ${
-              i === current
-                ? "w-8 h-2 bg-[#C9A84C]"
-                : "w-2 h-2 bg-white/30 hover:bg-white/60"
-            }`}
+            style={{
+              width: i === current ? 28 : 8, height: 8,
+              borderRadius: 4, border: "none", cursor: "pointer",
+              background: i === current ? "#C89A3B" : "rgba(255,255,255,0.3)",
+              transition: "all 0.3s ease",
+              padding: 0,
+            }}
           />
         ))}
       </div>
 
-      {/* Slide counter */}
-      <div className="absolute bottom-10 right-8 text-white/30 text-sm font-mono">
-        {String(current + 1).padStart(2, "0")} / {String(slides.length).padStart(2, "0")}
-      </div>
-
-      {/* Arrow navigation */}
-      <button
-        onClick={() => goTo((current - 1 + slides.length) % slides.length)}
-        className="absolute left-6 top-1/2 -translate-y-1/2 w-10 h-10 border border-white/20 flex items-center justify-center text-white/50 hover:border-[#C9A84C] hover:text-[#C9A84C] transition-colors"
-      >
-        ‹
-      </button>
-      <button
-        onClick={() => goTo((current + 1) % slides.length)}
-        className="absolute right-6 top-1/2 -translate-y-1/2 w-10 h-10 border border-white/20 flex items-center justify-center text-white/50 hover:border-[#C9A84C] hover:text-[#C9A84C] transition-colors"
-      >
-        ›
-      </button>
+      {/* Arrows */}
+      <button onClick={() => goTo((current - 1 + slides.length) % slides.length)} style={{ position: "absolute", left: 20, top: "50%", transform: "translateY(-50%)", background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.15)", color: "rgba(255,255,255,0.6)", width: 40, height: 40, display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", fontSize: "1.3rem", zIndex: 3 }}>‹</button>
+      <button onClick={() => goTo((current + 1) % slides.length)} style={{ position: "absolute", right: 20, top: "50%", transform: "translateY(-50%)", background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.15)", color: "rgba(255,255,255,0.6)", width: 40, height: 40, display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", fontSize: "1.3rem", zIndex: 3 }}>›</button>
     </section>
   );
 }

@@ -1,20 +1,21 @@
 @import "tailwindcss";
 
 :root {
-  --navy: #1B1B3A;
-  --navy-light: #252550;
-  --gold: #C9A84C;
-  --gold-light: #E2C06A;
-  --cream: #FAF8F3;
-  --text-dark: #1B1B3A;
+  --green: #082F27;
+  --green-light: #0d4035;
+  --gold: #C89A3B;
+  --gold-light: #d9ae55;
+  --cream: #F7F2E8;
+  --cream-dark: #EDE8DB;
+  --blue: #0A2F47;
+  --text-dark: #082F27;
 }
 
 @theme inline {
-  --color-navy: var(--navy);
-  --color-navy-light: var(--navy-light);
+  --color-green: var(--green);
   --color-gold: var(--gold);
-  --color-gold-light: var(--gold-light);
   --color-cream: var(--cream);
+  --color-blue: var(--blue);
 }
 
 * {
@@ -30,39 +31,21 @@ html {
 body {
   background: var(--cream);
   color: var(--text-dark);
-  font-family: 'Inter', sans-serif;
-}
-
-.font-display {
-  font-family: 'Playfair Display', Georgia, serif;
-}
-
-/* Hero slideshow */
-.slide-enter {
-  opacity: 0;
-  transform: scale(1.04);
-}
-.slide-active {
-  opacity: 1;
-  transform: scale(1);
-  transition: opacity 0.9s ease, transform 0.9s ease;
-}
-.slide-exit {
-  opacity: 0;
-  transition: opacity 0.6s ease;
+  font-family: var(--font-inter), 'Inter', sans-serif;
 }
 
 /* Gold button */
 .btn-gold {
   background: var(--gold);
-  color: var(--navy);
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   padding: 0.85rem 2.2rem;
   transition: background 0.2s, transform 0.15s;
   display: inline-block;
+  font-family: var(--font-inter), sans-serif;
 }
 .btn-gold:hover {
   background: var(--gold-light);
@@ -72,26 +55,36 @@ body {
 .btn-outline {
   border: 2px solid var(--gold);
   color: var(--gold);
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  font-weight: 600;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   padding: 0.75rem 2rem;
   transition: background 0.2s, color 0.2s, transform 0.15s;
   display: inline-block;
+  font-family: var(--font-inter), sans-serif;
 }
 .btn-outline:hover {
   background: var(--gold);
-  color: var(--navy);
+  color: #fff;
   transform: translateY(-2px);
 }
 
-/* Section divider */
-.gold-rule {
-  width: 60px;
-  height: 3px;
-  background: var(--gold);
-  margin: 1rem auto 2rem;
+.btn-outline-white {
+  border: 2px solid rgba(255,255,255,0.5);
+  color: rgba(255,255,255,0.9);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  padding: 0.75rem 2rem;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  display: inline-block;
+  font-family: var(--font-inter), sans-serif;
+}
+.btn-outline-white:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.8);
 }
 
 /* Card hover */
@@ -99,6 +92,37 @@ body {
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 .card-hover:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.18);
+  transform: translateY(-5px);
+  box-shadow: 0 16px 40px rgba(8,47,39,0.15);
+}
+
+/* Course card hover */
+.course-card:hover .course-img {
+  transform: scale(1.06);
+}
+.course-card:hover .course-overlay {
+  background: rgba(8,47,39,0.62) !important;
+}
+
+/* FAQ accordion */
+.faq-item {
+  border-bottom: 1px solid rgba(8,47,39,0.12);
+}
+
+/* Nav responsive — override Tailwind hidden/flex with media queries */
+.nav-desktop {
+  display: none !important;
+}
+.nav-mobile-btn {
+  display: block !important;
+}
+@media (min-width: 1024px) {
+  .nav-desktop {
+    display: flex !important;
+    align-items: center;
+    gap: 28px;
+  }
+  .nav-mobile-btn {
+    display: none !important;
+  }
 }

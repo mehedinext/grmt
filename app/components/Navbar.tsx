@@ -4,10 +4,23 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+const G = "var(--font-garamond)";
+const I = "var(--font-inter)";
+const green = "#082F27";
+const gold = "#C89A3B";
+
+const navLinks = [
+  { href: "/", label: "Home" },
+  { href: "/courses", label: "Courses" },
+  { href: "/residential-life", label: "Residential Life" },
+  { href: "/faculty", label: "Tutors" },
+  { href: "/fees", label: "Fees" },
+  { href: "/faqs", label: "FAQs" },
+];
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [coursesOpen, setCoursesOpen] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -16,110 +29,65 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const courses = [
-    { href: "/courses/piano", label: "Piano" },
-    { href: "/courses/music-theory", label: "Music Theory" },
-    { href: "/courses/musical-theatre", label: "Musical Theatre" },
-  ];
-
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-[#1B1B3A] shadow-lg" : "bg-[#1B1B3A]/95"
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <nav style={{
+      position: "fixed", top: 0, left: 0, right: 0, zIndex: 50,
+      background: scrolled ? green : "rgba(8,47,39,0.97)",
+      boxShadow: scrolled ? "0 2px 24px rgba(0,0,0,0.28)" : "none",
+      transition: "box-shadow 0.3s ease, background 0.3s ease",
+    }}>
+      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 clamp(24px, 5vw, 64px)", display: "flex", alignItems: "center", justifyContent: "space-between", height: 68 }}>
+
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-3">
-          <img
-            src="https://greenroomtheory.com/wp-content/uploads/2023/01/cropped-green-room-music-theory-logo-2.png"
-            alt="Green Room Music"
-            className="h-10 w-auto"
-          />
-          <div className="hidden sm:block">
-            <div
-              className="text-white text-xs font-bold tracking-widest uppercase"
-              style={{ fontFamily: "var(--font-playfair)" }}
-            >
-              Green Room
-            </div>
-            <div className="text-[#C9A84C] text-[10px] tracking-widest uppercase">
-              Music Summer Camp
-            </div>
-          </div>
+        <Link href="/" style={{ textDecoration: "none", display: "flex", flexDirection: "column", lineHeight: 1 }}>
+          <span style={{ fontFamily: G, fontSize: "1.55rem", fontWeight: 500, color: gold, letterSpacing: "0.06em", lineHeight: 1.1 }}>GRMSC</span>
+          <span style={{ fontFamily: I, fontSize: "0.52rem", color: "rgba(255,255,255,0.45)", textTransform: "uppercase", letterSpacing: "0.2em", marginTop: 2 }}>Green Room Music Summer Course</span>
         </Link>
 
-        {/* Desktop Nav */}
-        <div className="hidden lg:flex items-center gap-8">
-          <Link
-            href="/"
-            className={`text-sm tracking-wide transition-colors ${
-              pathname === "/" ? "text-[#C9A84C]" : "text-white/80 hover:text-white"
-            }`}
+        {/* Desktop nav */}
+        <div className="nav-desktop">
+          {navLinks.map((l) => (
+            <Link
+              key={l.href}
+              href={l.href}
+              style={{
+                color: pathname === l.href ? gold : "rgba(255,255,255,0.78)",
+                fontSize: "0.82rem", textDecoration: "none",
+                fontFamily: I, letterSpacing: "0.02em",
+                transition: "color 0.2s",
+                borderBottom: pathname === l.href ? `1px solid ${gold}` : "1px solid transparent",
+                paddingBottom: 2,
+              }}
+            >
+              {l.label}
+            </Link>
+          ))}
+          <Link href="/apply" style={{
+            border: "1px solid rgba(255,255,255,0.45)",
+            color: "#fff", fontSize: "0.75rem",
+            padding: "8px 20px", textDecoration: "none",
+            fontFamily: I, letterSpacing: "0.08em", textTransform: "uppercase", fontWeight: 600,
+            transition: "border-color 0.2s, background 0.2s",
+          }}
+            onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = gold; (e.currentTarget as HTMLElement).style.color = gold; }}
+            onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.45)"; (e.currentTarget as HTMLElement).style.color = "#fff"; }}
           >
-            Home
-          </Link>
-
-          {/* Courses dropdown */}
-          <div
-            className="relative"
-            onMouseEnter={() => setCoursesOpen(true)}
-            onMouseLeave={() => setCoursesOpen(false)}
-          >
-            <button className="text-sm tracking-wide text-white/80 hover:text-white flex items-center gap-1 transition-colors">
-              Courses
-              <svg className="w-3 h-3 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
-            </button>
-            {coursesOpen && (
-              <div className="absolute top-full left-0 mt-2 w-48 bg-white shadow-xl rounded-sm overflow-hidden">
-                {courses.map((c) => (
-                  <Link
-                    key={c.href}
-                    href={c.href}
-                    className="block px-5 py-3 text-sm text-[#1B1B3A] hover:bg-[#1B1B3A] hover:text-white transition-colors border-b border-gray-100 last:border-0"
-                  >
-                    {c.label}
-                  </Link>
-                ))}
-              </div>
-            )}
-          </div>
-
-          <Link
-            href="/faculty"
-            className={`text-sm tracking-wide transition-colors ${
-              pathname === "/faculty" ? "text-[#C9A84C]" : "text-white/80 hover:text-white"
-            }`}
-          >
-            Faculty
-          </Link>
-          <Link
-            href="/residential-life"
-            className={`text-sm tracking-wide transition-colors ${
-              pathname === "/residential-life" ? "text-[#C9A84C]" : "text-white/80 hover:text-white"
-            }`}
-          >
-            Residential Life
-          </Link>
-
-          <Link href="/apply" className="btn-gold text-xs">
-            Apply Now
+            Register Interest
           </Link>
         </div>
 
         {/* Mobile toggle */}
         <button
-          className="lg:hidden text-white p-2"
           onClick={() => setMobileOpen(!mobileOpen)}
+          style={{ background: "none", border: "none", color: "#fff", cursor: "pointer", padding: 4 }}
+          className="nav-mobile-btn"
         >
           {mobileOpen ? (
-            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg width={22} height={22} fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             </svg>
           ) : (
-            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg width={22} height={22} fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           )}
@@ -128,19 +96,32 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="lg:hidden bg-[#1B1B3A] border-t border-white/10 px-6 py-4 flex flex-col gap-4">
-          <Link href="/" className="text-white/80 hover:text-white text-sm" onClick={() => setMobileOpen(false)}>Home</Link>
-          <div>
-            <p className="text-[#C9A84C] text-xs uppercase tracking-widest mb-2">Courses</p>
-            {courses.map((c) => (
-              <Link key={c.href} href={c.href} className="block text-white/70 hover:text-white text-sm py-1 pl-3" onClick={() => setMobileOpen(false)}>
-                {c.label}
+        <div style={{ background: green, borderTop: "1px solid rgba(255,255,255,0.08)", padding: "20px 24px 28px" }} className="lg:hidden">
+          <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
+            {navLinks.map((l) => (
+              <Link
+                key={l.href}
+                href={l.href}
+                style={{
+                  color: pathname === l.href ? gold : "rgba(255,255,255,0.8)",
+                  fontSize: "0.9rem", textDecoration: "none",
+                  fontFamily: I, padding: "12px 0",
+                  borderBottom: "1px solid rgba(255,255,255,0.06)",
+                }}
+                onClick={() => setMobileOpen(false)}
+              >
+                {l.label}
               </Link>
             ))}
+            <Link
+              href="/apply"
+              className="btn-gold"
+              style={{ textAlign: "center", marginTop: 20, display: "block" }}
+              onClick={() => setMobileOpen(false)}
+            >
+              Register Interest
+            </Link>
           </div>
-          <Link href="/faculty" className="text-white/80 hover:text-white text-sm" onClick={() => setMobileOpen(false)}>Faculty</Link>
-          <Link href="/residential-life" className="text-white/80 hover:text-white text-sm" onClick={() => setMobileOpen(false)}>Residential Life</Link>
-          <Link href="/apply" className="btn-gold text-center text-xs mt-2" onClick={() => setMobileOpen(false)}>Apply Now</Link>
         </div>
       )}
     </nav>
