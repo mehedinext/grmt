@@ -17,9 +17,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "GRMSC — Green Room Music Summer Course 2027",
-  description: "A residential music summer course at Stamford School, 19–23 July 2027. Intensive Piano, Music Theory and Musical Theatre for ages 10–17.",
-  keywords: "music summer course, GRMSC, piano course, music theory, musical theatre, Stamford School, residential music 2027",
+  title: "GRMSC — Green Room Music Summer Camp 2027",
+  description: "A residential music summer camp at Stamford School, 19–23 July 2027. Intensive Piano, Music Theory and Singing Performance for ages 10–17.",
+  keywords: "music summer camp, GRMSC, piano course, music theory, singing performance, Stamford School, residential music 2027",
 };
 
 export default function RootLayout({
