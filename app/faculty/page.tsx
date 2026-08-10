@@ -21,7 +21,7 @@ export default async function FacultyPage() {
 
         {/* Hero */}
         <div style={{ background: green, padding: "72px 0 64px" }}>
-          <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 clamp(16px, 3vw, 40px)" }}>
             <p style={{ color: gold, fontSize: "0.65rem", textTransform: "uppercase", letterSpacing: "0.22em", marginBottom: 14, fontFamily: I }}>{settings?.facultyPageEyebrow ?? "Meet the Team"}</p>
             <h1 style={{ fontFamily: G, fontSize: "clamp(2.2rem, 4vw, 3.4rem)", fontWeight: 500, color: "#fff", lineHeight: 1.15, marginBottom: 20 }}>
               {settings?.facultyPageHeading ?? "Our Tutors"}
@@ -35,7 +35,7 @@ export default async function FacultyPage() {
 
         {/* Tutor profiles */}
         <section style={{ background: cream, padding: "clamp(72px, 10vw, 112px) 0" }}>
-          <div style={{ maxWidth: 1200, margin: "0 auto", display: "flex", flexDirection: "column", gap: 80 }}>
+          <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 clamp(16px, 3vw, 40px)", display: "flex", flexDirection: "column", gap: 80 }}>
             {tutors.map((t, i) => (
               <div
                 key={t.name}

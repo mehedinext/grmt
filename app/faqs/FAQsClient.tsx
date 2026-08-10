@@ -22,7 +22,7 @@ export default function FAQsClient({ settings }: { settings?: any }) {
 
         {/* Hero */}
         <div style={{ background: green, padding: "72px 0 64px" }}>
-          <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 clamp(16px, 3vw, 40px)" }}>
             <p style={{ color: gold, fontSize: "0.65rem", textTransform: "uppercase", letterSpacing: "0.22em", marginBottom: 14, fontFamily: I }}>{settings?.faqsPageEyebrow ?? "Questions & Answers"}</p>
             <h1 style={{ fontFamily: G, fontSize: "clamp(2.2rem, 4vw, 3.4rem)", fontWeight: 500, color: "#fff", lineHeight: 1.15, marginBottom: 20 }}>
               {settings?.faqsPageHeading ?? "Frequently Asked Questions"}

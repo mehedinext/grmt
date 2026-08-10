@@ -20,7 +20,7 @@ export default async function FeesPage() {
 
         {/* Hero */}
         <div style={{ background: green, padding: "72px 0 64px" }}>
-          <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 clamp(16px, 3vw, 40px)" }}>
             <p style={{ color: gold, fontSize: "0.65rem", textTransform: "uppercase", letterSpacing: "0.22em", marginBottom: 14, fontFamily: I }}>{settings?.feesPageEyebrow ?? "Summer 2027"}</p>
             <h1 style={{ fontFamily: G, fontSize: "clamp(2.2rem, 4vw, 3.4rem)", fontWeight: 500, color: "#fff", lineHeight: 1.15, marginBottom: 20 }}>
               {settings?.feesPageHeading ?? "Fees & Costs"}
@@ -34,7 +34,7 @@ export default async function FeesPage() {
 
         {/* Fee card */}
         <section style={{ background: cream, padding: "clamp(56px, 8vw, 96px) 0" }}>
-          <div style={{ maxWidth: 1200, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 4, alignItems: "start" }}>
+          <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 clamp(16px, 3vw, 40px)", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 4, alignItems: "start" }}>
 
             {/* Pricing card */}
             <div style={{ background: "#fff", padding: "48px", textAlign: "center" }}>
@@ -70,7 +70,7 @@ export default async function FeesPage() {
 
         {/* Bursary note */}
         <section style={{ background: "#fff", padding: "clamp(48px, 6vw, 72px) 0" }}>
-          <div style={{ maxWidth: 1200, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 40 }}>
+          <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 clamp(16px, 3vw, 40px)", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 40 }}>
             <div style={{ borderLeft: `3px solid ${gold}`, paddingLeft: 28 }}>
               <h3 style={{ fontFamily: G, fontSize: "1.3rem", fontWeight: 500, color: green, marginBottom: 10 }}>Sibling Discounts</h3>
               <p style={{ color: "#5a7a6a", fontSize: "0.88rem", lineHeight: 1.78, fontFamily: I }}>

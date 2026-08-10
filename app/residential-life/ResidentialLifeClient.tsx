@@ -35,7 +35,7 @@ export default function ResidentialLifeClient({ settings }: { settings?: any }) 
 
         {/* Hero — short, elegant */}
         <div style={{ background: green, padding: "64px 0" }}>
-          <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 clamp(16px, 3vw, 40px)" }}>
             <p style={{ color: gold, fontSize: "0.65rem", textTransform: "uppercase", letterSpacing: "0.22em", marginBottom: 14, fontFamily: I }}>{settings?.resPageEyebrow ?? "Life at Camp"}</p>
             <h1 style={{ fontFamily: G, fontSize: "clamp(2.2rem, 4vw, 3.4rem)", fontWeight: 500, color: "#fff", lineHeight: 1.15, maxWidth: 560 }}>
               {settings?.resPageHeading ?? "Residential Life"}
@@ -66,7 +66,7 @@ export default function ResidentialLifeClient({ settings }: { settings?: any }) 
 
         {/* Sliding Gallery */}
         <section style={{ background: cream, padding: "clamp(56px, 8vw, 96px) 0" }}>
-          <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 clamp(16px, 3vw, 40px)" }}>
             <div style={{ textAlign: "center", marginBottom: 40 }}>
               <h2 style={{ fontFamily: G, fontSize: "clamp(1.6rem, 2.8vw, 2.2rem)", fontWeight: 500, color: green }}>{settings?.resPageGalleryHeading ?? "Life at Stamford School"}</h2>
               <div style={{ width: 40, height: 2, background: gold, margin: "14px auto 0" }} />
@@ -136,7 +136,7 @@ export default function ResidentialLifeClient({ settings }: { settings?: any }) 
 
         {/* Features */}
         <section style={{ background: "#fff", padding: "clamp(56px, 8vw, 96px) 0" }}>
-          <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 clamp(16px, 3vw, 40px)" }}>
             <div style={{ textAlign: "center", marginBottom: 52 }}>
               <h2 style={{ fontFamily: G, fontSize: "clamp(1.6rem, 2.8vw, 2.2rem)", fontWeight: 500, color: green }}>{settings?.resPageFeaturesHeading ?? "Everything Taken Care Of"}</h2>
               <div style={{ width: 40, height: 2, background: gold, margin: "14px auto 0" }} />
@@ -154,7 +154,7 @@ export default function ResidentialLifeClient({ settings }: { settings?: any }) 
 
         {/* Week schedule */}
         <section style={{ background: cream, padding: "clamp(56px, 8vw, 96px) 0" }}>
-          <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 clamp(16px, 3vw, 40px)" }}>
             <div style={{ textAlign: "center", marginBottom: 48 }}>
               <h2 style={{ fontFamily: G, fontSize: "clamp(1.6rem, 2.8vw, 2.2rem)", fontWeight: 500, color: green }}>{settings?.resPageWeekHeading ?? "A Typical Week"}</h2>
               <div style={{ width: 40, height: 2, background: gold, margin: "14px auto 0" }} />

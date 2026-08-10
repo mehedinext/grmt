@@ -31,7 +31,7 @@ export default function ApplyClient({ settings }: { settings?: Settings }) {
       <main style={{ paddingTop: 68 }}>
 
         <div style={{ background: green, padding: "72px 0 64px" }}>
-          <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 clamp(16px, 3vw, 40px)" }}>
             <p style={{ color: gold, fontSize: "0.65rem", textTransform: "uppercase", letterSpacing: "0.22em", marginBottom: 14, fontFamily: I }}>
               {settings?.applyPageEyebrow ?? "Summer 2027"}
             </p>
@@ -46,7 +46,7 @@ export default function ApplyClient({ settings }: { settings?: Settings }) {
         </div>
 
         <section style={{ background: cream, padding: "clamp(56px, 8vw, 96px) 0" }}>
-          <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 clamp(16px, 3vw, 40px)" }}>
 
             <div style={{ background: "#fff", padding: "clamp(32px, 5vw, 56px)" }}>
               <h2 style={{ fontFamily: G, fontSize: "1.6rem", fontWeight: 500, color: green, marginBottom: 8 }}>Interest Registration Form</h2>
@@ -104,7 +104,7 @@ export default function ApplyClient({ settings }: { settings?: Settings }) {
             </div>
           </div>
 
-          <div style={{ maxWidth: 1200, margin: "4px auto 0", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: 2 }}>
+          <div style={{ maxWidth: 1200, margin: "4px auto 0", padding: "0 clamp(16px, 3vw, 40px)", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: 2 }}>
             {[
               ["19–23 July 2027", "Dates"],
               ["Ages 10–17", "Who"],

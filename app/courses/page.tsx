@@ -21,7 +21,7 @@ export default async function CoursesPage() {
 
         {/* Hero */}
         <div style={{ background: green, padding: "72px 0 64px" }}>
-          <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 clamp(16px, 3vw, 40px)" }}>
             <p style={{ color: gold, fontSize: "0.65rem", textTransform: "uppercase", letterSpacing: "0.22em", marginBottom: 14, fontFamily: I }}>{settings?.coursesPageEyebrow ?? "Summer 2027"}</p>
             <h1 style={{ fontFamily: G, fontSize: "clamp(2.2rem, 4vw, 3.4rem)", fontWeight: 500, color: "#fff", lineHeight: 1.15, maxWidth: 560, marginBottom: 20 }}>
               {settings?.coursesPageHeading ?? "Three Specialist Courses"}
@@ -35,7 +35,7 @@ export default async function CoursesPage() {
 
         {/* Course list */}
         <section style={{ background: cream, padding: "clamp(56px, 8vw, 96px) 0" }}>
-          <div style={{ maxWidth: 1200, margin: "0 auto", display: "flex", flexDirection: "column", gap: 4 }}>
+          <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 clamp(16px, 3vw, 40px)", display: "flex", flexDirection: "column", gap: 4 }}>
             {courses.map((c, i) => (
               <div key={c.title} style={{ background: "#fff", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", overflow: "hidden" }}>
 
@@ -85,7 +85,7 @@ export default async function CoursesPage() {
 
         {/* CTA */}
         <section style={{ background: "#fff", padding: "clamp(56px, 8vw, 80px) 0" }}>
-          <div style={{ maxWidth: 1200, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 32, alignItems: "center" }}>
+          <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 clamp(16px, 3vw, 40px)", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 32, alignItems: "center" }}>
             <div>
               <h2 style={{ fontFamily: G, fontSize: "clamp(1.6rem, 2.8vw, 2.2rem)", fontWeight: 500, color: green, marginBottom: 12 }}>{settings?.coursesPageCtaHeading ?? "Ready to Apply?"}</h2>
               <p style={{ color: "#5a7a6a", fontSize: "0.9rem", lineHeight: 1.8, fontFamily: I }}>{settings?.coursesPageCtaSubtext ?? "Applications for Summer 2027 open soon. Register your interest now to be first in line."}</p>
