@@ -18,10 +18,20 @@ const navLinks = [
   { href: "/faqs", label: "FAQs" },
 ];
 
-export default function Navbar() {
+type Settings = {
+  navLogoSubtitle?: string;
+  navCtaLabel?: string;
+  navCtaHref?: string;
+} | null;
+
+export default function Navbar({ settings }: { settings?: Settings }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const pathname = usePathname();
+
+  const subtitle = settings?.navLogoSubtitle ?? "Green Room Music Summer Camp";
+  const ctaLabel  = settings?.navCtaLabel    ?? "Register Interest";
+  const ctaHref   = settings?.navCtaHref     ?? "/apply";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -36,33 +46,29 @@ export default function Navbar() {
       boxShadow: scrolled ? "0 2px 24px rgba(0,0,0,0.28)" : "none",
       transition: "box-shadow 0.3s ease, background 0.3s ease",
     }}>
-      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 clamp(24px, 5vw, 64px)", display: "flex", alignItems: "center", justifyContent: "space-between", height: 68 }}>
+      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 clamp(16px, 3vw, 40px)", display: "flex", alignItems: "center", justifyContent: "space-between", height: 68 }}>
 
         {/* Logo */}
         <Link href="/" style={{ textDecoration: "none", display: "flex", flexDirection: "column", lineHeight: 1 }}>
           <span style={{ fontFamily: G, fontSize: "1.55rem", fontWeight: 500, color: gold, letterSpacing: "0.06em", lineHeight: 1.1 }}>GRMSC</span>
-          <span style={{ fontFamily: I, fontSize: "0.52rem", color: "rgba(255,255,255,0.45)", textTransform: "uppercase", letterSpacing: "0.2em", marginTop: 2 }}>Green Room Music Summer Course</span>
+          <span style={{ fontFamily: I, fontSize: "0.52rem", color: "rgba(255,255,255,0.45)", textTransform: "uppercase", letterSpacing: "0.2em", marginTop: 2 }}>{subtitle}</span>
         </Link>
 
         {/* Desktop nav */}
         <div className="nav-desktop">
           {navLinks.map((l) => (
-            <Link
-              key={l.href}
-              href={l.href}
-              style={{
-                color: pathname === l.href ? gold : "rgba(255,255,255,0.78)",
-                fontSize: "0.82rem", textDecoration: "none",
-                fontFamily: I, letterSpacing: "0.02em",
-                transition: "color 0.2s",
-                borderBottom: pathname === l.href ? `1px solid ${gold}` : "1px solid transparent",
-                paddingBottom: 2,
-              }}
-            >
+            <Link key={l.href} href={l.href} style={{
+              color: pathname === l.href ? gold : "rgba(255,255,255,0.78)",
+              fontSize: "0.82rem", textDecoration: "none",
+              fontFamily: I, letterSpacing: "0.02em",
+              transition: "color 0.2s",
+              borderBottom: pathname === l.href ? `1px solid ${gold}` : "1px solid transparent",
+              paddingBottom: 2,
+            }}>
               {l.label}
             </Link>
           ))}
-          <Link href="/apply" style={{
+          <Link href={ctaHref} style={{
             border: "1px solid rgba(255,255,255,0.45)",
             color: "#fff", fontSize: "0.75rem",
             padding: "8px 20px", textDecoration: "none",
@@ -72,13 +78,12 @@ export default function Navbar() {
             onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = gold; (e.currentTarget as HTMLElement).style.color = gold; }}
             onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.45)"; (e.currentTarget as HTMLElement).style.color = "#fff"; }}
           >
-            Register Interest
+            {ctaLabel}
           </Link>
         </div>
 
         {/* Mobile toggle */}
-        <button
-          onClick={() => setMobileOpen(!mobileOpen)}
+        <button onClick={() => setMobileOpen(!mobileOpen)}
           style={{ background: "none", border: "none", color: "#fff", cursor: "pointer", padding: 4 }}
           className="nav-mobile-btn"
         >
@@ -96,30 +101,25 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div style={{ background: green, borderTop: "1px solid rgba(255,255,255,0.08)", padding: "20px 24px 28px" }} className="lg:hidden">
+        <div style={{ background: green, borderTop: "1px solid rgba(255,255,255,0.08)", padding: "20px 24px 28px" }}>
           <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
             {navLinks.map((l) => (
-              <Link
-                key={l.href}
-                href={l.href}
-                style={{
-                  color: pathname === l.href ? gold : "rgba(255,255,255,0.8)",
-                  fontSize: "0.9rem", textDecoration: "none",
-                  fontFamily: I, padding: "12px 0",
-                  borderBottom: "1px solid rgba(255,255,255,0.06)",
-                }}
+              <Link key={l.href} href={l.href} style={{
+                color: pathname === l.href ? gold : "rgba(255,255,255,0.8)",
+                fontSize: "0.9rem", textDecoration: "none",
+                fontFamily: I, padding: "12px 0",
+                borderBottom: "1px solid rgba(255,255,255,0.06)",
+              }}
                 onClick={() => setMobileOpen(false)}
               >
                 {l.label}
               </Link>
             ))}
-            <Link
-              href="/apply"
-              className="btn-gold"
+            <Link href={ctaHref} className="btn-gold"
               style={{ textAlign: "center", marginTop: 20, display: "block" }}
               onClick={() => setMobileOpen(false)}
             >
-              Register Interest
+              {ctaLabel}
             </Link>
           </div>
         </div>

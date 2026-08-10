@@ -1,6 +1,10 @@
+// Sanity migration: import tutors from a groq fetch instead of data.ts
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Link from "next/link";
+import { tutors } from "../lib/data";
+import { urlFor } from "../lib/image";
+import { getSiteSettings } from "../lib/sanity";
 
 const G = "var(--font-garamond)";
 const I = "var(--font-inter)";
@@ -8,86 +12,101 @@ const green = "#082F27";
 const gold = "#C89A3B";
 const cream = "#F7F2E8";
 
-const faculty = [
-  {
-    name: "Dr. Eleanor Shaw",
-    role: "Piano — Head of Keyboard Studies",
-    bio: "Eleanor studied at the Royal Academy of Music and holds a Doctorate in Performance from the Guildhall School. She has performed across Europe and is a respected ABRSM examiner. She brings warmth, rigour and inspiration to every lesson.",
-    initials: "ES",
-    img: "https://greenroomtheory.com/wp-content/uploads/2024/02/WhatsApp-Image-2024-02-07-at-19.17.20_05536b0c.jpg",
-  },
-  {
-    name: "Marcus Webb",
-    role: "Music Theory — Course Director",
-    bio: "Marcus is a composer and educator with over fifteen years of experience teaching music theory at conservatoire level. His approach combines analytical depth with creative exploration, making complex concepts genuinely accessible.",
-    initials: "MW",
-    img: null,
-  },
-  {
-    name: "Priya Nair",
-    role: "Musical Theatre — Vocal Director",
-    bio: "Priya trained at the London Academy of Music & Dramatic Art and has performed in West End productions. As a vocal director and singing teacher, she specialises in helping young performers unlock their authentic voice.",
-    initials: "PN",
-    img: null,
-  },
-  {
-    name: "James Calloway",
-    role: "Musical Theatre — Movement & Acting",
-    bio: "James is a professional actor and movement director with credits in theatre, film and television. He leads acting and choreography sessions with creativity, patience and a gift for encouraging performers at every level.",
-    initials: "JC",
-    img: null,
-  },
-];
-
-export default function FacultyPage() {
+export default async function FacultyPage() {
+  const settings = await getSiteSettings();
   return (
     <>
-      <Navbar />
+      <Navbar settings={settings} />
       <main style={{ paddingTop: 68 }}>
-        <div style={{ background: green, padding: "72px 24px", textAlign: "center", position: "relative", overflow: "hidden" }}>
-          <div style={{ position: "absolute", inset: 0, backgroundImage: "url(https://greenroomtheory.com/wp-content/uploads/2025/09/101-GreenRoomMusicTheorySummer2025-scaled.jpg)", backgroundSize: "cover", backgroundPosition: "center top", opacity: 0.15 }} />
-          <div style={{ position: "relative", zIndex: 1 }}>
-            <p style={{ color: gold, fontSize: "0.7rem", textTransform: "uppercase", letterSpacing: "0.2em", marginBottom: 16, fontFamily: I }}>Meet the Team</p>
-            <h1 style={{ fontFamily: G, fontSize: "clamp(2rem, 5vw, 3.5rem)", fontWeight: 500, color: "#fff", marginBottom: 20 }}>Our Faculty</h1>
-            <div style={{ width: 36, height: 2, background: gold, margin: "0 auto 20px" }} />
-            <p style={{ color: "rgba(255,255,255,0.6)", maxWidth: 500, margin: "0 auto", fontSize: "0.9rem", lineHeight: 1.7 }}>
-              Green Room Summer Course brings together specialist educators and professional performers who share a passion for nurturing young talent.
+
+        {/* Hero */}
+        <div style={{ background: green, padding: "72px 0 64px" }}>
+          <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+            <p style={{ color: gold, fontSize: "0.65rem", textTransform: "uppercase", letterSpacing: "0.22em", marginBottom: 14, fontFamily: I }}>{settings?.facultyPageEyebrow ?? "Meet the Team"}</p>
+            <h1 style={{ fontFamily: G, fontSize: "clamp(2.2rem, 4vw, 3.4rem)", fontWeight: 500, color: "#fff", lineHeight: 1.15, marginBottom: 20 }}>
+              {settings?.facultyPageHeading ?? "Our Tutors"}
+            </h1>
+            <div style={{ width: 40, height: 2, background: gold, marginBottom: 20 }} />
+            <p style={{ color: "rgba(255,255,255,0.55)", fontSize: "0.92rem", lineHeight: 1.8, maxWidth: 500, fontFamily: I }}>
+              {settings?.facultyPageSubtext ?? "GRMSC is led by two specialist educators and performers who share a commitment to inspiring the next generation of musicians."}
             </p>
           </div>
         </div>
 
-        <section style={{ background: cream, padding: "80px 24px" }}>
-          <div style={{ maxWidth: 1200, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(460px, 1fr))", gap: 20 }}>
-            {faculty.map((f) => (
-              <div key={f.name} style={{ background: "#fff", display: "flex", overflow: "hidden", border: "1px solid #e0dbd0" }} className="card-hover">
-                {f.img ? (
-                  <div style={{ width: 110, flexShrink: 0 }}>
-                    <img src={f.img} alt={f.name} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+        {/* Tutor profiles */}
+        <section style={{ background: cream, padding: "clamp(72px, 10vw, 112px) 0" }}>
+          <div style={{ maxWidth: 1200, margin: "0 auto", display: "flex", flexDirection: "column", gap: 80 }}>
+            {tutors.map((t, i) => (
+              <div
+                key={t.name}
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+                  gap: "clamp(40px, 6vw, 80px)",
+                  alignItems: "center",
+                }}
+              >
+                {/* Photo */}
+                <div style={{ display: "flex", flexDirection: "column", alignItems: "center", order: i % 2 === 1 ? 2 : 1 }}>
+                  <div style={{
+                    width: 220, height: 220, borderRadius: "50%",
+                    overflow: "hidden",
+                    border: `4px solid ${gold}`,
+                    boxShadow: "0 20px 60px rgba(8,47,39,0.15)",
+                    marginBottom: 24,
+                  }}>
+                    <img
+                      src={urlFor(t.image)}
+                      alt={t.name}
+                      style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", display: "block" }}
+                    />
                   </div>
-                ) : (
-                  <div style={{ width: 80, flexShrink: 0, background: green, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                    <span style={{ fontFamily: G, fontSize: "1.4rem", color: gold }}>{f.initials}</span>
+                  <div style={{ textAlign: "center" }}>
+                    <h2 style={{ fontFamily: G, fontSize: "1.5rem", fontWeight: 500, color: green, marginBottom: 4 }}>{t.name}</h2>
+                    <p style={{ color: gold, fontSize: "0.62rem", textTransform: "uppercase", letterSpacing: "0.18em", fontFamily: I, fontWeight: 600 }}>{t.role}</p>
                   </div>
-                )}
-                <div style={{ padding: "24px" }}>
-                  <h2 style={{ fontFamily: G, fontSize: "1.25rem", fontWeight: 500, color: green, marginBottom: 4 }}>{f.name}</h2>
-                  <p style={{ color: gold, fontSize: "0.65rem", textTransform: "uppercase", letterSpacing: "0.15em", marginBottom: 12, fontFamily: I }}>{f.role}</p>
-                  <p style={{ color: "#5a7a6a", fontSize: "0.87rem", lineHeight: 1.7 }}>{f.bio}</p>
+                </div>
+
+                {/* Bio */}
+                <div style={{ order: i % 2 === 1 ? 1 : 2 }}>
+                  <div style={{ width: 32, height: 2, background: gold, marginBottom: 28 }} />
+                  {t.bioFull.map((para, j) => (
+                    <p key={j} style={{ color: "#3d5c51", fontSize: "0.95rem", lineHeight: 1.88, marginBottom: 18 }}>{para}</p>
+                  ))}
+                  <div style={{
+                    marginTop: 32, display: "inline-flex", alignItems: "center", gap: 10,
+                    background: "#fff", border: `1px solid #e0dbd0`, padding: "12px 20px",
+                  }}>
+                    <span style={{ width: 6, height: 6, borderRadius: "50%", background: gold, display: "inline-block", flexShrink: 0 }} />
+                    <span style={{ fontFamily: I, fontSize: "0.78rem", color: "#5a7a6a", letterSpacing: "0.02em" }}>{t.teaches}</span>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
         </section>
 
-        <section style={{ background: green, padding: "72px 24px", textAlign: "center" }}>
-          <h2 style={{ fontFamily: G, fontSize: "clamp(1.6rem, 3vw, 2.2rem)", fontWeight: 500, color: "#fff", marginBottom: 16 }}>Learn from the Best</h2>
-          <p style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.88rem", marginBottom: 32, maxWidth: 400, margin: "0 auto 32px" }}>
-            Our faculty are selected for their expertise and their ability to inspire young musicians and performers.
-          </p>
-          <Link href="/apply" className="btn-gold">Register Interest</Link>
+        {/* Divider quote */}
+        <section style={{ background: "#fff", padding: "clamp(56px, 8vw, 80px) 0", textAlign: "center" }}>
+          <div style={{ maxWidth: 680, margin: "0 auto" }}>
+            <div style={{ width: 1, height: 48, background: gold, margin: "0 auto 32px" }} />
+            <p style={{ fontFamily: G, fontSize: "clamp(1.2rem, 2.2vw, 1.6rem)", color: green, lineHeight: 1.65, fontStyle: "italic", marginBottom: 32 }}>
+              &ldquo;{settings?.facultyPageQuote ?? "We believe every young musician deserves to experience what it feels like to truly inhabit the music — to own it, shape it, and share it."}&rdquo;
+            </p>
+            <p style={{ fontFamily: I, fontSize: "0.72rem", color: gold, textTransform: "uppercase", letterSpacing: "0.18em" }}>{settings?.facultyPageQuoteAttrib ?? "Will Fowler & Vivian Shiao"}</p>
+            <div style={{ width: 1, height: 48, background: gold, margin: "32px auto 0" }} />
+          </div>
         </section>
+
+        {/* CTA */}
+        <section style={{ background: cream, padding: "64px 0", textAlign: "center" }}>
+          <h2 style={{ fontFamily: G, fontSize: "clamp(1.5rem, 2.8vw, 2rem)", fontWeight: 500, color: green, marginBottom: 12 }}>{settings?.facultyPageCtaHeading ?? "Study with Will & Vivian"}</h2>
+          <p style={{ color: "#5a7a6a", fontSize: "0.88rem", marginBottom: 32, fontFamily: I }}>{settings?.facultyPageCtaSubtext ?? "Applications for Summer 2027 open soon · 19–23 July · Stamford School"}</p>
+          <Link href="/apply" className="btn-gold">Register Your Interest</Link>
+        </section>
+
       </main>
-      <Footer />
+      <Footer settings={settings} />
     </>
   );
 }

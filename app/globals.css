@@ -26,6 +26,11 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
 }
 
 body {
@@ -98,15 +103,87 @@ body {
 
 /* Course card hover */
 .course-card:hover .course-img {
-  transform: scale(1.06);
+  transform: scale(1.04);
 }
-.course-card:hover .course-overlay {
-  background: rgba(8,47,39,0.62) !important;
+
+/* Course grid — desktop 3-col */
+.course-grid-desktop {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+.course-grid-mobile {
+  display: none;
+}
+@media (max-width: 767px) {
+  .course-grid-desktop {
+    display: none;
+  }
+  .course-grid-mobile {
+    display: block;
+  }
+}
+
+/* Footer grid */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+.footer-brand {
+  grid-column: 1 / -1;
+}
+@media (min-width: 640px) {
+  .footer-grid {
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+  .footer-brand {
+    grid-column: auto;
+  }
+}
+
+/* Infinite marquee */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.marquee-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: marquee 40s linear infinite;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
 }
 
 /* FAQ accordion */
 .faq-item {
   border-bottom: 1px solid rgba(8,47,39,0.12);
+}
+
+/* Why GRMSC — 2 cols on mobile, 4 on desktop */
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 36px 24px;
+}
+@media (min-width: 768px) {
+  .why-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 44px;
+  }
+}
+
+/* Residential — stacked on mobile, side-by-side on desktop */
+.res-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 768px) {
+  .res-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 /* Nav responsive — override Tailwind hidden/flex with media queries */

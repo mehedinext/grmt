@@ -1,55 +1,51 @@
+"use client";
 import Link from "next/link";
 
-const partnerLogos = [
-  "https://greenroomtheory.com/wp-content/uploads/2023/02/5.png",
-  "https://greenroomtheory.com/wp-content/uploads/2023/02/1.png",
-  "https://greenroomtheory.com/wp-content/uploads/2023/02/4.png",
-  "https://greenroomtheory.com/wp-content/uploads/2023/02/3-1.png",
-  "https://greenroomtheory.com/wp-content/uploads/2023/02/2.png",
-];
+type Settings = {
+  footerTagline?: string;
+  footerDescription?: string;
+  footerInstagram?: string;
+  footerFacebook?: string;
+  footerContactEmail?: string;
+  footerCopyright?: string;
+} | null;
 
-export default function Footer() {
+export default function Footer({ settings }: { settings?: Settings }) {
+  const tagline   = settings?.footerTagline      ?? "Green Room Music Summer Camp 2027";
+  const desc      = settings?.footerDescription  ?? "19–23 July 2027 · Stamford School\nPiano · Music Theory · Singing Performance\nAges 10–17";
+  const instagram = settings?.footerInstagram    ?? "https://www.instagram.com/greenroommusictheory/";
+  const facebook  = settings?.footerFacebook     ?? "https://m.facebook.com/people/Green-Room-Music-Theory/100088313820996/?locale=en_GB";
+  const email     = settings?.footerContactEmail ?? "info@greenroomtheory.com";
+  const copyright = settings?.footerCopyright    ?? "© 2027 Green Room Music Theory. All rights reserved.";
+
   return (
     <footer style={{ background: "#082F27", color: "#fff" }}>
-      {/* Partner logos */}
-      <div style={{ borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "32px 24px", display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "center", gap: 32 }}>
-          {partnerLogos.map((src, i) => (
-            <img key={i} src={src} alt="Partner" style={{ height: 36, width: "auto", objectFit: "contain", opacity: 0.55, filter: "brightness(0) invert(1)" }} />
-          ))}
-        </div>
-      </div>
-
-      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "64px 24px" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 40 }}>
+      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "64px clamp(16px, 3vw, 40px)" }}>
+        <div className="footer-grid">
           {/* Brand */}
-          <div style={{ gridColumn: "span 2" }} className="md:col-span-2">
+          <div className="footer-brand">
             <img
               src="https://greenroomtheory.com/wp-content/uploads/2023/02/green-room-music-theory-logo-white-1536x373.png"
               alt="Green Room Music"
               style={{ height: 32, width: "auto", marginBottom: 16 }}
             />
             <p style={{ color: "#C89A3B", fontSize: "0.7rem", textTransform: "uppercase", letterSpacing: "0.18em", marginBottom: 10, fontFamily: "var(--font-inter)" }}>
-              Green Room Music Summer Course 2027
+              {tagline}
             </p>
-            <p style={{ color: "rgba(255,255,255,0.45)", fontSize: "0.85rem", lineHeight: 1.7, maxWidth: 280, marginBottom: 24 }}>
-              19–23 July 2027 · Stamford School<br />
-              Piano · Music Theory · Musical Theatre<br />
-              Ages 10–17
+            <p style={{ color: "rgba(255,255,255,0.45)", fontSize: "0.85rem", lineHeight: 1.7, maxWidth: 280, marginBottom: 24, whiteSpace: "pre-line" }}>
+              {desc}
             </p>
             <div style={{ display: "flex", gap: 12 }}>
-              <a href="https://www.instagram.com/greenroommusictheory/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"
+              <a href={instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram"
                 style={{ width: 36, height: 36, border: "1px solid rgba(255,255,255,0.2)", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", color: "rgba(255,255,255,0.55)", textDecoration: "none", transition: "all 0.2s" }}
                 onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = "#C89A3B"; (e.currentTarget as HTMLElement).style.color = "#C89A3B"; }}
                 onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.2)"; (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.55)"; }}
               >
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-                  <circle cx="12" cy="12" r="4"/>
-                  <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
                 </svg>
               </a>
-              <a href="https://m.facebook.com/people/Green-Room-Music-Theory/100088313820996/?locale=en_GB" target="_blank" rel="noopener noreferrer" aria-label="Facebook"
+              <a href={facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook"
                 style={{ width: 36, height: 36, border: "1px solid rgba(255,255,255,0.2)", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", color: "rgba(255,255,255,0.55)", textDecoration: "none", transition: "all 0.2s" }}
                 onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = "#C89A3B"; (e.currentTarget as HTMLElement).style.color = "#C89A3B"; }}
                 onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.2)"; (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.55)"; }}
@@ -68,7 +64,7 @@ export default function Footer() {
               {[
                 { href: "/courses/piano", label: "Piano" },
                 { href: "/courses/music-theory", label: "Music Theory" },
-                { href: "/courses/musical-theatre", label: "Musical Theatre" },
+                { href: "/courses/singing-performance", label: "Singing Performance" },
                 { href: "/courses", label: "All Courses" },
               ].map((l) => (
                 <li key={l.href}>
@@ -101,14 +97,14 @@ export default function Footer() {
             </ul>
             <div style={{ marginTop: 24 }}>
               <h4 style={{ color: "#C89A3B", fontSize: "0.65rem", textTransform: "uppercase", letterSpacing: "0.18em", marginBottom: 10, fontFamily: "var(--font-inter)" }}>Contact</h4>
-              <p style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.85rem" }}>info@greenroomtheory.com</p>
+              <a href={`mailto:${email}`} style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.85rem", textDecoration: "none" }}>{email}</a>
             </div>
           </div>
         </div>
 
         <div style={{ borderTop: "1px solid rgba(255,255,255,0.08)", marginTop: 48, paddingTop: 28, display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: 12 }}>
           <p style={{ color: "rgba(255,255,255,0.25)", fontSize: "0.75rem", fontFamily: "var(--font-inter)" }}>
-            © 2027 Green Room Music Theory. All rights reserved.
+            {copyright}
           </p>
           <p style={{ color: "rgba(255,255,255,0.2)", fontSize: "0.75rem", fontFamily: "var(--font-inter)" }}>
             Made by{" "}
