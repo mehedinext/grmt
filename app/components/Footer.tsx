@@ -19,15 +19,26 @@ export default function Footer({ settings }: { settings?: Settings }) {
   const copyright = settings?.footerCopyright    ?? "© 2027 Green Room Music Theory. All rights reserved.";
 
   return (
-    <footer style={{ background: "#082F27", color: "#fff" }}>
+    <footer style={{ background: "#082F27", color: "#fff", position: "relative", overflow: "hidden" }}>
+      {/* Decorative music note watermark */}
+      <img
+        src="/icon-music.png"
+        alt=""
+        aria-hidden="true"
+        style={{
+          position: "absolute", right: -40, bottom: -20,
+          height: 260, width: "auto", opacity: 0.07,
+          pointerEvents: "none", mixBlendMode: "screen",
+        }}
+      />
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "64px clamp(16px, 3vw, 40px)" }}>
         <div className="footer-grid">
           {/* Brand */}
           <div className="footer-brand">
             <img
-              src="https://greenroomtheory.com/wp-content/uploads/2023/02/green-room-music-theory-logo-white-1536x373.png"
-              alt="Green Room Music"
-              style={{ height: 32, width: "auto", marginBottom: 16 }}
+              src="/logo.png"
+              alt="Green Room Music Summer Camp"
+              style={{ height: 38, width: "auto", marginBottom: 20 }}
             />
             <p style={{ color: "#C89A3B", fontSize: "0.7rem", textTransform: "uppercase", letterSpacing: "0.18em", marginBottom: 10, fontFamily: "var(--font-inter)" }}>
               {tagline}
