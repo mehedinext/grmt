@@ -49,9 +49,8 @@ export default function Navbar({ settings }: { settings?: Settings }) {
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 clamp(16px, 3vw, 40px)", display: "flex", alignItems: "center", justifyContent: "space-between", height: 68 }}>
 
         {/* Logo */}
-        <Link href="/" style={{ textDecoration: "none", display: "flex", flexDirection: "column", lineHeight: 1 }}>
-          <span style={{ fontFamily: G, fontSize: "1.55rem", fontWeight: 500, color: gold, letterSpacing: "0.06em", lineHeight: 1.1 }}>GRMSC</span>
-          <span style={{ fontFamily: I, fontSize: "0.52rem", color: "rgba(255,255,255,0.45)", textTransform: "uppercase", letterSpacing: "0.2em", marginTop: 2 }}>{subtitle}</span>
+        <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center" }}>
+          <img src="/logo.png" alt="Green Room Music Summer Camp" style={{ height: 42, width: "auto", display: "block" }} />
         </Link>
 
         {/* Desktop nav */}
