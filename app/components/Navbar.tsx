@@ -50,7 +50,7 @@ export default function Navbar({ settings }: { settings?: Settings }) {
 
         {/* Logo */}
         <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center" }}>
-          <img src="/logo.png" alt="Green Room Music Summer Camp" style={{ height: 42, width: "auto", display: "block" }} />
+          <img src="/logo.png" alt="Green Room Music Summer Camp" style={{ height: "clamp(28px, 4vw, 42px)", width: "auto", display: "block", maxWidth: 220 }} />
         </Link>
 
         {/* Desktop nav */}

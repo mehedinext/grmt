@@ -115,14 +115,10 @@ export default function Footer({ settings }: { settings?: Settings }) {
 
         <div style={{ borderTop: "1px solid rgba(255,255,255,0.08)", marginTop: 48, paddingTop: 28, display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: 12 }}>
           <p style={{ color: "rgba(255,255,255,0.25)", fontSize: "0.75rem", fontFamily: "var(--font-inter)" }}>
-            {copyright}
+            © {new Date().getFullYear()} Green Room Music Theory. All rights reserved.
           </p>
           <p style={{ color: "rgba(255,255,255,0.2)", fontSize: "0.75rem", fontFamily: "var(--font-inter)" }}>
-            Made by{" "}
-            <a href="https://madebyevoke.com/" target="_blank" rel="noopener noreferrer" style={{ color: "rgba(255,255,255,0.35)", textDecoration: "underline", textUnderlineOffset: 3 }}>
-              Mehedi
-            </a>
-            {" "}· Built with Next.js · Sanity CMS
+            Green Room Music Summer Camp · Stamford School · Lincolnshire
           </p>
         </div>
       </div>
