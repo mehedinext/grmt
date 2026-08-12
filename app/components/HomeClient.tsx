@@ -222,9 +222,9 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
 
           <div style={{ position: "relative", zIndex: 2, width: "100%", maxWidth: 1200, margin: "0 auto", padding: "80px clamp(16px, 3vw, 40px)" }}>
             <div style={{ maxWidth: 420 }}>
-              {/* Steinway Educational Partner logo */}
+              {/* Steinway Educational Partner badge */}
               <div style={{ marginBottom: 28, opacity: heroReady ? 1 : 0, transition: "opacity 0.7s ease" }}>
-                <img src="/partners/steinway.png" alt="Steinway & Sons Educational Partner" style={{ height: 100, width: "auto", mixBlendMode: "screen", opacity: 0.92 }} />
+                <img src="/partners/steinway-badge.png" alt="Steinway & Sons Educational Partner" style={{ height: 130, width: "auto", opacity: 0.92 }} />
               </div>
               <div style={{
                 display: "inline-flex", alignItems: "center", gap: 8,
