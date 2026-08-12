@@ -231,8 +231,8 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
       <Navbar settings={settings} />
       <main style={{ paddingTop: 68 }}>
 
-        {/* ─── HERO ─── Full-bleed photo + solid-to-transparent gradient overlay */}
-        <section style={{
+        {/* ─── HERO ─── Full-bleed photo + gradient overlay */}
+        <section className="hero-section-main" style={{
           position: "relative", minHeight: "calc(100svh - 68px)",
           overflow: "hidden", display: "flex", alignItems: "center",
         }}>
@@ -248,18 +248,30 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
             />
           ))}
 
-          {/* Solid → transparent gradient: no hard line, seamless blend like Will's reference */}
-          <div style={{
+          {/* Desktop: solid-left-to-transparent gradient */}
+          <div className="hero-gradient-desktop" style={{
             position: "absolute", inset: 0, zIndex: 1,
             background: `linear-gradient(to right, ${green} 0%, ${green} 30%, rgba(8,47,39,0.82) 40%, rgba(8,47,39,0.30) 54%, rgba(8,47,39,0) 65%)`,
           }} />
 
+          {/* Mobile: bottom-rise gradient (magazine cover style) */}
+          <div className="hero-gradient-mobile" style={{
+            position: "absolute", inset: 0, zIndex: 1,
+            background: `linear-gradient(to top, ${green} 0%, ${green} 28%, rgba(8,47,39,0.88) 48%, rgba(8,47,39,0.35) 68%, rgba(8,47,39,0) 85%)`,
+            display: "none",
+          }} />
+
+          {/* Steinway badge — desktop: in content flow; mobile: top-left corner absolute */}
+          <img className="hero-steinway-mobile" src="/partners/steinway-badge.png" alt="Steinway & Sons Educational Partner"
+            style={{ position: "absolute", top: 20, left: "clamp(16px, 3vw, 40px)", height: 68, width: "auto", opacity: 0.88, zIndex: 3, display: "none" }}
+          />
+
           {/* Text — same maxWidth/padding as navbar for perfect alignment */}
-          <div style={{ position: "relative", zIndex: 2, width: "100%", maxWidth: 1200, margin: "0 auto", padding: "80px clamp(16px, 3vw, 40px)" }}>
+          <div className="hero-content-outer" style={{ position: "relative", zIndex: 2, width: "100%", maxWidth: 1200, margin: "0 auto", padding: "80px clamp(16px, 3vw, 40px)" }}>
             <div style={{ maxWidth: 460 }}>
 
-              {/* Steinway badge */}
-              <div style={{ marginBottom: 22 }}>
+              {/* Steinway badge — desktop only (hidden on mobile) */}
+              <div className="hero-steinway-desktop" style={{ marginBottom: 16 }}>
                 <img src="/partners/steinway-badge.png" alt="Steinway & Sons Educational Partner" style={{ height: 100, width: "auto", opacity: 0.92 }} />
               </div>
 
@@ -304,11 +316,11 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
                 </span>
               </div>
 
-              <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-                <Link href={heroSlides[heroSlide].cta1Href} className="btn-gold">
+              <div className="hero-cta-btns" style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+                <Link href={heroSlides[heroSlide].cta1Href} className="btn-gold hero-btn">
                   {heroSlides[heroSlide].cta1Label}
                 </Link>
-                <Link href={heroSlides[heroSlide].cta2Href} className="btn-outline-white">
+                <Link href={heroSlides[heroSlide].cta2Href} className="btn-outline-white hero-btn">
                   {heroSlides[heroSlide].cta2Label}
                 </Link>
               </div>

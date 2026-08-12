@@ -237,34 +237,43 @@ body {
   }
 }
 
-/* ── Hero 2-column mobile ── */
-/* On mobile: stack vertically — photo on top (40vh), solid green text below */
-.hero-section {
-  flex-direction: row;
-}
+/* ── Hero mobile — magazine cover style ── */
+/* Desktop: left solid→transparent gradient, content vertically centred */
+.hero-gradient-desktop { display: block; }
+.hero-gradient-mobile  { display: none !important; }
+.hero-steinway-desktop { display: block; }
+.hero-steinway-mobile  { display: none !important; }
+
 @media (max-width: 767px) {
-  .hero-section {
+  /* Switch gradient direction: photo shows at top, dark rises from bottom */
+  .hero-gradient-desktop { display: none !important; }
+  .hero-gradient-mobile  { display: block !important; }
+
+  /* Steinway: hide in-flow badge, show the absolute corner badge */
+  .hero-steinway-desktop { display: none !important; }
+  .hero-steinway-mobile  { display: block !important; }
+
+  /* Pin text to bottom of hero (magazine cover) */
+  .hero-section-main {
+    align-items: flex-end !important;
+    min-height: 100svh !important;
+  }
+
+  /* Content outer: flush to bottom, reduced top padding */
+  .hero-content-outer {
+    padding-top: 0 !important;
+    padding-bottom: 64px !important;
+  }
+
+  /* Buttons: stack full-width */
+  .hero-cta-btns {
     flex-direction: column !important;
-    min-height: auto !important;
+    gap: 10px !important;
   }
-  .hero-left {
+  .hero-btn {
     width: 100% !important;
-    min-height: auto !important;
-    padding: 40px 20px 48px !important;
-  }
-  .hero-left .hero-blend {
-    display: none !important;
-  }
-  .hero-right {
-    width: 100% !important;
-    height: 52vw !important;
-    min-height: 220px !important;
-    max-height: 320px !important;
-    order: -1 !important;
-  }
-  .hero-dots {
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    bottom: 8px !important;
+    text-align: center !important;
+    display: block !important;
+    box-sizing: border-box !important;
   }
 }
