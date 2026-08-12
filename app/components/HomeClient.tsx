@@ -638,9 +638,9 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
             <div className="marquee-track">
               {[...partnerLogos, ...partnerLogos, ...partnerLogos, ...partnerLogos].map((src, i) => (
                 <img key={i} src={src} alt="Partner" style={{
-                  height: 64, width: "auto", objectFit: "contain", flexShrink: 0, margin: "0 64px",
-                  opacity: 0.7,
-                  filter: "grayscale(20%)",
+                  height: 52, maxHeight: 52, width: "auto", maxWidth: 120, objectFit: "contain", flexShrink: 0, margin: "0 56px",
+                  opacity: 0.75,
+                  filter: "grayscale(15%)",
                   transition: "opacity 0.2s",
                 }}
                   onMouseEnter={e => (e.currentTarget.style.opacity = "1")}
