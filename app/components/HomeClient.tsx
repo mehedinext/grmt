@@ -231,44 +231,44 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
       <Navbar settings={settings} />
       <main style={{ paddingTop: 68 }}>
 
-        {/* ─── HERO ─── 2-column: solid green left | photo right */}
-        <section className="hero-section" style={{
-          minHeight: "calc(100svh - 68px)",
-          display: "flex",
-          overflow: "hidden",
-          position: "relative",
+        {/* ─── HERO ─── Full-bleed photo + solid-to-transparent gradient overlay */}
+        <section style={{
+          position: "relative", minHeight: "calc(100svh - 68px)",
+          overflow: "hidden", display: "flex", alignItems: "center",
         }}>
-          {/* LEFT COLUMN — solid dark green, per-slide content */}
-          <div className="hero-left" style={{
-            flexShrink: 0,
-            width: "clamp(300px, 44%, 560px)",
-            background: green,
-            position: "relative",
-            zIndex: 2,
-            display: "flex",
-            alignItems: "center",
-            padding: "72px clamp(20px, 4vw, 56px)",
-          }}>
-            {/* Blend gradient at right edge */}
-            <div className="hero-blend" style={{
-              position: "absolute", top: 0, right: -72, bottom: 0, width: 72,
-              background: `linear-gradient(to right, ${green}, transparent)`,
-              pointerEvents: "none", zIndex: 3,
-            }} />
+          {/* Full-bleed photos — each slide has its own */}
+          {heroSlides.map((s, i) => (
+            <img
+              key={s.image} src={s.image} alt="GRMSC"
+              style={{
+                position: "absolute", inset: 0, width: "100%", height: "100%",
+                objectFit: "cover", objectPosition: "center top",
+                opacity: heroSlide === i ? 1 : 0, transition: "opacity 1.2s ease", zIndex: 0,
+              }}
+            />
+          ))}
 
-            <div style={{ width: "100%" }}>
+          {/* Solid → transparent gradient: no hard line, seamless blend like Will's reference */}
+          <div style={{
+            position: "absolute", inset: 0, zIndex: 1,
+            background: `linear-gradient(to right, ${green} 0%, ${green} 30%, rgba(8,47,39,0.82) 40%, rgba(8,47,39,0.30) 54%, rgba(8,47,39,0) 65%)`,
+          }} />
+
+          {/* Text — same maxWidth/padding as navbar for perfect alignment */}
+          <div style={{ position: "relative", zIndex: 2, width: "100%", maxWidth: 1200, margin: "0 auto", padding: "80px clamp(16px, 3vw, 40px)" }}>
+            <div style={{ maxWidth: 460 }}>
+
               {/* Steinway badge */}
-              <div style={{ marginBottom: 20 }}>
+              <div style={{ marginBottom: 22 }}>
                 <img src="/partners/steinway-badge.png" alt="Steinway & Sons Educational Partner" style={{ height: 100, width: "auto", opacity: 0.92 }} />
               </div>
 
-              {/* Per-slide badge */}
+              {/* Per-slide eyebrow badge */}
               <div style={{
                 display: "inline-flex", alignItems: "center", gap: 8,
                 border: "1px solid rgba(200,154,59,0.5)", borderRadius: 3,
-                padding: "6px 13px", marginBottom: 20,
+                padding: "6px 13px", marginBottom: 22,
                 background: "rgba(200,154,59,0.1)",
-                transition: "opacity 0.5s ease",
               }}>
                 <span style={{ color: gold, fontSize: "0.62rem", fontFamily: I, textTransform: "uppercase", letterSpacing: "0.2em", fontWeight: 600 }}>
                   {heroSlides[heroSlide].badge}
@@ -277,9 +277,8 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
 
               {/* Per-slide heading */}
               <h1 style={{
-                fontFamily: G, fontSize: "clamp(1.9rem, 3.2vw, 3rem)",
-                fontWeight: 500, color: "#fff", lineHeight: 1.1, marginBottom: 18,
-                transition: "opacity 0.5s ease",
+                fontFamily: G, fontSize: "clamp(2rem, 3.4vw, 3.2rem)",
+                fontWeight: 500, color: "#fff", lineHeight: 1.08, marginBottom: 18,
               }}>
                 {heroSlides[heroSlide].heading1}<br />
                 {heroSlides[heroSlide].heading2}
@@ -287,9 +286,8 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
 
               {/* Per-slide subtext */}
               <p style={{
-                color: "rgba(255,255,255,0.65)", fontSize: "clamp(0.82rem, 1vw, 0.92rem)",
-                lineHeight: 1.8, marginBottom: 18,
-                transition: "opacity 0.5s ease",
+                color: "rgba(255,255,255,0.65)", fontSize: "clamp(0.84rem, 1.1vw, 0.93rem)",
+                lineHeight: 1.78, marginBottom: 18,
               }}>
                 {heroSlides[heroSlide].subtext}
               </p>
@@ -297,11 +295,11 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
               <div style={{ height: 2, background: gold, width: 48, marginBottom: 18 }} />
 
               <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 28 }}>
-                <span style={{ color: gold, fontSize: "0.8rem", fontFamily: I, fontWeight: 600 }}>
+                <span style={{ color: gold, fontSize: "0.82rem", fontFamily: I, fontWeight: 600 }}>
                   {heroSlides[heroSlide].location}
                 </span>
                 <span style={{ color: "rgba(255,255,255,0.3)" }}>·</span>
-                <span style={{ color: "rgba(255,255,255,0.55)", fontSize: "0.8rem", fontFamily: I }}>
+                <span style={{ color: "rgba(255,255,255,0.55)", fontSize: "0.82rem", fontFamily: I }}>
                   {heroSlides[heroSlide].date}
                 </span>
               </div>
@@ -314,33 +312,15 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
                   {heroSlides[heroSlide].cta2Label}
                 </Link>
               </div>
+
             </div>
           </div>
 
-          {/* RIGHT COLUMN — photo, no overlay */}
-          <div className="hero-right" style={{ flex: 1, position: "relative", overflow: "hidden" }}>
-            {heroSlides.map((s, i) => (
-              <img
-                key={s.image}
-                src={s.image}
-                alt="GRMSC students"
-                style={{
-                  position: "absolute", inset: 0,
-                  width: "100%", height: "100%",
-                  objectFit: "cover", objectPosition: "center top",
-                  opacity: heroSlide === i ? 1 : 0,
-                  transition: "opacity 1.2s ease",
-                }}
-              />
-            ))}
-          </div>
-
-          {/* Slide dots */}
-          <div className="hero-dots" style={{ position: "absolute", bottom: 20, left: "22%", display: "flex", gap: 8, zIndex: 4 }}>
+          {/* Slide dots — bottom left, aligned with text */}
+          <div style={{ position: "absolute", bottom: 24, left: "clamp(16px, 3vw, 40px)", display: "flex", gap: 8, zIndex: 3 }}>
             {heroSlides.map((_, i) => (
               <button
-                key={i}
-                onClick={() => setHeroSlide(i)}
+                key={i} onClick={() => setHeroSlide(i)}
                 style={{
                   width: heroSlide === i ? 24 : 8, height: 8, borderRadius: 4,
                   background: heroSlide === i ? gold : "rgba(255,255,255,0.35)",
