@@ -60,7 +60,7 @@ export default async function CourseDetailPage({ params }: { params: { slug: str
                 {course.tagline}
               </p>
               <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-                <Link href="/apply" className="btn-gold">Register Interest</Link>
+                <Link href="/apply" className="btn-gold">Apply Now</Link>
                 <Link href="/courses" className="btn-outline-white">All Courses</Link>
               </div>
             </div>
@@ -136,7 +136,7 @@ export default async function CourseDetailPage({ params }: { params: { slug: str
                 <h3 style={{ fontFamily: G, fontSize: "1.1rem", fontWeight: 500, color: "#fff", marginBottom: 10 }}>Entry Requirements</h3>
                 <p style={{ color: "rgba(255,255,255,0.85)", fontSize: "0.88rem", lineHeight: 1.7 }}>{course.requirements}</p>
               </div>
-              <Link href="/apply" className="btn-gold" style={{ textAlign: "center", display: "block" }}>Register Interest</Link>
+              <Link href="/apply" className="btn-gold" style={{ textAlign: "center", display: "block" }}>Apply Now</Link>
             </div>
           </div>
         </section>

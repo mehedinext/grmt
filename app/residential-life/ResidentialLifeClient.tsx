@@ -179,7 +179,7 @@ export default function ResidentialLifeClient({ settings }: { settings?: any }) 
         <section style={{ background: green, padding: "64px 0", textAlign: "center" }}>
           <h2 style={{ fontFamily: G, fontSize: "clamp(1.6rem, 3vw, 2.2rem)", fontWeight: 500, color: "#fff", marginBottom: 12 }}>{settings?.resPageCtaHeading ?? "Join Us for Summer 2027"}</h2>
           <p style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.88rem", marginBottom: 32, fontFamily: I }}>{settings?.resPageCtaSubtext ?? "Applications open soon · 19–23 July · Stamford School"}</p>
-          <Link href="/apply" className="btn-gold">Register Your Interest</Link>
+          <Link href="/apply" className="btn-gold">Apply Now</Link>
         </section>
 
       </main>

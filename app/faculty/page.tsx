@@ -102,7 +102,7 @@ export default async function FacultyPage() {
         <section style={{ background: cream, padding: "64px 0", textAlign: "center" }}>
           <h2 style={{ fontFamily: G, fontSize: "clamp(1.5rem, 2.8vw, 2rem)", fontWeight: 500, color: green, marginBottom: 12 }}>{settings?.facultyPageCtaHeading ?? "Study with Will & Vivian"}</h2>
           <p style={{ color: "#5a7a6a", fontSize: "0.88rem", marginBottom: 32, fontFamily: I }}>{settings?.facultyPageCtaSubtext ?? "Applications for Summer 2027 open soon · 19–23 July · Stamford School"}</p>
-          <Link href="/apply" className="btn-gold">Register Your Interest</Link>
+          <Link href="/apply" className="btn-gold">Apply Now</Link>
         </section>
 
       </main>

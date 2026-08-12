@@ -91,7 +91,7 @@ export default async function CoursesPage() {
               <p style={{ color: "#5a7a6a", fontSize: "0.9rem", lineHeight: 1.8, fontFamily: I }}>{settings?.coursesPageCtaSubtext ?? "Applications for Summer 2027 open soon. Register your interest now to be first in line."}</p>
             </div>
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap", justifyContent: "flex-end" }}>
-              <Link href="/apply" className="btn-gold">Register Interest</Link>
+              <Link href="/apply" className="btn-gold">Apply Now</Link>
               <Link href="/fees" className="btn-outline">View Fees</Link>
             </div>
           </div>

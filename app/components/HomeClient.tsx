@@ -266,7 +266,7 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
                   {settings?.heroCta1Label ?? "Explore the Courses →"}
                 </Link>
                 <Link href={settings?.heroCta2Href ?? "/apply"} className="btn-outline-white">
-                  {settings?.heroCta2Label ?? "Register Interest"}
+                  {settings?.heroCta2Label ?? "Apply Now"}
                 </Link>
               </div>
             </div>

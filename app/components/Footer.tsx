@@ -95,8 +95,8 @@ export default function Footer({ settings }: { settings?: Settings }) {
               {[
                 { href: "/faculty", label: "Faculty" },
                 { href: "/residential-life", label: "Residential Life" },
-                { href: "/apply", label: "Register Interest" },
-                { href: "https://greenroomtheory.com", label: "Main Website" },
+                { href: "/fees", label: "Fees" },
+                { href: "/apply", label: "Apply Now" },
               ].map((l) => (
                 <li key={l.href}>
                   <Link href={l.href} style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.85rem", textDecoration: "none", transition: "color 0.2s", fontFamily: "var(--font-inter)" }}

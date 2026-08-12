@@ -45,7 +45,7 @@ export default async function FeesPage() {
               <p style={{ color: "#5a7a6a", fontSize: "0.88rem", lineHeight: 1.82, marginBottom: 36, fontFamily: I }}>
                 {settings?.feesPagePriceDesc ?? "The fee covers the complete residential experience — five days of intensive tuition, full board accommodation, all materials, evening programme and the final showcase concert. Nothing extra to pay."}
               </p>
-              <Link href="/apply" className="btn-gold" style={{ display: "block", textAlign: "center" }}>Register Interest</Link>
+              <Link href="/apply" className="btn-gold" style={{ display: "block", textAlign: "center" }}>Apply Now</Link>
               <p style={{ color: "#9aaa9e", fontSize: "0.72rem", fontFamily: I, marginTop: 16 }}>No payment required at this stage</p>
             </div>
 

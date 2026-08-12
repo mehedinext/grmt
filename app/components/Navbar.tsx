@@ -30,7 +30,7 @@ export default function Navbar({ settings }: { settings?: Settings }) {
   const pathname = usePathname();
 
   const subtitle = settings?.navLogoSubtitle ?? "Green Room Music Summer Camp";
-  const ctaLabel  = settings?.navCtaLabel    ?? "Register Interest";
+  const ctaLabel  = settings?.navCtaLabel    ?? "Apply Now";
   const ctaHref   = settings?.navCtaHref     ?? "/apply";
 
   useEffect(() => {
