@@ -13,7 +13,7 @@ const navLinks = [
   { href: "/", label: "Home" },
   { href: "/courses", label: "Courses" },
   { href: "/residential-life", label: "Residential Life" },
-  { href: "/faculty", label: "Tutors" },
+  { href: "/faculty", label: "Faculty" },
   { href: "/fees", label: "Fees" },
   { href: "/faqs", label: "FAQs" },
 ];

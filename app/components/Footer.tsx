@@ -94,6 +94,7 @@ export default function Footer({ settings }: { settings?: Settings }) {
             <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 10 }}>
               {[
                 { href: "/faculty", label: "Faculty" },
+                { href: "/faqs", label: "FAQs" },
                 { href: "/residential-life", label: "Residential Life" },
                 { href: "/fees", label: "Fees" },
                 { href: "/apply", label: "Apply Now" },

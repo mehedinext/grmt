@@ -199,6 +199,10 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
             background: "linear-gradient(to right, rgba(8,47,39,0.97) 0%, rgba(8,47,39,0.92) 30%, rgba(8,47,39,0.65) 55%, rgba(8,47,39,0.2) 80%, rgba(8,47,39,0.05) 100%)",
           }} />
 
+          {/* Steinway Educational Partner badge */}
+          <div style={{ position: "absolute", top: 24, right: "clamp(16px, 3vw, 40px)", zIndex: 3 }}>
+            <img src="/partners/steinway.png" alt="Steinway Educational Partner" style={{ height: 52, width: "auto", filter: "brightness(0) invert(1)", opacity: 0.85 }} />
+          </div>
           <div style={{ position: "relative", zIndex: 1, width: "100%", maxWidth: 1200, margin: "0 auto", padding: "80px clamp(16px, 3vw, 40px)" }}>
             <div style={{ maxWidth: 580 }}>
               <div style={{
@@ -437,7 +441,7 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
               transition: "opacity 0.6s ease, transform 0.6s ease",
             }}>
               <h2 style={{ fontFamily: G, fontSize: "clamp(1.8rem, 3vw, 2.6rem)", fontWeight: 500, color: green }}>
-                {settings?.tutorsHeading ?? "Meet the Tutors"}
+                {settings?.tutorsHeading ?? "Meet the Faculty"}
               </h2>
               <div style={{ width: 48, height: 2, background: gold, margin: "16px auto 0" }} />
             </div>
@@ -595,9 +599,14 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
             <div style={{ position: "absolute", right: 0, top: 0, bottom: 0, width: 120, background: "linear-gradient(to left, #fff, transparent)", zIndex: 2, pointerEvents: "none" }} />
             <div className="marquee-track">
               {[...partnerLogos, ...partnerLogos, ...partnerLogos, ...partnerLogos].map((src, i) => (
-                <img key={i} src={src} alt="Partner" style={{ height: 38, width: "auto", objectFit: "contain", flexShrink: 0, margin: "0 56px", opacity: 0.65, filter: "grayscale(30%)", transition: "opacity 0.2s" }}
+                <img key={i} src={src} alt="Partner" style={{
+                  height: 64, width: "auto", objectFit: "contain", flexShrink: 0, margin: "0 64px",
+                  opacity: 0.7,
+                  filter: src.includes("steinway") ? "brightness(0)" : "grayscale(20%)",
+                  transition: "opacity 0.2s",
+                }}
                   onMouseEnter={e => (e.currentTarget.style.opacity = "1")}
-                  onMouseLeave={e => (e.currentTarget.style.opacity = "0.65")}
+                  onMouseLeave={e => (e.currentTarget.style.opacity = "0.7")}
                 />
               ))}
             </div>

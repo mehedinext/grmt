@@ -333,9 +333,10 @@ export const resFeatures: ResFeature[] = [
 // ─── PARTNER LOGOS ────────────────────────────────────────────────────────────
 // Sanity: groq`*[_type == "partner"] | order(order asc){ image }`
 export const partnerLogos: string[] = [
-  "https://greenroomtheory.com/wp-content/uploads/2023/02/5.png",
-  "https://greenroomtheory.com/wp-content/uploads/2023/02/1.png",
-  "https://greenroomtheory.com/wp-content/uploads/2023/02/4.png",
-  "https://greenroomtheory.com/wp-content/uploads/2023/02/3-1.png",
-  "https://greenroomtheory.com/wp-content/uploads/2023/02/2.png",
+  "/partners/steinway.png",
+  "/partners/abrsm.png",
+  "/partners/stanford.png",
+  "/partners/harvard.png",
+  "/partners/epta.png",
+  "/partners/ppa.png",
 ];
