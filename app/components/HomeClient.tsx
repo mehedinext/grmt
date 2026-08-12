@@ -207,21 +207,21 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
               alt="GRMSC students"
               style={{
                 position: "absolute", inset: 0,
-                width: "100%", height: "100%", objectFit: "cover", objectPosition: "60% top",
+                width: "100%", height: "100%", objectFit: "cover", objectPosition: "65% top",
                 opacity: heroSlide === i ? 1 : 0,
                 transition: "opacity 1.2s ease",
                 zIndex: 0,
               }}
             />
           ))}
-          {/* Left-side overlay only — keeps text readable, right side shows full photo */}
+          {/* Left-side overlay — solid on left behind text, sharp fade, fully clear by 55% */}
           <div style={{
             position: "absolute", inset: 0, zIndex: 1,
-            background: "linear-gradient(to right, rgba(8,47,39,0.92) 0%, rgba(8,47,39,0.82) 28%, rgba(8,47,39,0.45) 50%, rgba(8,47,39,0.10) 65%, rgba(8,47,39,0) 75%)",
+            background: "linear-gradient(to right, rgba(8,47,39,0.90) 0%, rgba(8,47,39,0.88) 30%, rgba(8,47,39,0.55) 43%, rgba(8,47,39,0.10) 52%, rgba(8,47,39,0) 58%)",
           }} />
 
           <div style={{ position: "relative", zIndex: 2, width: "100%", maxWidth: 1200, margin: "0 auto", padding: "80px clamp(16px, 3vw, 40px)" }}>
-            <div style={{ maxWidth: 520 }}>
+            <div style={{ maxWidth: 420 }}>
               {/* Steinway Educational Partner logo */}
               <div style={{ marginBottom: 28, opacity: heroReady ? 1 : 0, transition: "opacity 0.7s ease" }}>
                 <img src="/partners/steinway.png" alt="Steinway & Sons Educational Partner" style={{ height: 100, width: "auto", mixBlendMode: "screen", opacity: 0.92 }} />
