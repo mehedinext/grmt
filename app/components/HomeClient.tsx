@@ -316,8 +316,8 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
             </div>
           </div>
 
-          {/* Slide dots — bottom left, aligned with text */}
-          <div style={{ position: "absolute", bottom: 24, left: "clamp(16px, 3vw, 40px)", display: "flex", gap: 8, zIndex: 3 }}>
+          {/* Slide dots — bottom centre */}
+          <div style={{ position: "absolute", bottom: 24, left: "50%", transform: "translateX(-50%)", display: "flex", gap: 8, zIndex: 3 }}>
             {heroSlides.map((_, i) => (
               <button
                 key={i} onClick={() => setHeroSlide(i)}
