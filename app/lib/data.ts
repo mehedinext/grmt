@@ -330,12 +330,16 @@ export const feeItems: FeeItem[] = [
 // ─── RESIDENTIAL GALLERY ──────────────────────────────────────────────────────
 // Sanity: groq`*[_type == "galleryImage"] | order(order asc){ url }`
 export const galleryImages: string[] = [
-  "https://greenroomtheory.com/wp-content/uploads/2025/09/106-GreenRoomMusicTheorySummer2025-scaled.jpg",
-  "https://greenroomtheory.com/wp-content/uploads/2025/09/103-GreenRoomMusicTheorySummer2025-scaled.jpg",
-  "https://greenroomtheory.com/wp-content/uploads/2025/09/101-GreenRoomMusicTheorySummer2025-scaled.jpg",
-  "https://greenroomtheory.com/wp-content/uploads/2025/09/043-GreenRoomMusicTheorySummer2025-scaled.jpg",
-  "https://greenroomtheory.com/wp-content/uploads/2025/09/038-GreenRoomMusicTheorySummer2025-scaled.jpg",
-  "https://greenroomtheory.com/wp-content/uploads/2025/09/039-GreenRoomMusicTheorySummer2025-scaled.jpg",
+  "/gallery/106-GreenRoomMusicTheorySummer2025.jpg",
+  "/gallery/103-GreenRoomMusicTheorySummer2025.jpg",
+  "/gallery/039-GreenRoomMusicTheorySummer2025.jpg",
+  "/gallery/038-GreenRoomMusicTheorySummer2025.jpg",
+  "/gallery/037-GreenRoomMusicTheorySummer2025.jpg",
+  "/gallery/036-GreenRoomMusicTheorySummer2025.jpg",
+  "/gallery/014-GreenRoomMusicTheorySummer2025.jpg",
+  "/gallery/012-GreenRoomMusicTheorySummer2025.jpg",
+  "/gallery/104-GreenRoomMusicTheorySummer2025.jpg",
+  "/gallery/105-GreenRoomMusicTheorySummer2025.jpg",
 ];
 
 // ─── RESIDENTIAL FEATURES ─────────────────────────────────────────────────────

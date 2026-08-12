@@ -120,7 +120,7 @@ export default function ResidentialLifeClient({ settings }: { settings?: any }) 
             </div>
 
             {/* Thumbnail strip */}
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(6, 1fr)", gap: 4, marginTop: 12 }}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: 4, marginTop: 12 }}>
               {galleryImages.map((src, i) => (
                 <div
                   key={i}
