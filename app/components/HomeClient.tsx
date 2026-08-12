@@ -145,11 +145,12 @@ const defaultDateItems = [
   { label: "Final Concert", val: "23 July 2027", sub: "Showcase for family & friends" },
 ];
 
+// Will's actual gallery photos — outdoor group shots only
 const heroImages = [
-  "https://greenroomtheory.com/wp-content/uploads/2025/09/106-GreenRoomMusicTheorySummer2025-scaled.jpg",
-  "https://greenroomtheory.com/wp-content/uploads/2025/09/038-GreenRoomMusicTheorySummer2025-scaled.jpg",
-  "https://greenroomtheory.com/wp-content/uploads/2025/09/043-GreenRoomMusicTheorySummer2025-scaled.jpg",
-  "https://greenroomtheory.com/wp-content/uploads/2025/09/101-GreenRoomMusicTheorySummer2025-scaled.jpg",
+  "/gallery/106-GreenRoomMusicTheorySummer2025.jpg",
+  "/gallery/039-GreenRoomMusicTheorySummer2025.jpg",
+  "/gallery/038-GreenRoomMusicTheorySummer2025.jpg",
+  "/gallery/036-GreenRoomMusicTheorySummer2025.jpg",
 ];
 
 export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCourses, settings }: Props) {
@@ -214,10 +215,11 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
               }}
             />
           ))}
-          {/* Left-side overlay — solid on left behind text, sharp fade, fully clear by 55% */}
+          {/* Subtle base tint so any photo stays usable, then hard left-gradient for text */}
+          <div style={{ position: "absolute", inset: 0, zIndex: 1, background: "rgba(8,47,39,0.18)" }} />
           <div style={{
             position: "absolute", inset: 0, zIndex: 1,
-            background: "linear-gradient(to right, rgba(8,47,39,0.90) 0%, rgba(8,47,39,0.88) 33%, rgba(8,47,39,0.50) 47%, rgba(8,47,39,0.08) 58%, rgba(8,47,39,0) 65%)",
+            background: "linear-gradient(to right, rgba(8,47,39,0.90) 0%, rgba(8,47,39,0.88) 32%, rgba(8,47,39,0.50) 46%, rgba(8,47,39,0.05) 56%, rgba(8,47,39,0) 62%)",
           }} />
 
           <div style={{ position: "relative", zIndex: 2, width: "100%", maxWidth: 1200, margin: "0 auto", padding: "80px clamp(16px, 3vw, 40px)" }}>
@@ -636,17 +638,27 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
             <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: 120, background: "linear-gradient(to right, #fff, transparent)", zIndex: 2, pointerEvents: "none" }} />
             <div style={{ position: "absolute", right: 0, top: 0, bottom: 0, width: 120, background: "linear-gradient(to left, #fff, transparent)", zIndex: 2, pointerEvents: "none" }} />
             <div className="marquee-track">
-              {[...partnerLogos, ...partnerLogos, ...partnerLogos, ...partnerLogos].map((src, i) => (
-                <img key={i} src={src} alt="Partner" style={{
-                  height: 72, maxHeight: 72, width: "auto", maxWidth: 140, objectFit: "contain", flexShrink: 0, margin: "0 56px",
-                  opacity: 0.75,
-                  filter: "grayscale(15%)",
-                  transition: "opacity 0.2s",
-                }}
-                  onMouseEnter={e => (e.currentTarget.style.opacity = "1")}
-                  onMouseLeave={e => (e.currentTarget.style.opacity = "0.7")}
-                />
-              ))}
+              {[...partnerLogos, ...partnerLogos, ...partnerLogos, ...partnerLogos].map((src, i) => {
+                const isSteinway = src.includes("steinway");
+                return (
+                  <div key={i} style={{
+                    flexShrink: 0, margin: "0 48px",
+                    width: isSteinway ? 90 : 120,
+                    height: isSteinway ? 90 : 56,
+                    display: "flex", alignItems: "center", justifyContent: "center",
+                    opacity: 0.8, transition: "opacity 0.2s",
+                  }}
+                    onMouseEnter={e => (e.currentTarget.style.opacity = "1")}
+                    onMouseLeave={e => (e.currentTarget.style.opacity = "0.8")}
+                  >
+                    <img src={src} alt="Partner" style={{
+                      maxWidth: "100%", maxHeight: "100%",
+                      width: "auto", height: "auto",
+                      objectFit: "contain", display: "block",
+                    }} />
+                  </div>
+                );
+              })}
             </div>
           </div>
         </section>
