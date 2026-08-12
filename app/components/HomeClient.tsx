@@ -207,7 +207,7 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
               alt="GRMSC students"
               style={{
                 position: "absolute", inset: 0,
-                width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top",
+                width: "100%", height: "100%", objectFit: "cover", objectPosition: "60% top",
                 opacity: heroSlide === i ? 1 : 0,
                 transition: "opacity 1.2s ease",
                 zIndex: 0,
@@ -221,7 +221,7 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
           }} />
 
           <div style={{ position: "relative", zIndex: 2, width: "100%", maxWidth: 1200, margin: "0 auto", padding: "80px clamp(16px, 3vw, 40px)" }}>
-            <div style={{ maxWidth: 580 }}>
+            <div style={{ maxWidth: 520 }}>
               {/* Steinway Educational Partner badge — matches Will's reference layout */}
               <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 32, opacity: heroReady ? 1 : 0, transition: "opacity 0.7s ease" }}>
                 <img src="/partners/steinway.png" alt="" style={{ height: 44, width: 44, filter: "brightness(0) invert(1)", opacity: 0.9, flexShrink: 0 }} />

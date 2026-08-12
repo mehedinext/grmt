@@ -93,7 +93,7 @@ export default async function FacultyPage() {
               <h2 style={{ fontFamily: G, fontSize: "clamp(1.5rem, 2.6vw, 2rem)", fontWeight: 500, color: green }}>The Full Team</h2>
               <div style={{ width: 40, height: 2, background: gold, margin: "14px auto 0" }} />
             </div>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(240px, 1fr))", gap: 2 }}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 2 }} className="staff-grid">
               {staffMembers.map((s, i) => (
                 <div key={s._id} style={{ background: cream, padding: "28px 24px", borderTop: `3px solid ${i % 2 === 0 ? gold : green}` }}>
                   <div style={{ width: 44, height: 44, borderRadius: "50%", background: green, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 16 }}>

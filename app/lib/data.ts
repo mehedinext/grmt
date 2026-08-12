@@ -93,8 +93,6 @@ export const tutors: Tutor[] = [
 // ─── STAFF ────────────────────────────────────────────────────────────────────
 // Sanity: groq`*[_type == "staffMember"] | order(order asc)`
 export const staffMembers: StaffMember[] = [
-  { _id: "staff-will", name: "Will Fowler", role: "Artistic Director · DSL", department: "Piano · Music Theory · Vocal" },
-  { _id: "staff-vivian", name: "Vivian Shiao", role: "Honorary Visiting Lecturer", department: "Piano · Music Theory" },
   { _id: "staff-conor", name: "Conor Mathers", role: "Director of Vocal Performance", department: "Vocal Performance · Theory" },
   { _id: "staff-serena", name: "Serena Shah", role: "Teaching Artist", department: "Piano · Theory" },
   { _id: "staff-rhiannon", name: "Rhiannon Bennett", role: "Deputy DSL · Head of Boarding & Pastoral", department: "Vocal Performance" },
