@@ -217,11 +217,11 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
           {/* Left-side overlay — solid on left behind text, sharp fade, fully clear by 55% */}
           <div style={{
             position: "absolute", inset: 0, zIndex: 1,
-            background: "linear-gradient(to right, rgba(8,47,39,0.90) 0%, rgba(8,47,39,0.88) 30%, rgba(8,47,39,0.55) 43%, rgba(8,47,39,0.10) 52%, rgba(8,47,39,0) 58%)",
+            background: "linear-gradient(to right, rgba(8,47,39,0.90) 0%, rgba(8,47,39,0.88) 33%, rgba(8,47,39,0.50) 47%, rgba(8,47,39,0.08) 58%, rgba(8,47,39,0) 65%)",
           }} />
 
           <div style={{ position: "relative", zIndex: 2, width: "100%", maxWidth: 1200, margin: "0 auto", padding: "80px clamp(16px, 3vw, 40px)" }}>
-            <div style={{ maxWidth: 420 }}>
+            <div style={{ maxWidth: 500 }}>
               {/* Steinway Educational Partner badge */}
               <div style={{ marginBottom: 28, opacity: heroReady ? 1 : 0, transition: "opacity 0.7s ease" }}>
                 <img src="/partners/steinway-badge.png" alt="Steinway & Sons Educational Partner" style={{ height: 130, width: "auto", opacity: 0.92 }} />
@@ -241,7 +241,7 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
 
               <h1 style={{
                 fontFamily: G,
-                fontSize: "clamp(2.6rem, 5vw, 4.4rem)",
+                fontSize: "clamp(2rem, 3.4vw, 3.2rem)",
                 fontWeight: 500, color: "#fff", lineHeight: 1.08,
                 marginBottom: 20,
                 opacity: heroReady ? 1 : 0,
