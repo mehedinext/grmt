@@ -145,15 +145,30 @@ const defaultDateItems = [
   { label: "Final Concert", val: "23 July 2027", sub: "Showcase for family & friends" },
 ];
 
+const heroImages = [
+  "https://greenroomtheory.com/wp-content/uploads/2025/09/106-GreenRoomMusicTheorySummer2025-scaled.jpg",
+  "https://greenroomtheory.com/wp-content/uploads/2025/09/038-GreenRoomMusicTheorySummer2025-scaled.jpg",
+  "https://greenroomtheory.com/wp-content/uploads/2025/09/014-GreenRoomMusicTheorySummer2025-scaled.jpg",
+  "https://greenroomtheory.com/wp-content/uploads/2025/09/103-GreenRoomMusicTheorySummer2025-scaled.jpg",
+];
+
 export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCourses, settings }: Props) {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [heroReady] = useState(true);
   const [activeCard, setActiveCard] = useState(0);
+  const [heroSlide, setHeroSlide] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveCard(prev => (prev + 1) % 3);
     }, 3500);
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setHeroSlide(prev => (prev + 1) % heroImages.length);
+    }, 5000);
     return () => clearInterval(interval);
   }, []);
 
@@ -184,27 +199,33 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
           display: "flex",
           alignItems: "center",
         }}>
-          <img
-            src="https://greenroomtheory.com/wp-content/uploads/2025/09/106-GreenRoomMusicTheorySummer2025-scaled.jpg"
-            alt="GRMSC students"
-            style={{
-              position: "absolute", inset: 0,
-              width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top",
-              transform: heroReady ? "scale(1)" : "scale(1.05)",
-              transition: "transform 1.6s cubic-bezier(.22,.68,0,1)",
-            }}
-          />
+          {/* Slideshow images */}
+          {heroImages.map((src, i) => (
+            <img
+              key={src}
+              src={src}
+              alt="GRMSC students"
+              style={{
+                position: "absolute", inset: 0,
+                width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top",
+                opacity: heroSlide === i ? 1 : 0,
+                transition: "opacity 1.2s ease",
+                zIndex: 0,
+              }}
+            />
+          ))}
+          {/* Left-side overlay only — keeps text readable, right side shows full photo */}
           <div style={{
-            position: "absolute", inset: 0,
-            background: "linear-gradient(to right, rgba(8,47,39,0.97) 0%, rgba(8,47,39,0.92) 30%, rgba(8,47,39,0.65) 55%, rgba(8,47,39,0.2) 80%, rgba(8,47,39,0.05) 100%)",
+            position: "absolute", inset: 0, zIndex: 1,
+            background: "linear-gradient(to right, rgba(8,47,39,0.92) 0%, rgba(8,47,39,0.82) 28%, rgba(8,47,39,0.45) 50%, rgba(8,47,39,0.10) 65%, rgba(8,47,39,0) 75%)",
           }} />
 
-          {/* Steinway Educational Partner badge */}
-          <div style={{ position: "absolute", top: 24, right: "clamp(16px, 3vw, 40px)", zIndex: 3 }}>
-            <img src="/partners/steinway.png" alt="Steinway Educational Partner" style={{ height: 52, width: "auto", filter: "brightness(0) invert(1)", opacity: 0.85 }} />
-          </div>
-          <div style={{ position: "relative", zIndex: 1, width: "100%", maxWidth: 1200, margin: "0 auto", padding: "80px clamp(16px, 3vw, 40px)" }}>
+          <div style={{ position: "relative", zIndex: 2, width: "100%", maxWidth: 1200, margin: "0 auto", padding: "80px clamp(16px, 3vw, 40px)" }}>
             <div style={{ maxWidth: 580 }}>
+              {/* Steinway Educational Partner badge — left, above heading */}
+              <div style={{ marginBottom: 28 }}>
+                <img src="/partners/steinway.png" alt="Steinway & Sons Educational Partner" style={{ height: 64, width: "auto", filter: "brightness(0) invert(1)", opacity: 0.88 }} />
+              </div>
               <div style={{
                 display: "inline-flex", alignItems: "center", gap: 8,
                 border: "1px solid rgba(200,154,59,0.5)",
@@ -274,6 +295,23 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
                 </Link>
               </div>
             </div>
+          </div>
+
+          {/* Slide indicator dots */}
+          <div style={{ position: "absolute", bottom: 24, left: "50%", transform: "translateX(-50%)", display: "flex", gap: 8, zIndex: 2 }}>
+            {heroImages.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setHeroSlide(i)}
+                style={{
+                  width: heroSlide === i ? 24 : 8,
+                  height: 8, borderRadius: 4,
+                  background: heroSlide === i ? gold : "rgba(255,255,255,0.4)",
+                  border: "none", cursor: "pointer",
+                  transition: "all 0.3s ease", padding: 0,
+                }}
+              />
+            ))}
           </div>
         </section>
 

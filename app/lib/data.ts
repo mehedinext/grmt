@@ -54,13 +54,20 @@ export type ResFeature = {
   description: string;
 };
 
+export type StaffMember = {
+  _id: string;
+  name: string;
+  role: string;
+  department: string;
+};
+
 // ─── TUTORS ───────────────────────────────────────────────────────────────────
 // Sanity: groq`*[_type == "tutor"] | order(order asc)`
 export const tutors: Tutor[] = [
   {
     _id: "tutor-will",
     name: "Will Fowler",
-    role: "Co-Artistic Director",
+    role: "Artistic Director",
     bio: "Pianist, educator and coach with a passion for nurturing musical excellence and curiosity. Will leads our piano and chamber music programme.",
     bioFull: [
       "Will Fowler is a pianist, educator and coach with a deep passion for nurturing musical excellence in young performers. He brings warmth, rigour and genuine enthusiasm to every session.",
@@ -81,6 +88,20 @@ export const tutors: Tutor[] = [
     teaches: "Music Theory · Ensemble · Ear Training",
     image: "https://greenroomtheory.com/wp-content/uploads/2023/09/img_068.webp",
   },
+];
+
+// ─── STAFF ────────────────────────────────────────────────────────────────────
+// Sanity: groq`*[_type == "staffMember"] | order(order asc)`
+export const staffMembers: StaffMember[] = [
+  { _id: "staff-will", name: "Will Fowler", role: "Artistic Director · DSL", department: "Piano · Music Theory · Vocal" },
+  { _id: "staff-vivian", name: "Vivian Shiao", role: "Honorary Visiting Lecturer", department: "Piano · Music Theory" },
+  { _id: "staff-conor", name: "Conor Mathers", role: "Director of Vocal Performance", department: "Vocal Performance · Theory" },
+  { _id: "staff-serena", name: "Serena Shah", role: "Teaching Artist", department: "Piano · Theory" },
+  { _id: "staff-rhiannon", name: "Rhiannon Bennett", role: "Deputy DSL · Head of Boarding & Pastoral", department: "Vocal Performance" },
+  { _id: "staff-sophie", name: "Sophie Wells", role: "Deputy DSL · Resident Nurse", department: "Boarding & Wellbeing" },
+  { _id: "staff-leo", name: "Leo Little", role: "Piano Teaching Artist", department: "Piano" },
+  { _id: "staff-rebekah", name: "Rebekah Tan", role: "Piano Teaching Artist", department: "Piano" },
+  { _id: "staff-elisabeth", name: "Elisabeth Thompson", role: "Boarding Supervisor", department: "Boarding & Pastoral" },
 ];
 
 // ─── COURSES ──────────────────────────────────────────────────────────────────

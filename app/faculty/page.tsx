@@ -2,7 +2,7 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Link from "next/link";
-import { tutors } from "../lib/data";
+import { tutors, staffMembers } from "../lib/data";
 import { urlFor } from "../lib/image";
 import { getSiteSettings } from "../lib/sanity";
 
@@ -24,7 +24,7 @@ export default async function FacultyPage() {
           <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 clamp(16px, 3vw, 40px)" }}>
             <p style={{ color: gold, fontSize: "0.65rem", textTransform: "uppercase", letterSpacing: "0.22em", marginBottom: 14, fontFamily: I }}>{settings?.facultyPageEyebrow ?? "Meet the Team"}</p>
             <h1 style={{ fontFamily: G, fontSize: "clamp(2.2rem, 4vw, 3.4rem)", fontWeight: 500, color: "#fff", lineHeight: 1.15, marginBottom: 20 }}>
-              {settings?.facultyPageHeading ?? "Our Tutors"}
+              {settings?.facultyPageHeading ?? "Our Faculty"}
             </h1>
             <div style={{ width: 40, height: 2, background: gold, marginBottom: 20 }} />
             <p style={{ color: "rgba(255,255,255,0.55)", fontSize: "0.92rem", lineHeight: 1.8, maxWidth: 500, fontFamily: I }}>
@@ -83,6 +83,28 @@ export default async function FacultyPage() {
                 </div>
               </div>
             ))}
+          </div>
+        </section>
+
+        {/* Full staff grid */}
+        <section style={{ background: "#fff", padding: "clamp(56px, 8vw, 80px) 0" }}>
+          <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 clamp(16px, 3vw, 40px)" }}>
+            <div style={{ textAlign: "center", marginBottom: 48 }}>
+              <h2 style={{ fontFamily: G, fontSize: "clamp(1.5rem, 2.6vw, 2rem)", fontWeight: 500, color: green }}>The Full Team</h2>
+              <div style={{ width: 40, height: 2, background: gold, margin: "14px auto 0" }} />
+            </div>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(240px, 1fr))", gap: 2 }}>
+              {staffMembers.map((s, i) => (
+                <div key={s._id} style={{ background: cream, padding: "28px 24px", borderTop: `3px solid ${i % 2 === 0 ? gold : green}` }}>
+                  <div style={{ width: 44, height: 44, borderRadius: "50%", background: green, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 16 }}>
+                    <span style={{ color: gold, fontFamily: G, fontSize: "1.1rem", fontWeight: 600 }}>{s.name.charAt(0)}</span>
+                  </div>
+                  <h3 style={{ fontFamily: G, fontSize: "1.05rem", fontWeight: 500, color: green, marginBottom: 6 }}>{s.name}</h3>
+                  <p style={{ color: gold, fontSize: "0.62rem", textTransform: "uppercase", letterSpacing: "0.14em", fontFamily: I, fontWeight: 600, marginBottom: 8 }}>{s.role}</p>
+                  <p style={{ color: "#7a9a8a", fontSize: "0.78rem", fontFamily: I }}>{s.department}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
