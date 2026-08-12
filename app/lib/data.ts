@@ -352,7 +352,7 @@ export const resFeatures: ResFeature[] = [
 // ─── PARTNER LOGOS ────────────────────────────────────────────────────────────
 // Sanity: groq`*[_type == "partner"] | order(order asc){ image }`
 export const partnerLogos: string[] = [
-  "/partners/steinway-badge.png",
+  "/partners/steinway-gold.png",
   "/partners/abrsm.png",
   "/partners/stanford.png",
   "/partners/harvard.png",
