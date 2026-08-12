@@ -222,13 +222,9 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
 
           <div style={{ position: "relative", zIndex: 2, width: "100%", maxWidth: 1200, margin: "0 auto", padding: "80px clamp(16px, 3vw, 40px)" }}>
             <div style={{ maxWidth: 520 }}>
-              {/* Steinway Educational Partner badge — matches Will's reference layout */}
-              <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 32, opacity: heroReady ? 1 : 0, transition: "opacity 0.7s ease" }}>
-                <img src="/partners/steinway.png" alt="" style={{ height: 44, width: 44, filter: "brightness(0) invert(1)", opacity: 0.9, flexShrink: 0 }} />
-                <div>
-                  <div style={{ color: "#fff", fontFamily: I, fontSize: "0.68rem", letterSpacing: "0.22em", textTransform: "uppercase", fontWeight: 600, lineHeight: 1.3 }}>Steinway &amp; Sons</div>
-                  <div style={{ color: "rgba(255,255,255,0.6)", fontFamily: I, fontSize: "0.55rem", letterSpacing: "0.18em", textTransform: "uppercase", lineHeight: 1.3 }}>Educational Partner</div>
-                </div>
+              {/* Steinway Educational Partner logo */}
+              <div style={{ marginBottom: 28, opacity: heroReady ? 1 : 0, transition: "opacity 0.7s ease" }}>
+                <img src="/partners/steinway.png" alt="Steinway & Sons Educational Partner" style={{ height: 100, width: "auto", mixBlendMode: "screen", opacity: 0.92 }} />
               </div>
               <div style={{
                 display: "inline-flex", alignItems: "center", gap: 8,
@@ -644,7 +640,7 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
                 <img key={i} src={src} alt="Partner" style={{
                   height: 64, width: "auto", objectFit: "contain", flexShrink: 0, margin: "0 64px",
                   opacity: 0.7,
-                  filter: src.includes("steinway") ? "brightness(0)" : "grayscale(20%)",
+                  filter: "grayscale(20%)",
                   transition: "opacity 0.2s",
                 }}
                   onMouseEnter={e => (e.currentTarget.style.opacity = "1")}
