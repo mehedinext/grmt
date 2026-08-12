@@ -14,7 +14,7 @@ const siteSettings = {
 
   // Navbar
   navLogoSubtitle: "Green Room Music Summer Camp",
-  navCtaLabel: "Register Interest",
+  navCtaLabel: "Apply Now",
   navCtaHref: "/apply",
 
   // Hero
@@ -26,7 +26,7 @@ const siteSettings = {
   heroDate: "19–23 July 2027",
   heroCta1Label: "Explore the Courses →",
   heroCta1Href: "/courses",
-  heroCta2Label: "Register Interest",
+  heroCta2Label: "Apply Now",
   heroCta2Href: "/apply",
 
   // Stats strip
@@ -63,7 +63,7 @@ const siteSettings = {
   ],
 
   // Tutors section
-  tutorsHeading: "Meet the Tutors",
+  tutorsHeading: "Meet the Faculty",
 
   // Dates section
   datesHeading: "Dates & Key Information",
@@ -83,7 +83,7 @@ const siteSettings = {
   ctaHeadingLine1: "An Unforgettable Week",
   ctaHeadingLine2: "of Music & Inspiration",
   ctaSubtext: "19–23 July 2027 at Stamford School. Three specialist tracks, world-class tutors, and a residential experience unlike any other.",
-  ctaCta1Label: "Register Your Interest →",
+  ctaCta1Label: "Apply Now →",
   ctaCta1Href: "/apply",
   ctaCta2Label: "Explore the Courses",
   ctaCta2Href: "/courses",
@@ -108,7 +108,7 @@ const siteSettings = {
 
   // Faculty page
   facultyPageEyebrow: "Meet the Team",
-  facultyPageHeading: "Our Tutors",
+  facultyPageHeading: "Our Faculty",
   facultyPageSubtext: "GRMSC is led by two specialist educators and performers who share a commitment to inspiring the next generation of musicians.",
   facultyPageQuote: "We believe every young musician deserves to experience what it feels like to truly inhabit the music — to own it, shape it, and share it.",
   facultyPageQuoteAttrib: "Will Fowler & Vivian Shiao",

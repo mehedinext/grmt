@@ -148,8 +148,8 @@ const defaultDateItems = [
 const heroImages = [
   "https://greenroomtheory.com/wp-content/uploads/2025/09/106-GreenRoomMusicTheorySummer2025-scaled.jpg",
   "https://greenroomtheory.com/wp-content/uploads/2025/09/038-GreenRoomMusicTheorySummer2025-scaled.jpg",
-  "https://greenroomtheory.com/wp-content/uploads/2025/09/014-GreenRoomMusicTheorySummer2025-scaled.jpg",
-  "https://greenroomtheory.com/wp-content/uploads/2025/09/103-GreenRoomMusicTheorySummer2025-scaled.jpg",
+  "https://greenroomtheory.com/wp-content/uploads/2025/09/043-GreenRoomMusicTheorySummer2025-scaled.jpg",
+  "https://greenroomtheory.com/wp-content/uploads/2025/09/101-GreenRoomMusicTheorySummer2025-scaled.jpg",
 ];
 
 export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCourses, settings }: Props) {
@@ -222,9 +222,13 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
 
           <div style={{ position: "relative", zIndex: 2, width: "100%", maxWidth: 1200, margin: "0 auto", padding: "80px clamp(16px, 3vw, 40px)" }}>
             <div style={{ maxWidth: 580 }}>
-              {/* Steinway Educational Partner badge — left, above heading */}
-              <div style={{ marginBottom: 28 }}>
-                <img src="/partners/steinway.png" alt="Steinway & Sons Educational Partner" style={{ height: 64, width: "auto", filter: "brightness(0) invert(1)", opacity: 0.88 }} />
+              {/* Steinway Educational Partner badge — matches Will's reference layout */}
+              <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 32, opacity: heroReady ? 1 : 0, transition: "opacity 0.7s ease" }}>
+                <img src="/partners/steinway.png" alt="" style={{ height: 44, width: 44, filter: "brightness(0) invert(1)", opacity: 0.9, flexShrink: 0 }} />
+                <div>
+                  <div style={{ color: "#fff", fontFamily: I, fontSize: "0.68rem", letterSpacing: "0.22em", textTransform: "uppercase", fontWeight: 600, lineHeight: 1.3 }}>Steinway &amp; Sons</div>
+                  <div style={{ color: "rgba(255,255,255,0.6)", fontFamily: I, fontSize: "0.55rem", letterSpacing: "0.18em", textTransform: "uppercase", lineHeight: 1.3 }}>Educational Partner</div>
+                </div>
               </div>
               <div style={{
                 display: "inline-flex", alignItems: "center", gap: 8,
