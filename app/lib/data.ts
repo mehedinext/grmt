@@ -340,6 +340,16 @@ export const galleryImages: string[] = [
   "/gallery/012-GreenRoomMusicTheorySummer2025.jpg",
   "/gallery/104-GreenRoomMusicTheorySummer2025.jpg",
   "/gallery/105-GreenRoomMusicTheorySummer2025.jpg",
+  "/gallery/040-GreenRoomMusicTheorySummer2025.jpg",
+  "/gallery/041-GreenRoomMusicTheorySummer2025.jpg",
+  "/gallery/042-GreenRoomMusicTheorySummer2025.jpg",
+  "/gallery/043-GreenRoomMusicTheorySummer2025.jpg",
+  "/gallery/044-GreenRoomMusicTheorySummer2025.jpg",
+  "/gallery/045-GreenRoomMusicTheorySummer2025.jpg",
+  "/gallery/046-GreenRoomMusicTheorySummer2025.jpg",
+  "/gallery/047-GreenRoomMusicTheorySummer2025.jpg",
+  "/gallery/048-GreenRoomMusicTheorySummer2025.jpg",
+  "/gallery/049-GreenRoomMusicTheorySummer2025.jpg",
 ];
 
 // ─── RESIDENTIAL FEATURES ─────────────────────────────────────────────────────
