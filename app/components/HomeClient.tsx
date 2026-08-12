@@ -191,50 +191,43 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
       <Navbar settings={settings} />
       <main style={{ paddingTop: 68 }}>
 
-        {/* ─── HERO ─── */}
+        {/* ─── HERO ─── 2-column: solid green left | photo right, blended at join */}
         <section style={{
-          position: "relative",
           minHeight: "calc(100svh - 68px)",
-          overflow: "hidden",
-          background: green,
           display: "flex",
-          alignItems: "center",
+          overflow: "hidden",
+          position: "relative",
         }}>
-          {/* Slideshow images */}
-          {heroImages.map((src, i) => (
-            <img
-              key={src}
-              src={src}
-              alt="GRMSC students"
-              style={{
-                position: "absolute", inset: 0,
-                width: "100%", height: "100%", objectFit: "cover", objectPosition: "65% top",
-                opacity: heroSlide === i ? 1 : 0,
-                transition: "opacity 1.2s ease",
-                zIndex: 0,
-              }}
-            />
-          ))}
-          {/* Subtle base tint so any photo stays usable, then hard left-gradient for text */}
-          <div style={{ position: "absolute", inset: 0, zIndex: 1, background: "rgba(8,47,39,0.18)" }} />
+          {/* LEFT COLUMN — solid dark green, all text content */}
           <div style={{
-            position: "absolute", inset: 0, zIndex: 1,
-            background: "linear-gradient(to right, rgba(8,47,39,0.90) 0%, rgba(8,47,39,0.88) 32%, rgba(8,47,39,0.50) 46%, rgba(8,47,39,0.05) 56%, rgba(8,47,39,0) 62%)",
-          }} />
+            flexShrink: 0,
+            width: "clamp(300px, 44%, 580px)",
+            background: green,
+            position: "relative",
+            zIndex: 2,
+            display: "flex",
+            alignItems: "center",
+            padding: "80px clamp(16px, 4vw, 56px) 80px clamp(16px, calc(50vw - 600px + 40px), 56px)",
+          }}>
+            {/* Blend gradient — right edge of left panel fades into photo */}
+            <div style={{
+              position: "absolute", top: 0, right: -80, bottom: 0, width: 80,
+              background: `linear-gradient(to right, ${green}, transparent)`,
+              pointerEvents: "none", zIndex: 3,
+            }} />
 
-          <div style={{ position: "relative", zIndex: 2, width: "100%", maxWidth: 1200, margin: "0 auto", padding: "80px clamp(16px, 3vw, 40px)" }}>
-            <div style={{ maxWidth: 500 }}>
-              {/* Steinway Educational Partner badge */}
-              <div style={{ marginBottom: 28, opacity: heroReady ? 1 : 0, transition: "opacity 0.7s ease" }}>
-                <img src="/partners/steinway-badge.png" alt="Steinway & Sons Educational Partner" style={{ height: 130, width: "auto", opacity: 0.92 }} />
+            <div style={{ width: "100%", maxWidth: 420 }}>
+              {/* Steinway badge */}
+              <div style={{ marginBottom: 24, opacity: heroReady ? 1 : 0, transition: "opacity 0.7s ease" }}>
+                <img src="/partners/steinway-badge.png" alt="Steinway & Sons Educational Partner" style={{ height: 110, width: "auto", opacity: 0.92 }} />
               </div>
+
               <div style={{
                 display: "inline-flex", alignItems: "center", gap: 8,
-                border: "1px solid rgba(200,154,59,0.5)",
-                borderRadius: 3, padding: "7px 14px", marginBottom: 28,
+                border: "1px solid rgba(200,154,59,0.5)", borderRadius: 3,
+                padding: "7px 14px", marginBottom: 24,
                 background: "rgba(200,154,59,0.1)",
-                opacity: heroReady ? 1 : 0,
-                transition: "opacity 0.7s ease 0.1s",
+                opacity: heroReady ? 1 : 0, transition: "opacity 0.7s ease 0.1s",
               }}>
                 <span style={{ color: gold, fontSize: "0.63rem", fontFamily: I, textTransform: "uppercase", letterSpacing: "0.2em", fontWeight: 600 }}>
                   {settings?.heroBadge ?? "Residential · Summer 2027"}
@@ -242,10 +235,8 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
               </div>
 
               <h1 style={{
-                fontFamily: G,
-                fontSize: "clamp(2rem, 3.4vw, 3.2rem)",
-                fontWeight: 500, color: "#fff", lineHeight: 1.08,
-                marginBottom: 20,
+                fontFamily: G, fontSize: "clamp(2rem, 3.4vw, 3.2rem)",
+                fontWeight: 500, color: "#fff", lineHeight: 1.1, marginBottom: 20,
                 opacity: heroReady ? 1 : 0,
                 transform: heroReady ? "none" : "translateY(24px)",
                 transition: "opacity 0.85s cubic-bezier(.22,.68,0,1.1) 0.15s, transform 0.85s cubic-bezier(.22,.68,0,1.1) 0.15s",
@@ -255,30 +246,28 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
               </h1>
 
               <p style={{
-                color: "rgba(255,255,255,0.68)", fontSize: "clamp(0.88rem, 1.2vw, 1rem)",
-                lineHeight: 1.78, marginBottom: 24, maxWidth: 420,
-                opacity: heroReady ? 1 : 0,
-                transition: "opacity 0.8s ease 0.3s",
+                color: "rgba(255,255,255,0.65)", fontSize: "clamp(0.85rem, 1.1vw, 0.95rem)",
+                lineHeight: 1.8, marginBottom: 20,
+                opacity: heroReady ? 1 : 0, transition: "opacity 0.8s ease 0.3s",
               }}>
                 {settings?.heroSubtext ?? "A residential summer camp for young musicians aged 10–17."}
               </p>
 
               <div style={{
-                height: 2, background: gold, marginBottom: 22,
-                width: heroReady ? 52 : 0,
+                height: 2, background: gold, marginBottom: 20,
+                width: heroReady ? 48 : 0,
                 transition: "width 0.7s cubic-bezier(.22,.68,0,1) 0.45s",
               }} />
 
               <div style={{
-                display: "flex", alignItems: "center", gap: 8, marginBottom: 36,
-                opacity: heroReady ? 1 : 0,
-                transition: "opacity 0.8s ease 0.5s",
+                display: "flex", alignItems: "center", gap: 8, marginBottom: 32,
+                opacity: heroReady ? 1 : 0, transition: "opacity 0.8s ease 0.5s",
               }}>
-                <span style={{ color: gold, fontSize: "0.85rem", fontFamily: I, fontWeight: 600 }}>
+                <span style={{ color: gold, fontSize: "0.82rem", fontFamily: I, fontWeight: 600 }}>
                   {settings?.heroLocation ?? "Stamford School"}
                 </span>
                 <span style={{ color: "rgba(255,255,255,0.3)" }}>·</span>
-                <span style={{ color: "rgba(255,255,255,0.6)", fontSize: "0.85rem", fontFamily: I }}>
+                <span style={{ color: "rgba(255,255,255,0.55)", fontSize: "0.82rem", fontFamily: I }}>
                   {settings?.heroDate ?? "19–23 July 2027"}
                 </span>
               </div>
@@ -299,16 +288,33 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
             </div>
           </div>
 
-          {/* Slide indicator dots */}
-          <div style={{ position: "absolute", bottom: 24, left: "50%", transform: "translateX(-50%)", display: "flex", gap: 8, zIndex: 2 }}>
+          {/* RIGHT COLUMN — photo only, no overlay */}
+          <div style={{ flex: 1, position: "relative", overflow: "hidden" }}>
+            {heroImages.map((src, i) => (
+              <img
+                key={src}
+                src={src}
+                alt="GRMSC students"
+                style={{
+                  position: "absolute", inset: 0,
+                  width: "100%", height: "100%",
+                  objectFit: "cover", objectPosition: "center top",
+                  opacity: heroSlide === i ? 1 : 0,
+                  transition: "opacity 1.2s ease",
+                }}
+              />
+            ))}
+          </div>
+
+          {/* Slide indicator dots — bottom centre */}
+          <div style={{ position: "absolute", bottom: 24, left: "22%", display: "flex", gap: 8, zIndex: 4 }}>
             {heroImages.map((_, i) => (
               <button
                 key={i}
                 onClick={() => setHeroSlide(i)}
                 style={{
-                  width: heroSlide === i ? 24 : 8,
-                  height: 8, borderRadius: 4,
-                  background: heroSlide === i ? gold : "rgba(255,255,255,0.4)",
+                  width: heroSlide === i ? 24 : 8, height: 8, borderRadius: 4,
+                  background: heroSlide === i ? gold : "rgba(255,255,255,0.35)",
                   border: "none", cursor: "pointer",
                   transition: "all 0.3s ease", padding: 0,
                 }}
