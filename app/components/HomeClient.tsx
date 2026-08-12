@@ -145,12 +145,52 @@ const defaultDateItems = [
   { label: "Final Concert", val: "23 July 2027", sub: "Showcase for family & friends" },
 ];
 
-// Will's actual gallery photos — outdoor group shots only
-const heroImages = [
-  "/gallery/106-GreenRoomMusicTheorySummer2025.jpg",
-  "/gallery/039-GreenRoomMusicTheorySummer2025.jpg",
-  "/gallery/038-GreenRoomMusicTheorySummer2025.jpg",
-  "/gallery/036-GreenRoomMusicTheorySummer2025.jpg",
+// Each slide: unique photo + unique content
+const heroSlides = [
+  {
+    image: "/gallery/106-GreenRoomMusicTheorySummer2025.jpg",
+    badge: "Residential · Summer 2027",
+    heading1: "Green Room Music",
+    heading2: "Summer Camp",
+    subtext: "A residential summer camp for young musicians aged 10–17. Three courses, one unforgettable week.",
+    location: "Stamford School",
+    date: "19–23 July 2027",
+    cta1Label: "Explore the Courses →", cta1Href: "/courses",
+    cta2Label: "Apply Now", cta2Href: "/apply",
+  },
+  {
+    image: "/gallery/012-GreenRoomMusicTheorySummer2025.jpg",
+    badge: "ABRSM Grade 5 · 100% Pass Rate",
+    heading1: "Grade 5 Music Theory",
+    heading2: "Crash Course",
+    subtext: "Intensive preparation covering Grade 5 and beyond. Also ideal for students working at Grades 1–3.",
+    location: "Music Theory",
+    date: "Summer 2027",
+    cta1Label: "Learn More →", cta1Href: "/courses/music-theory",
+    cta2Label: "Apply Now", cta2Href: "/apply",
+  },
+  {
+    image: "/gallery/039-GreenRoomMusicTheorySummer2025.jpg",
+    badge: "Grade 4–8 · Piano",
+    heading1: "Piano",
+    heading2: "Summer Course",
+    subtext: "Daily lessons, group masterclasses and an evening recital. Expert tuition from conservatoire-trained pianists.",
+    location: "Piano",
+    date: "19–23 July 2027",
+    cta1Label: "Learn More →", cta1Href: "/courses/piano",
+    cta2Label: "Apply Now", cta2Href: "/apply",
+  },
+  {
+    image: "/gallery/038-GreenRoomMusicTheorySummer2025.jpg",
+    badge: "All Levels Welcome · Singing",
+    heading1: "Singing",
+    heading2: "Performance Course",
+    subtext: "Vocal technique, performance coaching, sight-singing and stagecraft. Final showcase for family and friends.",
+    location: "Singing Performance",
+    date: "19–23 July 2027",
+    cta1Label: "Learn More →", cta1Href: "/courses/singing-performance",
+    cta2Label: "Apply Now", cta2Href: "/apply",
+  },
 ];
 
 export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCourses, settings }: Props) {
@@ -168,7 +208,7 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setHeroSlide(prev => (prev + 1) % heroImages.length);
+      setHeroSlide(prev => (prev + 1) % heroSlides.length);
     }, 5000);
     return () => clearInterval(interval);
   }, []);
@@ -191,109 +231,98 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
       <Navbar settings={settings} />
       <main style={{ paddingTop: 68 }}>
 
-        {/* ─── HERO ─── 2-column: solid green left | photo right, blended at join */}
-        <section style={{
+        {/* ─── HERO ─── 2-column: solid green left | photo right */}
+        <section className="hero-section" style={{
           minHeight: "calc(100svh - 68px)",
           display: "flex",
           overflow: "hidden",
           position: "relative",
         }}>
-          {/* LEFT COLUMN — solid dark green, all text content */}
-          <div style={{
+          {/* LEFT COLUMN — solid dark green, per-slide content */}
+          <div className="hero-left" style={{
             flexShrink: 0,
-            width: "clamp(300px, 44%, 580px)",
+            width: "clamp(300px, 44%, 560px)",
             background: green,
             position: "relative",
             zIndex: 2,
             display: "flex",
             alignItems: "center",
-            padding: "80px clamp(16px, 4vw, 56px) 80px clamp(16px, calc(50vw - 600px + 40px), 56px)",
+            padding: "72px clamp(20px, 4vw, 56px)",
           }}>
-            {/* Blend gradient — right edge of left panel fades into photo */}
-            <div style={{
-              position: "absolute", top: 0, right: -80, bottom: 0, width: 80,
+            {/* Blend gradient at right edge */}
+            <div className="hero-blend" style={{
+              position: "absolute", top: 0, right: -72, bottom: 0, width: 72,
               background: `linear-gradient(to right, ${green}, transparent)`,
               pointerEvents: "none", zIndex: 3,
             }} />
 
-            <div style={{ width: "100%", maxWidth: 420 }}>
+            <div style={{ width: "100%" }}>
               {/* Steinway badge */}
-              <div style={{ marginBottom: 24, opacity: heroReady ? 1 : 0, transition: "opacity 0.7s ease" }}>
-                <img src="/partners/steinway-badge.png" alt="Steinway & Sons Educational Partner" style={{ height: 110, width: "auto", opacity: 0.92 }} />
+              <div style={{ marginBottom: 20 }}>
+                <img src="/partners/steinway-badge.png" alt="Steinway & Sons Educational Partner" style={{ height: 100, width: "auto", opacity: 0.92 }} />
               </div>
 
+              {/* Per-slide badge */}
               <div style={{
                 display: "inline-flex", alignItems: "center", gap: 8,
                 border: "1px solid rgba(200,154,59,0.5)", borderRadius: 3,
-                padding: "7px 14px", marginBottom: 24,
+                padding: "6px 13px", marginBottom: 20,
                 background: "rgba(200,154,59,0.1)",
-                opacity: heroReady ? 1 : 0, transition: "opacity 0.7s ease 0.1s",
+                transition: "opacity 0.5s ease",
               }}>
-                <span style={{ color: gold, fontSize: "0.63rem", fontFamily: I, textTransform: "uppercase", letterSpacing: "0.2em", fontWeight: 600 }}>
-                  {settings?.heroBadge ?? "Residential · Summer 2027"}
+                <span style={{ color: gold, fontSize: "0.62rem", fontFamily: I, textTransform: "uppercase", letterSpacing: "0.2em", fontWeight: 600 }}>
+                  {heroSlides[heroSlide].badge}
                 </span>
               </div>
 
+              {/* Per-slide heading */}
               <h1 style={{
-                fontFamily: G, fontSize: "clamp(2rem, 3.4vw, 3.2rem)",
-                fontWeight: 500, color: "#fff", lineHeight: 1.1, marginBottom: 20,
-                opacity: heroReady ? 1 : 0,
-                transform: heroReady ? "none" : "translateY(24px)",
-                transition: "opacity 0.85s cubic-bezier(.22,.68,0,1.1) 0.15s, transform 0.85s cubic-bezier(.22,.68,0,1.1) 0.15s",
+                fontFamily: G, fontSize: "clamp(1.9rem, 3.2vw, 3rem)",
+                fontWeight: 500, color: "#fff", lineHeight: 1.1, marginBottom: 18,
+                transition: "opacity 0.5s ease",
               }}>
-                {settings?.heroHeadingLine1 ?? "Green Room Music"}<br />
-                {settings?.heroHeadingLine2 ?? "Summer Camp"}
+                {heroSlides[heroSlide].heading1}<br />
+                {heroSlides[heroSlide].heading2}
               </h1>
 
+              {/* Per-slide subtext */}
               <p style={{
-                color: "rgba(255,255,255,0.65)", fontSize: "clamp(0.85rem, 1.1vw, 0.95rem)",
-                lineHeight: 1.8, marginBottom: 20,
-                opacity: heroReady ? 1 : 0, transition: "opacity 0.8s ease 0.3s",
+                color: "rgba(255,255,255,0.65)", fontSize: "clamp(0.82rem, 1vw, 0.92rem)",
+                lineHeight: 1.8, marginBottom: 18,
+                transition: "opacity 0.5s ease",
               }}>
-                {settings?.heroSubtext ?? "A residential summer camp for young musicians aged 10–17."}
+                {heroSlides[heroSlide].subtext}
               </p>
 
-              <div style={{
-                height: 2, background: gold, marginBottom: 20,
-                width: heroReady ? 48 : 0,
-                transition: "width 0.7s cubic-bezier(.22,.68,0,1) 0.45s",
-              }} />
+              <div style={{ height: 2, background: gold, width: 48, marginBottom: 18 }} />
 
-              <div style={{
-                display: "flex", alignItems: "center", gap: 8, marginBottom: 32,
-                opacity: heroReady ? 1 : 0, transition: "opacity 0.8s ease 0.5s",
-              }}>
-                <span style={{ color: gold, fontSize: "0.82rem", fontFamily: I, fontWeight: 600 }}>
-                  {settings?.heroLocation ?? "Stamford School"}
+              <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 28 }}>
+                <span style={{ color: gold, fontSize: "0.8rem", fontFamily: I, fontWeight: 600 }}>
+                  {heroSlides[heroSlide].location}
                 </span>
                 <span style={{ color: "rgba(255,255,255,0.3)" }}>·</span>
-                <span style={{ color: "rgba(255,255,255,0.55)", fontSize: "0.82rem", fontFamily: I }}>
-                  {settings?.heroDate ?? "19–23 July 2027"}
+                <span style={{ color: "rgba(255,255,255,0.55)", fontSize: "0.8rem", fontFamily: I }}>
+                  {heroSlides[heroSlide].date}
                 </span>
               </div>
 
-              <div style={{
-                display: "flex", gap: 12, flexWrap: "wrap",
-                opacity: heroReady ? 1 : 0,
-                transform: heroReady ? "none" : "translateY(12px)",
-                transition: "opacity 0.7s ease 0.62s, transform 0.7s ease 0.62s",
-              }}>
-                <Link href={settings?.heroCta1Href ?? "/courses"} className="btn-gold">
-                  {settings?.heroCta1Label ?? "Explore the Courses →"}
+              <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+                <Link href={heroSlides[heroSlide].cta1Href} className="btn-gold">
+                  {heroSlides[heroSlide].cta1Label}
                 </Link>
-                <Link href={settings?.heroCta2Href ?? "/apply"} className="btn-outline-white">
-                  {settings?.heroCta2Label ?? "Apply Now"}
+                <Link href={heroSlides[heroSlide].cta2Href} className="btn-outline-white">
+                  {heroSlides[heroSlide].cta2Label}
                 </Link>
               </div>
             </div>
           </div>
 
-          {/* RIGHT COLUMN — photo only, no overlay */}
-          <div style={{ flex: 1, position: "relative", overflow: "hidden" }}>
-            {heroImages.map((src, i) => (
+          {/* RIGHT COLUMN — photo, no overlay */}
+          <div className="hero-right" style={{ flex: 1, position: "relative", overflow: "hidden" }}>
+            {heroSlides.map((s, i) => (
               <img
-                key={src}
-                src={src}
+                key={s.image}
+                src={s.image}
                 alt="GRMSC students"
                 style={{
                   position: "absolute", inset: 0,
@@ -306,9 +335,9 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
             ))}
           </div>
 
-          {/* Slide indicator dots — bottom centre */}
-          <div style={{ position: "absolute", bottom: 24, left: "22%", display: "flex", gap: 8, zIndex: 4 }}>
-            {heroImages.map((_, i) => (
+          {/* Slide dots */}
+          <div className="hero-dots" style={{ position: "absolute", bottom: 20, left: "22%", display: "flex", gap: 8, zIndex: 4 }}>
+            {heroSlides.map((_, i) => (
               <button
                 key={i}
                 onClick={() => setHeroSlide(i)}
@@ -516,6 +545,9 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
                   <p style={{ color: "#5a7a6a", fontSize: "0.85rem", lineHeight: 1.72 }}>{t.bio}</p>
                 </div>
               ))}
+            </div>
+            <div style={{ textAlign: "center", marginTop: 48, opacity: tutorsSec.visible ? 1 : 0, transition: "opacity 0.7s ease 0.3s" }}>
+              <Link href="/faculty" className="btn-outline-green">Meet the Full Faculty →</Link>
             </div>
           </div>
         </section>

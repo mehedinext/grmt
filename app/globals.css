@@ -92,6 +92,24 @@ body {
   border-color: rgba(255,255,255,0.8);
 }
 
+.btn-outline-green {
+  border: 2px solid #082F27;
+  color: #082F27;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  padding: 0.75rem 2rem;
+  transition: background 0.2s, color 0.2s;
+  display: inline-block;
+  font-family: var(--font-inter), sans-serif;
+  text-decoration: none;
+}
+.btn-outline-green:hover {
+  background: #082F27;
+  color: #fff;
+}
+
 /* Card hover */
 .card-hover {
   transition: transform 0.25s ease, box-shadow 0.25s ease;
@@ -216,5 +234,37 @@ body {
   }
   .nav-mobile-btn {
     display: none !important;
+  }
+}
+
+/* ── Hero 2-column mobile ── */
+/* On mobile: stack vertically — photo on top (40vh), solid green text below */
+.hero-section {
+  flex-direction: row;
+}
+@media (max-width: 767px) {
+  .hero-section {
+    flex-direction: column !important;
+    min-height: auto !important;
+  }
+  .hero-left {
+    width: 100% !important;
+    min-height: auto !important;
+    padding: 40px 20px 48px !important;
+  }
+  .hero-left .hero-blend {
+    display: none !important;
+  }
+  .hero-right {
+    width: 100% !important;
+    height: 52vw !important;
+    min-height: 220px !important;
+    max-height: 320px !important;
+    order: -1 !important;
+  }
+  .hero-dots {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    bottom: 8px !important;
   }
 }
