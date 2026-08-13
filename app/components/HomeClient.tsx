@@ -170,7 +170,7 @@ const heroSlides = [
     cta2Label: "Apply Now", cta2Href: "/apply",
   },
   {
-    image: "/gallery/039-GreenRoomMusicTheorySummer2025.jpg",
+    image: "/gallery/073-GreenRoomMusicTheorySummer2025.jpg",
     badge: "Grade 4–8 · Piano",
     heading1: "Piano",
     heading2: "Summer Course",
