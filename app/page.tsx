@@ -19,7 +19,7 @@ export default async function HomePage() {
       courses={courses.length     ? courses  : staticCourses}
       tutors={tutors.length       ? tutors   : staticTutors}
       faqs={faqs.length           ? faqs     : staticFaqs}
-      partnerLogos={partners.length ? partners.map((p: any) => p.logo).filter(Boolean) : staticPartners}
+      partnerLogos={staticPartners}
     />
   );
 }

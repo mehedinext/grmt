@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-import type { Tutor, Course, Faq } from "../lib/data";
+import type { Tutor, Course, Faq, PartnerLogo } from "../lib/data";
 import { urlFor } from "../lib/image";
 
 const G = "var(--font-garamond)";
@@ -73,7 +73,7 @@ type Settings = {
 type Props = {
   tutors: Tutor[];
   faqs: Faq[];
-  partnerLogos: string[];
+  partnerLogos: PartnerLogo[];
   courses: Course[];
   settings?: Settings;
 };
@@ -262,7 +262,7 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
           }} />
 
           {/* Steinway badge — desktop: in content flow; mobile: top-left corner absolute */}
-          <img className="hero-steinway-mobile" src="/partners/steinway-badge.png" alt="Steinway & Sons Educational Partner"
+          <img className="hero-steinway-mobile" src="/partners/steinway-badge-color.png" alt="Steinway & Sons Educational Partner"
             style={{ position: "absolute", top: 20, left: "clamp(16px, 3vw, 40px)", height: 68, width: "auto", opacity: 0.88, zIndex: 3, display: "none" }}
           />
 
@@ -272,7 +272,7 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
 
               {/* Steinway badge — desktop only (hidden on mobile) */}
               <div className="hero-steinway-desktop" style={{ marginBottom: 16 }}>
-                <img src="/partners/steinway-badge.png" alt="Steinway & Sons Educational Partner" style={{ height: 100, width: "auto", opacity: 0.92 }} />
+                <img src="/partners/steinway-badge-color.png" alt="Steinway & Sons Educational Partner" style={{ height: 100, width: "auto", opacity: 0.92 }} />
               </div>
 
               {/* Per-slide eyebrow badge */}
@@ -668,25 +668,26 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
             <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: 120, background: "linear-gradient(to right, #fff, transparent)", zIndex: 2, pointerEvents: "none" }} />
             <div style={{ position: "absolute", right: 0, top: 0, bottom: 0, width: 120, background: "linear-gradient(to left, #fff, transparent)", zIndex: 2, pointerEvents: "none" }} />
             <div className="marquee-track">
-              {[...partnerLogos, ...partnerLogos, ...partnerLogos, ...partnerLogos].map((src, i) => {
-                const isSteinway = src.includes("steinway");
+              {[...partnerLogos, ...partnerLogos, ...partnerLogos, ...partnerLogos].map((p, i) => {
+                const isSteinway = p.src.includes("steinway");
                 return (
-                  <div key={i} style={{
+                  <a key={i} href={p.href} target="_blank" rel="noopener noreferrer" style={{
                     flexShrink: 0, margin: "0 48px",
                     width: isSteinway ? 90 : 120,
                     height: isSteinway ? 90 : 56,
                     display: "flex", alignItems: "center", justifyContent: "center",
-                    opacity: 0.8, transition: "opacity 0.2s",
+                    opacity: 0.75, transition: "opacity 0.2s",
+                    textDecoration: "none",
                   }}
                     onMouseEnter={e => (e.currentTarget.style.opacity = "1")}
-                    onMouseLeave={e => (e.currentTarget.style.opacity = "0.8")}
+                    onMouseLeave={e => (e.currentTarget.style.opacity = "0.75")}
                   >
-                    <img src={src} alt="Partner" style={{
+                    <img src={p.src} alt={p.alt} style={{
                       maxWidth: "100%", maxHeight: "100%",
                       width: "auto", height: "auto",
                       objectFit: "contain", display: "block",
                     }} />
-                  </div>
+                  </a>
                 );
               })}
             </div>

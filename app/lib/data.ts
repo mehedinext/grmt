@@ -364,12 +364,13 @@ export const resFeatures: ResFeature[] = [
 ];
 
 // ─── PARTNER LOGOS ────────────────────────────────────────────────────────────
-// Sanity: groq`*[_type == "partner"] | order(order asc){ image }`
-export const partnerLogos: string[] = [
-  "/partners/steinway-gold.png",
-  "/partners/abrsm.png",
-  "/partners/stanford.png",
-  "/partners/harvard.png",
-  "/partners/epta.png",
-  "/partners/ppa.png",
+// Sanity: groq`*[_type == "partner"] | order(order asc){ image, url }`
+export type PartnerLogo = { src: string; href: string; alt: string };
+export const partnerLogos: PartnerLogo[] = [
+  { src: "/partners/steinway-gold.png", href: "https://www.steinwaylosangeles.com/", alt: "Steinway & Sons" },
+  { src: "/partners/abrsm.png",         href: "https://www.abrsm.org/en-gb",         alt: "ABRSM" },
+  { src: "/partners/stanford.png",      href: "https://www.stanford.edu/",            alt: "Stanford University" },
+  { src: "/partners/harvard.png",       href: "https://www.gse.harvard.edu/",         alt: "Harvard Graduate School of Education" },
+  { src: "/partners/epta.png",          href: "https://epta-uk.org",                  alt: "EPTA UK" },
+  { src: "/partners/ppa.png",           href: "https://www.pasadenapianoacademy.com/", alt: "Pasadena Piano Academy" },
 ];
