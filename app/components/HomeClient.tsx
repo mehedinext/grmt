@@ -181,7 +181,7 @@ const heroSlides = [
     cta2Label: "Apply Now", cta2Href: "/apply",
   },
   {
-    image: "/gallery/038-GreenRoomMusicTheorySummer2025.jpg",
+    image: "/gallery/030-GreenRoomMusicTheorySummer2025.jpg",
     badge: "All Levels Welcome · Singing",
     heading1: "Singing",
     heading2: "Performance Course",
