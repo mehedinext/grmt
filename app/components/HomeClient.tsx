@@ -206,10 +206,10 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
             <div style={{ position: "absolute", inset: 0, zIndex: 1, pointerEvents: "none", background: "linear-gradient(to right, rgba(8,47,39,0.65) 0%, rgba(8,47,39,0.5) 25%, rgba(8,47,39,0.18) 52%, rgba(8,47,39,0) 70%)" }} />
             {/* Content — same maxWidth/padding as navbar so text aligns with logo */}
             <div style={{ position: "relative", zIndex: 2, width: "100%", minHeight: "calc(100svh - 68px)", display: "flex", flexDirection: "column" }}>
-              <div style={{ width: "100%", padding: "0 clamp(24px,4vw,56px)", flex: 1, display: "flex", flexDirection: "column" }}>
+              <div style={{ width: "100%", padding: "0 clamp(40px,5vw,72px)", flex: 1, display: "flex", flexDirection: "column" }}>
                 {/* Steinway badge — same left edge as navbar logo */}
                 <div style={{ paddingTop: 24, paddingBottom: 16 }}>
-                  <img src="/partners/steinway-badge-color.png" alt="Steinway Educational Partner" style={{ height: 76, width: "auto", opacity: 0.9 }} />
+                  <img src="/partners/steinway-badge-color.png" alt="Steinway Educational Partner" style={{ height: 100, width: "auto", opacity: 0.9 }} />
                 </div>
                 {/* Hero text — vertically centred */}
                 <div style={{ flex: 1, display: "flex", alignItems: "center", paddingBottom: "clamp(48px,6vw,72px)" }}>
@@ -234,7 +234,7 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
             position: heroSlide === 1 ? "relative" : "absolute", inset: heroSlide === 1 ? "auto" : 0,
             zIndex: heroSlide === 1 ? 1 : 0, pointerEvents: heroSlide === 1 ? "auto" : "none",
           }}>
-            <div className="hero-left-panel" style={{ flex: "0 0 44%", display: "flex", flexDirection: "column", justifyContent: "center", padding: "clamp(40px,6vw,80px) clamp(24px,4vw,56px) clamp(40px,6vw,80px) clamp(24px,4vw,56px)", position: "relative", zIndex: 2, background: "#0D1B2A" }}>
+            <div className="hero-left-panel" style={{ flex: "0 0 44%", display: "flex", flexDirection: "column", justifyContent: "center", padding: "clamp(40px,6vw,80px) clamp(40px,5vw,72px) clamp(40px,6vw,80px) clamp(40px,5vw,72px)", position: "relative", zIndex: 2, background: "#0D1B2A" }}>
               {/* Top branding */}
               <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 36 }}>
                 <svg width="18" height="22" viewBox="0 0 18 22" fill="none"><path d="M6 18V4.5L16 2v14" stroke={gold} strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/><circle cx="3.5" cy="18" r="2.5" stroke={gold} strokeWidth="1.4"/><circle cx="13.5" cy="16" r="2.5" stroke={gold} strokeWidth="1.4"/></svg>
@@ -285,7 +285,7 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
             {/* Solid left → transparent gradient */}
             <div style={{ position: "absolute", inset: 0, zIndex: 1, pointerEvents: "none", background: `linear-gradient(to right, ${green} 0%, ${green} 25%, rgba(8,47,39,0.88) 40%, rgba(8,47,39,0.5) 58%, rgba(8,47,39,0.12) 74%, rgba(8,47,39,0) 84%)` }} />
             {/* Content */}
-            <div style={{ position: "relative", zIndex: 2, width: "100%", padding: "clamp(100px,12vw,140px) clamp(24px,4vw,56px) clamp(60px,8vw,80px)" }}>
+            <div style={{ position: "relative", zIndex: 2, width: "100%", padding: "clamp(100px,12vw,140px) clamp(40px,5vw,72px) clamp(60px,8vw,80px)" }}>
               <div style={{ maxWidth: 580 }}>
                 <div style={{ display: "inline-flex", border: `1px solid rgba(200,154,59,0.6)`, borderRadius: 3, padding: "5px 14px", marginBottom: 24, background: "rgba(200,154,59,0.08)" }}>
                   <span style={{ color: gold, fontSize: "0.6rem", fontFamily: I, textTransform: "uppercase", letterSpacing: "0.22em", fontWeight: 600 }}>More Than a Summer Camp</span>
