@@ -79,11 +79,11 @@ export const tutors: Tutor[] = [
   {
     _id: "tutor-vivian",
     name: "Vivian Shiao",
-    role: "Co-Artistic Director",
+    role: "Honorary Guest Lecturer",
     bio: "Pianist and teacher dedicated to inspiring young musicians through imaginative teaching and collaborative music-making. Vivian leads our theory and ensemble programmes.",
     bioFull: [
       "Vivian Shiao is a pianist and teacher dedicated to inspiring young musicians through imaginative, thoughtful teaching and collaborative music-making.",
-      "As Co-Artistic Director, Vivian leads the Music Theory and ensemble programmes at GRMSC — bringing intellectual depth and creative energy to everything she does.",
+      "As Honorary Guest Lecturer, Vivian leads the Music Theory and ensemble programmes at GRMSC — bringing intellectual depth and creative energy to everything she does.",
     ],
     teaches: "Music Theory · Ensemble · Ear Training",
     image: "https://greenroomtheory.com/wp-content/uploads/2023/09/img_068.webp",

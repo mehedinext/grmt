@@ -145,52 +145,9 @@ const defaultDateItems = [
   { label: "Final Concert", val: "23 July 2027", sub: "Showcase for family & friends" },
 ];
 
-// Each slide: unique photo + unique content
 const heroSlides = [
-  {
-    image: "/gallery/106-GreenRoomMusicTheorySummer2025.jpg",
-    badge: "Residential · Summer 2027",
-    heading1: "Green Room Music",
-    heading2: "Summer Camp",
-    subtext: "A residential summer camp for young musicians aged 10–17. Three courses, one unforgettable week.",
-    location: "Stamford School",
-    date: "19–23 July 2027",
-    cta1Label: "Explore the Courses →", cta1Href: "/courses",
-    cta2Label: "Apply Now", cta2Href: "/apply",
-  },
-  {
-    image: "/gallery/012-GreenRoomMusicTheorySummer2025.jpg",
-    badge: "ABRSM Grade 5 · 100% Pass Rate",
-    heading1: "Grade 5 Music Theory",
-    heading2: "Crash Course",
-    subtext: "Intensive preparation covering Grade 5 and beyond. Also ideal for students working at Grades 1–3.",
-    location: "Music Theory",
-    date: "Summer 2027",
-    cta1Label: "Learn More →", cta1Href: "/courses/music-theory",
-    cta2Label: "Apply Now", cta2Href: "/apply",
-  },
-  {
-    image: "/gallery/066-GreenRoomMusicTheorySummer2025.jpg",
-    badge: "Grade 4–8 · Piano",
-    heading1: "Piano",
-    heading2: "Summer Course",
-    subtext: "Daily lessons, group masterclasses and an evening recital. Expert tuition from conservatoire-trained pianists.",
-    location: "Piano",
-    date: "19–23 July 2027",
-    cta1Label: "Learn More →", cta1Href: "/courses/piano",
-    cta2Label: "Apply Now", cta2Href: "/apply",
-  },
-  {
-    image: "/gallery/406-Green_Room_Music_Concert_Summer_2025.jpg",
-    badge: "All Levels Welcome · Singing",
-    heading1: "Singing",
-    heading2: "Performance Course",
-    subtext: "Vocal technique, performance coaching, sight-singing and stagecraft. Final showcase for family and friends.",
-    location: "Singing Performance",
-    date: "19–23 July 2027",
-    cta1Label: "Learn More →", cta1Href: "/courses/singing-performance",
-    cta2Label: "Apply Now", cta2Href: "/apply",
-  },
+  { type: "main" as const },
+  { type: "awards" as const },
 ];
 
 export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCourses, settings }: Props) {
@@ -209,7 +166,7 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
   useEffect(() => {
     const interval = setInterval(() => {
       setHeroSlide(prev => (prev + 1) % heroSlides.length);
-    }, 5000);
+    }, 6000);
     return () => clearInterval(interval);
   }, []);
 
@@ -231,119 +188,155 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
       <Navbar settings={settings} />
       <main style={{ paddingTop: 68 }}>
 
-        {/* ─── HERO ─── Full-bleed photo + gradient overlay */}
-        <section className="hero-section-main" style={{
-          position: "relative", minHeight: "calc(100svh - 68px)",
-          overflow: "hidden", display: "flex", alignItems: "center",
-          background: green,
-        }}>
-          {/* Full-bleed photos — each slide has its own */}
-          {heroSlides.map((s, i) => (
-            <img
-              key={s.image} src={s.image} alt="GRMSC"
-              style={{
-                position: "absolute", inset: 0, width: "100%", height: "100%",
-                objectFit: "contain", objectPosition: "center right",
-                opacity: heroSlide === i ? 1 : 0, transition: "opacity 1.2s ease", zIndex: 0,
-              }}
-            />
-          ))}
+        {/* ─── HERO WRAPPER ─── */}
+        <div style={{ position: "relative" }}>
 
-          {/* Desktop: semi-transparent left gradient — photo visible throughout */}
-          <div className="hero-gradient-desktop" style={{
-            position: "absolute", inset: 0, zIndex: 1,
-            background: `linear-gradient(to right, rgba(8,47,39,0.90) 0%, rgba(8,47,39,0.78) 22%, rgba(8,47,39,0.45) 38%, rgba(8,47,39,0.12) 52%, rgba(8,47,39,0) 62%)`,
-          }} />
-
-          {/* Mobile: bottom-rise gradient (magazine cover style) */}
-          <div className="hero-gradient-mobile" style={{
-            position: "absolute", inset: 0, zIndex: 1,
-            background: `linear-gradient(to top, rgba(8,47,39,0.95) 0%, rgba(8,47,39,0.88) 28%, rgba(8,47,39,0.55) 50%, rgba(8,47,39,0.15) 70%, rgba(8,47,39,0) 85%)`,
-            display: "none",
-          }} />
-
-          {/* Steinway badge — desktop: in content flow; mobile: top-left corner absolute */}
-          <img className="hero-steinway-mobile" src="/partners/steinway-badge-color.png" alt="Steinway & Sons Educational Partner"
-            style={{ position: "absolute", top: 20, left: "clamp(16px, 3vw, 40px)", height: 68, width: "auto", opacity: 0.88, zIndex: 3, display: "none" }}
-          />
-
-          {/* Text — same maxWidth/padding as navbar for perfect alignment */}
-          <div className="hero-content-outer" style={{ position: "relative", zIndex: 2, width: "100%", maxWidth: 1200, margin: "0 auto", padding: "80px clamp(16px, 3vw, 40px)" }}>
-            <div style={{ maxWidth: 460 }}>
-
-              {/* Steinway badge — desktop only (hidden on mobile) */}
-              <div className="hero-steinway-desktop" style={{ marginBottom: 16 }}>
-                <img src="/partners/steinway-badge-color.png" alt="Steinway & Sons Educational Partner" style={{ height: 100, width: "auto", opacity: 0.92 }} />
+          {/* ── SLIDE 1: Main camp hero — 2-column solid panel + photo with gradient seam ── */}
+          <section className="hero-new-section" style={{
+            display: "flex", minHeight: "calc(100svh - 68px)", overflow: "hidden",
+            background: green,
+            opacity: heroSlide === 0 ? 1 : 0, transition: "opacity 0.8s ease",
+            position: heroSlide === 0 ? "relative" : "absolute", inset: heroSlide === 0 ? "auto" : 0,
+            zIndex: heroSlide === 0 ? 1 : 0, pointerEvents: heroSlide === 0 ? "auto" : "none",
+          }}>
+            {/* LEFT: solid green text panel */}
+            <div className="hero-left-panel" style={{
+              flex: "0 0 44%", display: "flex", flexDirection: "column", justifyContent: "center",
+              padding: "clamp(40px,6vw,80px) clamp(24px,4vw,56px) clamp(40px,6vw,80px) clamp(24px,5vw,72px)",
+              position: "relative", zIndex: 2, background: green,
+            }}>
+              {/* Branding */}
+              <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 32 }}>
+                <svg width="18" height="22" viewBox="0 0 18 22" fill="none">
+                  <path d="M6 18V4.5L16 2v14" stroke={gold} strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
+                  <circle cx="3.5" cy="18" r="2.5" stroke={gold} strokeWidth="1.4"/>
+                  <circle cx="13.5" cy="16" r="2.5" stroke={gold} strokeWidth="1.4"/>
+                </svg>
+                <span style={{ color: gold, fontFamily: I, fontSize: "0.76rem", letterSpacing: "0.06em" }}>Green Room Music Summer Camp</span>
               </div>
-
-              {/* Per-slide eyebrow badge */}
-              <div style={{
-                display: "inline-flex", alignItems: "center", gap: 8,
-                border: "1px solid rgba(200,154,59,0.5)", borderRadius: 3,
-                padding: "6px 13px", marginBottom: 22,
-                background: "rgba(200,154,59,0.1)",
-              }}>
-                <span style={{ color: gold, fontSize: "0.62rem", fontFamily: I, textTransform: "uppercase", letterSpacing: "0.2em", fontWeight: 600 }}>
-                  {heroSlides[heroSlide].badge}
-                </span>
+              {/* Eyebrow badge */}
+              <div style={{ display: "inline-flex", alignItems: "center", border: `1px solid rgba(200,154,59,0.5)`, borderRadius: 3, padding: "5px 12px", marginBottom: 20, background: "rgba(200,154,59,0.08)", width: "fit-content" }}>
+                <span style={{ color: gold, fontSize: "0.6rem", fontFamily: I, textTransform: "uppercase", letterSpacing: "0.2em", fontWeight: 600 }}>Residential · Summer 2027</span>
               </div>
-
-              {/* Per-slide heading */}
-              <h1 style={{
-                fontFamily: G, fontSize: "clamp(2rem, 3.4vw, 3.2rem)",
-                fontWeight: 500, color: "#fff", lineHeight: 1.08, marginBottom: 18,
-              }}>
-                {heroSlides[heroSlide].heading1}<br />
-                {heroSlides[heroSlide].heading2}
+              {/* Heading */}
+              <h1 style={{ fontFamily: G, fontSize: "clamp(2.4rem,3.8vw,4rem)", fontWeight: 500, color: "#fff", lineHeight: 1.06, marginBottom: 20 }}>
+                Green Room Music<br />Summer Camp
               </h1>
-
-              {/* Per-slide subtext */}
-              <p style={{
-                color: "rgba(255,255,255,0.65)", fontSize: "clamp(0.84rem, 1.1vw, 0.93rem)",
-                lineHeight: 1.78, marginBottom: 18,
-              }}>
-                {heroSlides[heroSlide].subtext}
+              {/* Gold divider */}
+              <div style={{ width: 48, height: 2, background: gold, marginBottom: 18 }} />
+              {/* Subtext */}
+              <p style={{ color: "rgba(255,255,255,0.62)", fontFamily: I, fontSize: "clamp(0.86rem,1.1vw,0.98rem)", lineHeight: 1.72, marginBottom: 24, maxWidth: 380 }}>
+                A residential summer camp for young musicians aged 10–17. Three courses, one unforgettable week.
               </p>
-
-              <div style={{ height: 2, background: gold, width: 48, marginBottom: 18 }} />
-
-              <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 28 }}>
-                <span style={{ color: gold, fontSize: "0.82rem", fontFamily: I, fontWeight: 600 }}>
-                  {heroSlides[heroSlide].location}
-                </span>
+              {/* Location / date */}
+              <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 32 }}>
+                <span style={{ color: gold, fontSize: "0.82rem", fontFamily: I, fontWeight: 600 }}>Stamford School</span>
                 <span style={{ color: "rgba(255,255,255,0.3)" }}>·</span>
-                <span style={{ color: "rgba(255,255,255,0.55)", fontSize: "0.82rem", fontFamily: I }}>
-                  {heroSlides[heroSlide].date}
-                </span>
+                <span style={{ color: "rgba(255,255,255,0.52)", fontSize: "0.82rem", fontFamily: I }}>19–23 July 2027</span>
               </div>
-
+              {/* CTA buttons */}
               <div className="hero-cta-btns" style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-                <Link href={heroSlides[heroSlide].cta1Href} className="btn-gold hero-btn">
-                  {heroSlides[heroSlide].cta1Label}
-                </Link>
-                <Link href={heroSlides[heroSlide].cta2Href} className="btn-outline-white hero-btn">
-                  {heroSlides[heroSlide].cta2Label}
-                </Link>
+                <Link href="/courses" className="hero-btn btn-gold">Explore the Courses →</Link>
+                <Link href="/apply" className="hero-btn btn-outline-white">Apply Now</Link>
               </div>
-
             </div>
-          </div>
 
-          {/* Slide dots — bottom centre */}
-          <div style={{ position: "absolute", bottom: 24, left: "50%", transform: "translateX(-50%)", display: "flex", gap: 8, zIndex: 3 }}>
-            {heroSlides.map((_, i) => (
-              <button
-                key={i} onClick={() => setHeroSlide(i)}
-                style={{
-                  width: heroSlide === i ? 24 : 8, height: 8, borderRadius: 4,
-                  background: heroSlide === i ? gold : "rgba(255,255,255,0.35)",
-                  border: "none", cursor: "pointer",
-                  transition: "all 0.3s ease", padding: 0,
-                }}
+            {/* RIGHT: photo with gradient seam */}
+            <div className="hero-right-panel" style={{ flex: 1, position: "relative", overflow: "hidden" }}>
+              {/* Gradient seam — solid green → transparent, creates smooth blend with left panel */}
+              <div style={{
+                position: "absolute", left: 0, top: 0, bottom: 0, width: "40%", zIndex: 1, pointerEvents: "none",
+                background: `linear-gradient(to right, ${green} 0%, rgba(8,47,39,0.85) 35%, rgba(8,47,39,0.4) 65%, rgba(8,47,39,0) 100%)`,
+              }} />
+              <img src="/gallery/034-GreenRoomMusicTheorySummer2025.jpg" alt="GRMSC students"
+                style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", display: "block" }}
               />
+            </div>
+
+            {/* Steinway badge — top of left panel */}
+            <div style={{ position: "absolute", top: 28, left: "clamp(24px,5vw,72px)", zIndex: 5 }}>
+              <img src="/partners/steinway-badge-color.png" alt="Steinway Educational Partner" style={{ height: 80, width: "auto", opacity: 0.88 }} />
+            </div>
+          </section>
+
+          {/* ── SLIDE 2: Awards / qualifications ── */}
+          <section style={{
+            position: heroSlide === 1 ? "relative" : "absolute", inset: heroSlide === 1 ? "auto" : 0,
+            opacity: heroSlide === 1 ? 1 : 0, transition: "opacity 0.8s ease",
+            zIndex: heroSlide === 1 ? 1 : 0, pointerEvents: heroSlide === 1 ? "auto" : "none",
+            minHeight: "calc(100svh - 68px)", overflow: "hidden", display: "flex", alignItems: "center",
+            background: green,
+          }}>
+            {/* Background photo */}
+            <img src="/gallery/106-GreenRoomMusicTheorySummer2025.jpg" alt="GRMSC students"
+              style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", zIndex: 0 }}
+            />
+            {/* Left gradient overlay — solid → transparent */}
+            <div style={{
+              position: "absolute", inset: 0, zIndex: 1, pointerEvents: "none",
+              background: `linear-gradient(to right, ${green} 0%, ${green} 28%, rgba(8,47,39,0.88) 42%, rgba(8,47,39,0.45) 58%, rgba(8,47,39,0.1) 72%, rgba(8,47,39,0) 82%)`,
+            }} />
+            {/* Content */}
+            <div style={{ position: "relative", zIndex: 2, maxWidth: 1200, width: "100%", margin: "0 auto", padding: "clamp(40px,6vw,80px) clamp(24px,5vw,72px)" }}>
+              <div style={{ maxWidth: 560 }}>
+                {/* Eyebrow */}
+                <div style={{ display: "inline-flex", alignItems: "center", border: `1px solid rgba(200,154,59,0.5)`, borderRadius: 3, padding: "5px 12px", marginBottom: 22, background: "rgba(200,154,59,0.08)" }}>
+                  <span style={{ color: gold, fontSize: "0.6rem", fontFamily: I, textTransform: "uppercase", letterSpacing: "0.2em", fontWeight: 600 }}>More Than a Summer Camp</span>
+                </div>
+                {/* Heading */}
+                <h2 style={{ fontFamily: G, fontSize: "clamp(2.4rem,4vw,4rem)", fontWeight: 500, color: "#fff", lineHeight: 1.06, marginBottom: 18 }}>
+                  Make your week count.
+                </h2>
+                {/* Subtext */}
+                <p style={{ color: "rgba(255,255,255,0.65)", fontFamily: I, fontSize: "clamp(0.88rem,1.1vw,1rem)", lineHeight: 1.7, marginBottom: 28, maxWidth: 460 }}>
+                  Your time at GRMSC can support progress towards recognised awards and qualifications in the UK and US.
+                </p>
+                {/* Award cards */}
+                <div style={{ display: "flex", gap: 10, marginBottom: 32, flexWrap: "wrap" }}>
+                  {[
+                    { logo: "/partners/dofe.png", name: "Duke of Edinburgh's Award", sub: "Gold Residential + Skills", tag: "UK Students", invert: true },
+                    { logo: "/partners/arts-award.png", name: "Arts Award", sub: "Creative portfolio evidence", tag: "UK Students", invert: false },
+                    { logo: "/partners/congressional-award.jpeg", name: "The Congressional Award", sub: "Personal Development", tag: "US Students", invert: false },
+                  ].map((a) => (
+                    <div key={a.name} style={{ flex: "1 1 150px", background: "rgba(0,0,0,0.38)", border: "1px solid rgba(255,255,255,0.13)", borderRadius: 6, padding: "14px 14px 10px", backdropFilter: "blur(4px)" }}>
+                      <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10 }}>
+                        <img src={a.logo} alt={a.name} style={{ height: 36, width: 36, objectFit: "contain", filter: a.invert ? "brightness(0) invert(1)" : "none" }} />
+                        <div>
+                          <div style={{ color: "#fff", fontFamily: I, fontSize: "0.78rem", fontWeight: 700, lineHeight: 1.3 }}>{a.name}</div>
+                          <div style={{ color: "rgba(255,255,255,0.5)", fontFamily: I, fontSize: "0.68rem", marginTop: 2 }}>{a.sub}</div>
+                        </div>
+                      </div>
+                      <div style={{ borderTop: "1px solid rgba(255,255,255,0.1)", paddingTop: 8 }}>
+                        <span style={{ color: gold, fontFamily: I, fontSize: "0.58rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase" }}>{a.tag}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                {/* Buttons */}
+                <div className="hero-cta-btns" style={{ display: "flex", gap: 12, flexWrap: "wrap", marginBottom: 20 }}>
+                  <Link href="/courses" className="hero-btn btn-gold">Explore Awards &amp; Qualifications →</Link>
+                  <Link href="/apply" className="hero-btn btn-outline-white">Apply Now</Link>
+                </div>
+                {/* Disclaimer */}
+                <p style={{ color: "rgba(255,255,255,0.35)", fontFamily: I, fontSize: "0.68rem", lineHeight: 1.55, maxWidth: 480 }}>
+                  Participation at GRMSC does not automatically guarantee award completion. Eligibility should be confirmed with the relevant award provider.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          {/* ── Shared slide dots ── */}
+          <div style={{ position: "absolute", bottom: 24, left: "50%", transform: "translateX(-50%)", display: "flex", gap: 8, zIndex: 20 }}>
+            {heroSlides.map((_, i) => (
+              <button key={i} onClick={() => setHeroSlide(i)} style={{
+                width: heroSlide === i ? 24 : 8, height: 8, borderRadius: 4,
+                background: heroSlide === i ? gold : "rgba(255,255,255,0.35)",
+                border: "none", cursor: "pointer", transition: "all 0.3s ease", padding: 0,
+              }} />
             ))}
           </div>
-        </section>
+
+        </div>
 
         {/* ─── STATS STRIP ─── */}
         <div style={{ background: green, borderTop: "1px solid rgba(255,255,255,0.08)" }}>
