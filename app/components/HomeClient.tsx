@@ -202,8 +202,8 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
             {/* Full-bleed photo */}
             <img src="/gallery/106-GreenRoomMusicTheorySummer2025.jpg" alt="GRMSC students"
               style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", zIndex: 0 }} />
-            {/* Left gradient: solid green → transparent */}
-            <div style={{ position: "absolute", inset: 0, zIndex: 1, pointerEvents: "none", background: `linear-gradient(to right, ${green} 0%, ${green} 28%, rgba(8,47,39,0.82) 44%, rgba(8,47,39,0.45) 62%, rgba(8,47,39,0.1) 78%, rgba(8,47,39,0) 88%)` }} />
+            {/* Subtle left gradient — never solid, always shows photo */}
+            <div style={{ position: "absolute", inset: 0, zIndex: 1, pointerEvents: "none", background: "linear-gradient(to right, rgba(8,47,39,0.65) 0%, rgba(8,47,39,0.5) 25%, rgba(8,47,39,0.18) 52%, rgba(8,47,39,0) 70%)" }} />
             {/* Content — same maxWidth/padding as navbar so text aligns with logo */}
             <div style={{ position: "relative", zIndex: 2, width: "100%", minHeight: "calc(100svh - 68px)", display: "flex", flexDirection: "column" }}>
               <div style={{ maxWidth: 1200, margin: "0 auto", width: "100%", padding: "0 clamp(16px,3vw,40px)", flex: 1, display: "flex", flexDirection: "column" }}>
