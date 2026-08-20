@@ -214,10 +214,10 @@ export const courses: Course[] = [
     ],
   },
   {
-    _id: "course-singing-performance",
-    slug: { current: "singing-performance" },
+    _id: "course-vocal-performance",
+    slug: { current: "vocal-performance" },
     num: "03",
-    title: "Singing Performance",
+    title: "Vocal Performance",
     grade: "All levels welcome",
     tagline: "Find your voice and perform with confidence.",
     excerpt:
@@ -232,9 +232,9 @@ export const courses: Course[] = [
       { label: "Ages", value: "10–17" },
       { label: "Year", value: "2027" },
     ],
-    aboutHeading: "About the Singing Performance Course",
+    aboutHeading: "About the Vocal Performance Course",
     about: [
-      "Our Singing Performance course is a full vocal and performing arts experience. Students work across vocal technique, performance coaching, sight-singing and stagecraft — discovering and developing their unique voice in a supportive, creative environment.",
+      "Our Vocal Performance course is a full vocal and performing arts experience. Students work across vocal technique, performance coaching, sight-singing and stagecraft — discovering and developing their unique voice in a supportive, creative environment.",
       "The week builds toward a final showcase performance, giving students a real stage experience before an audience of families and fellow students. No prior performance experience required — only enthusiasm and a love of singing.",
     ],
     detailType: "schedule",
@@ -292,7 +292,7 @@ export const faqs: Faq[] = [
   {
     _id: "faq-5",
     question: "What level do students need to be?",
-    answer: "Piano and Music Theory courses are best suited to Grade 4–8+ students. Singing Performance is open to all levels — no prior stage experience required, just enthusiasm and a love of singing.",
+    answer: "Piano and Music Theory courses are best suited to Grade 4–8+ students. Vocal Performance is open to all levels — no prior stage experience required, just enthusiasm and a love of singing.",
   },
   {
     _id: "faq-6",

@@ -80,7 +80,7 @@ type Props = {
 
 const defaultStats = [
   { val: "19–23 July 2027", label: "Camp Dates" },
-  { val: "3 Courses", label: "Piano · Theory · Singing" },
+  { val: "3 Courses", label: "Piano · Theory · Vocal" },
   { val: "Ages 10–17", label: "Open to all abilities" },
   { val: "Stamford School", label: "Lincolnshire, England" },
   { val: "Full Residential", label: "Board & lodging included" },

@@ -12,7 +12,7 @@ type Settings = {
 
 export default function Footer({ settings }: { settings?: Settings }) {
   const tagline   = settings?.footerTagline      ?? "Green Room Music Summer Camp 2027";
-  const desc      = settings?.footerDescription  ?? "19–23 July 2027 · Stamford School\nPiano · Music Theory · Singing Performance\nAges 10–17";
+  const desc      = settings?.footerDescription  ?? "19–23 July 2027 · Stamford School\nPiano · Music Theory · Vocal Performance\nAges 10–17";
   const instagram = settings?.footerInstagram    ?? "https://www.instagram.com/greenroommusictheory/";
   const facebook  = settings?.footerFacebook     ?? "https://m.facebook.com/people/Green-Room-Music-Theory/100088313820996/?locale=en_GB";
   const email     = settings?.footerContactEmail ?? "info@greenroomtheory.com";
@@ -75,7 +75,7 @@ export default function Footer({ settings }: { settings?: Settings }) {
               {[
                 { href: "/courses/piano", label: "Piano" },
                 { href: "/courses/music-theory", label: "Music Theory" },
-                { href: "/courses/singing-performance", label: "Singing Performance" },
+                { href: "/courses/vocal-performance", label: "Vocal Performance" },
                 { href: "/courses", label: "All Courses" },
               ].map((l) => (
                 <li key={l.href}>
