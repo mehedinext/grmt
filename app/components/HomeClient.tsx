@@ -192,40 +192,33 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
         {/* ─── HERO WRAPPER — 3 slides ─── */}
         <div style={{ position: "relative" }}>
 
-          {/* ══ SLIDE 1: Main GRMSC — 2-col green left + photo right ══ */}
-          <section className="hero-new-section" style={{
-            display: "flex", minHeight: "calc(100svh - 68px)", overflow: "hidden", background: green,
-            opacity: heroSlide === 0 ? 1 : 0, transition: "opacity 0.8s ease",
+          {/* ══ SLIDE 1: Main GRMSC — full-bleed photo + left green gradient overlay ══ */}
+          <section style={{
             position: heroSlide === 0 ? "relative" : "absolute", inset: heroSlide === 0 ? "auto" : 0,
+            opacity: heroSlide === 0 ? 1 : 0, transition: "opacity 0.8s ease",
             zIndex: heroSlide === 0 ? 1 : 0, pointerEvents: heroSlide === 0 ? "auto" : "none",
+            minHeight: "calc(100svh - 68px)", overflow: "hidden", display: "flex", alignItems: "center",
           }}>
-            <div className="hero-left-panel" style={{ flex: "0 0 44%", display: "flex", flexDirection: "column", justifyContent: "center", padding: "clamp(40px,6vw,80px) clamp(24px,4vw,56px) clamp(40px,6vw,80px) clamp(24px,5vw,72px)", position: "relative", zIndex: 2, background: green }}>
-              <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 32 }}>
-                <svg width="18" height="22" viewBox="0 0 18 22" fill="none"><path d="M6 18V4.5L16 2v14" stroke={gold} strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/><circle cx="3.5" cy="18" r="2.5" stroke={gold} strokeWidth="1.4"/><circle cx="13.5" cy="16" r="2.5" stroke={gold} strokeWidth="1.4"/></svg>
-                <span style={{ color: gold, fontFamily: I, fontSize: "0.76rem", letterSpacing: "0.06em" }}>Green Room Music Summer Camp</span>
-              </div>
-              <div style={{ display: "inline-flex", border: `1px solid rgba(200,154,59,0.5)`, borderRadius: 3, padding: "5px 12px", marginBottom: 20, background: "rgba(200,154,59,0.08)", width: "fit-content" }}>
-                <span style={{ color: gold, fontSize: "0.6rem", fontFamily: I, textTransform: "uppercase", letterSpacing: "0.2em", fontWeight: 600 }}>Residential · Summer 2027</span>
-              </div>
-              <h1 style={{ fontFamily: G, fontSize: "clamp(2.4rem,3.8vw,4rem)", fontWeight: 500, color: "#fff", lineHeight: 1.06, marginBottom: 20 }}>Green Room Music<br />Summer Camp</h1>
-              <div style={{ width: 48, height: 2, background: gold, marginBottom: 18 }} />
-              <p style={{ color: "rgba(255,255,255,0.62)", fontFamily: I, fontSize: "clamp(0.86rem,1.1vw,0.96rem)", lineHeight: 1.72, marginBottom: 24, maxWidth: 380 }}>A residential summer camp for young musicians aged 10–17. Three courses, one unforgettable week.</p>
-              <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 32 }}>
-                <span style={{ color: gold, fontSize: "0.82rem", fontFamily: I, fontWeight: 600 }}>Stamford School</span>
-                <span style={{ color: "rgba(255,255,255,0.3)" }}>·</span>
-                <span style={{ color: "rgba(255,255,255,0.52)", fontSize: "0.82rem", fontFamily: I }}>19–23 July 2027</span>
-              </div>
-              <div className="hero-cta-btns" style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-                <Link href="/courses" className="hero-btn btn-gold">Explore the Courses →</Link>
-                <Link href="/apply" className="hero-btn btn-outline-white">Apply Now</Link>
-              </div>
-            </div>
-            <div className="hero-right-panel" style={{ flex: 1, position: "relative", overflow: "hidden" }}>
-              <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: "40%", zIndex: 1, pointerEvents: "none", background: `linear-gradient(to right, ${green} 0%, rgba(8,47,39,0.85) 40%, rgba(8,47,39,0.35) 70%, rgba(8,47,39,0) 100%)` }} />
-              <img src="/gallery/106-GreenRoomMusicTheorySummer2025.jpg" alt="GRMSC students" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", display: "block" }} />
-            </div>
+            {/* Full-bleed photo */}
+            <img src="/gallery/106-GreenRoomMusicTheorySummer2025.jpg" alt="GRMSC students"
+              style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", zIndex: 0 }} />
+            {/* Left gradient: solid green → transparent */}
+            <div style={{ position: "absolute", inset: 0, zIndex: 1, pointerEvents: "none", background: `linear-gradient(to right, ${green} 0%, ${green} 28%, rgba(8,47,39,0.82) 44%, rgba(8,47,39,0.45) 62%, rgba(8,47,39,0.1) 78%, rgba(8,47,39,0) 88%)` }} />
+            {/* Steinway badge — top left */}
             <div style={{ position: "absolute", top: 28, left: "clamp(24px,5vw,72px)", zIndex: 5 }}>
-              <img src="/partners/steinway-badge-color.png" alt="Steinway Educational Partner" style={{ height: 80, width: "auto", opacity: 0.88 }} />
+              <img src="/partners/steinway-badge-color.png" alt="Steinway Educational Partner" style={{ height: 80, width: "auto", opacity: 0.9 }} />
+            </div>
+            {/* Text content */}
+            <div style={{ position: "relative", zIndex: 2, width: "100%", padding: "clamp(100px,12vw,140px) clamp(24px,5vw,72px) clamp(60px,8vw,80px)" }}>
+              <div style={{ maxWidth: 520 }}>
+                <h1 style={{ fontFamily: G, fontSize: "clamp(2.6rem,4.2vw,4.4rem)", fontWeight: 500, color: "#fff", lineHeight: 1.06, marginBottom: 20 }}>Green Room Music<br />Summer Camp</h1>
+                <div style={{ width: 48, height: 2, background: gold, marginBottom: 20 }} />
+                <p style={{ color: "rgba(255,255,255,0.8)", fontFamily: I, fontSize: "clamp(0.9rem,1.1vw,1rem)", fontWeight: 500, marginBottom: 32 }}>Stamford School · 19–23 July 2027</p>
+                <div className="hero-cta-btns" style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+                  <Link href="/courses" className="hero-btn btn-gold">Explore Courses</Link>
+                  <Link href="/apply" className="hero-btn btn-outline-white">Apply Now</Link>
+                </div>
+              </div>
             </div>
           </section>
 
@@ -243,7 +236,7 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
                 <span style={{ color: gold, fontFamily: I, fontSize: "0.76rem", letterSpacing: "0.06em" }}>Green Room Music Summer Camp</span>
               </div>
               {/* Big heading */}
-              <h1 style={{ fontFamily: G, fontSize: "clamp(2.4rem,3.8vw,4rem)", fontWeight: 500, color: "#fff", lineHeight: 1.06, marginBottom: 22 }}>Grade 5<br />Music Theory<br />Crash Course</h1>
+              <h1 style={{ fontFamily: G, fontSize: "clamp(2.6rem,4.2vw,4.4rem)", fontWeight: 500, color: "#fff", lineHeight: 1.06, marginBottom: 22 }}>Grade 5<br />Music Theory<br />Crash Course</h1>
               {/* Gold divider */}
               <div style={{ width: 48, height: 2, background: gold, marginBottom: 18 }} />
               {/* Pass rate */}
@@ -270,7 +263,7 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
             </div>
             {/* ABRSM logo — top right */}
             <div style={{ position: "absolute", top: 24, right: 28, zIndex: 5 }}>
-              <img src="/partners/abrsm.png" alt="ABRSM" style={{ height: 48, width: "auto" }} />
+              <img src="/partners/abrsm.png" alt="ABRSM" style={{ height: 28, width: "auto", maxWidth: 100 }} />
             </div>
           </section>
 
@@ -286,10 +279,6 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
             />
             {/* Solid left → transparent gradient */}
             <div style={{ position: "absolute", inset: 0, zIndex: 1, pointerEvents: "none", background: `linear-gradient(to right, ${green} 0%, ${green} 25%, rgba(8,47,39,0.88) 40%, rgba(8,47,39,0.5) 58%, rgba(8,47,39,0.12) 74%, rgba(8,47,39,0) 84%)` }} />
-            {/* GRMSC logo — top left */}
-            <div style={{ position: "absolute", top: 28, left: "clamp(24px,5vw,72px)", zIndex: 5 }}>
-              <img src="/logo.png" alt="Green Room Music Summer Camp" style={{ height: 56, width: "auto", opacity: 0.9 }} />
-            </div>
             {/* Content */}
             <div style={{ position: "relative", zIndex: 2, maxWidth: 1200, width: "100%", margin: "0 auto", padding: "clamp(100px,12vw,140px) clamp(24px,5vw,72px) clamp(60px,8vw,80px)" }}>
               <div style={{ maxWidth: 580 }}>
@@ -303,13 +292,13 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
                 {/* 3 award cards */}
                 <div style={{ display: "flex", gap: 10, marginBottom: 28, flexWrap: "wrap" }}>
                   {[
-                    { logo: "/partners/dofe.png", name: "Duke of Edinburgh's Award", sub: "Gold Residential + Skills", tag: "UK Students", invert: true },
-                    { logo: "/partners/arts-award.png", name: "Arts Award", sub: "Creative portfolio evidence", tag: "UK Students", invert: true },
-                    { logo: "/partners/congressional-award.jpeg", name: "The Congressional Award", sub: "Personal Development", tag: "US Students", invert: true },
+                    { logo: "/partners/dofe.png", name: "Duke of Edinburgh's Award", sub: "Gold Residential + Skills", tag: "UK Students" },
+                    { logo: "/partners/arts-award.png", name: "Arts Award", sub: "Creative portfolio evidence", tag: "UK Students" },
+                    { logo: "/partners/congressional-award.jpeg", name: "The Congressional Award", sub: "Personal Development", tag: "US Students" },
                   ].map((a) => (
                     <div key={a.name} style={{ flex: "1 1 150px", background: "rgba(0,0,0,0.42)", border: "1px solid rgba(255,255,255,0.14)", borderRadius: 6, padding: "14px 14px 10px", backdropFilter: "blur(6px)" }}>
                       <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10 }}>
-                        <img src={a.logo} alt={a.name} style={{ height: 36, width: 36, objectFit: "contain", filter: a.invert ? "brightness(0) invert(1)" : "none", flexShrink: 0 }} />
+                        <img src={a.logo} alt={a.name} style={{ height: 36, width: 36, objectFit: "contain", filter: "invert(1)", mixBlendMode: "screen", flexShrink: 0 }} />
                         <div>
                           <div style={{ color: "#fff", fontFamily: I, fontSize: "0.78rem", fontWeight: 700, lineHeight: 1.3 }}>{a.name}</div>
                           <div style={{ color: "rgba(255,255,255,0.5)", fontFamily: I, fontSize: "0.68rem", marginTop: 2 }}>{a.sub}</div>
