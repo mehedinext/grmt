@@ -57,9 +57,9 @@ export default async function PianoCoursePage() {
             style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", zIndex: 0 }} />
           <div style={{ position: "absolute", inset: 0, zIndex: 1, background: `linear-gradient(to top, ${green} 0%, rgba(8,47,39,0.7) 40%, rgba(8,47,39,0.3) 70%, rgba(8,47,39,0.1) 100%)` }} />
 
-          <div style={{ position: "relative", zIndex: 2, width: "100%", padding: "clamp(40px,6vw,80px) clamp(40px,5vw,72px) clamp(56px,7vw,88px)" }}>
+          <div style={{ position: "relative", zIndex: 2, width: "100%", padding: "clamp(32px,6vw,80px) clamp(20px,5vw,72px) clamp(40px,7vw,88px)" }}>
             {/* Alert box */}
-            <div style={{ background: "rgba(8,47,39,0.82)", border: `1px solid rgba(200,154,59,0.4)`, borderLeft: `4px solid ${gold}`, borderRadius: 4, padding: "18px 22px", maxWidth: 560, marginBottom: 40, backdropFilter: "blur(6px)" }}>
+            <div style={{ background: "rgba(8,47,39,0.82)", border: `1px solid rgba(200,154,59,0.4)`, borderLeft: `4px solid ${gold}`, borderRadius: 4, padding: "16px 18px", maxWidth: 560, width: "100%", marginBottom: 36, backdropFilter: "blur(6px)" }}>
               <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 8 }}>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={gold} strokeWidth="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
                 <span style={{ color: gold, fontFamily: I, fontSize: "0.78rem", fontWeight: 700, letterSpacing: "0.05em" }}>Minimum playing standard: ABRSM Grade 5 equivalent</span>
@@ -88,7 +88,7 @@ export default async function PianoCoursePage() {
 
         {/* ── COURSE AT A GLANCE ── */}
         <section style={{ background: green }}>
-          <div style={{ maxWidth: 1200, margin: "0 auto", padding: "clamp(40px,5vw,64px) clamp(40px,5vw,72px)" }}>
+          <div style={{ maxWidth: 1200, margin: "0 auto", padding: "clamp(40px,5vw,64px) clamp(20px,5vw,72px)" }}>
             <div style={{ textAlign: "center", marginBottom: 36 }}>
               <p style={{ color: gold, fontFamily: I, fontSize: "0.65rem", textTransform: "uppercase", letterSpacing: "0.22em", fontWeight: 600 }}>Course at a Glance</p>
             </div>
@@ -105,7 +105,7 @@ export default async function PianoCoursePage() {
 
         {/* ── THREE COLUMNS: Learn · Programme · Analysing ── */}
         <section style={{ background: cream, padding: "clamp(56px,7vw,88px) 0" }}>
-          <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 clamp(40px,5vw,72px)", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 48 }}>
+          <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 clamp(20px,5vw,72px)", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 48 }}>
 
             {/* Learn from Outstanding Musicians */}
             <div>
@@ -140,7 +140,7 @@ export default async function PianoCoursePage() {
               <p style={{ color: "#3d5c51", fontFamily: I, fontSize: "0.9rem", lineHeight: 1.8, marginBottom: 18 }}>
                 A comprehensive programme designed to inspire and challenge every pianist.
               </p>
-              <ul style={{ listStyle: "none", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "6px 12px", marginBottom: 20 }}>
+              <ul style={{ listStyle: "none", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))", gap: "6px 12px", marginBottom: 20 }}>
                 {programme.map((item) => (
                   <li key={item} style={{ display: "flex", alignItems: "flex-start", gap: 8, color: "#3d5c51", fontFamily: I, fontSize: "0.82rem", lineHeight: 1.5 }}>
                     <span style={{ color: gold, flexShrink: 0, marginTop: 4, fontSize: "0.5rem" }}>◆</span>{item}
@@ -178,7 +178,7 @@ export default async function PianoCoursePage() {
 
         {/* ── THREE COLUMNS: Approach · More Than Piano · Awards ── */}
         <section style={{ background: "#fff", padding: "clamp(56px,7vw,88px) 0" }}>
-          <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 clamp(40px,5vw,72px)", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 48 }}>
+          <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 clamp(20px,5vw,72px)", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 48 }}>
 
             {/* The Green Room Approach */}
             <div>
@@ -214,7 +214,7 @@ export default async function PianoCoursePage() {
                 With students joining us from the UK and internationally, GRMSC becomes a vibrant community of young people living, learning, performing and making friends together.
               </p>
               <div style={{ borderRadius: 4, overflow: "hidden", aspectRatio: "4/3" }}>
-                <img src="/gallery/106-GreenRoomMusicTheorySummer2025.jpg" alt="GRMSC students" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                <img src="/gallery/279-Green_Room_Music_Concert_Summer_2025.jpg" alt="GRMSC students" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
               </div>
             </div>
 
@@ -254,7 +254,7 @@ export default async function PianoCoursePage() {
         <section style={{ background: green, position: "relative", overflow: "hidden" }}>
           <img src="/gallery/406-Green_Room_Music_Concert_Summer_2025.jpg" alt="Final concert"
             style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.18, zIndex: 0 }} />
-          <div style={{ position: "relative", zIndex: 1, maxWidth: 1200, margin: "0 auto", padding: "clamp(56px,7vw,80px) clamp(40px,5vw,72px)", display: "grid", gridTemplateColumns: "auto 1fr", gap: 40, alignItems: "start" }}>
+          <div style={{ position: "relative", zIndex: 1, maxWidth: 1200, margin: "0 auto", padding: "clamp(56px,7vw,80px) clamp(24px,5vw,72px)", display: "grid", gridTemplateColumns: "auto 1fr", gap: 40, alignItems: "start" }}>
             <div style={{ width: 64, height: 64, borderRadius: "50%", border: `1.5px solid ${gold}`, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={gold} strokeWidth="1.6"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
             </div>
@@ -269,7 +269,7 @@ export default async function PianoCoursePage() {
 
         {/* ── BOTTOM CTA ── */}
         <section style={{ background: cream, padding: "clamp(56px,7vw,88px) 0" }}>
-          <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 clamp(40px,5vw,72px)", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 48, alignItems: "center" }}>
+          <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 clamp(20px,5vw,72px)", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 48, alignItems: "center" }}>
             <div>
               <h2 style={{ fontFamily: G, fontSize: "clamp(2rem,4vw,3.2rem)", fontWeight: 500, color: green, lineHeight: 1.15, marginBottom: 20 }}>
                 Five days. A whole new perspective on music.
