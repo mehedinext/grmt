@@ -55,7 +55,7 @@ export default async function MusicTheoryPage() {
 
         {/* ── HERO ── */}
         <section style={{ position: "relative", minHeight: "90vh", display: "flex", alignItems: "flex-end", overflow: "hidden" }}>
-          <img src="/gallery/music-theory-hero.jpg" alt="Music Theory student studying"
+          <img src="/gallery/020-GreenRoomMusicTheorySummer2025.jpg" alt="Music Theory class in session"
             style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", zIndex: 0 }} />
           <div style={{ position: "absolute", inset: 0, zIndex: 1, background: `linear-gradient(to top, ${green} 0%, rgba(8,47,39,0.8) 38%, rgba(8,47,39,0.35) 65%, rgba(8,47,39,0.1) 100%)` }} />
 
