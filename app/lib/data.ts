@@ -271,53 +271,73 @@ export const courses: Course[] = [
 export const faqs: Faq[] = [
   {
     _id: "faq-1",
-    question: "What is included in the course fee?",
-    answer: "Tuition, full board accommodation at Stamford School, all course materials, evening programme activities and the final showcase concert are all included in the fee.",
+    question: "Do students take their ABRSM exam at the course?",
+    answer: "Students do not take their ABRSM exams at the course. The Music Theory course is designed to prepare students fully, after which parents and guardians can book the online exam separately. We recommend sitting the exam approximately one week after completing the course.",
   },
   {
     _id: "faq-2",
-    question: "Is accommodation provided?",
-    answer: "Yes. Students stay in comfortable, supervised residential rooms at Stamford School with dedicated houseparents on site throughout the week.",
+    question: "My child can no longer attend. Can I get a refund?",
+    answer: "The course fee is non-refundable and non-transferable. Payment confirms your child's place and GRMSC makes specific plans for each individual student from the point of booking.",
   },
   {
     _id: "faq-3",
-    question: "How are students supervised?",
-    answer: "All staff hold enhanced DBS checks. A dedicated pastoral team is available 24/7. Parents receive regular updates during the week and are given direct contact details for the pastoral lead.",
+    question: "My child is primarily a singer and does not read music. Can they take the Music Theory course?",
+    answer: "Yes, absolutely. A positive attitude and a willingness to learn is what matters most. Prior music reading experience is not required to enrol on the Music Theory course.",
   },
   {
     _id: "faq-4",
-    question: "How do I apply?",
-    answer: "Complete the interest registration form on our Apply page. Applications for Summer 2027 will open soon — register your interest now to be first in line when places become available.",
+    question: "Where do students stay and eat during the course?",
+    answer: "Students stay at Stamford School, a prestigious independent school in the heart of Stamford, Lincolnshire. Full board accommodation — including all meals — is included in the course fee.",
   },
   {
     _id: "faq-5",
-    question: "What level do students need to be?",
-    answer: "Piano and Music Theory courses are best suited to Grade 4–8+ students. Vocal Performance is open to all levels — no prior stage experience required, just enthusiasm and a love of singing.",
+    question: "Can my child bring snacks?",
+    answer: "Yes. Students are welcome to bring snacks, however these must be kept in the boarding house kitchen rather than in bedrooms.",
   },
   {
     _id: "faq-6",
+    question: "Can my child keep their medications at the course?",
+    answer: "Yes. Both prescribed and over-the-counter medications are permitted with parental approval via the medical form. All medications must be in their original packaging with dates clearly visible and will be held securely by the pastoral team.",
+  },
+  {
+    _id: "faq-7",
+    question: "Will my child need to bring their instrument?",
+    answer: "Instruments are not required for the Music Theory course, as the course focuses entirely on theory. Students are welcome to bring an instrument for personal practice during free time, however GRMSC does not accept responsibility for theft, loss or damage.",
+  },
+  {
+    _id: "faq-8",
+    question: "I am travelling internationally. How do I get to Stamford?",
+    answer: "Stamford is approximately two hours from London Heathrow by car. We recommend pre-booking an airport transfer in advance. Train travel is also available. Please contact us and we will send you our International Travellers information pack.",
+  },
+  {
+    _id: "faq-9",
     question: "What are the age requirements?",
     answer: "GRMSC is open to students aged 10–17. Students must be within this age range on the first day of the course (19 July 2027).",
   },
   {
-    _id: "faq-7",
-    question: "Are dietary requirements catered for?",
-    answer: "Yes. All dietary requirements and allergies are accommodated. Please provide details on your application form and we will confirm arrangements in advance.",
-  },
-  {
-    _id: "faq-8",
-    question: "Can students do DofE or Arts Award?",
-    answer: "Yes. GRMSC can be used as evidence towards the Duke of Edinburgh's Award and Arts Award. Contact us to discuss how we can support this.",
-  },
-  {
-    _id: "faq-9",
-    question: "When do applications open?",
-    answer: "Applications for Summer 2027 formally open in early 2027. Register your interest now and you will be the first to know when places become available.",
-  },
-  {
     _id: "faq-10",
-    question: "Is there a sibling discount?",
-    answer: "Information on sibling discounts and bursary options will be confirmed when applications formally open. Register your interest to be notified.",
+    question: "What level do students need to be?",
+    answer: "The Piano course requires a minimum standard of ABRSM Grade 5 equivalent. The Music Theory course is suitable from beginner through to Grade 5. The Vocal Performance course is open to all levels — no prior stage experience is required.",
+  },
+  {
+    _id: "faq-11",
+    question: "How are students supervised?",
+    answer: "All staff hold enhanced DBS checks. A dedicated pastoral team is available 24 hours a day throughout the week. Parents receive regular updates and are given direct contact details for the pastoral lead.",
+  },
+  {
+    _id: "faq-12",
+    question: "Are dietary requirements catered for?",
+    answer: "Yes. All dietary requirements and allergies are accommodated. Please provide full details on your application form and we will confirm arrangements with you in advance.",
+  },
+  {
+    _id: "faq-13",
+    question: "When do applications open?",
+    answer: "Applications for Summer 2027 formally open in early 2027. Register your interest now and you will be the first to hear when places become available.",
+  },
+  {
+    _id: "faq-14",
+    question: "Can GRMSC count towards DofE, Arts Award or the Congressional Award?",
+    answer: "Yes. Experiences at GRMSC may be eligible to contribute towards the Duke of Edinburgh's Award, Arts Award and the Congressional Award. Eligibility and requirements vary — please confirm suitability with the relevant Award Leader or awarding organisation.",
   },
 ];
 
