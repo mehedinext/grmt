@@ -295,7 +295,7 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
                   Your time at GRMSC can support progress towards recognised awards and qualifications in the UK and US.
                 </p>
                 {/* 3 award cards */}
-                <div style={{ display: "flex", gap: 10, marginBottom: 28, flexWrap: "wrap" }}>
+                <div className="award-cards" style={{ display: "flex", gap: 10, marginBottom: 28, flexWrap: "wrap" }}>
                   {[
                     { logo: "/partners/dofe.png", name: "Duke of Edinburgh's Award", sub: "Gold Residential + Skills", tag: "UK Students" },
                     { logo: "/partners/arts-award.png", name: "Arts Award", sub: "Creative portfolio evidence", tag: "UK Students" },

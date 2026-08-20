@@ -237,6 +237,22 @@ body {
   }
 }
 
+/* Award cards — 3 col desktop, 1 col mobile */
+.award-cards {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+@media (max-width: 640px) {
+  .award-cards {
+    flex-direction: column !important;
+  }
+  .award-cards > div {
+    flex: none !important;
+    width: 100% !important;
+  }
+}
+
 /* ── Hero new — 2-column dark navy + photo ── */
 .hero-new-section {
   display: flex;
