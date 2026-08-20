@@ -189,23 +189,24 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
       <Navbar settings={settings} />
       <main style={{ paddingTop: 68 }}>
 
-        {/* ─── HERO WRAPPER — 3 slides ─── */}
-        <div style={{ position: "relative" }}>
+        {/* ─── HERO WRAPPER — fixed height so all 3 slides are identical size (prevents CLS) ─── */}
+        <div style={{ position: "relative", height: "calc(100svh - 68px)", minHeight: 600, overflow: "hidden" }}>
 
           {/* ══ SLIDE 1: Main GRMSC — full-bleed photo + left green gradient overlay ══ */}
           <section style={{
-            position: heroSlide === 0 ? "relative" : "absolute", inset: heroSlide === 0 ? "auto" : 0,
+            position: "absolute", inset: 0,
             opacity: heroSlide === 0 ? 1 : 0, transition: "opacity 0.8s ease",
             zIndex: heroSlide === 0 ? 1 : 0, pointerEvents: heroSlide === 0 ? "auto" : "none",
-            minHeight: "calc(100svh - 68px)", overflow: "hidden", display: "flex", alignItems: "center",
+            overflow: "hidden", display: "flex", alignItems: "center",
           }}>
             {/* Full-bleed photo */}
             <img src="/gallery/106-GreenRoomMusicTheorySummer2025.jpg" alt="GRMSC students"
+              fetchPriority="high" decoding="async"
               style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", zIndex: 0 }} />
             {/* Subtle left gradient — never solid, always shows photo */}
             <div style={{ position: "absolute", inset: 0, zIndex: 1, pointerEvents: "none", background: "linear-gradient(to right, rgba(8,47,39,0.65) 0%, rgba(8,47,39,0.5) 25%, rgba(8,47,39,0.18) 52%, rgba(8,47,39,0) 70%)" }} />
             {/* Content — same maxWidth/padding as navbar so text aligns with logo */}
-            <div style={{ position: "relative", zIndex: 2, width: "100%", minHeight: "calc(100svh - 68px)", display: "flex", flexDirection: "column" }}>
+            <div style={{ position: "relative", zIndex: 2, width: "100%", height: "100%", display: "flex", flexDirection: "column" }}>
               <div style={{ width: "100%", padding: "0 clamp(40px,5vw,72px)", flex: 1, display: "flex", flexDirection: "column" }}>
                 {/* Steinway badge — same left edge as navbar logo */}
                 <div style={{ paddingTop: 24, paddingBottom: 16 }}>
@@ -229,9 +230,9 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
 
           {/* ══ SLIDE 2: Grade 5 Music Theory — dark navy, same 2-col layout ══ */}
           <section className="hero-new-section" style={{
-            display: "flex", minHeight: "calc(100svh - 68px)", overflow: "hidden", background: "#0D1B2A",
+            display: "flex", overflow: "hidden", background: "#0D1B2A",
             opacity: heroSlide === 1 ? 1 : 0, transition: "opacity 0.8s ease",
-            position: heroSlide === 1 ? "relative" : "absolute", inset: heroSlide === 1 ? "auto" : 0,
+            position: "absolute", inset: 0,
             zIndex: heroSlide === 1 ? 1 : 0, pointerEvents: heroSlide === 1 ? "auto" : "none",
           }}>
             <div className="hero-left-panel" style={{ flex: "0 0 44%", display: "flex", flexDirection: "column", justifyContent: "center", padding: "clamp(40px,6vw,80px) clamp(40px,5vw,72px) clamp(40px,6vw,80px) clamp(40px,5vw,72px)", position: "relative", zIndex: 2, background: "#0D1B2A" }}>
@@ -264,7 +265,7 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
             </div>
             <div className="hero-right-panel" style={{ flex: 1, position: "relative", overflow: "hidden" }}>
               <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: "40%", zIndex: 1, pointerEvents: "none", background: "linear-gradient(to right, #0D1B2A 0%, rgba(13,27,42,0.85) 40%, rgba(13,27,42,0.35) 70%, rgba(13,27,42,0) 100%)" }} />
-              <img src="/gallery/034-GreenRoomMusicTheorySummer2025.jpg" alt="Grade 5 Music Theory" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", display: "block" }} />
+              <img src="/gallery/034-GreenRoomMusicTheorySummer2025.jpg" alt="Grade 5 Music Theory" loading="lazy" decoding="async" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", display: "block" }} />
             </div>
             {/* ABRSM logo — top right */}
             <div style={{ position: "absolute", top: 24, right: 28, zIndex: 5 }}>
@@ -274,12 +275,13 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
 
           {/* ══ SLIDE 3: Awards — "Make your week count" full-bleed photo + left gradient ══ */}
           <section style={{
-            position: heroSlide === 2 ? "relative" : "absolute", inset: heroSlide === 2 ? "auto" : 0,
+            position: "absolute", inset: 0,
             opacity: heroSlide === 2 ? 1 : 0, transition: "opacity 0.8s ease",
             zIndex: heroSlide === 2 ? 1 : 0, pointerEvents: heroSlide === 2 ? "auto" : "none",
-            minHeight: "calc(100svh - 68px)", overflow: "hidden", display: "flex", alignItems: "center", background: green,
+            overflow: "hidden", display: "flex", alignItems: "center", background: green,
           }}>
             <img src="/gallery/406-Green_Room_Music_Concert_Summer_2025.jpg" alt="GRMSC concert"
+              loading="lazy" decoding="async"
               style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", zIndex: 0 }}
             />
             {/* Solid left → transparent gradient */}
