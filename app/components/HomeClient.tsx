@@ -235,6 +235,7 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
         <section className="hero-section-main" style={{
           position: "relative", minHeight: "calc(100svh - 68px)",
           overflow: "hidden", display: "flex", alignItems: "center",
+          background: green,
         }}>
           {/* Full-bleed photos — each slide has its own */}
           {heroSlides.map((s, i) => (
@@ -242,7 +243,7 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
               key={s.image} src={s.image} alt="GRMSC"
               style={{
                 position: "absolute", inset: 0, width: "100%", height: "100%",
-                objectFit: "cover", objectPosition: "center top",
+                objectFit: "contain", objectPosition: "center right",
                 opacity: heroSlide === i ? 1 : 0, transition: "opacity 1.2s ease", zIndex: 0,
               }}
             />
