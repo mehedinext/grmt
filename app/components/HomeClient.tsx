@@ -285,7 +285,7 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
             {/* Solid left → transparent gradient */}
             <div style={{ position: "absolute", inset: 0, zIndex: 1, pointerEvents: "none", background: `linear-gradient(to right, ${green} 0%, ${green} 25%, rgba(8,47,39,0.88) 40%, rgba(8,47,39,0.5) 58%, rgba(8,47,39,0.12) 74%, rgba(8,47,39,0) 84%)` }} />
             {/* Content */}
-            <div style={{ position: "relative", zIndex: 2, width: "100%", padding: "clamp(100px,12vw,140px) clamp(40px,5vw,72px) clamp(60px,8vw,80px)" }}>
+            <div style={{ position: "relative", zIndex: 2, width: "100%", padding: "clamp(56px,7vw,90px) clamp(40px,5vw,72px) clamp(40px,5vw,60px)" }}>
               <div style={{ maxWidth: 580 }}>
                 <div style={{ display: "inline-flex", border: `1px solid rgba(200,154,59,0.6)`, borderRadius: 3, padding: "5px 14px", marginBottom: 24, background: "rgba(200,154,59,0.08)" }}>
                   <span style={{ color: gold, fontSize: "0.6rem", fontFamily: I, textTransform: "uppercase", letterSpacing: "0.22em", fontWeight: 600 }}>More Than a Summer Camp</span>
