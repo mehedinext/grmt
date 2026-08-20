@@ -46,7 +46,7 @@ export default function Navbar({ settings }: { settings?: Settings }) {
       boxShadow: scrolled ? "0 2px 24px rgba(0,0,0,0.28)" : "none",
       transition: "box-shadow 0.3s ease, background 0.3s ease",
     }}>
-      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 clamp(16px, 3vw, 40px)", display: "flex", alignItems: "center", justifyContent: "space-between", height: 68 }}>
+      <div style={{ padding: "0 clamp(24px, 4vw, 56px)", display: "flex", alignItems: "center", justifyContent: "space-between", height: 68 }}>
 
         {/* Logo */}
         <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center" }}>
