@@ -248,16 +248,16 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
             />
           ))}
 
-          {/* Desktop: solid-left-to-transparent gradient */}
+          {/* Desktop: semi-transparent left gradient — photo visible throughout */}
           <div className="hero-gradient-desktop" style={{
             position: "absolute", inset: 0, zIndex: 1,
-            background: `linear-gradient(to right, ${green} 0%, ${green} 30%, rgba(8,47,39,0.82) 40%, rgba(8,47,39,0.30) 54%, rgba(8,47,39,0) 65%)`,
+            background: `linear-gradient(to right, rgba(8,47,39,0.90) 0%, rgba(8,47,39,0.78) 22%, rgba(8,47,39,0.45) 38%, rgba(8,47,39,0.12) 52%, rgba(8,47,39,0) 62%)`,
           }} />
 
           {/* Mobile: bottom-rise gradient (magazine cover style) */}
           <div className="hero-gradient-mobile" style={{
             position: "absolute", inset: 0, zIndex: 1,
-            background: `linear-gradient(to top, ${green} 0%, ${green} 28%, rgba(8,47,39,0.88) 48%, rgba(8,47,39,0.35) 68%, rgba(8,47,39,0) 85%)`,
+            background: `linear-gradient(to top, rgba(8,47,39,0.95) 0%, rgba(8,47,39,0.88) 28%, rgba(8,47,39,0.55) 50%, rgba(8,47,39,0.15) 70%, rgba(8,47,39,0) 85%)`,
             display: "none",
           }} />
 
