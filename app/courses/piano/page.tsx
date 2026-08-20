@@ -120,7 +120,7 @@ export default async function PianoCoursePage() {
               </p>
               {/* Vivian card */}
               <div style={{ display: "flex", alignItems: "center", gap: 14, background: "#fff", border: `1px solid rgba(200,154,59,0.2)`, padding: "16px 18px", borderRadius: 4 }}>
-                <img src="https://greenroomtheory.com/wp-content/uploads/2025/01/vivian-shiao-photo.png" alt="Vivian Shiao" style={{ width: 52, height: 52, borderRadius: "50%", objectFit: "cover", flexShrink: 0 }} />
+                <img src="/vivian-shiao.webp" alt="Vivian Shiao" style={{ width: 52, height: 52, borderRadius: "50%", objectFit: "cover", flexShrink: 0 }} />
                 <div>
                   <div style={{ fontFamily: G, fontSize: "1.05rem", color: green, fontStyle: "italic", marginBottom: 2 }}>Vivian Shiao</div>
                   <div style={{ fontFamily: I, fontSize: "0.6rem", textTransform: "uppercase", letterSpacing: "0.1em", color: gold, fontWeight: 700 }}>Steinway &amp; Sons</div>

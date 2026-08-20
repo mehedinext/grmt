@@ -91,7 +91,7 @@ export const tutors: Tutor[] = [
       "Vivian looks forward to her UK visit and to being GRMSC's Honorary Guest Visiting Lecturer.",
     ],
     teaches: "Music Theory · Ensemble · Ear Training",
-    image: "https://greenroomtheory.com/wp-content/uploads/2023/09/img_068.webp",
+    image: "/vivian-shiao.webp",
   },
 ];
 
