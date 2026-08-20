@@ -204,19 +204,24 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
               style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", zIndex: 0 }} />
             {/* Left gradient: solid green → transparent */}
             <div style={{ position: "absolute", inset: 0, zIndex: 1, pointerEvents: "none", background: `linear-gradient(to right, ${green} 0%, ${green} 28%, rgba(8,47,39,0.82) 44%, rgba(8,47,39,0.45) 62%, rgba(8,47,39,0.1) 78%, rgba(8,47,39,0) 88%)` }} />
-            {/* Steinway badge — top left */}
-            <div style={{ position: "absolute", top: 28, left: "clamp(24px,5vw,72px)", zIndex: 5 }}>
-              <img src="/partners/steinway-badge-color.png" alt="Steinway Educational Partner" style={{ height: 80, width: "auto", opacity: 0.9 }} />
-            </div>
-            {/* Text content */}
-            <div style={{ position: "relative", zIndex: 2, width: "100%", padding: "clamp(100px,12vw,140px) clamp(24px,5vw,72px) clamp(60px,8vw,80px)" }}>
-              <div style={{ maxWidth: 520 }}>
-                <h1 style={{ fontFamily: G, fontSize: "clamp(2.6rem,4.2vw,4.4rem)", fontWeight: 500, color: "#fff", lineHeight: 1.06, marginBottom: 20 }}>Green Room Music<br />Summer Camp</h1>
-                <div style={{ width: 48, height: 2, background: gold, marginBottom: 20 }} />
-                <p style={{ color: "rgba(255,255,255,0.8)", fontFamily: I, fontSize: "clamp(0.9rem,1.1vw,1rem)", fontWeight: 500, marginBottom: 32 }}>Stamford School · 19–23 July 2027</p>
-                <div className="hero-cta-btns" style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-                  <Link href="/courses" className="hero-btn btn-gold">Explore Courses</Link>
-                  <Link href="/apply" className="hero-btn btn-outline-white">Apply Now</Link>
+            {/* Content — same maxWidth/padding as navbar so text aligns with logo */}
+            <div style={{ position: "relative", zIndex: 2, width: "100%", minHeight: "calc(100svh - 68px)", display: "flex", flexDirection: "column" }}>
+              <div style={{ maxWidth: 1200, margin: "0 auto", width: "100%", padding: "0 clamp(16px,3vw,40px)", flex: 1, display: "flex", flexDirection: "column" }}>
+                {/* Steinway badge — same left edge as navbar logo */}
+                <div style={{ paddingTop: 24, paddingBottom: 16 }}>
+                  <img src="/partners/steinway-badge-color.png" alt="Steinway Educational Partner" style={{ height: 76, width: "auto", opacity: 0.9 }} />
+                </div>
+                {/* Hero text — vertically centred */}
+                <div style={{ flex: 1, display: "flex", alignItems: "center", paddingBottom: "clamp(48px,6vw,72px)" }}>
+                  <div style={{ maxWidth: 520 }}>
+                    <h1 style={{ fontFamily: G, fontSize: "clamp(2.6rem,4.2vw,4.4rem)", fontWeight: 500, color: "#fff", lineHeight: 1.06, marginBottom: 20 }}>Green Room Music<br />Summer Camp</h1>
+                    <div style={{ width: 48, height: 2, background: gold, marginBottom: 20 }} />
+                    <p style={{ color: "rgba(255,255,255,0.8)", fontFamily: I, fontSize: "clamp(0.9rem,1.1vw,1rem)", fontWeight: 500, marginBottom: 32 }}>Stamford School · 19–23 July 2027</p>
+                    <div className="hero-cta-btns" style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+                      <Link href="/courses" className="hero-btn btn-gold">Explore Courses</Link>
+                      <Link href="/apply" className="hero-btn btn-outline-white">Apply Now</Link>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
