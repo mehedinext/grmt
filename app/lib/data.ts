@@ -118,7 +118,7 @@ export const courses: Course[] = [
     grade: "Grade 4–8",
     tagline: "Master the keys in one transformative week.",
     excerpt: "An intensive week of daily piano lessons, masterclasses, ensemble work and an evening recital. Expert tuition from conservatoire-trained pianists.",
-    image: "https://greenroomtheory.com/wp-content/uploads/2025/09/014-GreenRoomMusicTheorySummer2025-scaled.jpg",
+    image: "/gallery/281-Green_Room_Music_Concert_Summer_2025.jpg",
     imagePosition: "center 30%",
     heroColor: "#082F27",
     heroImage: "https://greenroomtheory.com/wp-content/uploads/2025/09/014-GreenRoomMusicTheorySummer2025-scaled.jpg",
@@ -169,7 +169,7 @@ export const courses: Course[] = [
     tagline: "Unlock the language of music.",
     excerpt:
       "Harmony, counterpoint, ear training and composition. Includes a dedicated ABRSM Grade 5 crash course stream for students seeking this qualification.",
-    image: "https://greenroomtheory.com/wp-content/uploads/2025/09/012-GreenRoomMusicTheorySummer2025-scaled.jpg",
+    image: "/gallery/395-Green_Room_Music_Concert_Summer_2025.jpg",
     imagePosition: "center 20%",
     heroColor: "#0A2F47",
     heroImage: "https://greenroomtheory.com/wp-content/uploads/2025/09/012-GreenRoomMusicTheorySummer2025-scaled.jpg",
@@ -222,7 +222,7 @@ export const courses: Course[] = [
     tagline: "Find your voice and perform with confidence.",
     excerpt:
       "Vocal technique, performance coaching, sight-singing and stagecraft combined. Students work toward a showcase performance on the final evening.",
-    image: "https://greenroomtheory.com/wp-content/uploads/2025/09/106-GreenRoomMusicTheorySummer2025-scaled.jpg",
+    image: "/gallery/406-Green_Room_Music_Concert_Summer_2025.jpg",
     imagePosition: "center 15%",
     heroColor: "#082F27",
     heroImage: "https://greenroomtheory.com/wp-content/uploads/2025/09/038-GreenRoomMusicTheorySummer2025-scaled.jpg",
