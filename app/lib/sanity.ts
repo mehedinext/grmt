@@ -11,7 +11,7 @@ export const sanityClient = createClient({
 // GROQ queries — one place to update when schema changes
 export const queries = {
   siteSettings: `*[_type == "siteSettings"][0] {
-    navLogoSubtitle, navCtaLabel, navCtaHref, navItems,
+    navCtaLabel, navCtaHref, navItems,
 
     heroHeadingLine1, heroHeadingLine2,
     heroLocation, heroDate,

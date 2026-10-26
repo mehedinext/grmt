@@ -18,7 +18,6 @@ const defaultNavLinks = [
 ];
 
 type Settings = {
-  navLogoSubtitle?: string;
   navCtaLabel?: string;
   navCtaHref?: string;
   navItems?: { label: string; href: string }[];

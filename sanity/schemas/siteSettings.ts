@@ -6,7 +6,6 @@ export const siteSettingsSchema = defineType({
   type: "document",
   fields: [
     // ── NAVBAR ──────────────────────────────────────────────────────────
-    defineField({ name: "navLogoSubtitle", title: "Navbar — Logo Subtitle", type: "string", description: 'Small text under "GRMSC", e.g. "Green Room Music Summer Camp"' }),
     defineField({ name: "navCtaLabel", title: "Navbar — CTA Button Text", type: "string", description: 'e.g. "Register Interest"' }),
     defineField({ name: "navCtaHref", title: "Navbar — CTA Button Link", type: "string", description: 'e.g. "/apply"' }),
     defineField({

@@ -13,7 +13,6 @@ const siteSettings = {
   _type: "siteSettings",
 
   // Navbar
-  navLogoSubtitle: "Green Room Music Summer Camp",
   navCtaLabel: "Apply Now",
   navCtaHref: "/apply",
 
