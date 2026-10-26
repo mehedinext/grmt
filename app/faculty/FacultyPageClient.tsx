@@ -118,9 +118,16 @@ export default function FacultyPageClient({ settings, tutors }: { settings: any;
       <main style={{ paddingTop: 68 }}>
 
         {/* ─── HERO ─── */}
-        <section className="fp-hero" style={{ position: "relative", background: green, overflow: "hidden", minHeight: 420 }}>
-          <div className="fp-hero-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", alignItems: "stretch", minHeight: 420 }}>
-            <div style={{ padding: "clamp(48px, 7vw, 96px) clamp(24px, 5vw, 72px)", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+        <section className="fp-hero" style={{ position: "relative", background: green, overflow: "hidden" }}>
+          <div
+            className="fp-hero-grid"
+            style={{
+              display: "grid",
+              gridTemplateColumns: settings?.facultyHeroImage ? "1fr 1fr" : "1fr",
+              alignItems: "stretch",
+            }}
+          >
+            <div style={{ padding: "clamp(56px, 8vw, 112px) clamp(24px, 5vw, 72px)", display: "flex", flexDirection: "column", justifyContent: "center" }}>
               <p style={{ color: gold, fontSize: "0.72rem", textTransform: "uppercase", letterSpacing: "0.22em", marginBottom: 16, fontFamily: I, fontWeight: 600 }}>
                 {settings?.facultyPageEyebrow ?? "SUMMER 2027"}
               </p>
@@ -132,13 +139,11 @@ export default function FacultyPageClient({ settings, tutors }: { settings: any;
                 {settings?.facultyPageSubtext ?? "Our faculty are experienced musicians, educators and performing arts professionals, passionate about inspiring the next generation. Together, they create a supportive, creative and challenging environment where every student can grow."}
               </p>
             </div>
-            <div className="fp-hero-img" style={{ position: "relative", minHeight: 300 }}>
-              {settings?.facultyHeroImage ? (
+            {settings?.facultyHeroImage && (
+              <div className="fp-hero-img" style={{ position: "relative", minHeight: 300 }}>
                 <img src={settings.facultyHeroImage} alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
-              ) : (
-                <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, #0d3b31, #082F27)" }} />
-              )}
-            </div>
+              </div>
+            )}
           </div>
         </section>
 
@@ -328,9 +333,10 @@ export default function FacultyPageClient({ settings, tutors }: { settings: any;
             <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 clamp(16px, 3vw, 40px)" }}>
               <div className="fp-safeguarding-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 32, alignItems: "start" }}>
                 <div style={{ display: "flex", gap: 16 }}>
-                  <div style={{ flexShrink: 0 }}>
-                    <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke={green} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M12 2l9 4v8c0 5.5-4 10-9 12C5 24 1 19.5 1 14V6l13-4z" />
+                  <div style={{ flexShrink: 0, width: 48, height: 48, borderRadius: "50%", background: green, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                      <path d="M9 12l2 2 4-4" />
                     </svg>
                   </div>
                   <div>
