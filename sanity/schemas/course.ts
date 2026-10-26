@@ -56,6 +56,57 @@ export const courseSchema = defineType({
         { name: "desc", type: "text", title: "Description", rows: 2 },
       ]}],
     }),
+
+    // ── At a Glance tiles (shown in course detail page glance section) ──
+    defineField({
+      name: "glance",
+      title: "At a Glance Tiles",
+      type: "array",
+      of: [{ type: "object", fields: [
+        { name: "icon", type: "string", title: "Icon (emoji, optional)" },
+        { name: "label", type: "string", title: "Label" },
+        { name: "value", type: "string", title: "Value" },
+      ]}],
+    }),
+
+    // ── Programme bullet list ──
+    defineField({
+      name: "programme",
+      title: "Programme (bullet list)",
+      type: "array",
+      of: [{ type: "string" }],
+    }),
+
+    // ── Hero Alert (Piano course uses this) ──
+    defineField({ name: "heroAlertTitle", title: "Hero Alert Title", type: "string" }),
+
+    // ── Bottom CTA block ──
+    defineField({ name: "ctaHeading", title: "Bottom CTA — Heading", type: "string" }),
+    defineField({ name: "ctaSubtext", title: "Bottom CTA — Subtext", type: "text", rows: 3 }),
+    defineField({ name: "ctaTagline", title: "Bottom CTA — Tagline", type: "string" }),
+
+    // ── Music Theory specific fields ──
+    defineField({
+      name: "examItems",
+      title: "Exam Prep Items (Music Theory)",
+      type: "array",
+      of: [{ type: "string" }],
+    }),
+    defineField({
+      name: "whoFor",
+      title: "Who Is This For (Music Theory)",
+      type: "array",
+      of: [{ type: "string" }],
+    }),
+    defineField({
+      name: "examStats",
+      title: "Exam Result Stats (Music Theory)",
+      type: "array",
+      of: [{ type: "object", fields: [
+        { name: "stat", type: "string", title: "Stat (e.g. 100%)" },
+        { name: "label", type: "string", title: "Label" },
+      ]}],
+    }),
   ],
   orderings: [{ title: "Order", name: "orderAsc", by: [{ field: "order", direction: "asc" }] }],
   preview: { select: { title: "title", subtitle: "grade" } },

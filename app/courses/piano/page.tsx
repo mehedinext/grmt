@@ -10,7 +10,7 @@ const green = "#082F27";
 const gold = "#C89A3B";
 const cream = "#F7F2E8";
 
-const glance = [
+const defaultGlance = [
   { icon: "👤", label: "Ages", value: "10–17" },
   { icon: "📊", label: "Level", value: "Intermediate & Advanced" },
   { icon: "🎵", label: "Minimum Standard", value: "ABRSM Grade 5 Equivalent" },
@@ -24,7 +24,7 @@ const glance = [
   { icon: "⭐", label: "Special Guest", value: "Vivian Shiao · Steinway & Sons Top Teacher Award Recipient" },
 ];
 
-const programme = [
+const defaultProgramme = [
   "Studio Classes with Senior Piano Faculty",
   "One Private Lesson",
   "Daily Dedicated Practice",
@@ -38,6 +38,12 @@ const programme = [
   "Masterclasses & Special Sessions",
 ];
 
+const defaultHeroAlertTitle = "Minimum playing standard: ABRSM Grade 5 equivalent";
+const defaultRequirements = "Applicants should be playing at a minimum standard equivalent to ABRSM Grade 5. Students do not need to have taken or passed a Grade 5 examination — the grade is simply used as a guide to the expected playing standard for the course.";
+const defaultCtaHeading = "Five days. A whole new perspective on music.";
+const defaultCtaSubtext = "Students develop their playing, explore new styles, learn from exceptional musicians, perform and make friends — all while experiencing five days surrounded by other young people who share their passion for music.";
+const defaultCtaTagline = "Come for the piano. Leave with much more.";
+
 const defaultAwards = [
   { logo: "/partners/dofe.png", name: "Duke of Edinburgh's Award", desc: "Including eligible Gold Residential and Skills activity." },
   { logo: "/partners/arts-award.png", name: "Arts Award", desc: "Creative and musical experiences may contribute towards an existing Arts Award journey." },
@@ -49,9 +55,16 @@ export const revalidate = 60;
 export default async function PianoCoursePage() {
   const [settings, course] = await Promise.all([
     getSiteSettings(),
-    sanityClient.fetch(`*[_type == "course" && slug.current == "piano"][0]{ "awards": awards[]{ name, desc, "logo": logo.asset->url } }`).catch(() => null),
+    sanityClient.fetch(`*[_type == "course" && slug.current == "piano"][0]{ glance, programme, heroAlertTitle, requirements, ctaHeading, ctaSubtext, ctaTagline, "awards": awards[]{ name, desc, "logo": logo.asset->url } }`).catch(() => null),
   ]);
   const awards = course?.awards?.length ? course.awards : defaultAwards;
+  const glance = course?.glance?.length ? course.glance : defaultGlance;
+  const programme = course?.programme?.length ? course.programme : defaultProgramme;
+  const heroAlertTitle = course?.heroAlertTitle || defaultHeroAlertTitle;
+  const heroAlertBody = course?.requirements || defaultRequirements;
+  const ctaHeading = course?.ctaHeading || defaultCtaHeading;
+  const ctaSubtext = course?.ctaSubtext || defaultCtaSubtext;
+  const ctaTagline = course?.ctaTagline || defaultCtaTagline;
 
   return (
     <>
@@ -69,10 +82,10 @@ export default async function PianoCoursePage() {
             <div style={{ background: "rgba(8,47,39,0.82)", border: `1px solid rgba(200,154,59,0.4)`, borderLeft: `4px solid ${gold}`, borderRadius: 4, padding: "16px 18px", maxWidth: 560, width: "100%", marginBottom: 36, backdropFilter: "blur(6px)" }}>
               <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 8 }}>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={gold} strokeWidth="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
-                <span style={{ color: gold, fontFamily: I, fontSize: "0.78rem", fontWeight: 700, letterSpacing: "0.05em" }}>Minimum playing standard: ABRSM Grade 5 equivalent</span>
+                <span style={{ color: gold, fontFamily: I, fontSize: "0.78rem", fontWeight: 700, letterSpacing: "0.05em" }}>{heroAlertTitle}</span>
               </div>
               <p style={{ color: "rgba(255,255,255,0.7)", fontFamily: I, fontSize: "0.8rem", lineHeight: 1.6, marginBottom: 14 }}>
-                Applicants should be playing at a minimum standard equivalent to ABRSM Grade 5. Students do not need to have taken or passed a Grade 5 examination — the grade is simply used as a guide to the expected playing standard for the course.
+                {heroAlertBody}
               </p>
               <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
                 <a href="https://www.abrsm.org/en-gb/exam-support/syllabuses/" target="_blank" rel="noopener noreferrer" style={{ color: gold, fontFamily: I, fontSize: "0.72rem", fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase", textDecoration: "none", border: `1px solid ${gold}`, padding: "7px 14px", borderRadius: 2 }}>View ABRSM Piano Syllabus ↗</a>
@@ -100,7 +113,7 @@ export default async function PianoCoursePage() {
               <p style={{ color: gold, fontFamily: I, fontSize: "0.65rem", textTransform: "uppercase", letterSpacing: "0.22em", fontWeight: 600 }}>Course at a Glance</p>
             </div>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))", gap: 1, background: "rgba(255,255,255,0.06)" }}>
-              {glance.map((g) => (
+              {glance.map((g: any) => (
                 <div key={g.label} style={{ padding: "20px 22px", background: green, borderBottom: "1px solid rgba(255,255,255,0.07)", borderRight: "1px solid rgba(255,255,255,0.07)" }}>
                   <div style={{ color: gold, fontFamily: I, fontSize: "0.6rem", textTransform: "uppercase", letterSpacing: "0.16em", marginBottom: 6, fontWeight: 600 }}>{g.label}</div>
                   <div style={{ color: "#fff", fontFamily: G, fontSize: "1rem", fontWeight: 500, lineHeight: 1.4, whiteSpace: "pre-line" }}>{g.value}</div>
@@ -148,7 +161,7 @@ export default async function PianoCoursePage() {
                 A comprehensive programme designed to inspire and challenge every pianist.
               </p>
               <ul style={{ listStyle: "none", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))", gap: "6px 12px", marginBottom: 20 }}>
-                {programme.map((item) => (
+                {programme.map((item: string) => (
                   <li key={item} style={{ display: "flex", alignItems: "flex-start", gap: 8, color: "#3d5c51", fontFamily: I, fontSize: "0.82rem", lineHeight: 1.5 }}>
                     <span style={{ color: gold, flexShrink: 0, marginTop: 4, fontSize: "0.5rem" }}>◆</span>{item}
                   </li>
@@ -279,13 +292,13 @@ export default async function PianoCoursePage() {
           <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 clamp(20px,5vw,72px)", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 48, alignItems: "center" }}>
             <div>
               <h2 style={{ fontFamily: G, fontSize: "clamp(2rem,4vw,3.2rem)", fontWeight: 500, color: green, lineHeight: 1.15, marginBottom: 20 }}>
-                Five days. A whole new perspective on music.
+                {ctaHeading}
               </h2>
-              <p style={{ color: "#5a7a6a", fontFamily: I, fontSize: "0.92rem", lineHeight: 1.8, marginBottom: 8 }}>
-                Students develop their playing, explore new styles, learn from exceptional musicians, perform and make friends — all while experiencing five days surrounded by other young people who share their passion for music.
+              <p style={{ color: "#5a7a6a", fontFamily: I, fontSize: "0.92rem", lineHeight: 1.8, marginBottom: 8, whiteSpace: "pre-line" }}>
+                {ctaSubtext}
               </p>
               <p style={{ color: gold, fontFamily: G, fontSize: "1.05rem", fontStyle: "italic", marginBottom: 32 }}>
-                Come for the piano. Leave with much more.
+                {ctaTagline}
               </p>
               <Link href="/apply" className="btn-gold">Apply for the Piano Course →</Link>
             </div>

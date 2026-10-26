@@ -71,6 +71,9 @@ export const queries = {
     heroStats, aboutHeading, about,
     detailType, schedule, topics,
     includes, requirements, highlights,
+    glance, programme, heroAlertTitle,
+    ctaHeading, ctaSubtext, ctaTagline,
+    examItems, whoFor, examStats,
     "awards": awards[]{ name, desc, "logo": logo.asset->url }
   }`,
 
