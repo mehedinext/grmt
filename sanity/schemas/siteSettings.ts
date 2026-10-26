@@ -20,10 +20,8 @@ export const siteSettingsSchema = defineType({
     }),
 
     // ── HERO SLIDE 1 (Main) ─────────────────────────────────────────────
-    defineField({ name: "heroBadge", title: "Hero Slide 1 — Badge Text", type: "string", description: 'e.g. "Residential · Summer 2027"' }),
     defineField({ name: "heroHeadingLine1", title: "Hero Slide 1 — Heading Line 1", type: "string" }),
     defineField({ name: "heroHeadingLine2", title: "Hero Slide 1 — Heading Line 2", type: "string" }),
-    defineField({ name: "heroSubtext", title: "Hero Slide 1 — Subtext", type: "string" }),
     defineField({ name: "heroLocation", title: "Hero Slide 1 — Location", type: "string" }),
     defineField({ name: "heroDate", title: "Hero Slide 1 — Date", type: "string" }),
     defineField({ name: "heroImage", title: "Hero Slide 1 — Background Image", type: "image", options: { hotspot: true } }),
@@ -34,7 +32,6 @@ export const siteSettingsSchema = defineType({
     defineField({ name: "heroCta2Href", title: "Hero Slide 1 — Button 2 Link", type: "string" }),
 
     // ── HERO SLIDE 2 (Theory) ───────────────────────────────────────────
-    defineField({ name: "heroSlide2Enabled", title: "Hero Slide 2 — Enabled", type: "boolean" }),
     defineField({ name: "heroSlide2Eyebrow", title: "Hero Slide 2 — Eyebrow", type: "string" }),
     defineField({ name: "heroSlide2Heading", title: "Hero Slide 2 — Heading (use line breaks)", type: "text", rows: 3 }),
     defineField({ name: "heroSlide2Tagline", title: "Hero Slide 2 — Tagline", type: "string", description: 'e.g. "100% Pass Rate"' }),
@@ -48,7 +45,6 @@ export const siteSettingsSchema = defineType({
     defineField({ name: "heroSlide2Cta2Href", title: "Hero Slide 2 — Button 2 Link", type: "string" }),
 
     // ── HERO SLIDE 3 (Awards) ───────────────────────────────────────────
-    defineField({ name: "heroSlide3Enabled", title: "Hero Slide 3 — Enabled", type: "boolean" }),
     defineField({ name: "heroSlide3Eyebrow", title: "Hero Slide 3 — Eyebrow", type: "string" }),
     defineField({ name: "heroSlide3Heading", title: "Hero Slide 3 — Heading", type: "string" }),
     defineField({ name: "heroSlide3Body", title: "Hero Slide 3 — Body Paragraph", type: "text", rows: 3 }),

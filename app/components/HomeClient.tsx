@@ -182,7 +182,7 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
                     </h1>
                     <div style={{ width: 48, height: 2, background: gold, marginBottom: 20 }} />
                     <p style={{ color: "rgba(255,255,255,0.8)", fontFamily: I, fontSize: "clamp(0.9rem,1.1vw,1rem)", fontWeight: 500, marginBottom: 32 }}>
-                      {settings?.heroSubtext ?? `${settings?.heroLocation ?? "Stamford School"} · ${settings?.heroDate ?? "19–23 July 2027"}`}
+                      {`${settings?.heroLocation ?? "Stamford School"} · ${settings?.heroDate ?? "19–23 July 2027"}`}
                     </p>
                     <div className="hero-cta-btns" style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
                       <Link href={settings?.heroCta1Href ?? "/courses"} className="hero-btn btn-gold">{settings?.heroCta1Label ?? "Explore Courses"}</Link>

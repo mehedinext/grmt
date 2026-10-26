@@ -13,19 +13,19 @@ export const queries = {
   siteSettings: `*[_type == "siteSettings"][0] {
     navLogoSubtitle, navCtaLabel, navCtaHref, navItems,
 
-    heroBadge, heroHeadingLine1, heroHeadingLine2, heroSubtext,
+    heroHeadingLine1, heroHeadingLine2,
     heroLocation, heroDate,
     "heroImage": heroImage.asset->url,
     "heroBadgeImage": heroBadgeImage.asset->url,
     heroCta1Label, heroCta1Href, heroCta2Label, heroCta2Href,
 
-    heroSlide2Enabled, heroSlide2Eyebrow, heroSlide2Heading, heroSlide2Tagline,
+    heroSlide2Eyebrow, heroSlide2Heading, heroSlide2Tagline,
     heroSlide2InfoTitle, heroSlide2InfoBody,
     "heroSlide2Image": heroSlide2Image.asset->url,
     "heroSlide2BadgeImage": heroSlide2BadgeImage.asset->url,
     heroSlide2Cta1Label, heroSlide2Cta1Href, heroSlide2Cta2Label, heroSlide2Cta2Href,
 
-    heroSlide3Enabled, heroSlide3Eyebrow, heroSlide3Heading, heroSlide3Body,
+    heroSlide3Eyebrow, heroSlide3Heading, heroSlide3Body,
     "heroSlide3Image": heroSlide3Image.asset->url,
     heroSlide3Disclaimer,
     heroSlide3Cta1Label, heroSlide3Cta1Href, heroSlide3Cta2Label, heroSlide3Cta2Href,
