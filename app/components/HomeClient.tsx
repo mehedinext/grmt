@@ -28,47 +28,7 @@ function useFadeIn(threshold = 0.12) {
   return { ref, visible };
 }
 
-type Settings = {
-  heroBadge?: string;
-  heroHeadingLine1?: string;
-  heroHeadingLine2?: string;
-  heroSubtext?: string;
-  heroLocation?: string;
-  heroDate?: string;
-  heroCta1Label?: string;
-  heroCta1Href?: string;
-  heroCta2Label?: string;
-  heroCta2Href?: string;
-  stats?: { val: string; label: string }[];
-  coursesSectionHeading?: string;
-  whyHeading?: string;
-  whyItems?: { title: string; desc: string }[];
-  resHeading?: string;
-  resText?: string;
-  resTags?: string[];
-  tutorsHeading?: string;
-  datesHeading?: string;
-  dateItems?: { label: string; val: string; sub: string }[];
-  faqsHeading?: string;
-  ctaEyebrow?: string;
-  ctaHeadingLine1?: string;
-  ctaHeadingLine2?: string;
-  ctaSubtext?: string;
-  ctaCta1Label?: string;
-  ctaCta1Href?: string;
-  ctaCta2Label?: string;
-  ctaCta2Href?: string;
-  partnersLabel?: string;
-  navLogoSubtitle?: string;
-  navCtaLabel?: string;
-  navCtaHref?: string;
-  footerTagline?: string;
-  footerDescription?: string;
-  footerInstagram?: string;
-  footerFacebook?: string;
-  footerContactEmail?: string;
-  footerCopyright?: string;
-} | null;
+type Settings = any;
 
 type Props = {
   tutors: Tutor[];
@@ -145,7 +105,7 @@ const defaultDateItems = [
   { label: "Final Concert", val: "23 July 2027", sub: "Showcase for family & friends" },
 ];
 
-const heroSlides = [
+const allHeroSlides = [
   { type: "main" as const },
   { type: "theory" as const },
   { type: "awards" as const },
@@ -164,12 +124,14 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
     return () => clearInterval(interval);
   }, []);
 
+  const heroSlides = allHeroSlides;
+
   useEffect(() => {
     const interval = setInterval(() => {
       setHeroSlide(prev => (prev + 1) % heroSlides.length);
     }, 6000);
     return () => clearInterval(interval);
-  }, []);
+  }, [heroSlides.length]);
 
   const coursesSec = useFadeIn();
   const whySec = useFadeIn();
@@ -200,7 +162,7 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
             overflow: "hidden", display: "flex", alignItems: "center",
           }}>
             {/* Full-bleed photo */}
-            <img src="/gallery/106-GreenRoomMusicTheorySummer2025.jpg" alt="GRMSC students"
+            <img src={settings?.heroImage ?? "/gallery/106-GreenRoomMusicTheorySummer2025.jpg"} alt="GRMSC students"
               fetchPriority="high" decoding="async"
               style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", zIndex: 0 }} />
             {/* Subtle left gradient — never solid, always shows photo */}
@@ -210,17 +172,21 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
               <div style={{ width: "100%", padding: "0 clamp(40px,5vw,72px)", flex: 1, display: "flex", flexDirection: "column" }}>
                 {/* Steinway badge — same left edge as navbar logo */}
                 <div style={{ paddingTop: 24, paddingBottom: 16 }}>
-                  <img src="/partners/steinway-badge-color.png" alt="Steinway Educational Partner" style={{ height: 100, width: "auto", opacity: 0.9 }} />
+                  <img src={settings?.heroBadgeImage ?? "/partners/steinway-badge-color.png"} alt="Steinway Educational Partner" style={{ height: 100, width: "auto", opacity: 0.9 }} />
                 </div>
                 {/* Hero text — vertically centred */}
                 <div style={{ flex: 1, display: "flex", alignItems: "center", paddingBottom: "clamp(48px,6vw,72px)" }}>
                   <div style={{ maxWidth: 520 }}>
-                    <h1 style={{ fontFamily: G, fontSize: "clamp(2.6rem,4.2vw,4.4rem)", fontWeight: 500, color: "#fff", lineHeight: 1.06, marginBottom: 20 }}>Green Room Music<br />Summer Camp</h1>
+                    <h1 style={{ fontFamily: G, fontSize: "clamp(2.6rem,4.2vw,4.4rem)", fontWeight: 500, color: "#fff", lineHeight: 1.06, marginBottom: 20 }}>
+                      {settings?.heroHeadingLine1 ?? "Green Room Music"}<br />{settings?.heroHeadingLine2 ?? "Summer Camp"}
+                    </h1>
                     <div style={{ width: 48, height: 2, background: gold, marginBottom: 20 }} />
-                    <p style={{ color: "rgba(255,255,255,0.8)", fontFamily: I, fontSize: "clamp(0.9rem,1.1vw,1rem)", fontWeight: 500, marginBottom: 32 }}>Stamford School · 19–23 July 2027</p>
+                    <p style={{ color: "rgba(255,255,255,0.8)", fontFamily: I, fontSize: "clamp(0.9rem,1.1vw,1rem)", fontWeight: 500, marginBottom: 32 }}>
+                      {settings?.heroSubtext ?? `${settings?.heroLocation ?? "Stamford School"} · ${settings?.heroDate ?? "19–23 July 2027"}`}
+                    </p>
                     <div className="hero-cta-btns" style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-                      <Link href="/courses" className="hero-btn btn-gold">Explore Courses</Link>
-                      <Link href="/apply" className="hero-btn btn-outline-white">Apply Now</Link>
+                      <Link href={settings?.heroCta1Href ?? "/courses"} className="hero-btn btn-gold">{settings?.heroCta1Label ?? "Explore Courses"}</Link>
+                      <Link href={settings?.heroCta2Href ?? "/apply"} className="hero-btn btn-outline-white">{settings?.heroCta2Label ?? "Apply Now"}</Link>
                     </div>
                   </div>
                 </div>
@@ -239,37 +205,39 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
               {/* Top branding */}
               <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 36 }}>
                 <svg width="18" height="22" viewBox="0 0 18 22" fill="none"><path d="M6 18V4.5L16 2v14" stroke={gold} strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/><circle cx="3.5" cy="18" r="2.5" stroke={gold} strokeWidth="1.4"/><circle cx="13.5" cy="16" r="2.5" stroke={gold} strokeWidth="1.4"/></svg>
-                <span style={{ color: gold, fontFamily: I, fontSize: "0.76rem", letterSpacing: "0.06em" }}>Green Room Music Summer Camp</span>
+                <span style={{ color: gold, fontFamily: I, fontSize: "0.76rem", letterSpacing: "0.06em" }}>{settings?.heroSlide2Eyebrow ?? "Green Room Music Summer Camp"}</span>
               </div>
               {/* Big heading */}
-              <h1 style={{ fontFamily: G, fontSize: "clamp(2.6rem,4.2vw,4.4rem)", fontWeight: 500, color: "#fff", lineHeight: 1.06, marginBottom: 22 }}>Grade 5<br />Music Theory<br />Crash Course</h1>
+              <h1 style={{ fontFamily: G, fontSize: "clamp(2.6rem,4.2vw,4.4rem)", fontWeight: 500, color: "#fff", lineHeight: 1.06, marginBottom: 22, whiteSpace: "pre-line" }}>
+                {settings?.heroSlide2Heading ?? "Grade 5\nMusic Theory\nCrash Course"}
+              </h1>
               {/* Gold divider */}
               <div style={{ width: 48, height: 2, background: gold, marginBottom: 18 }} />
               {/* Pass rate */}
-              <p style={{ color: "#fff", fontFamily: I, fontSize: "clamp(0.96rem,1.3vw,1.15rem)", fontWeight: 400, marginBottom: 28 }}>100% Pass Rate</p>
+              <p style={{ color: "#fff", fontFamily: I, fontSize: "clamp(0.96rem,1.3vw,1.15rem)", fontWeight: 400, marginBottom: 28 }}>{settings?.heroSlide2Tagline ?? "100% Pass Rate"}</p>
               {/* Info card */}
               <div style={{ display: "flex", alignItems: "flex-start", gap: 14, marginBottom: 32, background: "rgba(255,255,255,0.04)", border: "1px solid rgba(200,154,59,0.3)", borderRadius: 8, padding: "16px 18px" }}>
                 <div style={{ width: 42, height: 42, borderRadius: "50%", border: `1.5px solid ${gold}`, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={gold} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
                 </div>
                 <div>
-                  <div style={{ color: gold, fontFamily: I, fontSize: "0.68rem", fontWeight: 700, letterSpacing: "0.13em", textTransform: "uppercase", marginBottom: 6 }}>ABRSM Grade 5 Crash Course</div>
-                  <p style={{ color: "rgba(255,255,255,0.55)", fontFamily: I, fontSize: "0.82rem", lineHeight: 1.55 }}>Covers 0 – Grade 5, also appropriate for students taking Grades 1, 2 and 3.</p>
+                  <div style={{ color: gold, fontFamily: I, fontSize: "0.68rem", fontWeight: 700, letterSpacing: "0.13em", textTransform: "uppercase", marginBottom: 6 }}>{settings?.heroSlide2InfoTitle ?? "ABRSM Grade 5 Crash Course"}</div>
+                  <p style={{ color: "rgba(255,255,255,0.55)", fontFamily: I, fontSize: "0.82rem", lineHeight: 1.55 }}>{settings?.heroSlide2InfoBody ?? "Covers 0 – Grade 5, also appropriate for students taking Grades 1, 2 and 3."}</p>
                 </div>
               </div>
               {/* Pill button */}
               <div className="hero-cta-btns" style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-                <Link href="/courses/music-theory" className="hero-btn" style={{ border: `1.5px solid ${gold}`, color: gold, padding: "13px 30px", borderRadius: 999, fontSize: "0.78rem", fontFamily: I, fontWeight: 600, textDecoration: "none", letterSpacing: "0.07em", textTransform: "uppercase", display: "inline-block" }}>Learn More</Link>
-                <Link href="/apply" className="hero-btn btn-outline-white">Apply Now</Link>
+                <Link href={settings?.heroSlide2Cta1Href ?? "/courses/music-theory"} className="hero-btn" style={{ border: `1.5px solid ${gold}`, color: gold, padding: "13px 30px", borderRadius: 999, fontSize: "0.78rem", fontFamily: I, fontWeight: 600, textDecoration: "none", letterSpacing: "0.07em", textTransform: "uppercase", display: "inline-block" }}>{settings?.heroSlide2Cta1Label ?? "Learn More"}</Link>
+                <Link href={settings?.heroSlide2Cta2Href ?? "/apply"} className="hero-btn btn-outline-white">{settings?.heroSlide2Cta2Label ?? "Apply Now"}</Link>
               </div>
             </div>
             <div className="hero-right-panel" style={{ flex: 1, position: "relative", overflow: "hidden" }}>
               <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: "40%", zIndex: 1, pointerEvents: "none", background: "linear-gradient(to right, #0D1B2A 0%, rgba(13,27,42,0.85) 40%, rgba(13,27,42,0.35) 70%, rgba(13,27,42,0) 100%)" }} />
-              <img src="/gallery/034-GreenRoomMusicTheorySummer2025.jpg" alt="Grade 5 Music Theory" loading="lazy" decoding="async" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", display: "block" }} />
+              <img src={settings?.heroSlide2Image ?? "/gallery/034-GreenRoomMusicTheorySummer2025.jpg"} alt="Grade 5 Music Theory" loading="lazy" decoding="async" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", display: "block" }} />
             </div>
             {/* ABRSM logo — top right */}
             <div style={{ position: "absolute", top: 24, right: 28, zIndex: 5 }}>
-              <img src="/partners/abrsm.png" alt="ABRSM" style={{ height: 28, width: "auto", maxWidth: 100 }} />
+              <img src={settings?.heroSlide2BadgeImage ?? "/partners/abrsm.png"} alt="ABRSM" style={{ height: 28, width: "auto", maxWidth: 100 }} />
             </div>
           </section>
 
@@ -280,7 +248,7 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
             zIndex: heroSlide === 2 ? 1 : 0, pointerEvents: heroSlide === 2 ? "auto" : "none",
             overflow: "hidden", display: "flex", alignItems: "center", background: green,
           }}>
-            <img src="/gallery/406-Green_Room_Music_Concert_Summer_2025.jpg" alt="GRMSC concert"
+            <img src={settings?.heroSlide3Image ?? "/gallery/406-Green_Room_Music_Concert_Summer_2025.jpg"} alt="GRMSC concert"
               loading="lazy" decoding="async"
               style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", zIndex: 0 }}
             />
@@ -290,19 +258,19 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
             <div style={{ position: "relative", zIndex: 2, width: "100%", padding: "clamp(56px,7vw,90px) clamp(40px,5vw,72px) clamp(40px,5vw,60px)" }}>
               <div style={{ maxWidth: 580 }}>
                 <div style={{ display: "inline-flex", border: `1px solid rgba(200,154,59,0.6)`, borderRadius: 3, padding: "5px 14px", marginBottom: 24, background: "rgba(200,154,59,0.08)" }}>
-                  <span style={{ color: gold, fontSize: "0.6rem", fontFamily: I, textTransform: "uppercase", letterSpacing: "0.22em", fontWeight: 600 }}>More Than a Summer Camp</span>
+                  <span style={{ color: gold, fontSize: "0.6rem", fontFamily: I, textTransform: "uppercase", letterSpacing: "0.22em", fontWeight: 600 }}>{settings?.heroSlide3Eyebrow ?? "More Than a Summer Camp"}</span>
                 </div>
-                <h2 style={{ fontFamily: G, fontSize: "clamp(2.6rem,4.5vw,4.4rem)", fontWeight: 500, color: "#fff", lineHeight: 1.04, marginBottom: 18 }}>Make your week count.</h2>
+                <h2 style={{ fontFamily: G, fontSize: "clamp(2.6rem,4.5vw,4.4rem)", fontWeight: 500, color: "#fff", lineHeight: 1.04, marginBottom: 18 }}>{settings?.heroSlide3Heading ?? "Make your week count."}</h2>
                 <p style={{ color: "rgba(255,255,255,0.68)", fontFamily: I, fontSize: "clamp(0.88rem,1.1vw,1rem)", lineHeight: 1.7, marginBottom: 28, maxWidth: 480 }}>
-                  Your time at GRMSC can support progress towards recognised awards and qualifications in the UK and US.
+                  {settings?.heroSlide3Body ?? "Your time at GRMSC can support progress towards recognised awards and qualifications in the UK and US."}
                 </p>
                 {/* 3 award cards */}
                 <div className="award-cards" style={{ display: "flex", gap: 10, marginBottom: 28, flexWrap: "wrap" }}>
-                  {[
+                  {(settings?.heroSlide3Awards?.length ? settings.heroSlide3Awards : [
                     { logo: "/partners/dofe.png", name: "Duke of Edinburgh's Award", sub: "Gold Residential + Skills", tag: "UK Students" },
                     { logo: "/partners/arts-award.png", name: "Arts Award", sub: "Creative portfolio evidence", tag: "UK Students" },
                     { logo: "/partners/congressional-award.jpeg", name: "The Congressional Award", sub: "Personal Development", tag: "US Students" },
-                  ].map((a) => (
+                  ]).map((a: any) => (
                     <div key={a.name} style={{ flex: "1 1 150px", background: "rgba(0,0,0,0.42)", border: "1px solid rgba(255,255,255,0.14)", borderRadius: 6, padding: "14px 14px 10px", backdropFilter: "blur(6px)" }}>
                       <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10 }}>
                         <img src={a.logo} alt={a.name} style={{ height: 36, width: 36, objectFit: "contain", filter: "invert(1)", mixBlendMode: "screen", flexShrink: 0 }} />
@@ -319,11 +287,11 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
                 </div>
                 {/* Buttons */}
                 <div className="hero-cta-btns" style={{ display: "flex", gap: 12, flexWrap: "wrap", marginBottom: 18 }}>
-                  <Link href="/courses" className="hero-btn btn-gold">Explore Awards &amp; Qualifications →</Link>
-                  <Link href="/apply" className="hero-btn btn-outline-white">Learn More</Link>
+                  <Link href={settings?.heroSlide3Cta1Href ?? "/courses"} className="hero-btn btn-gold">{settings?.heroSlide3Cta1Label ?? "Explore Awards & Qualifications →"}</Link>
+                  <Link href={settings?.heroSlide3Cta2Href ?? "/apply"} className="hero-btn btn-outline-white">{settings?.heroSlide3Cta2Label ?? "Learn More"}</Link>
                 </div>
                 <p style={{ color: "rgba(255,255,255,0.32)", fontFamily: I, fontSize: "0.66rem", lineHeight: 1.55, maxWidth: 480 }}>
-                  Participation at GRMSC does not automatically guarantee award completion. Eligibility should be confirmed with the relevant award provider.
+                  {settings?.heroSlide3Disclaimer ?? "Participation at GRMSC does not automatically guarantee award completion. Eligibility should be confirmed with the relevant award provider."}
                 </p>
               </div>
             </div>
@@ -345,7 +313,7 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
         {/* ─── STATS STRIP ─── */}
         <div style={{ background: green, borderTop: "1px solid rgba(255,255,255,0.08)" }}>
           <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 clamp(16px, 3vw, 40px)", display: "flex", flexWrap: "wrap", justifyContent: "space-between" }}>
-            {stats.map((s, i) => (
+            {stats.map((s: any, i: number) => (
               <div key={i} style={{ padding: "28px 0", flex: "1 1 160px", textAlign: "center", borderRight: "1px solid rgba(255,255,255,0.07)" }}>
                 <div style={{ fontFamily: G, fontSize: "1rem", color: "#fff", fontWeight: 500, marginBottom: 4 }}>{s.val}</div>
                 <div style={{ fontFamily: I, fontSize: "0.6rem", color: "rgba(255,255,255,0.4)", textTransform: "uppercase", letterSpacing: "0.14em" }}>{s.label}</div>
@@ -426,7 +394,7 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
               <div style={{ width: 48, height: 2, background: gold, margin: "16px auto 0" }} />
             </div>
             <div className="why-grid">
-              {whyItems.map((w, i) => (
+              {whyItems.map((w: any, i: number) => (
                 <div key={i} style={{
                   textAlign: "center",
                   opacity: whySec.visible ? 1 : 0,
@@ -457,7 +425,7 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
               transition: "opacity 0.8s ease, transform 0.8s ease",
             }}>
               <img
-                src="https://greenroomtheory.com/wp-content/uploads/2025/09/043-GreenRoomMusicTheorySummer2025-scaled.jpg"
+                src={settings?.resImage ?? "https://greenroomtheory.com/wp-content/uploads/2025/09/043-GreenRoomMusicTheorySummer2025-scaled.jpg"}
                 alt="Students at Stamford School"
                 style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
               />
@@ -477,7 +445,7 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
                 {settings?.resText ?? "Live, learn and make music in a supportive community. Students enjoy comfortable accommodation, nutritious meals and a programme that balances focused rehearsals with fun, friendship and relaxation."}
               </p>
               <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
-                {resTags.map((tag) => (
+                {resTags.map((tag: string) => (
                   <span key={tag} style={{
                     border: "1px solid #c4bdb0", borderRadius: 3,
                     padding: "7px 13px", fontSize: "0.78rem",
@@ -555,7 +523,7 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
                 {settings?.datesHeading ?? "Dates & Key Information"}
               </h2>
               <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
-                {dateItems.map((d, i) => (
+                {dateItems.map((d: any, i: number) => (
                   <div key={d.label} style={{
                     display: "flex", alignItems: "flex-start", gap: 20,
                     padding: "18px 0",
@@ -616,7 +584,7 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
 
         {/* ─── CTA BANNER ─── */}
         <section ref={ctaSec.ref} style={{ position: "relative", overflow: "hidden", padding: "clamp(72px, 10vw, 120px) 0" }}>
-          <div style={{ position: "absolute", inset: 0, backgroundImage: "url(https://greenroomtheory.com/wp-content/uploads/2025/09/101-GreenRoomMusicTheorySummer2025-scaled.jpg)", backgroundSize: "cover", backgroundPosition: "center top" }} />
+          <div style={{ position: "absolute", inset: 0, backgroundImage: `url(${settings?.ctaImage ?? "https://greenroomtheory.com/wp-content/uploads/2025/09/101-GreenRoomMusicTheorySummer2025-scaled.jpg"})`, backgroundSize: "cover", backgroundPosition: "center top" }} />
           <div style={{ position: "absolute", inset: 0, background: "rgba(8,47,39,0.85)" }} />
           <div style={{
             position: "relative", zIndex: 1, maxWidth: 860, margin: "0 auto", padding: "0 clamp(20px, 4vw, 60px)",
@@ -666,8 +634,8 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
             <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: 120, background: "linear-gradient(to right, #fff, transparent)", zIndex: 2, pointerEvents: "none" }} />
             <div style={{ position: "absolute", right: 0, top: 0, bottom: 0, width: 120, background: "linear-gradient(to left, #fff, transparent)", zIndex: 2, pointerEvents: "none" }} />
             <div className="marquee-track">
-              {[...partnerLogos, ...partnerLogos, ...partnerLogos, ...partnerLogos].map((p, i) => {
-                const isSteinway = p.src.includes("steinway");
+              {[...partnerLogos, ...partnerLogos, ...partnerLogos, ...partnerLogos].filter((p: any) => p && p.src).map((p: any, i: number) => {
+                const isSteinway = (p.src || "").includes("steinway");
                 return (
                   <a key={i} href={p.href} target="_blank" rel="noopener noreferrer" style={{
                     flexShrink: 0, margin: "0 48px",

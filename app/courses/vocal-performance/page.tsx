@@ -1,7 +1,8 @@
 import Link from "next/link";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
-import { getSiteSettings } from "../../lib/sanity";
+import { getSiteSettings, sanityClient } from "../../lib/sanity";
+import { urlFor } from "../../lib/image";
 
 const G = "var(--font-garamond)";
 const I = "var(--font-inter)";
@@ -35,14 +36,20 @@ const programme = [
   "Acting Through Song",
 ];
 
-const awards = [
+const defaultAwards = [
   { logo: "/partners/dofe.png", name: "Duke of Edinburgh's Award", desc: "Including eligible Gold Residential and Skills activity." },
   { logo: "/partners/arts-award.png", name: "Arts Award", desc: "Creative and performance experiences may contribute towards an existing Arts Award journey." },
   { logo: "/partners/congressional-award.jpeg", name: "The Congressional Award", desc: "For US students, eligible activity may contribute towards Personal Development." },
 ];
 
+export const revalidate = 60;
+
 export default async function VocalPerformancePage() {
-  const settings = await getSiteSettings();
+  const [settings, course] = await Promise.all([
+    getSiteSettings(),
+    sanityClient.fetch(`*[_type == "course" && slug.current == "vocal-performance"][0]{ "awards": awards[]{ name, desc, "logo": logo.asset->url } }`).catch(() => null),
+  ]);
+  const awards = course?.awards?.length ? course.awards : defaultAwards;
 
   return (
     <>
@@ -227,9 +234,9 @@ export default async function VocalPerformancePage() {
                 Experiences at GRMSC may also support students working towards recognised external awards and qualifications.
               </p>
               <div style={{ display: "flex", flexDirection: "column", gap: 14, marginBottom: 20 }}>
-                {awards.map((a) => (
+                {awards.map((a: any) => (
                   <div key={a.name} style={{ display: "flex", alignItems: "flex-start", gap: 14 }}>
-                    <img src={a.logo} alt={a.name} style={{ width: 36, height: 36, objectFit: "contain", flexShrink: 0, filter: "invert(1)", mixBlendMode: "multiply" }} />
+                    <img src={urlFor(a.logo)} alt={a.name} style={{ width: 36, height: 36, objectFit: "contain", flexShrink: 0, filter: "invert(1)", mixBlendMode: "multiply" }} />
                     <div>
                       <div style={{ color: green, fontFamily: I, fontSize: "0.82rem", fontWeight: 700, marginBottom: 2 }}>{a.name}</div>
                       <div style={{ color: "#5a7a6a", fontFamily: I, fontSize: "0.78rem", lineHeight: 1.55 }}>{a.desc}</div>

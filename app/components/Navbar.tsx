@@ -4,12 +4,11 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const G = "var(--font-garamond)";
 const I = "var(--font-inter)";
 const green = "#082F27";
 const gold = "#C89A3B";
 
-const navLinks = [
+const defaultNavLinks = [
   { href: "/", label: "Home" },
   { href: "/courses", label: "Courses" },
   { href: "/residential-life", label: "Residential Life" },
@@ -22,6 +21,7 @@ type Settings = {
   navLogoSubtitle?: string;
   navCtaLabel?: string;
   navCtaHref?: string;
+  navItems?: { label: string; href: string }[];
 } | null;
 
 export default function Navbar({ settings }: { settings?: Settings }) {
@@ -29,9 +29,9 @@ export default function Navbar({ settings }: { settings?: Settings }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const pathname = usePathname();
 
-  const subtitle = settings?.navLogoSubtitle ?? "Green Room Music Summer Camp";
   const ctaLabel  = settings?.navCtaLabel    ?? "Apply Now";
   const ctaHref   = settings?.navCtaHref     ?? "/apply";
+  const navLinks  = settings?.navItems?.length ? settings.navItems : defaultNavLinks;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);

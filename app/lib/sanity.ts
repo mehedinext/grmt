@@ -11,10 +11,26 @@ export const sanityClient = createClient({
 // GROQ queries — one place to update when schema changes
 export const queries = {
   siteSettings: `*[_type == "siteSettings"][0] {
-    navLogoSubtitle, navCtaLabel, navCtaHref,
+    navLogoSubtitle, navCtaLabel, navCtaHref, navItems,
+
     heroBadge, heroHeadingLine1, heroHeadingLine2, heroSubtext,
-    heroLocation, heroDate, "heroImage": heroImage.asset->url,
+    heroLocation, heroDate,
+    "heroImage": heroImage.asset->url,
+    "heroBadgeImage": heroBadgeImage.asset->url,
     heroCta1Label, heroCta1Href, heroCta2Label, heroCta2Href,
+
+    heroSlide2Enabled, heroSlide2Eyebrow, heroSlide2Heading, heroSlide2Tagline,
+    heroSlide2InfoTitle, heroSlide2InfoBody,
+    "heroSlide2Image": heroSlide2Image.asset->url,
+    "heroSlide2BadgeImage": heroSlide2BadgeImage.asset->url,
+    heroSlide2Cta1Label, heroSlide2Cta1Href, heroSlide2Cta2Label, heroSlide2Cta2Href,
+
+    heroSlide3Enabled, heroSlide3Eyebrow, heroSlide3Heading, heroSlide3Body,
+    "heroSlide3Image": heroSlide3Image.asset->url,
+    heroSlide3Disclaimer,
+    heroSlide3Cta1Label, heroSlide3Cta1Href, heroSlide3Cta2Label, heroSlide3Cta2Href,
+    "heroSlide3Awards": heroSlide3Awards[]{ name, sub, tag, "logo": logo.asset->url },
+
     stats,
     coursesSectionHeading,
     whyHeading, whyItems,
@@ -25,14 +41,27 @@ export const queries = {
     "ctaImage": ctaImage.asset->url,
     ctaCta1Label, ctaCta1Href, ctaCta2Label, ctaCta2Href,
     partnersLabel,
+
     footerTagline, footerDescription, footerInstagram, footerFacebook,
-    footerContactEmail, footerCopyright,
+    footerContactEmail, footerCopyright, footerLegalLine, footerColumns,
+
     coursesPageEyebrow, coursesPageHeading, coursesPageSubtext, coursesPageCtaHeading, coursesPageCtaSubtext,
-    facultyPageEyebrow, facultyPageHeading, facultyPageSubtext, facultyPageQuote, facultyPageQuoteAttrib, facultyPageCtaHeading, facultyPageCtaSubtext,
-    resPageEyebrow, resPageHeading, resPageSubtext, resPageGalleryHeading, resPageFeaturesHeading, resPageWeekHeading, resPageCtaHeading, resPageCtaSubtext,
+
+    facultyPageEyebrow, facultyPageHeading, facultyPageSubtext, facultyPageStaffHeading,
+    facultyPageQuote, facultyPageQuoteAttrib, facultyPageCtaHeading, facultyPageCtaSubtext, facultyPageCtaLabel,
+
+    resPageEyebrow, resPageHeading, resPageSubtext, resPageGalleryHeading,
+    resPageFeaturesHeading, resPageWeekHeading, resPageCtaHeading, resPageCtaSubtext, resPageApplyLabel,
+    resStats, resWeekItems,
+
     faqsPageEyebrow, faqsPageHeading, faqsPageSubtext,
-    feesPageEyebrow, feesPageHeading, feesPageSubtext, feesPagePriceValue, feesPagePriceNote, feesPagePriceDesc,
-    applyPageEyebrow, applyPageHeading, applyPageSubtext
+
+    feesPageEyebrow, feesPageHeading, feesPageSubtext,
+    feesPagePriceLabel, feesPagePriceValue, feesPagePriceNote, feesPagePriceDesc,
+    feesPageApplyLabel, feesPageApplyNote, feesPageBursaries,
+
+    applyPageEyebrow, applyPageHeading, applyPageSubtext,
+    applyPageFormHeading, applyPageSubmitLabel, applyPageSubmitNote, applyPageInfoStats
   }`,
 
   courses: `*[_type == "course"] | order(order asc) {
@@ -41,7 +70,8 @@ export const queries = {
     heroColor, "heroImage": heroImage.asset->url,
     heroStats, aboutHeading, about,
     detailType, schedule, topics,
-    includes, requirements, highlights
+    includes, requirements, highlights,
+    "awards": awards[]{ name, desc, "logo": logo.asset->url }
   }`,
 
   tutors: `*[_type == "tutor"] | order(order asc) {
@@ -57,7 +87,9 @@ export const queries = {
 
   galleryImages: `*[_type == "galleryImage"] | order(order asc) { _id, "url": image.asset->url, alt }`,
 
-  partners: `*[_type == "partner"] | order(order asc) { _id, name, "logo": logo.asset->url }`,
+  partners: `*[_type == "partner"] | order(order asc) { _id, name, "logo": logo.asset->url, "href": url }`,
+
+  staffMembers: `*[_type == "staffMember"] | order(order asc) { _id, name, role, department, "image": image.asset->url }`,
 };
 
 // Cached per-request fetch — safe to call from multiple components, only hits Sanity once

@@ -9,20 +9,14 @@ const green = "#082F27";
 const gold = "#C89A3B";
 const cream = "#F7F2E8";
 
-type Settings = {
-  applyPageEyebrow?: string;
-  applyPageHeading?: string;
-  applyPageSubtext?: string;
-  navLogoSubtitle?: string;
-  navCtaLabel?: string;
-  navCtaHref?: string;
-  footerTagline?: string;
-  footerDescription?: string;
-  footerInstagram?: string;
-  footerFacebook?: string;
-  footerContactEmail?: string;
-  footerCopyright?: string;
-} | null;
+type Settings = any;
+
+const defaultApplyStats = [
+  { val: "19–23 July 2027", label: "Dates" },
+  { val: "Ages 10–17", label: "Who" },
+  { val: "Stamford School", label: "Venue" },
+  { val: "3 Courses", label: "Choice" },
+];
 
 export default function ApplyClient({ settings }: { settings?: Settings }) {
   return (
@@ -49,7 +43,7 @@ export default function ApplyClient({ settings }: { settings?: Settings }) {
           <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 clamp(16px, 3vw, 40px)" }}>
 
             <div style={{ background: "#fff", padding: "clamp(32px, 5vw, 56px)" }}>
-              <h2 style={{ fontFamily: G, fontSize: "1.6rem", fontWeight: 500, color: green, marginBottom: 8 }}>Interest Registration Form</h2>
+              <h2 style={{ fontFamily: G, fontSize: "1.6rem", fontWeight: 500, color: green, marginBottom: 8 }}>{settings?.applyPageFormHeading ?? "Interest Registration Form"}</h2>
               <div style={{ width: 32, height: 2, background: gold, marginBottom: 32 }} />
 
               <form style={{ display: "flex", flexDirection: "column", gap: 0 }}>
@@ -97,23 +91,18 @@ export default function ApplyClient({ settings }: { settings?: Settings }) {
                 </div>
 
                 <div style={{ padding: "28px 0 0" }}>
-                  <button type="submit" className="btn-gold" style={{ width: "100%", textAlign: "center", cursor: "pointer" }}>Submit Registration</button>
-                  <p style={{ color: "#9aaa9e", fontSize: "0.72rem", textAlign: "center", marginTop: 14, fontFamily: I }}>No payment required. We will be in touch when applications formally open for Summer 2027.</p>
+                  <button type="submit" className="btn-gold" style={{ width: "100%", textAlign: "center", cursor: "pointer" }}>{settings?.applyPageSubmitLabel ?? "Submit Registration"}</button>
+                  <p style={{ color: "#9aaa9e", fontSize: "0.72rem", textAlign: "center", marginTop: 14, fontFamily: I }}>{settings?.applyPageSubmitNote ?? "No payment required. We will be in touch when applications formally open for Summer 2027."}</p>
                 </div>
               </form>
             </div>
           </div>
 
           <div style={{ maxWidth: 1200, margin: "4px auto 0", padding: "0 clamp(16px, 3vw, 40px)", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: 2 }}>
-            {[
-              ["19–23 July 2027", "Dates"],
-              ["Ages 10–17", "Who"],
-              ["Stamford School", "Venue"],
-              ["3 Courses", "Choice"],
-            ].map(([val, label]) => (
-              <div key={label} style={{ background: green, padding: "24px 28px" }}>
-                <div style={{ color: gold, fontFamily: G, fontSize: "1.05rem", marginBottom: 4 }}>{val}</div>
-                <div style={{ color: "rgba(255,255,255,0.4)", fontSize: "0.6rem", textTransform: "uppercase", letterSpacing: "0.14em", fontFamily: I }}>{label}</div>
+            {(settings?.applyPageInfoStats?.length ? settings.applyPageInfoStats : defaultApplyStats).map((s: any) => (
+              <div key={s.label} style={{ background: green, padding: "24px 28px" }}>
+                <div style={{ color: gold, fontFamily: G, fontSize: "1.05rem", marginBottom: 4 }}>{s.val}</div>
+                <div style={{ color: "rgba(255,255,255,0.4)", fontSize: "0.6rem", textTransform: "uppercase", letterSpacing: "0.14em", fontFamily: I }}>{s.label}</div>
               </div>
             ))}
           </div>

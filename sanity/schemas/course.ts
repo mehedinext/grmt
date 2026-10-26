@@ -46,6 +46,16 @@ export const courseSchema = defineType({
     defineField({ name: "includes", title: "What's Included", type: "array", of: [{ type: "string" }] }),
     defineField({ name: "requirements", title: "Requirements", type: "text", rows: 2 }),
     defineField({ name: "highlights", title: "Highlights", type: "array", of: [{ type: "string" }] }),
+    defineField({
+      name: "awards",
+      title: "Awards & Qualifications",
+      type: "array",
+      of: [{ type: "object", fields: [
+        { name: "logo", type: "image", title: "Logo", options: { hotspot: true } },
+        { name: "name", type: "string", title: "Name" },
+        { name: "desc", type: "text", title: "Description", rows: 2 },
+      ]}],
+    }),
   ],
   orderings: [{ title: "Order", name: "orderAsc", by: [{ field: "order", direction: "asc" }] }],
   preview: { select: { title: "title", subtitle: "grade" } },

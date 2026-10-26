@@ -1,10 +1,9 @@
-// Sanity migration: import tutors from a groq fetch instead of data.ts
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Link from "next/link";
-import { tutors, staffMembers } from "../lib/data";
+import { tutors as staticTutors, staffMembers as staticStaff } from "../lib/data";
 import { urlFor } from "../lib/image";
-import { getSiteSettings } from "../lib/sanity";
+import { getSiteSettings, sanityClient, queries } from "../lib/sanity";
 
 const G = "var(--font-garamond)";
 const I = "var(--font-inter)";
@@ -12,8 +11,18 @@ const green = "#082F27";
 const gold = "#C89A3B";
 const cream = "#F7F2E8";
 
+export const revalidate = 60;
+
 export default async function FacultyPage() {
-  const settings = await getSiteSettings();
+  const [settings, sanityTutors, sanityStaff] = await Promise.all([
+    getSiteSettings(),
+    sanityClient.fetch(queries.tutors).catch(() => []),
+    sanityClient.fetch(queries.staffMembers).catch(() => []),
+  ]);
+
+  const tutors = (sanityTutors || []).length ? sanityTutors : staticTutors;
+  const staff  = (sanityStaff || []).length  ? sanityStaff  : staticStaff;
+
   return (
     <>
       <Navbar settings={settings} />
@@ -36,7 +45,7 @@ export default async function FacultyPage() {
         {/* Tutor profiles */}
         <section style={{ background: cream, padding: "clamp(72px, 10vw, 112px) 0" }}>
           <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 clamp(16px, 3vw, 40px)", display: "flex", flexDirection: "column", gap: 80 }}>
-            {tutors.map((t, i) => (
+            {tutors.map((t: any, i: number) => (
               <div
                 key={t.name}
                 style={{
@@ -70,7 +79,7 @@ export default async function FacultyPage() {
                 {/* Bio */}
                 <div style={{ order: i % 2 === 1 ? 1 : 2 }}>
                   <div style={{ width: 32, height: 2, background: gold, marginBottom: 28 }} />
-                  {t.bioFull.map((para, j) => (
+                  {(t.bioFull || []).map((para: string, j: number) => (
                     <p key={j} style={{ color: "#3d5c51", fontSize: "0.95rem", lineHeight: 1.88, marginBottom: 18 }}>{para}</p>
                   ))}
                   <div style={{
@@ -90,15 +99,19 @@ export default async function FacultyPage() {
         <section style={{ background: "#fff", padding: "clamp(56px, 8vw, 80px) 0" }}>
           <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 clamp(16px, 3vw, 40px)" }}>
             <div style={{ textAlign: "center", marginBottom: 48 }}>
-              <h2 style={{ fontFamily: G, fontSize: "clamp(1.5rem, 2.6vw, 2rem)", fontWeight: 500, color: green }}>The Full Team</h2>
+              <h2 style={{ fontFamily: G, fontSize: "clamp(1.5rem, 2.6vw, 2rem)", fontWeight: 500, color: green }}>{settings?.facultyPageStaffHeading ?? "The Full Team"}</h2>
               <div style={{ width: 40, height: 2, background: gold, margin: "14px auto 0" }} />
             </div>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 2 }} className="staff-grid">
-              {staffMembers.map((s, i) => (
-                <div key={s._id} style={{ background: cream, padding: "28px 24px", borderTop: `3px solid ${i % 2 === 0 ? gold : green}` }}>
-                  <div style={{ width: 44, height: 44, borderRadius: "50%", background: green, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 16 }}>
-                    <span style={{ color: gold, fontFamily: G, fontSize: "1.1rem", fontWeight: 600 }}>{s.name.charAt(0)}</span>
-                  </div>
+              {staff.map((s: any, i: number) => (
+                <div key={s._id ?? s.name} style={{ background: cream, padding: "28px 24px", borderTop: `3px solid ${i % 2 === 0 ? gold : green}` }}>
+                  {s.image ? (
+                    <img src={urlFor(s.image)} alt={s.name} style={{ width: 44, height: 44, borderRadius: "50%", objectFit: "cover", marginBottom: 16, display: "block" }} />
+                  ) : (
+                    <div style={{ width: 44, height: 44, borderRadius: "50%", background: green, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 16 }}>
+                      <span style={{ color: gold, fontFamily: G, fontSize: "1.1rem", fontWeight: 600 }}>{s.name?.charAt(0)}</span>
+                    </div>
+                  )}
                   <h3 style={{ fontFamily: G, fontSize: "1.05rem", fontWeight: 500, color: green, marginBottom: 6 }}>{s.name}</h3>
                   <p style={{ color: gold, fontSize: "0.62rem", textTransform: "uppercase", letterSpacing: "0.14em", fontFamily: I, fontWeight: 600, marginBottom: 8 }}>{s.role}</p>
                   <p style={{ color: "#7a9a8a", fontSize: "0.78rem", fontFamily: I }}>{s.department}</p>
@@ -124,7 +137,7 @@ export default async function FacultyPage() {
         <section style={{ background: cream, padding: "64px 0", textAlign: "center" }}>
           <h2 style={{ fontFamily: G, fontSize: "clamp(1.5rem, 2.8vw, 2rem)", fontWeight: 500, color: green, marginBottom: 12 }}>{settings?.facultyPageCtaHeading ?? "Study with Will & Vivian"}</h2>
           <p style={{ color: "#5a7a6a", fontSize: "0.88rem", marginBottom: 32, fontFamily: I }}>{settings?.facultyPageCtaSubtext ?? "Applications for Summer 2027 open soon · 19–23 July · Stamford School"}</p>
-          <Link href="/apply" className="btn-gold">Apply Now</Link>
+          <Link href="/apply" className="btn-gold">{settings?.facultyPageCtaLabel ?? "Apply Now"}</Link>
         </section>
 
       </main>

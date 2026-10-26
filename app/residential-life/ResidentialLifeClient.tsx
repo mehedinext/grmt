@@ -1,10 +1,9 @@
-// Sanity migration: import galleryImages, resFeatures from a groq fetch instead of data.ts
 "use client";
 import { useState, useEffect, useRef } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Link from "next/link";
-import { galleryImages, resFeatures as features } from "../lib/data";
+import { galleryImages as staticGallery, resFeatures as staticFeatures } from "../lib/data";
 import { urlFor } from "../lib/image";
 
 const G = "var(--font-garamond)";
@@ -13,9 +12,35 @@ const green = "#082F27";
 const gold = "#C89A3B";
 const cream = "#F7F2E8";
 
-export default function ResidentialLifeClient({ settings }: { settings?: any }) {
+type Props = {
+  settings?: any;
+  galleryImages?: string[];
+  features?: { _id?: string; title: string; description: string }[];
+};
+
+const defaultStats = [
+  { val: "5 Days", label: "Full residential programme" },
+  { val: "3 Meals", label: "Daily, all diets catered" },
+  { val: "24/7", label: "Pastoral support on site" },
+  { val: "DBS Checked", label: "All staff, all sessions" },
+];
+
+const defaultWeek = [
+  { day: "Sat 19 Jul", highlight: "Arrivals & welcome concert" },
+  { day: "Sun & Mon", highlight: "Intensive course sessions & evening events" },
+  { day: "Tuesday", highlight: "Open masterclass & guest artist" },
+  { day: "Wed 23 Jul", highlight: "Final showcase & farewell" },
+];
+
+export default function ResidentialLifeClient({ settings, galleryImages: galleryProp, features: featuresProp }: Props) {
   const [slide, setSlide] = useState(0);
   const timerRef = useRef<any>(null);
+
+  const galleryImages = galleryProp?.length ? galleryProp : staticGallery;
+  const features = featuresProp?.length ? featuresProp : staticFeatures;
+  const stats = settings?.resStats?.length ? settings.resStats : defaultStats;
+  const week = settings?.resWeekItems?.length ? settings.resWeekItems : defaultWeek;
+  const applyLabel = settings?.resPageApplyLabel ?? "Apply Now";
 
   const goTo = (i: number) => {
     setSlide(i);
@@ -26,7 +51,7 @@ export default function ResidentialLifeClient({ settings }: { settings?: any }) 
   useEffect(() => {
     timerRef.current = setInterval(() => setSlide(s => (s + 1) % galleryImages.length), 4000);
     return () => clearInterval(timerRef.current);
-  }, []);
+  }, [galleryImages.length]);
 
   return (
     <>
@@ -50,15 +75,10 @@ export default function ResidentialLifeClient({ settings }: { settings?: any }) 
         {/* Stats bar */}
         <div style={{ background: "#fff", borderBottom: "1px solid #e8e3da" }}>
           <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 clamp(16px, 3vw, 40px)", display: "flex", flexWrap: "wrap" }}>
-            {[
-              ["5 Days", "Full residential programme"],
-              ["3 Meals", "Daily, all diets catered"],
-              ["24/7", "Pastoral support on site"],
-              ["DBS Checked", "All staff, all sessions"],
-            ].map(([val, label]) => (
-              <div key={label} style={{ flex: "1 1 140px", padding: "24px 0 24px", borderRight: "1px solid #e8e3da", textAlign: "center" }}>
-                <div style={{ color: green, fontFamily: G, fontSize: "1.3rem", fontWeight: 500, marginBottom: 4 }}>{val}</div>
-                <div style={{ color: "#9aaa9e", fontSize: "0.6rem", textTransform: "uppercase", letterSpacing: "0.14em", fontFamily: I }}>{label}</div>
+            {stats.map((s: any, i: number) => (
+              <div key={i} style={{ flex: "1 1 140px", padding: "24px 0 24px", borderRight: "1px solid #e8e3da", textAlign: "center" }}>
+                <div style={{ color: green, fontFamily: G, fontSize: "1.3rem", fontWeight: 500, marginBottom: 4 }}>{s.val}</div>
+                <div style={{ color: "#9aaa9e", fontSize: "0.6rem", textTransform: "uppercase", letterSpacing: "0.14em", fontFamily: I }}>{s.label}</div>
               </div>
             ))}
           </div>
@@ -121,13 +141,13 @@ export default function ResidentialLifeClient({ settings }: { settings?: any }) 
 
             {/* Thumbnail strip */}
             <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: 4, marginTop: 12 }}>
-              {galleryImages.map((src, i) => (
+              {galleryImages.slice(0, 5).map((src, i) => (
                 <div
                   key={i}
                   onClick={() => goTo(i)}
                   style={{ cursor: "pointer", overflow: "hidden", aspectRatio: "1", outline: slide === i ? `2px solid ${gold}` : "none", outlineOffset: 2 }}
                 >
-                  <img src={src} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", opacity: slide === i ? 1 : 0.55, transition: "opacity 0.3s" }} />
+                  <img src={urlFor(src)} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", opacity: slide === i ? 1 : 0.55, transition: "opacity 0.3s" }} />
                 </div>
               ))}
             </div>
@@ -142,8 +162,8 @@ export default function ResidentialLifeClient({ settings }: { settings?: any }) 
               <div style={{ width: 40, height: 2, background: gold, margin: "14px auto 0" }} />
             </div>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 2 }}>
-              {features.map((f, i) => (
-                <div key={f.title} style={{ background: cream, padding: "32px", borderTop: `3px solid ${i % 2 === 0 ? gold : green}` }}>
+              {features.map((f: any, i: number) => (
+                <div key={f._id ?? f.title} style={{ background: cream, padding: "32px", borderTop: `3px solid ${i % 2 === 0 ? gold : green}` }}>
                   <h3 style={{ fontFamily: G, fontSize: "1.2rem", fontWeight: 500, color: green, marginBottom: 12 }}>{f.title}</h3>
                   <p style={{ color: "#5a7a6a", fontSize: "0.88rem", lineHeight: 1.78 }}>{f.description}</p>
                 </div>
@@ -160,12 +180,7 @@ export default function ResidentialLifeClient({ settings }: { settings?: any }) 
               <div style={{ width: 40, height: 2, background: gold, margin: "14px auto 0" }} />
             </div>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 2 }}>
-              {[
-                { day: "Sat 19 Jul", highlight: "Arrivals & welcome concert" },
-                { day: "Sun & Mon", highlight: "Intensive course sessions & evening events" },
-                { day: "Tuesday", highlight: "Open masterclass & guest artist" },
-                { day: "Wed 23 Jul", highlight: "Final showcase & farewell" },
-              ].map((d) => (
+              {week.map((d: any) => (
                 <div key={d.day} style={{ background: "#fff", padding: "28px 24px", borderTop: `3px solid ${gold}` }}>
                   <div style={{ color: gold, fontWeight: 600, fontSize: "0.72rem", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 10, fontFamily: I }}>{d.day}</div>
                   <div style={{ color: green, fontSize: "0.92rem", lineHeight: 1.6, fontFamily: I }}>{d.highlight}</div>
@@ -179,7 +194,7 @@ export default function ResidentialLifeClient({ settings }: { settings?: any }) 
         <section style={{ background: green, padding: "64px 0", textAlign: "center" }}>
           <h2 style={{ fontFamily: G, fontSize: "clamp(1.6rem, 3vw, 2.2rem)", fontWeight: 500, color: "#fff", marginBottom: 12 }}>{settings?.resPageCtaHeading ?? "Join Us for Summer 2027"}</h2>
           <p style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.88rem", marginBottom: 32, fontFamily: I }}>{settings?.resPageCtaSubtext ?? "Applications open soon · 19–23 July · Stamford School"}</p>
-          <Link href="/apply" className="btn-gold">Apply Now</Link>
+          <Link href="/apply" className="btn-gold">{applyLabel}</Link>
         </section>
 
       </main>

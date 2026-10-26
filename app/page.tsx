@@ -13,13 +13,16 @@ export default async function HomePage() {
     sanityClient.fetch(queries.partners).catch(() => []),
   ]);
 
+  const partnersWithLogos = (partners || []).filter((p: any) => p.logo).map((p: any) => ({ src: p.logo, href: p.href || "#", alt: p.name || "" }));
+  const partnersMapped = partnersWithLogos.length ? partnersWithLogos : staticPartners;
+
   return (
     <HomeClient
       settings={settings}
       courses={courses.length     ? courses  : staticCourses}
       tutors={tutors.length       ? tutors   : staticTutors}
       faqs={faqs.length           ? faqs     : staticFaqs}
-      partnerLogos={staticPartners}
+      partnerLogos={partnersMapped}
     />
   );
 }
