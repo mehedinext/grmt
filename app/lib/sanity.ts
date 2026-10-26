@@ -49,6 +49,12 @@ export const queries = {
 
     facultyPageEyebrow, facultyPageHeading, facultyPageSubtext, facultyPageStaffHeading,
     facultyPageQuote, facultyPageQuoteAttrib, facultyPageCtaHeading, facultyPageCtaSubtext, facultyPageCtaLabel,
+    "facultyHeroImage": facultyHeroImage.asset->url,
+    facultyMainSectionEyebrow, facultyMainSectionHeading, facultyMainSectionSubtext,
+    facultyHonorarySectionEyebrow,
+    facultyJuniorSectionEyebrow, facultyJuniorSectionHeading,
+    facultyBoardingSectionEyebrow, facultyBoardingSectionHeading,
+    safeguardingHeading, safeguardingBody,
 
     resPageEyebrow, resPageHeading, resPageSubtext, resPageGalleryHeading,
     resPageFeaturesHeading, resPageWeekHeading, resPageCtaHeading, resPageCtaSubtext, resPageApplyLabel,
@@ -78,8 +84,10 @@ export const queries = {
   }`,
 
   tutors: `*[_type == "tutor"] | order(order asc) {
-    _id, name, role, bio, bioFull, teaches,
-    "image": image.asset->url
+    _id, name, role, category, bio, shortBio, bioFull,
+    teaches, teachesTags, profileTags,
+    "image": image.asset->url,
+    isDSL, isDeputyDSL
   }`,
 
   faqs: `*[_type == "faq"] | order(order asc) { _id, question, answer }`,

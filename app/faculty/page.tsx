@@ -1,147 +1,15 @@
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import Link from "next/link";
-import { tutors as staticTutors, staffMembers as staticStaff } from "../lib/data";
-import { urlFor } from "../lib/image";
 import { getSiteSettings, sanityClient, queries } from "../lib/sanity";
-
-const G = "var(--font-garamond)";
-const I = "var(--font-inter)";
-const green = "#082F27";
-const gold = "#C89A3B";
-const cream = "#F7F2E8";
+import FacultyPageClient from "./FacultyPageClient";
 
 export const revalidate = 60;
 
 export default async function FacultyPage() {
-  const [settings, sanityTutors, sanityStaff] = await Promise.all([
+  const [settings, sanityTutors] = await Promise.all([
     getSiteSettings(),
     sanityClient.fetch(queries.tutors).catch(() => []),
-    sanityClient.fetch(queries.staffMembers).catch(() => []),
   ]);
 
-  const tutors = (sanityTutors || []).length ? sanityTutors : staticTutors;
-  const staff  = (sanityStaff || []).length  ? sanityStaff  : staticStaff;
+  const tutors: any[] = (sanityTutors || []) as any[];
 
-  return (
-    <>
-      <Navbar settings={settings} />
-      <main style={{ paddingTop: 68 }}>
-
-        {/* Hero */}
-        <div style={{ background: green, padding: "72px 0 64px" }}>
-          <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 clamp(16px, 3vw, 40px)" }}>
-            <p style={{ color: gold, fontSize: "0.65rem", textTransform: "uppercase", letterSpacing: "0.22em", marginBottom: 14, fontFamily: I }}>{settings?.facultyPageEyebrow ?? "Meet the Team"}</p>
-            <h1 style={{ fontFamily: G, fontSize: "clamp(2.2rem, 4vw, 3.4rem)", fontWeight: 500, color: "#fff", lineHeight: 1.15, marginBottom: 20 }}>
-              {settings?.facultyPageHeading ?? "Our Faculty"}
-            </h1>
-            <div style={{ width: 40, height: 2, background: gold, marginBottom: 20 }} />
-            <p style={{ color: "rgba(255,255,255,0.55)", fontSize: "0.92rem", lineHeight: 1.8, maxWidth: 500, fontFamily: I }}>
-              {settings?.facultyPageSubtext ?? "GRMSC is led by two specialist educators and performers who share a commitment to inspiring the next generation of musicians."}
-            </p>
-          </div>
-        </div>
-
-        {/* Tutor profiles */}
-        <section style={{ background: cream, padding: "clamp(72px, 10vw, 112px) 0" }}>
-          <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 clamp(16px, 3vw, 40px)", display: "flex", flexDirection: "column", gap: 80 }}>
-            {tutors.map((t: any, i: number) => (
-              <div
-                key={t.name}
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-                  gap: "clamp(40px, 6vw, 80px)",
-                  alignItems: "center",
-                }}
-              >
-                {/* Photo */}
-                <div style={{ display: "flex", flexDirection: "column", alignItems: "center", order: i % 2 === 1 ? 2 : 1 }}>
-                  <div style={{
-                    width: 220, height: 220, borderRadius: "50%",
-                    overflow: "hidden",
-                    border: `4px solid ${gold}`,
-                    boxShadow: "0 20px 60px rgba(8,47,39,0.15)",
-                    marginBottom: 24,
-                  }}>
-                    <img
-                      src={urlFor(t.image)}
-                      alt={t.name}
-                      style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", display: "block" }}
-                    />
-                  </div>
-                  <div style={{ textAlign: "center" }}>
-                    <h2 style={{ fontFamily: G, fontSize: "1.5rem", fontWeight: 500, color: green, marginBottom: 4 }}>{t.name}</h2>
-                    <p style={{ color: gold, fontSize: "0.62rem", textTransform: "uppercase", letterSpacing: "0.18em", fontFamily: I, fontWeight: 600 }}>{t.role}</p>
-                  </div>
-                </div>
-
-                {/* Bio */}
-                <div style={{ order: i % 2 === 1 ? 1 : 2 }}>
-                  <div style={{ width: 32, height: 2, background: gold, marginBottom: 28 }} />
-                  {(t.bioFull || []).map((para: string, j: number) => (
-                    <p key={j} style={{ color: "#3d5c51", fontSize: "0.95rem", lineHeight: 1.88, marginBottom: 18 }}>{para}</p>
-                  ))}
-                  <div style={{
-                    marginTop: 32, display: "inline-flex", alignItems: "center", gap: 10,
-                    background: "#fff", border: `1px solid #e0dbd0`, padding: "12px 20px",
-                  }}>
-                    <span style={{ width: 6, height: 6, borderRadius: "50%", background: gold, display: "inline-block", flexShrink: 0 }} />
-                    <span style={{ fontFamily: I, fontSize: "0.78rem", color: "#5a7a6a", letterSpacing: "0.02em" }}>{t.teaches}</span>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Full staff grid */}
-        <section style={{ background: "#fff", padding: "clamp(56px, 8vw, 80px) 0" }}>
-          <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 clamp(16px, 3vw, 40px)" }}>
-            <div style={{ textAlign: "center", marginBottom: 48 }}>
-              <h2 style={{ fontFamily: G, fontSize: "clamp(1.5rem, 2.6vw, 2rem)", fontWeight: 500, color: green }}>{settings?.facultyPageStaffHeading ?? "The Full Team"}</h2>
-              <div style={{ width: 40, height: 2, background: gold, margin: "14px auto 0" }} />
-            </div>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 2 }} className="staff-grid">
-              {staff.map((s: any, i: number) => (
-                <div key={s._id ?? s.name} style={{ background: cream, padding: "28px 24px", borderTop: `3px solid ${i % 2 === 0 ? gold : green}` }}>
-                  {s.image ? (
-                    <img src={urlFor(s.image)} alt={s.name} style={{ width: 44, height: 44, borderRadius: "50%", objectFit: "cover", marginBottom: 16, display: "block" }} />
-                  ) : (
-                    <div style={{ width: 44, height: 44, borderRadius: "50%", background: green, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 16 }}>
-                      <span style={{ color: gold, fontFamily: G, fontSize: "1.1rem", fontWeight: 600 }}>{s.name?.charAt(0)}</span>
-                    </div>
-                  )}
-                  <h3 style={{ fontFamily: G, fontSize: "1.05rem", fontWeight: 500, color: green, marginBottom: 6 }}>{s.name}</h3>
-                  <p style={{ color: gold, fontSize: "0.62rem", textTransform: "uppercase", letterSpacing: "0.14em", fontFamily: I, fontWeight: 600, marginBottom: 8 }}>{s.role}</p>
-                  <p style={{ color: "#7a9a8a", fontSize: "0.78rem", fontFamily: I }}>{s.department}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Divider quote */}
-        <section style={{ background: "#fff", padding: "clamp(56px, 8vw, 80px) 0", textAlign: "center" }}>
-          <div style={{ maxWidth: 680, margin: "0 auto" }}>
-            <div style={{ width: 1, height: 48, background: gold, margin: "0 auto 32px" }} />
-            <p style={{ fontFamily: G, fontSize: "clamp(1.2rem, 2.2vw, 1.6rem)", color: green, lineHeight: 1.65, fontStyle: "italic", marginBottom: 32 }}>
-              &ldquo;{settings?.facultyPageQuote ?? "We believe every young musician deserves to experience what it feels like to truly inhabit the music — to own it, shape it, and share it."}&rdquo;
-            </p>
-            <p style={{ fontFamily: I, fontSize: "0.72rem", color: gold, textTransform: "uppercase", letterSpacing: "0.18em" }}>{settings?.facultyPageQuoteAttrib ?? "Will Fowler & Vivian Shiao"}</p>
-            <div style={{ width: 1, height: 48, background: gold, margin: "32px auto 0" }} />
-          </div>
-        </section>
-
-        {/* CTA */}
-        <section style={{ background: cream, padding: "64px 0", textAlign: "center" }}>
-          <h2 style={{ fontFamily: G, fontSize: "clamp(1.5rem, 2.8vw, 2rem)", fontWeight: 500, color: green, marginBottom: 12 }}>{settings?.facultyPageCtaHeading ?? "Study with Will & Vivian"}</h2>
-          <p style={{ color: "#5a7a6a", fontSize: "0.88rem", marginBottom: 32, fontFamily: I }}>{settings?.facultyPageCtaSubtext ?? "Applications for Summer 2027 open soon · 19–23 July · Stamford School"}</p>
-          <Link href="/apply" className="btn-gold">{settings?.facultyPageCtaLabel ?? "Apply Now"}</Link>
-        </section>
-
-      </main>
-      <Footer settings={settings} />
-    </>
-  );
+  return <FacultyPageClient settings={settings} tutors={tutors} />;
 }

@@ -166,6 +166,17 @@ export const siteSettingsSchema = defineType({
     defineField({ name: "facultyPageCtaHeading", title: "Faculty Page — CTA Heading", type: "string" }),
     defineField({ name: "facultyPageCtaSubtext", title: "Faculty Page — CTA Subtext", type: "string" }),
     defineField({ name: "facultyPageCtaLabel", title: "Faculty Page — CTA Button Label", type: "string" }),
+    defineField({ name: "facultyHeroImage", title: "Faculty Page — Hero Image", type: "image", options: { hotspot: true } }),
+    defineField({ name: "facultyMainSectionEyebrow", title: "Faculty — Main Section Eyebrow", type: "string" }),
+    defineField({ name: "facultyMainSectionHeading", title: "Faculty — Main Section Heading", type: "string" }),
+    defineField({ name: "facultyMainSectionSubtext", title: "Faculty — Main Section Subtext", type: "text", rows: 2 }),
+    defineField({ name: "facultyHonorarySectionEyebrow", title: "Faculty — Honorary Section Eyebrow", type: "string" }),
+    defineField({ name: "facultyJuniorSectionEyebrow", title: "Faculty — Junior Section Eyebrow", type: "string" }),
+    defineField({ name: "facultyJuniorSectionHeading", title: "Faculty — Junior Section Heading", type: "string" }),
+    defineField({ name: "facultyBoardingSectionEyebrow", title: "Faculty — Boarding Section Eyebrow", type: "string" }),
+    defineField({ name: "facultyBoardingSectionHeading", title: "Faculty — Boarding Section Heading", type: "string" }),
+    defineField({ name: "safeguardingHeading", title: "Faculty — Safeguarding Heading", type: "string" }),
+    defineField({ name: "safeguardingBody", title: "Faculty — Safeguarding Body", type: "text", rows: 3 }),
 
     // ── RESIDENTIAL LIFE PAGE ───────────────────────────────────────────
     defineField({ name: "resPageEyebrow", title: "Residential Page — Eyebrow", type: "string" }),
