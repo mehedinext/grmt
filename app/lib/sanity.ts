@@ -104,7 +104,6 @@ export const queries = {
 
   partners: `*[_type == "partner"] | order(order asc) { _id, name, "logo": logo.asset->url, "href": url }`,
 
-  staffMembers: `*[_type == "staffMember"] | order(order asc) { _id, name, role, department, "image": image.asset->url }`,
 };
 
 // Cached per-request fetch — safe to call from multiple components, only hits Sanity once
