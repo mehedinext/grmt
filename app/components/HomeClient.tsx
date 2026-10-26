@@ -168,26 +168,21 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
             {/* Subtle left gradient — never solid, always shows photo */}
             <div style={{ position: "absolute", inset: 0, zIndex: 1, pointerEvents: "none", background: "linear-gradient(to right, rgba(8,47,39,0.65) 0%, rgba(8,47,39,0.5) 25%, rgba(8,47,39,0.18) 52%, rgba(8,47,39,0) 70%)" }} />
             {/* Content — same maxWidth/padding as navbar so text aligns with logo */}
-            <div style={{ position: "relative", zIndex: 2, width: "100%", height: "100%", display: "flex", flexDirection: "column" }}>
-              <div style={{ width: "100%", padding: "0 clamp(40px,5vw,72px)", flex: 1, display: "flex", flexDirection: "column" }}>
-                {/* Steinway badge — same left edge as navbar logo */}
-                <div style={{ paddingTop: 24, paddingBottom: 16 }}>
-                  <img src={settings?.heroBadgeImage ?? "/partners/steinway-badge-color.png"} alt="Steinway Educational Partner" style={{ height: 100, width: "auto", opacity: 0.9 }} />
-                </div>
-                {/* Hero text — vertically centred */}
-                <div style={{ flex: 1, display: "flex", alignItems: "center", paddingBottom: "clamp(48px,6vw,72px)" }}>
-                  <div style={{ maxWidth: 520 }}>
-                    <h1 style={{ fontFamily: G, fontSize: "clamp(2.6rem,4.2vw,4.4rem)", fontWeight: 500, color: "#fff", lineHeight: 1.06, marginBottom: 20 }}>
-                      {settings?.heroHeadingLine1 ?? "Green Room Music"}<br />{settings?.heroHeadingLine2 ?? "Summer Camp"}
-                    </h1>
-                    <div style={{ width: 48, height: 2, background: gold, marginBottom: 20 }} />
-                    <p style={{ color: "rgba(255,255,255,0.8)", fontFamily: I, fontSize: "clamp(0.9rem,1.1vw,1rem)", fontWeight: 500, marginBottom: 32 }}>
-                      {`${settings?.heroLocation ?? "Stamford School"} · ${settings?.heroDate ?? "19–23 July 2027"}`}
-                    </p>
-                    <div className="hero-cta-btns" style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-                      <Link href={settings?.heroCta1Href ?? "/courses"} className="hero-btn btn-gold">{settings?.heroCta1Label ?? "Explore Courses"}</Link>
-                      <Link href={settings?.heroCta2Href ?? "/apply"} className="hero-btn btn-outline-white">{settings?.heroCta2Label ?? "Apply Now"}</Link>
-                    </div>
+            <div style={{ position: "relative", zIndex: 2, width: "100%", height: "100%", display: "flex", flexDirection: "column", justifyContent: "flex-end" }}>
+              <div style={{ width: "100%", padding: "0 clamp(40px,5vw,72px) clamp(48px,6vw,72px)" }}>
+                <div style={{ maxWidth: 520 }}>
+                  {/* Steinway badge — moved down to sit above the heading, visually united with text */}
+                  <img src={settings?.heroBadgeImage ?? "/partners/steinway-badge-color.png"} alt="Steinway Educational Partner" style={{ height: 72, width: "auto", opacity: 0.95, marginBottom: 24, display: "block" }} />
+                  <h1 style={{ fontFamily: G, fontSize: "clamp(2.6rem,4.2vw,4.4rem)", fontWeight: 500, color: "#fff", lineHeight: 1.06, marginBottom: 20 }}>
+                    {settings?.heroHeadingLine1 ?? "Green Room Music"}<br />{settings?.heroHeadingLine2 ?? "Summer Camp"}
+                  </h1>
+                  <div style={{ width: 48, height: 2, background: gold, marginBottom: 20 }} />
+                  <p style={{ color: "rgba(255,255,255,0.8)", fontFamily: I, fontSize: "clamp(0.9rem,1.1vw,1rem)", fontWeight: 500, marginBottom: 32 }}>
+                    {`${settings?.heroLocation ?? "Stamford, UK"} · ${settings?.heroDate ?? "19th–23rd July 2027"}`}
+                  </p>
+                  <div className="hero-cta-btns" style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+                    <Link href={settings?.heroCta1Href ?? "/courses"} className="hero-btn btn-gold">{settings?.heroCta1Label ?? "Explore Courses"}</Link>
+                    <Link href={settings?.heroCta2Href ?? "/apply"} className="hero-btn btn-outline-white">{settings?.heroCta2Label ?? "Apply Now"}</Link>
                   </div>
                 </div>
               </div>
