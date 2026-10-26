@@ -65,13 +65,17 @@ export const queries = {
     feesPageEyebrow, feesPageHeading, feesPageSubtext,
     feesPagePriceLabel, feesPagePriceValue, feesPagePriceNote, feesPagePriceDesc,
     feesPageApplyLabel, feesPageApplyNote, feesPageBursaries,
+    feesCourseEyebrow, feesCourseHeading, feesCourseIntro, feesVerticalWords,
+    feesCourseInclusionLabel, feesCourseInclusions, feesCourseFooterNote,
+    feesBottomBandTitle, feesBottomBandBody,
+    "feesHeroImage": feesHeroImage.asset->url,
 
     applyPageEyebrow, applyPageHeading, applyPageSubtext,
     applyPageFormHeading, applyPageSubmitLabel, applyPageSubmitNote, applyPageInfoStats
   }`,
 
   courses: `*[_type == "course"] | order(order asc) {
-    _id, num, title, slug, grade, tagline, excerpt,
+    _id, num, title, slug, grade, tagline, excerpt, price,
     "image": image.asset->url, imagePosition,
     heroColor, "heroImage": heroImage.asset->url,
     heroStats, aboutHeading, about,

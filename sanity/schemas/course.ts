@@ -14,6 +14,7 @@ export const courseSchema = defineType({
     defineField({ name: "excerpt", title: "Excerpt (card description)", type: "text", rows: 3 }),
     defineField({ name: "image", title: "Card Image", type: "image", options: { hotspot: true } }),
     defineField({ name: "imagePosition", title: "Image Position (CSS)", type: "string", description: 'e.g. "center 30%"' }),
+    defineField({ name: "price", title: "Tuition Price (Tuition & Fees page)", type: "string", description: 'e.g. "£?" or "£895"' }),
     defineField({ name: "heroColor", title: "Hero Background Colour (hex)", type: "string" }),
     defineField({ name: "heroImage", title: "Hero Image", type: "image", options: { hotspot: true } }),
     defineField({

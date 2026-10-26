@@ -172,7 +172,7 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
               <div style={{ width: "100%", padding: "0 clamp(40px,5vw,72px) clamp(48px,6vw,72px)" }}>
                 <div style={{ maxWidth: 520 }}>
                   {/* Steinway badge — moved down to sit above the heading, visually united with text */}
-                  <img src={settings?.heroBadgeImage ?? "/partners/steinway-badge-color.png"} alt="Steinway Educational Partner" style={{ height: 72, width: "auto", opacity: 0.95, marginBottom: 24, display: "block" }} />
+                  <img src={settings?.heroBadgeImage ?? "/partners/steinway-badge-color.png"} alt="Steinway Educational Partner" style={{ height: "clamp(78px, 11vw, 140px)", width: "auto", opacity: 0.95, marginBottom: "clamp(18px, 2.2vw, 28px)", display: "block" }} />
                   <h1 style={{ fontFamily: G, fontSize: "clamp(2.6rem,4.2vw,4.4rem)", fontWeight: 500, color: "#fff", lineHeight: 1.06, marginBottom: 20 }}>
                     {settings?.heroHeadingLine1 ?? "Green Room Music"}<br />{settings?.heroHeadingLine2 ?? "Summer Camp"}
                   </h1>
