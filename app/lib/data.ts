@@ -169,8 +169,8 @@ export const courses: Course[] = [
     tagline: "Unlock the language of music.",
     excerpt:
       "Harmony, counterpoint, ear training and composition. Includes a dedicated ABRSM Grade 5 crash course stream for students seeking this qualification.",
-    image: "/gallery/395-Green_Room_Music_Concert_Summer_2025.jpg",
-    imagePosition: "center 20%",
+    image: "/gallery/music-theory-teaching.jpg",
+    imagePosition: "center",
     heroColor: "#0A2F47",
     heroImage: "https://greenroomtheory.com/wp-content/uploads/2025/09/012-GreenRoomMusicTheorySummer2025-scaled.jpg",
     heroStats: [
@@ -217,13 +217,13 @@ export const courses: Course[] = [
     _id: "course-vocal-performance",
     slug: { current: "vocal-performance" },
     num: "03",
-    title: "Vocal Performance",
+    title: "Singing Performance",
     grade: "All levels welcome",
     tagline: "Find your voice and perform with confidence.",
     excerpt:
       "Vocal technique, performance coaching, sight-singing and stagecraft combined. Students work toward a showcase performance on the final evening.",
-    image: "/gallery/406-Green_Room_Music_Concert_Summer_2025.jpg",
-    imagePosition: "center 15%",
+    image: "/gallery/singing-performance.jpg",
+    imagePosition: "center",
     heroColor: "#082F27",
     heroImage: "https://greenroomtheory.com/wp-content/uploads/2025/09/038-GreenRoomMusicTheorySummer2025-scaled.jpg",
     heroStats: [
