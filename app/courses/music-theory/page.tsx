@@ -209,7 +209,7 @@ export default async function MusicTheoryPage() {
               <p style={{ color: gold, fontFamily: I, fontSize: "0.65rem", textTransform: "uppercase", letterSpacing: "0.14em", fontWeight: 700, marginBottom: 8 }}>The course that started it all.</p>
               <h2 style={{ fontFamily: G, fontSize: "clamp(1.6rem,2.5vw,2.2rem)", fontWeight: 500, color: green, lineHeight: 1.2, marginBottom: 20 }}>The Green Room Method</h2>
               <p style={{ color: "#3d5c51", fontFamily: I, fontSize: "0.9rem", lineHeight: 1.8, marginBottom: 16 }}>
-                Before Green Room Music Summer Camp expanded into Piano and Vocal Performance, Green Room began with Music Theory.
+                Before Green Room Music Summer Camp expanded into Piano and Singing Performance, Green Room began with Music Theory.
               </p>
               <p style={{ color: "#3d5c51", fontFamily: I, fontSize: "0.9rem", lineHeight: 1.8, marginBottom: 16 }}>
                 Our original residential course was built around one belief: <strong style={{ color: green }}>theory does not have to be boring.</strong>

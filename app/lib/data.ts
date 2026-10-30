@@ -98,9 +98,9 @@ export const tutors: Tutor[] = [
 // ─── STAFF ────────────────────────────────────────────────────────────────────
 // Sanity: groq`*[_type == "staffMember"] | order(order asc)`
 export const staffMembers: StaffMember[] = [
-  { _id: "staff-conor", name: "Conor Mathers", role: "Director of Vocal Performance", department: "Vocal Performance · Theory" },
+  { _id: "staff-conor", name: "Conor Mathers", role: "Director of Singing Performance", department: "Singing Performance · Theory" },
   { _id: "staff-serena", name: "Serena Shah", role: "Teaching Artist", department: "Piano · Theory" },
-  { _id: "staff-rhiannon", name: "Rhiannon Bennett", role: "Deputy DSL · Head of Boarding & Pastoral", department: "Vocal Performance" },
+  { _id: "staff-rhiannon", name: "Rhiannon Bennett", role: "Deputy DSL · Head of Boarding & Pastoral", department: "Singing Performance" },
   { _id: "staff-sophie", name: "Sophie Wells", role: "Deputy DSL · Resident Nurse", department: "Boarding & Wellbeing" },
   { _id: "staff-leo", name: "Leo Little", role: "Piano Teaching Artist", department: "Piano" },
   { _id: "staff-rebekah", name: "Rebekah Tan", role: "Piano Teaching Artist", department: "Piano" },
@@ -232,9 +232,9 @@ export const courses: Course[] = [
       { label: "Ages", value: "10–17" },
       { label: "Year", value: "2027" },
     ],
-    aboutHeading: "About the Vocal Performance Course",
+    aboutHeading: "About the Singing Performance Course",
     about: [
-      "Our Vocal Performance course is a full vocal and performing arts experience. Students work across vocal technique, performance coaching, sight-singing and stagecraft — discovering and developing their unique voice in a supportive, creative environment.",
+      "Our Singing Performance course is a full vocal and performing arts experience. Students work across vocal technique, performance coaching, sight-singing and stagecraft — discovering and developing their unique voice in a supportive, creative environment.",
       "The week builds toward a final showcase performance, giving students a real stage experience before an audience of families and fellow students. No prior performance experience required — only enthusiasm and a love of singing.",
     ],
     detailType: "schedule",
@@ -317,7 +317,7 @@ export const faqs: Faq[] = [
   {
     _id: "faq-10",
     question: "What level do students need to be?",
-    answer: "The Piano course requires a minimum standard of ABRSM Grade 5 equivalent. The Music Theory course is suitable from beginner through to Grade 5. The Vocal Performance course is open to all levels — no prior stage experience is required.",
+    answer: "The Piano course requires a minimum standard of ABRSM Grade 5 equivalent. The Music Theory course is suitable from beginner through to Grade 5. The Singing Performance course is open to all levels — no prior stage experience is required.",
   },
   {
     _id: "faq-11",
