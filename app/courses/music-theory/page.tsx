@@ -309,7 +309,7 @@ export default async function MusicTheoryPage() {
               <div style={{ display: "flex", flexDirection: "column", gap: 18, marginBottom: 24 }}>
                 {awards.map((a: any) => (
                   <div key={a.name} style={{ display: "flex", alignItems: "flex-start", gap: 14 }}>
-                    <img src={urlFor(a.logo)} alt={a.name} style={{ width: 36, height: 36, objectFit: "contain", flexShrink: 0, filter: "invert(1)", mixBlendMode: "multiply" }} />
+                    <img src={urlFor(a.logo)} alt={a.name} style={{ width: 40, height: 40, objectFit: "contain", flexShrink: 0 }} />
                     <div>
                       <div style={{ color: green, fontFamily: I, fontSize: "0.82rem", fontWeight: 700, marginBottom: 2 }}>{a.name}</div>
                       <div style={{ color: "#5a7a6a", fontFamily: I, fontSize: "0.78rem", lineHeight: 1.55 }}>{a.desc}</div>
