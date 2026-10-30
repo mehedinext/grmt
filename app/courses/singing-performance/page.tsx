@@ -25,7 +25,7 @@ const defaultGlance = [
 const defaultProgramme = [
   "Musical Theatre",
   "Stagecraft & Communication",
-  "Classical Vocal Performance",
+  "Classical Singing Performance",
   "Ensemble Work",
   "Jazz Vocal Styles",
   "Musician Wellness",
@@ -67,16 +67,16 @@ export default async function VocalPerformancePage() {
 
         {/* ── HERO ── */}
         <section style={{ position: "relative", minHeight: "92vh", display: "flex", alignItems: "flex-end", overflow: "hidden" }}>
-          <img src="/gallery/195-Green_Room_Music_Concert_Summer_2025.jpg" alt="Vocal performance"
+          <img src="/gallery/singing-performance.jpg" alt="Singing performance"
             style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", zIndex: 0 }} />
           <div style={{ position: "absolute", inset: 0, zIndex: 1, background: `linear-gradient(to top, ${green} 0%, rgba(8,47,39,0.75) 40%, rgba(8,47,39,0.3) 70%, rgba(8,47,39,0.1) 100%)` }} />
 
           <div style={{ position: "relative", zIndex: 2, width: "100%", padding: "clamp(32px,6vw,80px) clamp(20px,5vw,72px) clamp(40px,7vw,88px)" }}>
             <p style={{ color: gold, fontFamily: I, fontSize: "0.7rem", textTransform: "uppercase", letterSpacing: "0.2em", marginBottom: 12, fontWeight: 600 }}>Green Room Music Summer Camp</p>
-            <h1 style={{ fontFamily: G, fontSize: "clamp(3rem,6vw,5.5rem)", fontWeight: 500, color: "#fff", lineHeight: 1, marginBottom: 14 }}>Vocal Performance</h1>
+            <h1 style={{ fontFamily: G, fontSize: "clamp(3rem,6vw,5.5rem)", fontWeight: 500, color: "#fff", lineHeight: 1, marginBottom: 14 }}>Singing Performance</h1>
             <p style={{ color: gold, fontFamily: G, fontSize: "clamp(1rem,1.4vw,1.2rem)", fontStyle: "italic", marginBottom: 16 }}>Musical Theatre · Classical · Jazz</p>
             <p style={{ color: "rgba(255,255,255,0.65)", fontFamily: I, fontSize: "clamp(0.85rem,1vw,0.96rem)", lineHeight: 1.75, marginBottom: 12, maxWidth: 560 }}>
-              The Green Room Music Summer Camp Vocal Performance Course is designed for young singers aged 10–17 who want to develop their voice, confidence and versatility as performers. Led by Course Director Conor Mathers, students work with an experienced faculty of professional performers and educators, including artists with credits across London's West End and professional touring productions.
+              The Green Room Music Summer Camp Singing Performance Course is designed for young singers aged 10–17 who want to develop their voice, confidence and versatility as performers. Led by Course Director Conor Mathers, students work with an experienced faculty of professional performers and educators, including artists with credits across London's West End and professional touring productions.
             </p>
             <p style={{ color: "rgba(255,255,255,0.55)", fontFamily: I, fontSize: "clamp(0.82rem,0.95vw,0.9rem)", lineHeight: 1.75, marginBottom: 12, maxWidth: 520 }}>
               Across five immersive days, students explore Musical Theatre, Classical and Jazz performance, developing the skills needed to become more confident, expressive and well-rounded young performers.
@@ -85,7 +85,7 @@ export default async function VocalPerformancePage() {
               Every student takes part in the Green Room Music Summer Camp Final Performance, bringing the Piano and Vocal Departments together at the end of the week.
             </p>
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-              <Link href="/apply" className="btn-gold">Apply for Vocal Performance</Link>
+              <Link href="/apply" className="btn-gold">Apply for Singing Performance</Link>
               <Link href="/residential-life" className="btn-outline-white">Explore Residential Life</Link>
             </div>
           </div>
@@ -121,20 +121,20 @@ export default async function VocalPerformancePage() {
                 <h2 style={{ fontFamily: I, fontSize: "0.7rem", fontWeight: 700, color: green, textTransform: "uppercase", letterSpacing: "0.12em" }}>Learn from Working Performers</h2>
               </div>
               <p style={{ color: "#3d5c51", fontFamily: I, fontSize: "0.9rem", lineHeight: 1.8, marginBottom: 16 }}>
-                The Vocal Performance Course is led by Conor Mathers, alongside a faculty of professional singers, actors, musicians and educators.
+                The Singing Performance Course is led by Conor Mathers, alongside a faculty of professional singers, actors, musicians and educators.
               </p>
               <p style={{ color: "#3d5c51", fontFamily: I, fontSize: "0.9rem", lineHeight: 1.8 }}>
                 Students have the opportunity to learn from performers with experience across London's West End, professional touring productions and the wider performance industry — gaining insight from artists who understand both the craft and realities of performing professionally.
               </p>
             </div>
 
-            {/* The Vocal Performance Programme */}
+            {/* The Singing Performance Programme */}
             <div>
               <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 20 }}>
                 <div style={{ width: 36, height: 36, borderRadius: "50%", background: "rgba(200,154,59,0.12)", display: "flex", alignItems: "center", justifyContent: "center" }}>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={gold} strokeWidth="1.8"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
                 </div>
-                <h2 style={{ fontFamily: I, fontSize: "0.7rem", fontWeight: 700, color: green, textTransform: "uppercase", letterSpacing: "0.12em" }}>The Vocal Performance Programme</h2>
+                <h2 style={{ fontFamily: I, fontSize: "0.7rem", fontWeight: 700, color: green, textTransform: "uppercase", letterSpacing: "0.12em" }}>The Singing Performance Programme</h2>
               </div>
               <p style={{ color: "#3d5c51", fontFamily: I, fontSize: "0.9rem", lineHeight: 1.8, marginBottom: 18 }}>
                 A varied programme combining vocal development, performance training and creative exploration.
@@ -183,7 +183,7 @@ export default async function VocalPerformancePage() {
               </div>
               <p style={{ color: gold, fontFamily: I, fontSize: "0.78rem", fontWeight: 700, marginBottom: 12 }}>Finding the performer behind the voice.</p>
               <p style={{ color: "#3d5c51", fontFamily: I, fontSize: "0.9rem", lineHeight: 1.8 }}>
-                Vocal performance is about much more than producing a good sound. Students are encouraged to think about how they communicate with an audience, how they interpret material and how confidently they inhabit the stage. Performance-focused sessions explore the connection between voice, character, movement and storytelling.
+                Singing performance is about much more than producing a good sound. Students are encouraged to think about how they communicate with an audience, how they interpret material and how confidently they inhabit the stage. Performance-focused sessions explore the connection between voice, character, movement and storytelling.
               </p>
             </div>
 
@@ -215,7 +215,7 @@ export default async function VocalPerformancePage() {
                 <h2 style={{ fontFamily: I, fontSize: "0.7rem", fontWeight: 700, color: green, textTransform: "uppercase", letterSpacing: "0.12em" }}>One Camp. One Community.</h2>
               </div>
               <p style={{ color: "#3d5c51", fontFamily: I, fontSize: "0.9rem", lineHeight: 1.8, marginBottom: 16 }}>
-                Students specialise within their chosen course, but the wider GRMSC experience brings everyone together. Meals, activities, recreation, social events and selected wellbeing sessions are shared across courses, allowing Vocal Performance students to meet young musicians beyond their own department.
+                Students specialise within their chosen course, but the wider GRMSC experience brings everyone together. Meals, activities, recreation, social events and selected wellbeing sessions are shared across courses, allowing Singing Performance students to meet young musicians beyond their own department.
               </p>
               <p style={{ color: "#3d5c51", fontFamily: I, fontSize: "0.9rem", lineHeight: 1.8, marginBottom: 20 }}>
                 With students joining us from the UK and internationally, GRMSC becomes a vibrant community of young performers living, learning, creating and making friends together.
@@ -271,7 +271,7 @@ export default async function VocalPerformancePage() {
                 </div>
                 <h2 style={{ fontFamily: G, fontSize: "clamp(1.6rem,2.5vw,2.2rem)", fontWeight: 500, color: "#fff", marginBottom: 16 }}>The Final Performance</h2>
                 <p style={{ color: "rgba(255,255,255,0.7)", fontFamily: I, fontSize: "0.9rem", lineHeight: 1.8, marginBottom: 16 }}>
-                  Every Vocal Performance student takes part in the Green Room Music Summer Camp Final Performance. Bringing together students from both the Vocal and Piano Departments, the final event gives performers the opportunity to share what they have developed throughout the week in front of an audience.
+                  Every Singing Performance student takes part in the Green Room Music Summer Camp Final Performance. Bringing together students from both the Vocal and Piano Departments, the final event gives performers the opportunity to share what they have developed throughout the week in front of an audience.
                 </p>
                 <p style={{ color: "rgba(255,255,255,0.7)", fontFamily: I, fontSize: "0.9rem", lineHeight: 1.8 }}>
                   It is the culmination of five days of training, rehearsing, experimenting and performing — and a chance for the entire GRMSC community to celebrate together.
@@ -294,10 +294,10 @@ export default async function VocalPerformancePage() {
               <p style={{ color: gold, fontFamily: G, fontSize: "1.05rem", fontStyle: "italic", marginBottom: 32 }}>
                 {ctaTagline}
               </p>
-              <Link href="/apply" className="btn-gold">Apply for Vocal Performance →</Link>
+              <Link href="/apply" className="btn-gold">Apply for Singing Performance →</Link>
             </div>
             <div style={{ borderRadius: 4, overflow: "hidden", aspectRatio: "4/3" }}>
-              <img src="/gallery/195-Green_Room_Music_Concert_Summer_2025.jpg" alt="Young performer at piano"
+              <img src="/gallery/singing-performance.jpg" alt="Singing performance"
                 style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top" }} />
             </div>
           </div>
