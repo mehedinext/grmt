@@ -1,6 +1,7 @@
 import { courseSchema } from "./course";
 import { tutorSchema } from "./tutor";
 import { faqSchema } from "./faq";
+import { faqCategorySchema } from "./faqCategory";
 import { feeItemSchema } from "./feeItem";
 import { resFeatureSchema } from "./resFeature";
 import { galleryImageSchema } from "./galleryImage";
@@ -11,6 +12,7 @@ export const schemas = [
   siteSettingsSchema,
   courseSchema,
   tutorSchema,
+  faqCategorySchema,
   faqSchema,
   feeItemSchema,
   resFeatureSchema,

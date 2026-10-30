@@ -96,6 +96,11 @@ export const queries = {
 
   faqs: `*[_type == "faq"] | order(order asc) { _id, question, answer }`,
 
+  faqCategories: `*[_type == "faqCategory"] | order(order asc) {
+    _id, key, label, tagline, icon, eyebrow, heading, intro,
+    faqs[] { question, answer }
+  }`,
+
   feeItems: `*[_type == "feeItem"] | order(order asc) { _id, title, description }`,
 
   resFeatures: `*[_type == "resFeature"] | order(order asc) { _id, title, description }`,

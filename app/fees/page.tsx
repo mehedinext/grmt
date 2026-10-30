@@ -125,8 +125,15 @@ export default async function FeesPage() {
                           </li>
                         ))}
                       </ul>
-                      <div style={{ marginTop: "auto", borderTop: "1px solid #e8e3da", paddingTop: 14, textAlign: "center" }}>
-                        <span style={{ color: "#9aaa9e", fontSize: "0.72rem", fontFamily: I, fontStyle: "italic" }}>{footerNote}</span>
+                      <div style={{ marginTop: "auto", paddingTop: 6 }}>
+                        <Link href="/apply" style={{
+                          display: "block", textAlign: "center",
+                          background: gold, color: "#fff",
+                          padding: "12px 20px",
+                          fontFamily: I, fontSize: "0.78rem", fontWeight: 600,
+                          letterSpacing: "0.12em", textTransform: "uppercase",
+                          textDecoration: "none",
+                        }}>Apply Now</Link>
                       </div>
                     </div>
                   </div>

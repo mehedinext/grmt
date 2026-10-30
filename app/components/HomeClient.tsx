@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-import type { Tutor, Course, Faq, PartnerLogo } from "../lib/data";
+import type { Course, Faq, PartnerLogo } from "../lib/data";
 import { urlFor } from "../lib/image";
 
 const G = "var(--font-garamond)";
@@ -31,7 +31,6 @@ function useFadeIn(threshold = 0.12) {
 type Settings = any;
 
 type Props = {
-  tutors: Tutor[];
   faqs: Faq[];
   partnerLogos: PartnerLogo[];
   courses: Course[];
@@ -43,45 +42,55 @@ const defaultStats = [
   { val: "3 Courses", label: "Piano · Theory · Vocal" },
   { val: "Ages 10–17", label: "Open to all abilities" },
   { val: "Stamford School", label: "Lincolnshire, England" },
-  { val: "Full Residential", label: "Board & lodging included" },
+  { val: "Full Residential", label: "Board, Lodging & Meals Included" },
 ];
 
 const defaultWhyItems = [
   {
-    title: "Serious Music-Making",
-    desc: "High-quality teaching and inspiring repertoire for committed young musicians.",
+    title: "Steinway & Sons Educational Partner",
+    desc: "A musically ambitious environment shaped by high standards, inspiring teaching and a shared commitment to artistic excellence.",
   },
   {
-    title: "Beautiful Setting",
-    desc: "Learn and live at the historic Stamford School in the heart of Lincolnshire.",
+    title: "Historic Stamford Setting",
+    desc: "Hosted at Stamford School in one of England's most beautiful and distinctive towns, an exceptional place to learn, live and create.",
   },
   {
-    title: "Confidence Through Performance",
-    desc: "Opportunities to perform, collaborate and grow as confident artists.",
+    title: "Learn from Working Professionals",
+    desc: "Specialist tuition in Piano, Music Theory and Singing Performance, led by experienced musicians, performers and educators.",
   },
   {
-    title: "Safe Residential Experience",
-    desc: "Pastoral care and wellbeing are at the heart of everything we do.",
+    title: "Experienced Residential Care",
+    desc: "Enhanced DBS-checked staff, experienced pastoral care and dedicated safeguarding leadership, with student wellbeing at the heart of residential life.",
   },
 ];
 
 const whySvgs = [
   (
-    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M10 22V8l12-3v14" /><circle cx="7" cy="22" r="3" /><circle cx="19" cy="19" r="3" />
+    // Grand piano
+    <svg width="30" height="30" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M4 22c0-4 4-7 10-7h8c2 0 4 1.5 4 4v3H4v0z" />
+      <path d="M6 25v3M10 25v3M14 25v3M18 25v3M22 25v3M26 25v3" />
+      <path d="M14 15V7h2" />
     </svg>
   ),
   (
-    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M3 21h22M5 21V10l9-6 9 6v11" /><rect x="11" y="14" width="6" height="7" />
+    // School building with tower
+    <svg width="30" height="30" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M16 3v4" /><path d="M14 7h4v3h-4z" />
+      <path d="M8 28V13l8-3 8 3v15" />
+      <path d="M4 28h24" />
+      <rect x="14" y="19" width="4" height="9" />
+      <path d="M11 16h2M19 16h2M11 20h2M19 20h2" />
     </svg>
   ),
   (
+    // Star
     <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <polygon points="14,3 17.5,10.5 26,11.5 20,17.5 21.5,26 14,22 6.5,26 8,17.5 2,11.5 10.5,10.5" />
     </svg>
   ),
   (
+    // Shield
     <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <path d="M14 2l9 4v8c0 5.5-4 10-9 12C5 24 1 19.5 1 14V6l13-4z" />
     </svg>
@@ -89,7 +98,6 @@ const whySvgs = [
 ];
 
 const defaultResTags = [
-  "En-suite accommodation",
   "Nutritious meals",
   "Pastoral care 24/7",
   "Daily rehearsals & classes",
@@ -111,7 +119,7 @@ const allHeroSlides = [
   { type: "awards" as const },
 ];
 
-export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCourses, settings }: Props) {
+export default function HomeClient({ faqs, partnerLogos, courses: allCourses, settings }: Props) {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [heroReady] = useState(true);
   const [activeCard, setActiveCard] = useState(0);
@@ -129,14 +137,13 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
   useEffect(() => {
     const interval = setInterval(() => {
       setHeroSlide(prev => (prev + 1) % heroSlides.length);
-    }, 6000);
+    }, 10000);
     return () => clearInterval(interval);
   }, [heroSlides.length]);
 
   const coursesSec = useFadeIn();
   const whySec = useFadeIn();
   const resLifeSec = useFadeIn();
-  const tutorsSec = useFadeIn();
   const datesSec = useFadeIn();
   const ctaSec = useFadeIn();
   const partnersSec = useFadeIn();
@@ -172,7 +179,7 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
               <div style={{ width: "100%", padding: "0 clamp(40px,5vw,72px) clamp(48px,6vw,72px)" }}>
                 <div style={{ maxWidth: 520 }}>
                   {/* Steinway badge — moved down to sit above the heading, visually united with text */}
-                  <img src={settings?.heroBadgeImage ?? "/partners/steinway-badge-color.png"} alt="Steinway Educational Partner" style={{ height: "clamp(78px, 11vw, 140px)", width: "auto", opacity: 0.95, marginBottom: "clamp(18px, 2.2vw, 28px)", display: "block" }} />
+                  <img src={settings?.heroBadgeImage ?? "/partners/steinway-badge-color.png"} alt="Steinway Educational Partner" style={{ height: "clamp(96px, 14vw, 180px)", width: "auto", opacity: 0.95, marginBottom: "clamp(10px, 1.2vw, 16px)", display: "block" }} />
                   <h1 style={{ fontFamily: G, fontSize: "clamp(2.6rem,4.2vw,4.4rem)", fontWeight: 500, color: "#fff", lineHeight: 1.06, marginBottom: 20 }}>
                     {settings?.heroHeadingLine1 ?? "Green Room Music"}<br />{settings?.heroHeadingLine2 ?? "Summer Camp"}
                   </h1>
@@ -437,7 +444,7 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
               </h2>
               <div style={{ width: 36, height: 2, background: gold, marginBottom: 24 }} />
               <p style={{ color: "#5a7a6a", fontSize: "0.9rem", lineHeight: 1.85, marginBottom: 32 }}>
-                {settings?.resText ?? "Live, learn and make music in a supportive community. Students enjoy comfortable accommodation, nutritious meals and a programme that balances focused rehearsals with fun, friendship and relaxation."}
+                {settings?.resText ?? "Live, learn and make music in a supportive community. Students enjoy comfortable accommodation, nutritious meals and a programme that balances focused learning with fun, friendship and relaxation."}
               </p>
               <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
                 {resTags.map((tag: string) => (
@@ -455,52 +462,6 @@ export default function HomeClient({ tutors, faqs, partnerLogos, courses: allCou
                   Learn about residential life →
                 </Link>
               </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ─── EXPERT TUTORS ─── */}
-        <section ref={tutorsSec.ref} style={{ background: "#fff", padding: "clamp(56px, 8vw, 96px) 0" }}>
-          <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 clamp(16px, 3vw, 40px)" }}>
-            <div style={{
-              textAlign: "center", marginBottom: 56,
-              opacity: tutorsSec.visible ? 1 : 0,
-              transform: tutorsSec.visible ? "none" : "translateY(20px)",
-              transition: "opacity 0.6s ease, transform 0.6s ease",
-            }}>
-              <h2 style={{ fontFamily: G, fontSize: "clamp(1.8rem, 3vw, 2.6rem)", fontWeight: 500, color: green }}>
-                {settings?.tutorsHeading ?? "Meet the Faculty"}
-              </h2>
-              <div style={{ width: 48, height: 2, background: gold, margin: "16px auto 0" }} />
-            </div>
-            <div style={{
-              display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 40, maxWidth: 680, margin: "0 auto",
-              opacity: tutorsSec.visible ? 1 : 0,
-              transform: tutorsSec.visible ? "none" : "translateY(32px)",
-              transition: "opacity 0.7s ease 0.15s, transform 0.7s ease 0.15s",
-            }}>
-              {tutors.map((t) => (
-                <div key={t._id} style={{ textAlign: "center" }} className="card-hover">
-                  <div style={{ marginBottom: 20, display: "flex", justifyContent: "center" }}>
-                    <img
-                      src={urlFor(t.image)}
-                      alt={t.name}
-                      style={{
-                        width: 140, height: 140, borderRadius: "50%",
-                        objectFit: "cover", objectPosition: "center top",
-                        border: `3px solid ${gold}`,
-                        display: "block",
-                      }}
-                    />
-                  </div>
-                  <h3 style={{ fontFamily: G, fontSize: "1.25rem", fontWeight: 500, color: green, marginBottom: 4 }}>{t.name}</h3>
-                  <p style={{ color: gold, fontSize: "0.62rem", textTransform: "uppercase", letterSpacing: "0.14em", fontFamily: I, fontWeight: 600, marginBottom: 14 }}>{t.role}</p>
-                  <p style={{ color: "#5a7a6a", fontSize: "0.85rem", lineHeight: 1.72 }}>{t.bio}</p>
-                </div>
-              ))}
-            </div>
-            <div style={{ textAlign: "center", marginTop: 48, opacity: tutorsSec.visible ? 1 : 0, transition: "opacity 0.7s ease 0.3s" }}>
-              <Link href="/faculty" className="btn-outline-green">Meet the Full Faculty →</Link>
             </div>
           </div>
         </section>
