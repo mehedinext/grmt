@@ -1,7 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  async redirects() {
+    return [
+      { source: "/courses/vocal-performance", destination: "/courses/singing-performance", permanent: true },
+    ];
+  },
 };
 
 export default nextConfig;

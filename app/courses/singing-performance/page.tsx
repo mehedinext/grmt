@@ -51,7 +51,7 @@ export const revalidate = 60;
 export default async function VocalPerformancePage() {
   const [settings, course] = await Promise.all([
     getSiteSettings(),
-    sanityClient.fetch(`*[_type == "course" && slug.current == "vocal-performance"][0]{ glance, programme, ctaHeading, ctaSubtext, ctaTagline, "awards": awards[]{ name, desc, "logo": logo.asset->url } }`).catch(() => null),
+    sanityClient.fetch(`*[_type == "course" && slug.current == "singing-performance"][0]{ glance, programme, ctaHeading, ctaSubtext, ctaTagline, "awards": awards[]{ name, desc, "logo": logo.asset->url } }`).catch(() => null),
   ]);
   const awards = course?.awards?.length ? course.awards : defaultAwards;
   const glance = course?.glance?.length ? course.glance : defaultGlance;

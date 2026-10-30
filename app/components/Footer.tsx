@@ -21,7 +21,7 @@ const defaultColumns: FooterColumn[] = [
     links: [
       { href: "/courses/piano", label: "Piano" },
       { href: "/courses/music-theory", label: "Music Theory" },
-      { href: "/courses/vocal-performance", label: "Vocal Performance" },
+      { href: "/courses/singing-performance", label: "Singing Performance" },
       { href: "/courses", label: "All Courses" },
     ],
   },

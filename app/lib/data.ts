@@ -215,7 +215,7 @@ export const courses: Course[] = [
   },
   {
     _id: "course-vocal-performance",
-    slug: { current: "vocal-performance" },
+    slug: { current: "singing-performance" },
     num: "03",
     title: "Singing Performance",
     grade: "All levels welcome",
