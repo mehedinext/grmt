@@ -134,6 +134,7 @@ export const siteSettingsSchema = defineType({
     defineField({ name: "footerInstagram", title: "Footer — Instagram URL", type: "url" }),
     defineField({ name: "footerFacebook", title: "Footer — Facebook URL", type: "url" }),
     defineField({ name: "footerContactEmail", title: "Footer — Contact Email", type: "string" }),
+    defineField({ name: "footerContactPhone", title: "Footer — Contact Phone", type: "string" }),
     defineField({ name: "footerCopyright", title: "Footer — Copyright Text", type: "string" }),
     defineField({ name: "footerLegalLine", title: "Footer — Legal / Address Line", type: "string" }),
     defineField({

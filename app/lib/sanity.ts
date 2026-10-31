@@ -43,7 +43,7 @@ export const queries = {
     partnersLabel,
 
     footerTagline, footerDescription, footerInstagram, footerFacebook,
-    footerContactEmail, footerCopyright, footerLegalLine, footerColumns,
+    footerContactEmail, footerContactPhone, footerCopyright, footerLegalLine, footerColumns,
 
     coursesPageEyebrow, coursesPageHeading, coursesPageSubtext, coursesPageCtaHeading, coursesPageCtaSubtext,
 

@@ -404,8 +404,11 @@ export default function FAQsClient({
                 <h3 style={{ fontFamily: G, fontSize: "1.25rem", color: green, marginBottom: 6 }}>
                   Still have a question?
                 </h3>
-                <p style={{ color: "#5a7a6a", fontSize: "0.85rem", fontFamily: I }}>
+                <p style={{ color: "#5a7a6a", fontSize: "0.85rem", fontFamily: I, marginBottom: 4 }}>
                   We&apos;re happy to help | get in touch and we&apos;ll respond promptly.
+                </p>
+                <p style={{ color: green, fontSize: "0.9rem", fontFamily: I, fontWeight: 600 }}>
+                  <a href="tel:+447540875262" style={{ color: green, textDecoration: "none" }}>+44 7540 875262</a>
                 </p>
               </div>
               <Link href="/apply" className="btn-gold">

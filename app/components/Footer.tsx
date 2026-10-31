@@ -10,6 +10,7 @@ type Settings = {
   footerInstagram?: string;
   footerFacebook?: string;
   footerContactEmail?: string;
+  footerContactPhone?: string;
   footerCopyright?: string;
   footerLegalLine?: string;
   footerColumns?: FooterColumn[];
@@ -43,6 +44,7 @@ export default function Footer({ settings }: { settings?: Settings }) {
   const instagram = settings?.footerInstagram    ?? "https://www.instagram.com/greenroommusictheory/";
   const facebook  = settings?.footerFacebook     ?? "https://m.facebook.com/people/Green-Room-Music-Theory/100088313820996/?locale=en_GB";
   const email     = settings?.footerContactEmail ?? "info@greenroomtheory.com";
+  const phone     = settings?.footerContactPhone ?? "+44 7540 875262";
   const copyright = settings?.footerCopyright    ?? `© ${new Date().getFullYear()} Green Room Music Theory. All rights reserved.`;
   const legal     = settings?.footerLegalLine    ?? "Green Room Music Summer Camp · Stamford School · Lincolnshire";
   const columns   = settings?.footerColumns?.length ? settings.footerColumns : defaultColumns;
@@ -114,7 +116,8 @@ export default function Footer({ settings }: { settings?: Settings }) {
               {ci === columns.length - 1 && (
                 <div style={{ marginTop: 24 }}>
                   <h4 style={{ color: "#C89A3B", fontSize: "0.65rem", textTransform: "uppercase", letterSpacing: "0.18em", marginBottom: 10, fontFamily: "var(--font-inter)" }}>Contact</h4>
-                  <a href={`mailto:${email}`} style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.85rem", textDecoration: "none" }}>{email}</a>
+                  <a href={`mailto:${email}`} style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.85rem", textDecoration: "none", display: "block", marginBottom: 6 }}>{email}</a>
+                  <a href={`tel:${phone.replace(/\s+/g, "")}`} style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.85rem", textDecoration: "none", display: "block" }}>{phone}</a>
                 </div>
               )}
             </div>
