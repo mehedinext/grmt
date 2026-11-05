@@ -86,9 +86,10 @@ const whySvgs = [
     </svg>
   ),
   (
-    // Shield
-    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M14 2l9 4v8c0 5.5-4 10-9 12C5 24 1 19.5 1 14V6l13-4z" />
+    // Shield with checkmark (safeguarding)
+    <svg width="30" height="30" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M16 3L5 7v8c0 6.5 4.5 11.5 11 14 6.5-2.5 11-7.5 11-14V7l-11-4z" />
+      <path d="M11 16l3.5 3.5L21 13" />
     </svg>
   ),
 ];

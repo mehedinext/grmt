@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
+import CourseFAQs from "../../components/CourseFAQs";
 import { getSiteSettings, sanityClient } from "../../lib/sanity";
 import { urlFor } from "../../lib/image";
 
@@ -302,6 +303,8 @@ export default async function VocalPerformancePage() {
             </div>
           </div>
         </section>
+
+        <CourseFAQs categoryKey="singing-performance" heading="Singing Performance FAQs" />
 
       </main>
       <Footer settings={settings} />

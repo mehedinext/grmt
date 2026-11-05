@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
+import CourseFAQs from "../../components/CourseFAQs";
 import { getSiteSettings, sanityClient } from "../../lib/sanity";
 import { urlFor } from "../../lib/image";
 
@@ -346,6 +347,8 @@ export default async function MusicTheoryPage() {
             </div>
           </div>
         </section>
+
+        <CourseFAQs categoryKey="music-theory" heading="Music Theory Course FAQs" />
 
       </main>
       <Footer settings={settings} />
