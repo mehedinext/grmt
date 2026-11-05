@@ -66,12 +66,8 @@ const defaultWhyItems = [
 
 const whySvgs = [
   (
-    // Grand piano
-    <svg width="30" height="30" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M4 22c0-4 4-7 10-7h8c2 0 4 1.5 4 4v3H4v0z" />
-      <path d="M6 25v3M10 25v3M14 25v3M18 25v3M22 25v3M26 25v3" />
-      <path d="M14 15V7h2" />
-    </svg>
+    // Steinway & Sons lyre logo
+    <img src="/partners/steinway-lyre.png" alt="Steinway & Sons" style={{ width: 34, height: 34, objectFit: "contain" }} />
   ),
   (
     // School building with tower
