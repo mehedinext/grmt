@@ -40,14 +40,18 @@ function Photo({ src, name, size = "100%", radius = 0, position = "center top" }
       />
     );
   }
-  const initial = (name ?? "?").charAt(0).toUpperCase();
   return (
     <div style={{
       width: dim, height: dim, borderRadius: radius,
       background: "#dcd4c6",
       display: "flex", alignItems: "center", justifyContent: "center",
+      padding: 16, textAlign: "center",
     }}>
-      <span style={{ fontFamily: G, fontSize: "2.2rem", color: green, fontWeight: 500 }}>{initial}</span>
+      <span style={{
+        fontFamily: G, fontSize: "clamp(0.85rem, 1.1vw, 1.05rem)",
+        color: green, fontWeight: 500, fontStyle: "italic",
+        letterSpacing: "0.02em", lineHeight: 1.4,
+      }}>Headshot coming soon</span>
     </div>
   );
 }
