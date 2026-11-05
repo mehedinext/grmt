@@ -50,6 +50,20 @@ function Icon({ name }: { name?: string }) {
           <path d="M12 18v3" />
         </svg>
       );
+    case "plane":
+      return (
+        <svg width="34" height="34" viewBox="0 0 24 24" {...stroke}>
+          <path d="M3.5 13l7.5-1 4-8 2 .5-2 8 7-1 .5 2-7 1.8-2 7-2-.5 1-7-8.5 1.2z" />
+        </svg>
+      );
+    case "globe":
+      return (
+        <svg width="34" height="34" viewBox="0 0 24 24" {...stroke}>
+          <circle cx="12" cy="12" r="9" />
+          <path d="M3 12h18" />
+          <path d="M12 3a13 13 0 0 1 0 18M12 3a13 13 0 0 0 0 18" />
+        </svg>
+      );
     case "people":
     default:
       return (

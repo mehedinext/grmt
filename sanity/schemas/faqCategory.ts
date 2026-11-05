@@ -43,6 +43,8 @@ export const faqCategorySchema = defineType({
           { title: "Piano / Keyboard", value: "piano" },
           { title: "Music note (Theory)", value: "music-note" },
           { title: "Microphone (Singing)", value: "microphone" },
+          { title: "Plane (International)", value: "plane" },
+          { title: "Globe (International)", value: "globe" },
         ],
         layout: "dropdown",
       },
