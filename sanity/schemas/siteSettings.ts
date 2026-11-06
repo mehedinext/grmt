@@ -232,6 +232,8 @@ export const siteSettingsSchema = defineType({
     defineField({ name: "feesCourseFooterNote", title: "Fees — Per-course Footer Note", type: "string", description: 'e.g. "Residential experience included."' }),
     defineField({ name: "feesBottomBandTitle", title: "Fees — Bottom Band Title", type: "string", description: 'e.g. "THE SAME RESIDENTIAL EXPERIENCE FOR EVERY COURSE"' }),
     defineField({ name: "feesBottomBandBody", title: "Fees — Bottom Band Body", type: "text", rows: 3 }),
+    defineField({ name: "feesPaymentPlansHeading", title: "Fees — Payment Plans Heading", type: "string" }),
+    defineField({ name: "feesPaymentPlansBody", title: "Fees — Payment Plans Body", type: "text", rows: 4 }),
     defineField({ name: "feesHeroImage", title: "Tuition & Fees Hero — Background Image", type: "image", options: { hotspot: true } }),
     defineField({
       name: "feesPageBursaries",

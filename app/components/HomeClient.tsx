@@ -509,7 +509,7 @@ export default function HomeClient({ faqs, partnerLogos, courses: allCourses, se
                 {settings?.faqsHeading ?? "Frequently Asked Questions"}
               </h2>
               <div>
-                {faqs.slice(0, 4).map((faq, i) => (
+                {faqs.slice(0, 5).map((faq, i) => (
                   <div key={faq._id} style={{ borderBottom: "1px solid #d4cec4" }}>
                     <button
                       onClick={() => setOpenFaq(openFaq === i ? null : i)}
@@ -530,6 +530,17 @@ export default function HomeClient({ faqs, partnerLogos, courses: allCourses, se
                     </div>
                   </div>
                 ))}
+              </div>
+              <div style={{ marginTop: 24 }}>
+                <Link href="/faqs" style={{
+                  display: "inline-flex", alignItems: "center", gap: 8,
+                  color: gold, fontFamily: I, fontSize: "0.78rem", fontWeight: 700,
+                  letterSpacing: "0.12em", textTransform: "uppercase",
+                  textDecoration: "none",
+                }}>
+                  View All FAQs
+                  <span style={{ fontSize: "1rem", lineHeight: 1 }}>→</span>
+                </Link>
               </div>
             </div>
           </div>

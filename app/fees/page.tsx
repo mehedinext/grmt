@@ -143,6 +143,28 @@ export default async function FeesPage() {
           </div>
         </section>
 
+        {/* ─── PAYMENT PLANS ─── */}
+        {(settings?.feesPaymentPlansHeading || settings?.feesPaymentPlansBody) && (
+          <section className="tf-payment-plans" style={{ background: cream, padding: "clamp(32px, 5vw, 64px) 0 clamp(48px, 7vw, 80px)" }}>
+            <div style={{ maxWidth: 820, margin: "0 auto", padding: "0 clamp(20px, 5vw, 40px)" }}>
+              <p style={{ color: gold, fontFamily: I, fontSize: "0.68rem", textTransform: "uppercase", letterSpacing: "0.22em", fontWeight: 600, marginBottom: 12 }}>
+                FINANCIAL FLEXIBILITY
+              </p>
+              <h2 style={{ fontFamily: G, fontSize: "clamp(1.9rem, 3vw, 2.6rem)", fontWeight: 500, color: green, lineHeight: 1.2, marginBottom: 14 }}>
+                {settings?.feesPaymentPlansHeading ?? "Payment Plans"}
+              </h2>
+              <div style={{ width: 40, height: 2, background: gold, marginBottom: 20 }} />
+              <p style={{ color: "#3d5c51", fontSize: "clamp(0.92rem, 1vw, 1rem)", lineHeight: 1.8, fontFamily: I }}>
+                {(settings?.feesPaymentPlansBody ?? "GRMSC offers a range of flexible payment plan options to help families spread the cost of attending. For further information or to discuss the options available, please contact us at info@greenroomplace.com.")
+                  .split(/([\w.+-]+@[\w-]+\.[\w.-]+)/g)
+                  .map((part: string, i: number) => /^[\w.+-]+@[\w-]+\.[\w.-]+$/.test(part)
+                    ? <a key={i} href={`mailto:${part}`} style={{ color: gold, textDecoration: "none", fontWeight: 600 }}>{part}</a>
+                    : part)}
+              </p>
+            </div>
+          </section>
+        )}
+
         {/* ─── BOTTOM RESIDENTIAL BAND ─── */}
         <section style={{ background: "#efe9dd", padding: "clamp(32px, 4vw, 44px) 0" }}>
           <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 clamp(16px, 3vw, 40px)" }}>

@@ -68,6 +68,7 @@ export const queries = {
     feesCourseEyebrow, feesCourseHeading, feesCourseIntro, feesVerticalWords,
     feesCourseInclusionLabel, feesCourseInclusions, feesCourseFooterNote,
     feesBottomBandTitle, feesBottomBandBody,
+    feesPaymentPlansHeading, feesPaymentPlansBody,
     "feesHeroImage": feesHeroImage.asset->url,
 
     applyPageEyebrow, applyPageHeading, applyPageSubtext,

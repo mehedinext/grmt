@@ -139,9 +139,11 @@ export default function FacultyPageClient({ settings, tutors }: { settings: any;
                 {settings?.facultyPageHeading ?? "Our Faculty"}
               </h1>
               <div style={{ width: 44, height: 2, background: gold, marginBottom: 24 }} />
-              <p style={{ color: "rgba(255,255,255,0.72)", fontSize: "clamp(0.9rem, 1.1vw, 1rem)", lineHeight: 1.8, maxWidth: 460, fontFamily: I }}>
-                {settings?.facultyPageSubtext ?? "Our faculty are experienced musicians, educators and performing arts professionals, passionate about inspiring the next generation. Together, they create a supportive, creative and challenging environment where every student can grow."}
-              </p>
+              {settings?.facultyPageSubtext !== "" && (
+                <p style={{ color: "rgba(255,255,255,0.72)", fontSize: "clamp(0.9rem, 1.1vw, 1rem)", lineHeight: 1.8, maxWidth: 460, fontFamily: I }}>
+                  {settings?.facultyPageSubtext ?? "Our faculty are experienced musicians, educators and performing arts professionals, passionate about inspiring the next generation. Together, they create a supportive, creative and challenging environment where every student can grow."}
+                </p>
+              )}
             </div>
             {settings?.facultyHeroImage && (
               <div className="fp-hero-img" style={{ position: "relative", minHeight: 300 }}>

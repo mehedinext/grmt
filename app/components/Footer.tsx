@@ -43,7 +43,7 @@ export default function Footer({ settings }: { settings?: Settings }) {
   const desc      = settings?.footerDescription  ?? "19–23 July 2027 · Stamford School\nPiano · Music Theory · Singing Performance\nAges 10–17";
   const instagram = settings?.footerInstagram    ?? "https://www.instagram.com/greenroommusictheory/";
   const facebook  = settings?.footerFacebook     ?? "https://m.facebook.com/people/Green-Room-Music-Theory/100088313820996/?locale=en_GB";
-  const email     = settings?.footerContactEmail ?? "info@greenroomtheory.com";
+  const email     = settings?.footerContactEmail ?? "info@greenroomplace.com";
   const phone     = settings?.footerContactPhone ?? "+44 7540 875262";
   const copyright = settings?.footerCopyright    ?? `© ${new Date().getFullYear()} Green Room Music Theory. All rights reserved.`;
   const legal     = settings?.footerLegalLine    ?? "Green Room Music Summer Camp · Stamford School · Lincolnshire";

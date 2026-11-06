@@ -207,12 +207,7 @@ export const courses: Course[] = [
     ],
     requirements:
       "Students should have a working knowledge of music notation. Approximately Grade 5 theory level or above recommended.",
-    highlights: [
-      "Harmony & counterpoint",
-      "Aural training & dictation",
-      "ABRSM Grade 5 crash course",
-      "Composition project",
-    ],
+    highlights: [],
   },
   {
     _id: "course-vocal-performance",

@@ -418,12 +418,24 @@ export default function FAQsClient({
                 <h3 style={{ fontFamily: G, fontSize: "1.25rem", color: green, marginBottom: 6 }}>
                   Still have a question?
                 </h3>
-                <p style={{ color: "#5a7a6a", fontSize: "0.85rem", fontFamily: I, marginBottom: 4 }}>
+                <p style={{ color: "#5a7a6a", fontSize: "0.85rem", fontFamily: I, marginBottom: 14 }}>
                   We&apos;re happy to help | get in touch and we&apos;ll respond promptly.
                 </p>
-                <p style={{ color: green, fontSize: "0.9rem", fontFamily: I, fontWeight: 600 }}>
-                  <a href="tel:+447540875262" style={{ color: green, textDecoration: "none" }}>+44 7540 875262</a>
-                </p>
+                <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+                  <a href="tel:+447540875262" style={{ display: "inline-flex", alignItems: "center", gap: 10, color: green, textDecoration: "none", fontFamily: I, fontSize: "0.9rem", fontWeight: 600 }}>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                    </svg>
+                    +44 7540 875262
+                  </a>
+                  <a href="mailto:info@greenroomplace.com" style={{ display: "inline-flex", alignItems: "center", gap: 10, color: green, textDecoration: "none", fontFamily: I, fontSize: "0.9rem", fontWeight: 600 }}>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+                      <rect x="2" y="4" width="20" height="16" rx="2" />
+                      <path d="M22 6l-10 7L2 6" />
+                    </svg>
+                    info@greenroomplace.com
+                  </a>
+                </div>
               </div>
               <Link href="/apply" className="btn-gold">
                 Get in Touch
