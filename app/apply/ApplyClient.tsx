@@ -46,48 +46,60 @@ export default function ApplyClient({ settings }: { settings?: Settings }) {
               <h2 style={{ fontFamily: G, fontSize: "1.6rem", fontWeight: 500, color: green, marginBottom: 8 }}>{settings?.applyPageFormHeading ?? "Interest Registration Form"}</h2>
               <div style={{ width: 32, height: 2, background: gold, marginBottom: 32 }} />
 
-              <form style={{ display: "flex", flexDirection: "column", gap: 0 }}>
+              <form
+                action="https://formsubmit.co/info@greenroomplace.com"
+                method="POST"
+                style={{ display: "flex", flexDirection: "column", gap: 0 }}
+              >
+                {/* Formsubmit config */}
+                <input type="hidden" name="_subject" value="New Interest Registration – GRMSC" />
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_template" value="table" />
+                <input type="hidden" name="_next" value="https://green-room-camp-tau.vercel.app/apply?submitted=1" />
+                {/* Honeypot */}
+                <input type="text" name="_honey" style={{ display: "none" }} tabIndex={-1} autoComplete="off" />
+
                 <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 2, marginBottom: 2 }}>
                   <div style={{ background: cream, padding: "20px 24px" }}>
                     <label style={{ display: "block", fontSize: "0.6rem", textTransform: "uppercase", letterSpacing: "0.16em", color: "#9aaa9e", marginBottom: 8, fontFamily: I }}>Student Name</label>
-                    <input type="text" placeholder="Full name" style={{ width: "100%", background: "none", border: "none", borderBottom: "1px solid #c4bdb0", padding: "8px 0", fontSize: "0.9rem", outline: "none", fontFamily: I, color: green }} />
+                    <input required name="Student Name" type="text" placeholder="Full name" style={{ width: "100%", background: "none", border: "none", borderBottom: "1px solid #c4bdb0", padding: "8px 0", fontSize: "0.9rem", outline: "none", fontFamily: I, color: green }} />
                   </div>
                   <div style={{ background: cream, padding: "20px 24px" }}>
                     <label style={{ display: "block", fontSize: "0.6rem", textTransform: "uppercase", letterSpacing: "0.16em", color: "#9aaa9e", marginBottom: 8, fontFamily: I }}>Age</label>
-                    <input type="number" min={10} max={17} placeholder="10–17" style={{ width: "100%", background: "none", border: "none", borderBottom: "1px solid #c4bdb0", padding: "8px 0", fontSize: "0.9rem", outline: "none", fontFamily: I, color: green }} />
+                    <input required name="Age" type="number" min={10} max={17} placeholder="10-17" style={{ width: "100%", background: "none", border: "none", borderBottom: "1px solid #c4bdb0", padding: "8px 0", fontSize: "0.9rem", outline: "none", fontFamily: I, color: green }} />
                   </div>
                 </div>
 
                 <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 2, marginBottom: 2 }}>
                   <div style={{ background: cream, padding: "20px 24px" }}>
                     <label style={{ display: "block", fontSize: "0.6rem", textTransform: "uppercase", letterSpacing: "0.16em", color: "#9aaa9e", marginBottom: 8, fontFamily: I }}>Parent / Guardian</label>
-                    <input type="text" placeholder="Full name" style={{ width: "100%", background: "none", border: "none", borderBottom: "1px solid #c4bdb0", padding: "8px 0", fontSize: "0.9rem", outline: "none", fontFamily: I, color: green }} />
+                    <input required name="Parent / Guardian" type="text" placeholder="Full name" style={{ width: "100%", background: "none", border: "none", borderBottom: "1px solid #c4bdb0", padding: "8px 0", fontSize: "0.9rem", outline: "none", fontFamily: I, color: green }} />
                   </div>
                   <div style={{ background: cream, padding: "20px 24px" }}>
                     <label style={{ display: "block", fontSize: "0.6rem", textTransform: "uppercase", letterSpacing: "0.16em", color: "#9aaa9e", marginBottom: 8, fontFamily: I }}>Email Address</label>
-                    <input type="email" placeholder="your@email.com" style={{ width: "100%", background: "none", border: "none", borderBottom: "1px solid #c4bdb0", padding: "8px 0", fontSize: "0.9rem", outline: "none", fontFamily: I, color: green }} />
+                    <input required name="Email" type="email" placeholder="your@email.com" style={{ width: "100%", background: "none", border: "none", borderBottom: "1px solid #c4bdb0", padding: "8px 0", fontSize: "0.9rem", outline: "none", fontFamily: I, color: green }} />
                   </div>
                 </div>
 
                 <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 2, marginBottom: 2 }}>
                   <div style={{ background: cream, padding: "20px 24px" }}>
                     <label style={{ display: "block", fontSize: "0.6rem", textTransform: "uppercase", letterSpacing: "0.16em", color: "#9aaa9e", marginBottom: 8, fontFamily: I }}>Course</label>
-                    <select style={{ width: "100%", background: "none", border: "none", borderBottom: "1px solid #c4bdb0", padding: "8px 0", fontSize: "0.9rem", outline: "none", fontFamily: I, color: green, appearance: "none" }}>
+                    <select required name="Course" style={{ width: "100%", background: "none", border: "none", borderBottom: "1px solid #c4bdb0", padding: "8px 0", fontSize: "0.9rem", outline: "none", fontFamily: I, color: green, appearance: "none" }}>
                       <option value="">Select a course</option>
                       {courses.map((c) => (
-                        <option key={c._id} value={c.slug.current}>{c.title}</option>
+                        <option key={c._id} value={c.title}>{c.title}</option>
                       ))}
                     </select>
                   </div>
                   <div style={{ background: cream, padding: "20px 24px" }}>
                     <label style={{ display: "block", fontSize: "0.6rem", textTransform: "uppercase", letterSpacing: "0.16em", color: "#9aaa9e", marginBottom: 8, fontFamily: I }}>Current Level</label>
-                    <input type="text" placeholder="e.g. Grade 6 Piano" style={{ width: "100%", background: "none", border: "none", borderBottom: "1px solid #c4bdb0", padding: "8px 0", fontSize: "0.9rem", outline: "none", fontFamily: I, color: green }} />
+                    <input name="Current Level" type="text" placeholder="e.g. Grade 6 Piano" style={{ width: "100%", background: "none", border: "none", borderBottom: "1px solid #c4bdb0", padding: "8px 0", fontSize: "0.9rem", outline: "none", fontFamily: I, color: green }} />
                   </div>
                 </div>
 
                 <div style={{ background: cream, padding: "20px 24px", marginBottom: 2 }}>
                   <label style={{ display: "block", fontSize: "0.6rem", textTransform: "uppercase", letterSpacing: "0.16em", color: "#9aaa9e", marginBottom: 8, fontFamily: I }}>Questions or Additional Information</label>
-                  <textarea rows={4} placeholder="Dietary requirements, accessibility needs, DofE or Arts Award queries..." style={{ width: "100%", background: "none", border: "none", borderBottom: "1px solid #c4bdb0", padding: "8px 0", fontSize: "0.9rem", outline: "none", resize: "none", fontFamily: I, color: green }} />
+                  <textarea name="Questions" rows={4} placeholder="Dietary requirements, accessibility needs, DofE or Arts Award queries..." style={{ width: "100%", background: "none", border: "none", borderBottom: "1px solid #c4bdb0", padding: "8px 0", fontSize: "0.9rem", outline: "none", resize: "none", fontFamily: I, color: green }} />
                 </div>
 
                 <div style={{ padding: "28px 0 0" }}>
