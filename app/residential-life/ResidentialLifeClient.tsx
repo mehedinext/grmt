@@ -83,7 +83,7 @@ export default function ResidentialLifeClient({ settings }: { settings?: Setting
           <div className="rl-hero-grid" style={{ maxWidth: 1200, margin: "0 auto", padding: "0 clamp(20px, 4vw, 56px)", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(28px, 5vw, 56px)", alignItems: "center" }}>
             <div>
               <p style={{ color: gold, fontSize: "0.65rem", fontFamily: I, textTransform: "uppercase", letterSpacing: "0.22em", fontWeight: 600, marginBottom: 14 }}>{heroEyebrow}</p>
-              <h1 style={{ fontFamily: G, fontSize: "clamp(2.2rem, 4.5vw, 3.6rem)", fontWeight: 500, color: "#fff", lineHeight: 1.08, marginBottom: 22 }}>{heroHeading}</h1>
+              <h1 style={{ fontFamily: G, fontSize: "clamp(2.2rem, 4vw, 3.4rem)", fontWeight: 500, color: "#fff", lineHeight: 1.15, marginBottom: 20 }}>{heroHeading}</h1>
               <p style={{ color: "rgba(255,255,255,0.75)", fontFamily: I, fontSize: "clamp(0.92rem, 1vw, 1.02rem)", lineHeight: 1.8 }}>{heroBody}</p>
             </div>
             <div style={{ position: "relative", aspectRatio: "4/3", overflow: "hidden", borderRadius: 2 }}>
@@ -243,15 +243,16 @@ function StatIcon({ idx }: { idx: number }) {
   );
   if (idx === 1) return (
     <svg width="34" height="34" viewBox="0 0 24 24" {...stroke}>
-      <path d="M8 3v8M4 3v5a4 4 0 0 0 8 0V3M16 3c0 4 2 6 2 10v8M20 3c-2 2-2 6-2 10" />
+      <path d="M3 2v7a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2V2" />
+      <path d="M6 11v11" />
+      <path d="M19 2c-2 1-3 3-3 6v5a1 1 0 0 0 1 1h2V2z" />
+      <path d="M19 15v7" />
     </svg>
   );
   if (idx === 2) return (
     <svg width="34" height="34" viewBox="0 0 24 24" {...stroke}>
-      <circle cx="9" cy="8" r="3" />
-      <circle cx="17" cy="9" r="2.2" />
-      <path d="M3 19c0-3 2.7-5 6-5s6 2 6 5" />
-      <path d="M14.5 19c0-2 1.8-3.6 4.5-3.6S23 17 23 19" />
+      <circle cx="12" cy="12" r="9" />
+      <path d="M12 7v5l3.5 2" />
     </svg>
   );
   return (
@@ -265,7 +266,10 @@ function StatIcon({ idx }: { idx: number }) {
 function ForkKnifeIcon() {
   return (
     <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke={gold} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M8 3v8M4 3v5a4 4 0 0 0 8 0V3M16 3c0 4 2 6 2 10v8M20 3c-2 2-2 6-2 10" />
+      <path d="M3 2v7a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2V2" />
+      <path d="M6 11v11" />
+      <path d="M19 2c-2 1-3 3-3 6v5a1 1 0 0 0 1 1h2V2z" />
+      <path d="M19 15v7" />
     </svg>
   );
 }

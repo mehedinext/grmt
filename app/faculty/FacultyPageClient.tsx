@@ -135,7 +135,7 @@ export default function FacultyPageClient({ settings, tutors }: { settings: any;
               <p style={{ color: gold, fontSize: "0.72rem", textTransform: "uppercase", letterSpacing: "0.22em", marginBottom: 16, fontFamily: I, fontWeight: 600 }}>
                 {settings?.facultyPageEyebrow ?? "SUMMER 2027"}
               </p>
-              <h1 style={{ fontFamily: G, fontSize: "clamp(2.6rem, 5vw, 4.2rem)", fontWeight: 500, color: "#fff", lineHeight: 1.1, marginBottom: 20 }}>
+              <h1 style={{ fontFamily: G, fontSize: "clamp(2.2rem, 4vw, 3.4rem)", fontWeight: 500, color: "#fff", lineHeight: 1.15, marginBottom: 20 }}>
                 {settings?.facultyPageHeading ?? "Our Faculty"}
               </h1>
               <div style={{ width: 44, height: 2, background: gold, marginBottom: 24 }} />

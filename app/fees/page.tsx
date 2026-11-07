@@ -47,7 +47,7 @@ export default async function FeesPage() {
                 <p style={{ color: gold, fontSize: "0.72rem", textTransform: "uppercase", letterSpacing: "0.22em", marginBottom: 14, fontFamily: I, fontWeight: 600 }}>
                   {settings?.feesPageEyebrow ?? "SUMMER 2027"}
                 </p>
-                <h1 style={{ fontFamily: G, fontSize: "clamp(2.4rem, 5vw, 4rem)", fontWeight: 500, color: "#fff", lineHeight: 1.1, marginBottom: 20 }}>
+                <h1 style={{ fontFamily: G, fontSize: "clamp(2.2rem, 4vw, 3.4rem)", fontWeight: 500, color: "#fff", lineHeight: 1.15, marginBottom: 20 }}>
                   {settings?.feesPageHeading ?? "Tuition & Fees"}
                 </h1>
                 <div style={{ width: 44, height: 2, background: gold, marginBottom: 22 }} />

@@ -70,7 +70,7 @@ export default async function InternationalTravellersPage() {
           <div className="intl-hero-grid" style={{ maxWidth: 1200, margin: "0 auto", padding: "0 clamp(20px, 4vw, 56px)", display: "grid", gridTemplateColumns: "1fr 1.2fr", gap: "clamp(28px, 5vw, 56px)", alignItems: "center" }}>
             <div>
               <p style={{ color: gold, fontSize: "0.65rem", fontFamily: I, textTransform: "uppercase", letterSpacing: "0.22em", fontWeight: 600, marginBottom: 14 }}>{heroEyebrow}</p>
-              <h1 style={{ fontFamily: G, fontSize: "clamp(2.2rem, 4.5vw, 3.6rem)", fontWeight: 500, color: "#fff", lineHeight: 1.08, marginBottom: 22 }}>{heroHeading}</h1>
+              <h1 style={{ fontFamily: G, fontSize: "clamp(2.2rem, 4vw, 3.4rem)", fontWeight: 500, color: "#fff", lineHeight: 1.15, marginBottom: 20 }}>{heroHeading}</h1>
               <div style={{ width: 44, height: 2, background: gold, marginBottom: 22 }} />
               <p style={{ color: "rgba(255,255,255,0.75)", fontFamily: I, fontSize: "clamp(0.92rem, 1vw, 1.02rem)", lineHeight: 1.8 }}>{heroBody}</p>
             </div>
