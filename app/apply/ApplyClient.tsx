@@ -47,17 +47,17 @@ export default function ApplyClient({ settings }: { settings?: Settings }) {
               <div style={{ width: 32, height: 2, background: gold, marginBottom: 32 }} />
 
               <form
-                action="https://formsubmit.co/info@greenroomplace.com"
+                action="https://api.web3forms.com/submit"
                 method="POST"
                 style={{ display: "flex", flexDirection: "column", gap: 0 }}
               >
-                {/* Formsubmit config */}
-                <input type="hidden" name="_subject" value="New Interest Registration – GRMSC" />
-                <input type="hidden" name="_captcha" value="false" />
-                <input type="hidden" name="_template" value="table" />
-                <input type="hidden" name="_next" value="https://green-room-camp-tau.vercel.app/apply?submitted=1" />
+                {/* Web3Forms config */}
+                <input type="hidden" name="access_key" value="aae09377-f222-46dc-9807-d8cfd35ba5f5" />
+                <input type="hidden" name="subject" value="New Interest Registration – GRMSC" />
+                <input type="hidden" name="from_name" value="GRMSC Website" />
+                <input type="hidden" name="redirect" value="https://green-room-camp-tau.vercel.app/apply?submitted=1" />
                 {/* Honeypot */}
-                <input type="text" name="_honey" style={{ display: "none" }} tabIndex={-1} autoComplete="off" />
+                <input type="checkbox" name="botcheck" style={{ display: "none" }} tabIndex={-1} />
 
                 <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 2, marginBottom: 2 }}>
                   <div style={{ background: cream, padding: "20px 24px" }}>

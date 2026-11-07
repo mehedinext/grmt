@@ -12,6 +12,7 @@ const defaultNavLinks = [
   { href: "/", label: "Home" },
   { href: "/courses", label: "Courses" },
   { href: "/residential-life", label: "Residential Life" },
+  { href: "/international-travellers", label: "International" },
   { href: "/faculty", label: "Faculty" },
   { href: "/fees", label: "Fees" },
   { href: "/faqs", label: "FAQs" },

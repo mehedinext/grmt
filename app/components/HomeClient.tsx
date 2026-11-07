@@ -572,7 +572,7 @@ export default function HomeClient({ faqs, partnerLogos, courses: allCourses, se
               {settings?.ctaHeadingLine2 ?? "of Music & Inspiration"}
             </h2>
             <p style={{ color: "rgba(255,255,255,0.52)", fontSize: "clamp(0.9rem, 1.4vw, 1.05rem)", lineHeight: 1.8, maxWidth: 540, margin: "0 auto 44px" }}>
-              {settings?.ctaSubtext ?? "19–23 July 2027 at Stamford School. Three specialist tracks, world-class tutors, and a residential experience unlike any other."}
+              {settings?.ctaSubtext ?? "19th-23rd July 2027 at Stamford School, UK. Three specialist courses, world-class tutors, and a residential experience unlike any other."}
             </p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 16, justifyContent: "center", alignItems: "center" }}>
               <Link href={settings?.ctaCta1Href ?? "/apply"} className="btn-gold">
