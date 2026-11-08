@@ -161,7 +161,7 @@ export default async function InternationalTravellersPage() {
                   <p style={{ color: "#5a7a6a", fontFamily: I, fontSize: "0.9rem", lineHeight: 1.6 }}>{faqCardBody}</p>
                 </div>
               </div>
-              <Link href="/faqs" className="btn-gold">View FAQs →</Link>
+              <Link href="/faqs#international-travellers" className="btn-gold">View FAQs →</Link>
             </div>
           </div>
         </section>

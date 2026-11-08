@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Link from "next/link";
@@ -157,6 +157,21 @@ export default function FAQsClient({
 
   const [activeKey, setActiveKey] = useState<string>(data[0].key);
   const [open, setOpen] = useState<number | null>(0);
+
+  // Deep-link support: /faqs#international-travellers → opens that tab
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const applyHash = () => {
+      const h = window.location.hash.replace(/^#/, "");
+      if (h && data.some((c) => c.key === h)) {
+        setActiveKey(h);
+        setOpen(0);
+      }
+    };
+    applyHash();
+    window.addEventListener("hashchange", applyHash);
+    return () => window.removeEventListener("hashchange", applyHash);
+  }, [data]);
 
   const active = data.find((c) => c.key === activeKey) ?? data[0];
   const heroImage: string | undefined = settings?.faqsHeroImage;
