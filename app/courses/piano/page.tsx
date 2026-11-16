@@ -72,8 +72,8 @@ export default async function PianoCoursePage() {
       <main style={{ paddingTop: 68, background: cream }}>
 
         {/* ── HERO (SPLIT: TEXT LEFT | IMAGE RIGHT) ── */}
-        <section className="piano-hero" style={{ background: green, display: "grid", gridTemplateColumns: "1fr 1fr", minHeight: "clamp(560px, 80vh, 820px)" }}>
-          <div style={{ padding: "clamp(60px, 7vw, 100px) clamp(24px, 5vw, 72px)", display: "flex", flexDirection: "column", justifyContent: "center", maxWidth: 680 }}>
+        <section className="piano-hero" style={{ background: green, display: "grid", gridTemplateColumns: "1fr 1fr", height: "calc(100vh - 68px)", minHeight: 580, maxHeight: 900 }}>
+          <div style={{ padding: "clamp(40px, 5vw, 72px) clamp(24px, 5vw, 56px)", display: "flex", flexDirection: "column", justifyContent: "center", maxWidth: 680, overflow: "auto" }}>
             <p style={{ color: gold, fontFamily: I, fontSize: "0.68rem", textTransform: "uppercase", letterSpacing: "0.22em", marginBottom: 16, fontWeight: 600 }}>Green Room Music Summer Camp</p>
             <h1 style={{ fontFamily: G, fontSize: "clamp(2.2rem, 4vw, 3.4rem)", fontWeight: 500, color: "#fff", lineHeight: 1.15, marginBottom: 20 }}>Piano Course</h1>
             <div style={{ width: 44, height: 2, background: gold, marginBottom: 22 }} />
@@ -99,14 +99,15 @@ export default async function PianoCoursePage() {
           </div>
           <div style={{ position: "relative", overflow: "hidden" }}>
             <img src="/gallery/269-Green_Room_Music_Concert_Summer_2025.jpg" alt="Piano performance"
-              style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
+              style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "75% center" }} />
           </div>
         </section>
 
         <style>{`
           @media (max-width: 860px) {
-            .piano-hero { grid-template-columns: 1fr !important; min-height: auto !important; }
-            .piano-hero > div:last-child { min-height: 320px; }
+            .piano-hero { grid-template-columns: 1fr !important; height: auto !important; max-height: none !important; min-height: 0 !important; }
+            .piano-hero > div:first-child { overflow: visible !important; padding-top: 48px; padding-bottom: 48px; }
+            .piano-hero > div:last-child { min-height: 320px; order: -1; }
           }
         `}</style>
 
