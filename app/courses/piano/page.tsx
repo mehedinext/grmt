@@ -71,40 +71,44 @@ export default async function PianoCoursePage() {
       <Navbar settings={settings} />
       <main style={{ paddingTop: 68, background: cream }}>
 
-        {/* ── HERO ── */}
-        <section style={{ position: "relative", minHeight: "92vh", display: "flex", alignItems: "flex-end", overflow: "hidden" }}>
-          <img src="/gallery/269-Green_Room_Music_Concert_Summer_2025.jpg" alt="Piano performance"
-            style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", zIndex: 0 }} />
-          <div style={{ position: "absolute", inset: 0, zIndex: 1, background: `linear-gradient(to top, ${green} 0%, rgba(8,47,39,0.7) 40%, rgba(8,47,39,0.3) 70%, rgba(8,47,39,0.1) 100%)` }} />
-
-          <div style={{ position: "relative", zIndex: 2, width: "100%", padding: "clamp(32px,6vw,80px) clamp(20px,5vw,72px) clamp(40px,7vw,88px)" }}>
-            {/* Alert box */}
-            <div style={{ background: "rgba(8,47,39,0.82)", border: `1px solid rgba(200,154,59,0.4)`, borderLeft: `4px solid ${gold}`, borderRadius: 4, padding: "16px 18px", maxWidth: 560, width: "100%", marginBottom: 36, backdropFilter: "blur(6px)" }}>
-              <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 8 }}>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={gold} strokeWidth="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
-                <span style={{ color: gold, fontFamily: I, fontSize: "0.78rem", fontWeight: 700, letterSpacing: "0.05em" }}>{heroAlertTitle}</span>
-              </div>
-              <p style={{ color: "rgba(255,255,255,0.7)", fontFamily: I, fontSize: "0.8rem", lineHeight: 1.6, marginBottom: 14 }}>
-                {heroAlertBody}
-              </p>
-              <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
-                <a href="https://www.abrsm.org/sites/default/files/2026-06/Piano%20Performance%20Grades%20Syllabus%202027%20%26%202028.pdf" target="_blank" rel="noopener noreferrer" style={{ color: gold, fontFamily: I, fontSize: "0.72rem", fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase", textDecoration: "none", border: `1px solid ${gold}`, padding: "7px 14px", borderRadius: 2 }}>View ABRSM Piano Syllabus ↗</a>
-                <Link href="/apply" style={{ color: "rgba(255,255,255,0.8)", fontFamily: I, fontSize: "0.72rem", fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase", textDecoration: "none", border: "1px solid rgba(255,255,255,0.35)", padding: "7px 14px", borderRadius: 2 }}>Contact Us</Link>
-              </div>
-            </div>
-
-            <p style={{ color: gold, fontFamily: I, fontSize: "0.7rem", textTransform: "uppercase", letterSpacing: "0.2em", marginBottom: 12, fontWeight: 600 }}>Green Room Music Summer Camp</p>
-            <h1 style={{ fontFamily: G, fontSize: "clamp(3rem,6vw,5.5rem)", fontWeight: 500, color: "#fff", lineHeight: 1, marginBottom: 16 }}>Piano Course</h1>
-            <p style={{ color: "rgba(255,255,255,0.75)", fontFamily: I, fontSize: "clamp(0.9rem,1.2vw,1.05rem)", marginBottom: 20, fontStyle: "italic" }}>Intermediate &amp; Advanced Pianists · Ages 10-17</p>
-            <p style={{ color: "rgba(255,255,255,0.65)", fontFamily: I, fontSize: "clamp(0.85rem,1vw,0.96rem)", lineHeight: 1.75, marginBottom: 32, maxWidth: 560 }}>
-              Designed for intermediate and advanced young pianists, the Green Room Music Summer Camp Piano Course combines high-level musical training with performance, creativity and the energy of an international residential summer camp. Across five immersive days, students learn from exceptional musicians and educators while developing their technique, musicianship, confidence, versatility and individuality at the piano. The week culminates in the GRMSC Final Performance Celebration, bringing together students from both the Piano and Vocal Departments.
+        {/* ── HERO (SPLIT: TEXT LEFT | IMAGE RIGHT) ── */}
+        <section className="piano-hero" style={{ background: green, display: "grid", gridTemplateColumns: "1fr 1fr", minHeight: "clamp(560px, 80vh, 820px)" }}>
+          <div style={{ padding: "clamp(60px, 7vw, 100px) clamp(24px, 5vw, 72px)", display: "flex", flexDirection: "column", justifyContent: "center", maxWidth: 680 }}>
+            <p style={{ color: gold, fontFamily: I, fontSize: "0.68rem", textTransform: "uppercase", letterSpacing: "0.22em", marginBottom: 16, fontWeight: 600 }}>Green Room Music Summer Camp</p>
+            <h1 style={{ fontFamily: G, fontSize: "clamp(2.2rem, 4vw, 3.4rem)", fontWeight: 500, color: "#fff", lineHeight: 1.15, marginBottom: 20 }}>Piano Course</h1>
+            <div style={{ width: 44, height: 2, background: gold, marginBottom: 22 }} />
+            <p style={{ color: gold, fontFamily: G, fontSize: "clamp(1rem, 1.3vw, 1.2rem)", marginBottom: 22, fontStyle: "italic" }}>Intermediate &amp; Advanced Pianists · Ages 10-17</p>
+            <p style={{ color: "rgba(255,255,255,0.75)", fontFamily: I, fontSize: "clamp(0.92rem, 1vw, 1rem)", lineHeight: 1.8, marginBottom: 32 }}>
+              Designed for intermediate and advanced young pianists, the Green Room Music Summer Camp Piano Course combines high-level musical training with performance, creativity and the energy of an international residential summer camp. The week culminates in the GRMSC Final Performance Celebration, bringing together students from both the Piano and Vocal Departments.
             </p>
-            <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+            <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginBottom: 32 }}>
               <Link href="/apply" className="btn-gold">Apply for the Piano Course</Link>
               <Link href="/residential-life" className="btn-outline-white">Explore Residential Life</Link>
             </div>
+            {/* Minimum standard card (inline, cleaner) */}
+            <div style={{ background: "rgba(200,154,59,0.08)", borderLeft: `3px solid ${gold}`, padding: "14px 18px", borderRadius: 2 }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 6 }}>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={gold} strokeWidth="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+                <span style={{ color: gold, fontFamily: I, fontSize: "0.68rem", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase" }}>{heroAlertTitle}</span>
+              </div>
+              <p style={{ color: "rgba(255,255,255,0.7)", fontFamily: I, fontSize: "0.82rem", lineHeight: 1.65, marginBottom: 10 }}>
+                {heroAlertBody}
+              </p>
+              <a href="https://www.abrsm.org/sites/default/files/2026-06/Piano%20Performance%20Grades%20Syllabus%202027%20%26%202028.pdf" target="_blank" rel="noopener noreferrer" style={{ color: gold, fontFamily: I, fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", textDecoration: "none" }}>View ABRSM Piano Syllabus ↗</a>
+            </div>
+          </div>
+          <div style={{ position: "relative", overflow: "hidden" }}>
+            <img src="/gallery/269-Green_Room_Music_Concert_Summer_2025.jpg" alt="Piano performance"
+              style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
           </div>
         </section>
+
+        <style>{`
+          @media (max-width: 860px) {
+            .piano-hero { grid-template-columns: 1fr !important; min-height: auto !important; }
+            .piano-hero > div:last-child { min-height: 320px; }
+          }
+        `}</style>
 
         {/* ── COURSE AT A GLANCE ── */}
         <section style={{ background: green }}>
