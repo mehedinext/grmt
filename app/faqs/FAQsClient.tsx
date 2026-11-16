@@ -105,7 +105,7 @@ const FALLBACK: Category[] = [
     tagline: "Course content, level, requirements and more.",
     eyebrow: "Piano",
     heading: "Piano FAQs",
-    intro: "Everything about the Piano course — repertoire, required level, daily schedule, practice rooms and the final performance.",
+    intro: "Everything about the Piano course - repertoire, required level, daily schedule, practice rooms and the final performance.",
     icon: "piano",
     faqs: [
       { question: "What level of piano is required?", answer: "Placeholder answer." },
@@ -120,7 +120,7 @@ const FALLBACK: Category[] = [
     tagline: "Course content, level, requirements and more.",
     eyebrow: "Music Theory",
     heading: "Music Theory FAQs",
-    intro: "Everything about the Music Theory course — ABRSM grades covered, mock exams, materials provided and whether it suits your current level.",
+    intro: "Everything about the Music Theory course - ABRSM grades covered, mock exams, materials provided and whether it suits your current level.",
     icon: "music-note",
     faqs: [
       { question: "Which ABRSM grades does the course cover?", answer: "Placeholder answer." },
@@ -135,7 +135,7 @@ const FALLBACK: Category[] = [
     tagline: "Course content, level, requirements and more.",
     eyebrow: "Singing Performance",
     heading: "Singing Performance FAQs",
-    intro: "Everything about the Singing Performance course — vocal styles, warm-ups, repertoire choice, microphone technique and the final concert.",
+    intro: "Everything about the Singing Performance course - vocal styles, warm-ups, repertoire choice, microphone technique and the final concert.",
     icon: "microphone",
     faqs: [
       { question: "What vocal styles are taught?", answer: "Placeholder answer." },

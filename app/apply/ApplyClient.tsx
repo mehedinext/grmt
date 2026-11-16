@@ -12,8 +12,8 @@ const cream = "#F7F2E8";
 type Settings = any;
 
 const defaultApplyStats = [
-  { val: "19–23 July 2027", label: "Dates" },
-  { val: "Ages 10–17", label: "Who" },
+  { val: "19-23 July 2027", label: "Dates" },
+  { val: "Ages 10-17", label: "Who" },
   { val: "Stamford School", label: "Venue" },
   { val: "3 Courses", label: "Choice" },
 ];
@@ -34,7 +34,7 @@ export default function ApplyClient({ settings }: { settings?: Settings }) {
             </h1>
             <div style={{ width: 40, height: 2, background: gold, marginBottom: 20 }} />
             <p style={{ color: "rgba(255,255,255,0.55)", fontSize: "0.92rem", lineHeight: 1.8, maxWidth: 500, fontFamily: I }}>
-              {settings?.applyPageSubtext ?? "Applications open in early 2027. Register now to be first in line — no payment required at this stage."}
+              {settings?.applyPageSubtext ?? "Applications open in early 2027. Register now to be first in line - no payment required at this stage."}
             </p>
           </div>
         </div>
@@ -53,7 +53,7 @@ export default function ApplyClient({ settings }: { settings?: Settings }) {
               >
                 {/* Web3Forms config */}
                 <input type="hidden" name="access_key" value="aae09377-f222-46dc-9807-d8cfd35ba5f5" />
-                <input type="hidden" name="subject" value="New Interest Registration – GRMSC" />
+                <input type="hidden" name="subject" value="New Interest Registration - GRMSC" />
                 <input type="hidden" name="from_name" value="GRMSC Website" />
                 <input type="hidden" name="redirect" value="https://green-room-camp-tau.vercel.app/apply?submitted=1" />
                 {/* Honeypot */}

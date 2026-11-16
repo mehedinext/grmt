@@ -29,8 +29,8 @@ const defaultFeatures = [
 ];
 
 const defaultDetails = [
-  { title: "English Language Requirement", body: "Students should have a sufficient level of spoken and written English to participate confidently in lessons, rehearsals, group activities and residential life.\n\nIf families are unsure whether the course is suitable, please contact GRP to discuss it." },
-  { title: "Travelling to Stamford", body: "International travellers are very welcome at GRMSC. Families can contact Green Room Place (GRP) for further information and support regarding travel, arrival and course logistics." },
+  { title: "English Language Requirement", body: "Students should have a sufficient level of spoken and written English to participate confidently in lessons, rehearsals, group activities and residential life.\n\nIf families are unsure whether the course is suitable, please contact GRMSC to discuss it." },
+  { title: "Travelling to Stamford", body: "International travellers are very welcome at GRMSC. Families can contact GRMSC for further information and support regarding travel, arrival and course logistics." },
   { title: "Documents and Preparation", body: "Families should ensure passports, visas (where required), travel insurance and any relevant medical information are in place before travel." },
   { title: "Pastoral Care and Communication", body: "Pastoral support is available on site throughout the course, with a dedicated residential and pastoral team on hand to help travellers settle in and feel at home.\n\nGRMSC will communicate key arrival information in advance, including travel guidance and what to expect on site." },
 ];
@@ -52,6 +52,7 @@ export default async function InternationalTravellersPage() {
   const details = settings?.intlDetails?.length ? settings.intlDetails : defaultDetails;
 
   const quoteText = settings?.intlQuoteText ?? "A summer that builds skills, broadens horizons, and opens doors for the future.";
+  const quoteAuthor = settings?.intlQuoteAuthor ?? "";
   const quoteImage = settings?.intlQuoteImage ?? FALLBACK_STAMFORD;
 
   const faqCardHeading = settings?.intlFaqCardHeading ?? "FAQs for International Travellers";
@@ -128,7 +129,10 @@ export default async function InternationalTravellersPage() {
           <div style={{ background: green, padding: "clamp(40px, 6vw, 72px) clamp(28px, 5vw, 60px)", display: "flex", flexDirection: "column", justifyContent: "center" }}>
             <div style={{ color: gold, fontFamily: G, fontSize: "3rem", lineHeight: 1, marginBottom: 14 }}>“</div>
             <p style={{ fontFamily: G, fontStyle: "italic", fontSize: "clamp(1.2rem, 1.8vw, 1.5rem)", color: "#fff", lineHeight: 1.45, marginBottom: 20 }}>{quoteText}</p>
-            <div style={{ width: 44, height: 2, background: gold }} />
+            <div style={{ width: 44, height: 2, background: gold, marginBottom: quoteAuthor ? 16 : 0 }} />
+            {quoteAuthor && (
+              <p style={{ fontFamily: I, fontSize: "0.82rem", letterSpacing: "0.12em", textTransform: "uppercase", color: gold, fontWeight: 600 }}>{quoteAuthor}</p>
+            )}
           </div>
         </section>
 
@@ -173,7 +177,7 @@ export default async function InternationalTravellersPage() {
             <div style={{ width: 44, height: 2, background: gold, margin: "0 auto 22px" }} />
             <p style={{ color: "rgba(255,255,255,0.75)", fontFamily: I, fontSize: "clamp(0.95rem, 1.1vw, 1.05rem)", lineHeight: 1.75, marginBottom: 36 }}>{joinBody}</p>
             <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
-              <Link href="/apply" className="btn-gold">Contact GRP →</Link>
+              <Link href="/apply" className="btn-gold">Contact GRMSC →</Link>
               <Link href="/apply" className="btn-outline-white">Apply Now →</Link>
             </div>
           </div>

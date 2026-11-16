@@ -51,7 +51,7 @@ export default async function CourseDetailPage({ params }: { params: { slug: str
           }}>
             <div>
               <p style={{ color: gold, fontSize: "0.7rem", textTransform: "uppercase", letterSpacing: "0.2em", marginBottom: 16, fontFamily: I }}>
-                Course — {course.title}
+                Course - {course.title}
               </p>
               <h1 style={{ fontFamily: G, fontSize: "clamp(2.5rem, 5vw, 4rem)", fontWeight: 500, color: "#fff", marginBottom: 20, lineHeight: 1.15 }}>
                 {course.title}

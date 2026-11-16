@@ -70,7 +70,7 @@ export default async function FeesPage() {
           <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 clamp(16px, 3vw, 40px)" }}>
             <div className="tf-courses-grid" style={{ display: "grid", gridTemplateColumns: "1fr 2.4fr", gap: "clamp(32px, 5vw, 72px)", alignItems: "start" }}>
 
-              {/* Left — Intro column */}
+              {/* Left - Intro column */}
               <div>
                 <p style={{ color: gold, fontSize: "0.68rem", textTransform: "uppercase", letterSpacing: "0.22em", marginBottom: 14, fontFamily: I, fontWeight: 600 }}>
                   {settings?.feesCourseEyebrow ?? "COURSE FEES"}
@@ -84,7 +84,7 @@ export default async function FeesPage() {
                 </p>
               </div>
 
-              {/* Right — 3 course cards */}
+              {/* Right - 3 course cards */}
               <div className="tf-cards" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16 }}>
                 {courses.map((c: any) => (
                   <div key={c._id} style={{ background: "#fff", display: "flex", flexDirection: "column" }}>
@@ -169,7 +169,7 @@ export default async function FeesPage() {
         <section style={{ background: "#efe9dd", padding: "clamp(32px, 4vw, 44px) 0" }}>
           <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 clamp(16px, 3vw, 40px)" }}>
             <div className="tf-bottom-band" style={{ display: "grid", gridTemplateColumns: "auto 1fr auto", gap: 32, alignItems: "center" }}>
-              {/* Left — icon + title */}
+              {/* Left - icon + title */}
               <div style={{ display: "flex", alignItems: "center", gap: 16, minWidth: 220 }}>
                 <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke={gold} strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M8 22L24 10l16 12v18H8V22z" />
@@ -180,12 +180,12 @@ export default async function FeesPage() {
                 </p>
               </div>
 
-              {/* Middle — body */}
+              {/* Middle - body */}
               <p style={{ color: "#3d5c51", fontSize: "0.85rem", lineHeight: 1.75, fontFamily: I }}>
                 {settings?.feesBottomBandBody ?? "No matter which course you choose, every student enjoys the full Green Room residential experience. The only difference is the tuition fee, which varies by discipline."}
               </p>
 
-              {/* Right — 4 small icon items */}
+              {/* Right - 4 small icon items */}
               <div className="tf-mini-icons" style={{ display: "grid", gridTemplateColumns: "repeat(4, auto)", gap: 24 }}>
                 {[
                   { label: "Room & Board", svg: <><path d="M3 9l9-7 9 7v12H3V9z"/><path d="M9 21v-7h6v7"/></> },

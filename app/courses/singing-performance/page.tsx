@@ -12,8 +12,8 @@ const gold = "#C89A3B";
 const cream = "#F7F2E8";
 
 const defaultGlance = [
-  { icon: "👤", label: "Ages", value: "10–17" },
-  { icon: "📅", label: "Dates", value: "19–23 July 2027" },
+  { icon: "👤", label: "Ages", value: "10-17" },
+  { icon: "📅", label: "Dates", value: "19-23 July 2027" },
   { icon: "🍽️", label: "Boarding & Meals", value: "Included" },
   { icon: "📍", label: "Location", value: "Stamford School" },
   { icon: "🏠", label: "Format", value: "5 Days / 4 Nights\nFully Residential" },
@@ -77,7 +77,7 @@ export default async function VocalPerformancePage() {
             <h1 style={{ fontFamily: G, fontSize: "clamp(3rem,6vw,5.5rem)", fontWeight: 500, color: "#fff", lineHeight: 1, marginBottom: 14 }}>Singing Performance</h1>
             <p style={{ color: gold, fontFamily: G, fontSize: "clamp(1rem,1.4vw,1.2rem)", fontStyle: "italic", marginBottom: 16 }}>Musical Theatre · Classical · Jazz</p>
             <p style={{ color: "rgba(255,255,255,0.65)", fontFamily: I, fontSize: "clamp(0.85rem,1vw,0.96rem)", lineHeight: 1.75, marginBottom: 12, maxWidth: 560 }}>
-              The Green Room Music Summer Camp Singing Performance Course is designed for young singers aged 10–17 who want to develop their voice, confidence and versatility as performers. Led by Course Director Conor Mathers, students work with an experienced faculty of professional performers and educators, including artists with credits across London's West End and professional touring productions.
+              The Green Room Music Summer Camp Singing Performance Course is designed for young singers aged 10-17 who want to develop their voice, confidence and versatility as performers. Led by Course Director Conor Mathers, students work with an experienced faculty of professional performers and educators, including artists with credits across London's West End and professional touring productions.
             </p>
             <p style={{ color: "rgba(255,255,255,0.55)", fontFamily: I, fontSize: "clamp(0.82rem,0.95vw,0.9rem)", lineHeight: 1.75, marginBottom: 12, maxWidth: 520 }}>
               Across five immersive days, students explore Musical Theatre, Classical and Jazz performance, developing the skills needed to become more confident, expressive and well-rounded young performers.
@@ -125,7 +125,7 @@ export default async function VocalPerformancePage() {
                 The Singing Performance Course is led by Conor Mathers, alongside a faculty of professional singers, actors, musicians and educators.
               </p>
               <p style={{ color: "#3d5c51", fontFamily: I, fontSize: "0.9rem", lineHeight: 1.8 }}>
-                Students have the opportunity to learn from performers with experience across London's West End, professional touring productions and the wider performance industry — gaining insight from artists who understand both the craft and realities of performing professionally.
+                Students have the opportunity to learn from performers with experience across London's West End, professional touring productions and the wider performance industry - gaining insight from artists who understand both the craft and realities of performing professionally.
               </p>
             </div>
 
@@ -275,7 +275,7 @@ export default async function VocalPerformancePage() {
                   Every Singing Performance student takes part in the Green Room Music Summer Camp Final Performance. Bringing together students from both the Vocal and Piano Departments, the final event gives performers the opportunity to share what they have developed throughout the week in front of an audience.
                 </p>
                 <p style={{ color: "rgba(255,255,255,0.7)", fontFamily: I, fontSize: "0.9rem", lineHeight: 1.8 }}>
-                  It is the culmination of five days of training, rehearsing, experimenting and performing — and a chance for the entire GRMSC community to celebrate together.
+                  It is the culmination of five days of training, rehearsing, experimenting and performing - and a chance for the entire GRMSC community to celebrate together.
                 </p>
               </div>
             </div>

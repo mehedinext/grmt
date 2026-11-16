@@ -12,37 +12,36 @@ const gold = "#C89A3B";
 const cream = "#F7F2E8";
 
 const defaultGlance = [
-  { icon: "👤", label: "Ages", value: "10–17" },
+  // Row 1 - Essential information
+  { icon: "📅", label: "Dates", value: "19-23 July 2027" },
+  { icon: "📍", label: "Location", value: "Stamford School" },
+  { icon: "👤", label: "Ages", value: "10-17" },
   { icon: "📊", label: "Level", value: "Intermediate & Advanced" },
   { icon: "🎵", label: "Minimum Standard", value: "ABRSM Grade 5 Equivalent" },
-  { icon: "📅", label: "Dates", value: "19–23 July 2027" },
-  { icon: "📍", label: "Location", value: "Stamford School" },
-  { icon: "🏠", label: "Format", value: "5 Days / 4 Nights\nFully Residential" },
-  { icon: "🍽️", label: "Boarding & Meals", value: "Included" },
+  // Row 2 - What's included & experience
   { icon: "🎹", label: "Musical Styles", value: "Classical · Jazz · Contemporary" },
   { icon: "👨‍🏫", label: "Individual Tuition", value: "One Private Lesson Included" },
-  { icon: "🎤", label: "Performance", value: "GRMSC Final Concert" },
-  { icon: "⭐", label: "Special Guest", value: "Vivian Shiao · Steinway & Sons Top Teacher Award Recipient" },
+  { icon: "⭐", label: "Special Guest", value: "Vivian Shiao" },
+  { icon: "🎤", label: "Performance", value: "Final Performance Celebration" },
+  { icon: "🍽️", label: "Boarding & Meals", value: "Included" },
 ];
 
 const defaultProgramme = [
   "Studio Classes with Senior Piano Faculty",
-  "One Private Lesson",
+  "One Private Lesson with Senior Faculty",
+  "Masterclasses & Lectures with Honorary Guest Visiting Lecturer, Vivian Shiao",
   "Daily Dedicated Practice",
-  "Technique & Musicianship",
-  "Sight-Reading",
-  "Performance Classes",
+  "Sight-Reading, Scales & Technical Exercises",
+  "Performance & Analysis Classes",
   "Jazz Piano",
-  "Introduction to Contemporary Music",
-  "Analysing the Greats",
-  "Musician Wellness",
-  "Masterclasses & Special Sessions",
+  "Contemporary Keyboards",
+  "Wellness for The Musician",
 ];
 
 const defaultHeroAlertTitle = "Minimum playing standard: ABRSM Grade 5 equivalent";
-const defaultRequirements = "Applicants should be playing at a minimum standard equivalent to ABRSM Grade 5. Students do not need to have taken or passed a Grade 5 examination — the grade is simply used as a guide to the expected playing standard for the course.";
+const defaultRequirements = "Applicants should be playing at a minimum standard equivalent to ABRSM Grade 5. Students do not need to have taken or passed a Grade 5 examination - the grade is simply used as a guide to the expected playing standard for the course.";
 const defaultCtaHeading = "Five days. A whole new perspective on music.";
-const defaultCtaSubtext = "Students develop their playing, explore new styles, learn from exceptional musicians, perform and make friends — all while experiencing five days surrounded by other young people who share their passion for music.";
+const defaultCtaSubtext = "Students develop their playing, explore new styles, learn from exceptional musicians, perform and make friends - all while experiencing five days surrounded by other young people who share their passion for music.";
 const defaultCtaTagline = "Come for the piano. Leave with much more.";
 
 const defaultAwards = [
@@ -89,16 +88,16 @@ export default async function PianoCoursePage() {
                 {heroAlertBody}
               </p>
               <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
-                <a href="https://www.abrsm.org/en-gb/exam-support/syllabuses/" target="_blank" rel="noopener noreferrer" style={{ color: gold, fontFamily: I, fontSize: "0.72rem", fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase", textDecoration: "none", border: `1px solid ${gold}`, padding: "7px 14px", borderRadius: 2 }}>View ABRSM Piano Syllabus ↗</a>
+                <a href="https://www.abrsm.org/sites/default/files/2026-06/Piano%20Performance%20Grades%20Syllabus%202027%20%26%202028.pdf" target="_blank" rel="noopener noreferrer" style={{ color: gold, fontFamily: I, fontSize: "0.72rem", fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase", textDecoration: "none", border: `1px solid ${gold}`, padding: "7px 14px", borderRadius: 2 }}>View ABRSM Piano Syllabus ↗</a>
                 <Link href="/apply" style={{ color: "rgba(255,255,255,0.8)", fontFamily: I, fontSize: "0.72rem", fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase", textDecoration: "none", border: "1px solid rgba(255,255,255,0.35)", padding: "7px 14px", borderRadius: 2 }}>Contact Us</Link>
               </div>
             </div>
 
             <p style={{ color: gold, fontFamily: I, fontSize: "0.7rem", textTransform: "uppercase", letterSpacing: "0.2em", marginBottom: 12, fontWeight: 600 }}>Green Room Music Summer Camp</p>
             <h1 style={{ fontFamily: G, fontSize: "clamp(3rem,6vw,5.5rem)", fontWeight: 500, color: "#fff", lineHeight: 1, marginBottom: 16 }}>Piano Course</h1>
-            <p style={{ color: "rgba(255,255,255,0.75)", fontFamily: I, fontSize: "clamp(0.9rem,1.2vw,1.05rem)", marginBottom: 20, fontStyle: "italic" }}>Intermediate &amp; Advanced Pianists · Ages 10–17</p>
+            <p style={{ color: "rgba(255,255,255,0.75)", fontFamily: I, fontSize: "clamp(0.9rem,1.2vw,1.05rem)", marginBottom: 20, fontStyle: "italic" }}>Intermediate &amp; Advanced Pianists · Ages 10-17</p>
             <p style={{ color: "rgba(255,255,255,0.65)", fontFamily: I, fontSize: "clamp(0.85rem,1vw,0.96rem)", lineHeight: 1.75, marginBottom: 32, maxWidth: 560 }}>
-              Designed for intermediate and advanced young pianists, the Green Room Music Summer Camp Piano Course combines high-level musical training with performance, creativity and the energy of an international residential summer camp. Across five immersive days, students learn from exceptional musicians and educators while developing their technique, musicianship, confidence, versatility and individuality at the piano. The week culminates in the GRMSC Final Concert, bringing together students from both the Piano and Vocal Departments.
+              Designed for intermediate and advanced young pianists, the Green Room Music Summer Camp Piano Course combines high-level musical training with performance, creativity and the energy of an international residential summer camp. Across five immersive days, students learn from exceptional musicians and educators while developing their technique, musicianship, confidence, versatility and individuality at the piano. The week culminates in the GRMSC Final Performance Celebration, bringing together students from both the Piano and Vocal Departments.
             </p>
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
               <Link href="/apply" className="btn-gold">Apply for the Piano Course</Link>
@@ -137,7 +136,7 @@ export default async function PianoCoursePage() {
                 <h2 style={{ fontFamily: I, fontSize: "0.7rem", fontWeight: 700, color: green, textTransform: "uppercase", letterSpacing: "0.12em" }}>Learn from Outstanding Musicians</h2>
               </div>
               <p style={{ color: "#3d5c51", fontFamily: I, fontSize: "0.9rem", lineHeight: 1.8, marginBottom: 16 }}>
-                Students work with world-renowned faculty, distinguished educators and exciting rising performers, gaining insight from a range of teaching styles and musical perspectives throughout the week. A highlight of the programme is an Honorary Guest Masterclass and Lecture with Vivian Shiao, recipient of the Steinway &amp; Sons Top Teacher Award. Students also have opportunities to learn from and hear performances by the GRMSC Junior Teaching Artists — rising musicians appearing in that year's Green Room Piano Festival.
+                Led by faculty director Will Fowler, students work with world-renowned faculty, distinguished educators and exciting rising performers, gaining insight from a range of teaching styles and musical perspectives throughout the week. A highlight of the programme is masterclasses and lectures with Honorary Guest, Vivian Shiao. Students also have the opportunities to learn from and hear performances by GRMSC Junior Teaching Artists - rising spotlight musicians appearing in this year's Green Room Piano Festival at St. Martin's Church, Stamford.
               </p>
               {/* Vivian card */}
               <div style={{ display: "flex", alignItems: "center", gap: 14, background: "#fff", border: `1px solid rgba(200,154,59,0.2)`, padding: "16px 18px", borderRadius: 4 }}>
@@ -183,15 +182,10 @@ export default async function PianoCoursePage() {
               </div>
               <p style={{ color: gold, fontFamily: I, fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>Watch. Listen. Learn.</p>
               <p style={{ color: "#3d5c51", fontFamily: I, fontSize: "0.9rem", lineHeight: 1.8, marginBottom: 20 }}>
-                In Analysing the Greats, students watch video performances by some of the world's leading concert pianists and explore what makes their playing so compelling. Guided by faculty, students learn to listen critically, compare different interpretations and take inspiration from the very best performers — helping them develop their own musical ideas and artistic identity.
+                In Analysing the Greats, students watch video performances by some of the world's leading concert pianists and explore what makes their playing so compelling. Guided by faculty, students learn to listen critically, compare different interpretations and take inspiration from the very best performers - helping them develop their own musical ideas and artistic identity.
               </p>
-              <div style={{ position: "relative", borderRadius: 4, overflow: "hidden", aspectRatio: "16/9", background: green }}>
-                <img src="/gallery/406-Green_Room_Music_Concert_Summer_2025.jpg" alt="Concert performance" style={{ width: "100%", height: "100%", objectFit: "cover", opacity: 0.7 }} />
-                <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                  <div style={{ width: 52, height: 52, borderRadius: "50%", background: "rgba(200,154,59,0.9)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><polygon points="5,3 19,12 5,21"/></svg>
-                  </div>
-                </div>
+              <div style={{ position: "relative", borderRadius: 4, overflow: "hidden", aspectRatio: "16/9" }}>
+                <img src="/gallery/piano-red-keyboard.jpg" alt="Student playing a Nord contemporary keyboard" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
               </div>
             </div>
           </div>
@@ -211,11 +205,14 @@ export default async function PianoCoursePage() {
               </div>
               <p style={{ color: gold, fontFamily: I, fontSize: "0.78rem", fontWeight: 700, marginBottom: 12 }}>Less passive learning. More doing.</p>
               <p style={{ color: "#3d5c51", fontFamily: I, fontSize: "0.9rem", lineHeight: 1.8, marginBottom: 24 }}>
-                Our programme combines specialist tuition with our distinctive activity-style approach to learning, creating an environment where students are encouraged to experiment, collaborate, perform, question and discover. The result is learning that feels energetic, creative and memorable — without compromising on musical depth.
+                Our programme combines specialist tuition with our distinctive activity-style approach to learning, creating an environment where students are encouraged to experiment, collaborate, perform, question and discover. The result is learning that feels energetic, creative and memorable - without compromising on musical depth.
               </p>
               <blockquote style={{ borderLeft: `3px solid ${gold}`, paddingLeft: 20, margin: 0 }}>
-                <p style={{ fontFamily: G, fontSize: "1.2rem", color: green, fontStyle: "italic", lineHeight: 1.5 }}>
+                <p style={{ fontFamily: G, fontSize: "1.2rem", color: green, fontStyle: "italic", lineHeight: 1.5, marginBottom: 10 }}>
                   "We take the music seriously. We just don't believe learning it has to be boring."
+                </p>
+                <p style={{ fontFamily: I, fontSize: "0.75rem", color: gold, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase" }}>
+                  - Will Fowler, Artistic Director / Head of Piano
                 </p>
               </blockquote>
             </div>
@@ -280,9 +277,9 @@ export default async function PianoCoursePage() {
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={gold} strokeWidth="1.6"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
             </div>
             <div>
-              <h2 style={{ fontFamily: G, fontSize: "clamp(1.8rem,3vw,2.6rem)", fontWeight: 500, color: "#fff", marginBottom: 16 }}>The Final Concert</h2>
+              <h2 style={{ fontFamily: G, fontSize: "clamp(1.8rem,3vw,2.6rem)", fontWeight: 500, color: "#fff", marginBottom: 16 }}>The Final Performance Celebration</h2>
               <p style={{ color: "rgba(255,255,255,0.68)", fontFamily: I, fontSize: "clamp(0.88rem,1.1vw,1rem)", lineHeight: 1.8, maxWidth: 640 }}>
-                The course concludes with the Green Room Music Summer Camp Final Concert, featuring students from both the Piano and Vocal Departments. It gives students the opportunity to bring together what they have developed throughout the week, celebrate their progress and perform as part of the wider GRMSC community.
+                The course concludes with the Green Room Music Summer Camp Final Performance Celebration, featuring all students from both the Piano and Vocal Departments. It gives students the opportunity to bring together what they have developed throughout the week, celebrate their progress and perform as part of the wider GRMSC community.
               </p>
             </div>
           </div>

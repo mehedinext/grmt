@@ -298,7 +298,10 @@ export default function FacultyPageClient({ settings, tutors }: { settings: any;
               <h2 style={{ fontFamily: G, fontSize: "clamp(1.8rem, 3vw, 2.6rem)", fontWeight: 500, color: green, marginBottom: 10 }}>
                 {settings?.facultyBoardingSectionHeading ?? "Boarding & Pastoral Team"}
               </h2>
-              <div style={{ width: 44, height: 2, background: gold, marginBottom: 36 }} />
+              <div style={{ width: 44, height: 2, background: gold, marginBottom: 20 }} />
+              <p style={{ color: "#3d5c51", fontFamily: I, fontSize: "clamp(0.92rem, 1vw, 1rem)", lineHeight: 1.75, maxWidth: 720, marginBottom: 36 }}>
+                {settings?.facultyBoardingSectionIntro ?? "Led by Rhiannon Bennett, our pastoral team consists of experienced and friendly professionals, including an on-site Nurse."}
+              </p>
 
               <div className="fp-horiz-grid" style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 20 }}>
                 {boarding.map(t => (

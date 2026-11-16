@@ -82,9 +82,9 @@ export const courseSchema = defineType({
     defineField({ name: "heroAlertTitle", title: "Hero Alert Title", type: "string" }),
 
     // ── Bottom CTA block ──
-    defineField({ name: "ctaHeading", title: "Bottom CTA — Heading", type: "string" }),
-    defineField({ name: "ctaSubtext", title: "Bottom CTA — Subtext", type: "text", rows: 3 }),
-    defineField({ name: "ctaTagline", title: "Bottom CTA — Tagline", type: "string" }),
+    defineField({ name: "ctaHeading", title: "Bottom CTA - Heading", type: "string" }),
+    defineField({ name: "ctaSubtext", title: "Bottom CTA - Subtext", type: "text", rows: 3 }),
+    defineField({ name: "ctaTagline", title: "Bottom CTA - Tagline", type: "string" }),
 
     // ── Music Theory specific fields ──
     defineField({

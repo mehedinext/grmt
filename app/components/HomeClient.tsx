@@ -38,9 +38,9 @@ type Props = {
 };
 
 const defaultStats = [
-  { val: "19–23 July 2027", label: "Camp Dates" },
+  { val: "19-23 July 2027", label: "Camp Dates" },
   { val: "3 Courses", label: "Piano · Theory · Vocal" },
-  { val: "Ages 10–17", label: "Open to all abilities" },
+  { val: "Ages 10-17", label: "Open to all abilities" },
   { val: "Stamford School", label: "Lincolnshire, England" },
   { val: "Full Residential", label: "Board, Lodging & Meals Included" },
 ];
@@ -103,8 +103,8 @@ const defaultResTags = [
 ];
 
 const defaultDateItems = [
-  { label: "Camp Dates", val: "19–23 July 2027", sub: "Five days residential" },
-  { label: "Ages", val: "10–17 years", sub: "All abilities welcome" },
+  { label: "Camp Dates", val: "19-23 July 2027", sub: "Five days residential" },
+  { label: "Ages", val: "10-17 years", sub: "All abilities welcome" },
   { label: "Location", val: "Stamford School", sub: "Lincolnshire, England" },
   { label: "Accommodation", val: "Full residential", sub: "Houseparents on site" },
   { label: "Final Concert", val: "23 July 2027", sub: "Showcase for family & friends" },
@@ -155,10 +155,10 @@ export default function HomeClient({ faqs, partnerLogos, courses: allCourses, se
       <Navbar settings={settings} />
       <main style={{ paddingTop: 68 }}>
 
-        {/* ─── HERO WRAPPER — fixed height so all 3 slides are identical size (prevents CLS) ─── */}
+        {/* ─── HERO WRAPPER - fixed height so all 3 slides are identical size (prevents CLS) ─── */}
         <div style={{ position: "relative", height: "calc(100svh - 68px)", minHeight: 600, overflow: "hidden" }}>
 
-          {/* ══ SLIDE 1: Main GRMSC — full-bleed photo + left green gradient overlay ══ */}
+          {/* ══ SLIDE 1: Main GRMSC - full-bleed photo + left green gradient overlay ══ */}
           <section style={{
             position: "absolute", inset: 0,
             opacity: heroSlide === 0 ? 1 : 0, transition: "opacity 0.8s ease",
@@ -169,20 +169,20 @@ export default function HomeClient({ faqs, partnerLogos, courses: allCourses, se
             <img src={settings?.heroImage ?? "/gallery/106-GreenRoomMusicTheorySummer2025.jpg"} alt="GRMSC students"
               fetchPriority="high" decoding="async"
               style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", zIndex: 0 }} />
-            {/* Subtle left gradient — never solid, always shows photo */}
+            {/* Subtle left gradient - never solid, always shows photo */}
             <div style={{ position: "absolute", inset: 0, zIndex: 1, pointerEvents: "none", background: "linear-gradient(to right, rgba(8,47,39,0.65) 0%, rgba(8,47,39,0.5) 25%, rgba(8,47,39,0.18) 52%, rgba(8,47,39,0) 70%)" }} />
-            {/* Content — same maxWidth/padding as navbar so text aligns with logo */}
+            {/* Content - same maxWidth/padding as navbar so text aligns with logo */}
             <div style={{ position: "relative", zIndex: 2, width: "100%", height: "100%", display: "flex", flexDirection: "column", justifyContent: "flex-end" }}>
               <div style={{ width: "100%", padding: "0 clamp(40px,5vw,72px) clamp(48px,6vw,72px)" }}>
                 <div style={{ maxWidth: 520 }}>
-                  {/* Steinway badge — moved down to sit above the heading, visually united with text */}
+                  {/* Steinway badge - moved down to sit above the heading, visually united with text */}
                   <img src={settings?.heroBadgeImage ?? "/partners/steinway-badge-color.png"} alt="Steinway Educational Partner" style={{ height: "clamp(96px, 14vw, 180px)", width: "auto", opacity: 0.95, marginBottom: "clamp(10px, 1.2vw, 16px)", display: "block" }} />
                   <h1 style={{ fontFamily: G, fontSize: "clamp(2.6rem,4.2vw,4.4rem)", fontWeight: 500, color: "#fff", lineHeight: 1.06, marginBottom: 20 }}>
                     {settings?.heroHeadingLine1 ?? "Green Room Music"}<br />{settings?.heroHeadingLine2 ?? "Summer Camp"}
                   </h1>
                   <div style={{ width: 48, height: 2, background: gold, marginBottom: 20 }} />
                   <p style={{ color: "rgba(255,255,255,0.8)", fontFamily: I, fontSize: "clamp(0.9rem,1.1vw,1rem)", fontWeight: 500, marginBottom: 32 }}>
-                    {`${settings?.heroLocation ?? "Stamford, UK"} · ${settings?.heroDate ?? "19th–23rd July 2027"}`}
+                    {`${settings?.heroLocation ?? "Stamford, UK"} · ${settings?.heroDate ?? "19th-23rd July 2027"}`}
                   </p>
                   <div className="hero-cta-btns" style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
                     <Link href={settings?.heroCta1Href ?? "/courses"} className="hero-btn btn-gold">{settings?.heroCta1Label ?? "Explore Courses"}</Link>
@@ -193,7 +193,7 @@ export default function HomeClient({ faqs, partnerLogos, courses: allCourses, se
             </div>
           </section>
 
-          {/* ══ SLIDE 2: Grade 5 Music Theory — dark navy, same 2-col layout ══ */}
+          {/* ══ SLIDE 2: Grade 5 Music Theory - dark navy, same 2-col layout ══ */}
           <section className="hero-new-section" style={{
             display: "flex", overflow: "hidden", background: "#0D1B2A",
             opacity: heroSlide === 1 ? 1 : 0, transition: "opacity 0.8s ease",
@@ -221,7 +221,7 @@ export default function HomeClient({ faqs, partnerLogos, courses: allCourses, se
                 </div>
                 <div>
                   <div style={{ color: gold, fontFamily: I, fontSize: "0.68rem", fontWeight: 700, letterSpacing: "0.13em", textTransform: "uppercase", marginBottom: 6 }}>{settings?.heroSlide2InfoTitle ?? "ABRSM Grade 5 Crash Course"}</div>
-                  <p style={{ color: "rgba(255,255,255,0.55)", fontFamily: I, fontSize: "0.82rem", lineHeight: 1.55 }}>{settings?.heroSlide2InfoBody ?? "Covers 0 – Grade 5, also appropriate for students taking Grades 1, 2 and 3."}</p>
+                  <p style={{ color: "rgba(255,255,255,0.55)", fontFamily: I, fontSize: "0.82rem", lineHeight: 1.55 }}>{settings?.heroSlide2InfoBody ?? "Covers 0 - Grade 5, also appropriate for students taking Grades 1, 2 and 3."}</p>
                 </div>
               </div>
               {/* Pill button */}
@@ -234,13 +234,13 @@ export default function HomeClient({ faqs, partnerLogos, courses: allCourses, se
               <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: "40%", zIndex: 1, pointerEvents: "none", background: "linear-gradient(to right, #0D1B2A 0%, rgba(13,27,42,0.85) 40%, rgba(13,27,42,0.35) 70%, rgba(13,27,42,0) 100%)" }} />
               <img src={settings?.heroSlide2Image ?? "/gallery/034-GreenRoomMusicTheorySummer2025.jpg"} alt="Grade 5 Music Theory" loading="lazy" decoding="async" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", display: "block" }} />
             </div>
-            {/* ABRSM logo — top right */}
+            {/* ABRSM logo - top right */}
             <div style={{ position: "absolute", top: 24, right: 28, zIndex: 5 }}>
               <img src={settings?.heroSlide2BadgeImage ?? "/partners/abrsm.png"} alt="ABRSM" style={{ height: 28, width: "auto", maxWidth: 100 }} />
             </div>
           </section>
 
-          {/* ══ SLIDE 3: Awards — "Make your week count" full-bleed photo + left gradient ══ */}
+          {/* ══ SLIDE 3: Awards - "Make your week count" full-bleed photo + left gradient ══ */}
           <section style={{
             position: "absolute", inset: 0,
             opacity: heroSlide === 2 ? 1 : 0, transition: "opacity 0.8s ease",

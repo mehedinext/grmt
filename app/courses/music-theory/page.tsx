@@ -12,21 +12,21 @@ const gold = "#C89A3B";
 const cream = "#F7F2E8";
 
 const defaultGlance = [
-  { label: "Ages", value: "10–17" },
+  { label: "Ages", value: "10-17" },
   { label: "Focus", value: "ABRSM Music Theory\nExam Preparation" },
   { label: "Levels", value: "Beginner → Grade 5" },
-  { label: "Dates", value: "19–23 July 2027" },
+  { label: "Dates", value: "19-23 July 2027" },
   { label: "Location", value: "Stamford School" },
   { label: "Format", value: "5 Days / 4 Nights\nFully Residential" },
   { label: "Boarding & Meals", value: "Included" },
   { label: "Exam Prep", value: "Past Papers · Exam Technique\nMock Exams" },
-  { label: "Ideal For", value: "Students Preparing for\nGrades 1–5" },
+  { label: "Ideal For", value: "Students Preparing for\nGrades 1-5" },
 ];
 
 const defaultExamItems = [
   "Focused ABRSM Theory Tuition",
   "Question Strategy",
-  "Grades 1–5 Content",
+  "Grades 1-5 Content",
   "Revision & Consolidation",
   "Guided Practice",
   "Multiple Mock Examinations",
@@ -101,13 +101,13 @@ export default async function MusicTheoryPage() {
             <h1 style={{ fontFamily: G, fontSize: "clamp(3rem,6vw,5.5rem)", fontWeight: 500, color: "#fff", lineHeight: 1, marginBottom: 14 }}>Music Theory</h1>
             <p style={{ color: gold, fontFamily: G, fontSize: "clamp(1rem,1.4vw,1.2rem)", fontStyle: "italic", marginBottom: 20 }}>{heroAlertTitle}</p>
             <p style={{ color: "rgba(255,255,255,0.7)", fontFamily: I, fontSize: "clamp(0.85rem,1vw,0.96rem)", lineHeight: 1.75, marginBottom: 12, maxWidth: 560 }}>
-              An intensive five-day residential course for young musicians aged 10–17, preparing for ABRSM Music Theory examinations up to Grade 5.
+              An intensive five-day residential course for young musicians aged 10-17, preparing for ABRSM Music Theory examinations up to Grade 5.
             </p>
             <p style={{ color: "rgba(255,255,255,0.55)", fontFamily: I, fontSize: "clamp(0.82rem,0.95vw,0.9rem)", lineHeight: 1.75, marginBottom: 24, maxWidth: 560 }}>
               From the fundamentals to Grade 5, students build strong foundations, fill gaps, practise exam technique and gain confidence through focused tuition, past papers and multiple mock examinations.
             </p>
             <p style={{ color: gold, fontFamily: G, fontSize: "clamp(1rem,1.3vw,1.15rem)", fontStyle: "italic", marginBottom: 32 }}>
-              From zero to Grade 5 – in one immersive week.
+              From zero to Grade 5 - in one immersive week.
             </p>
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
               <Link href="/apply" className="btn-gold">Apply for Music Theory</Link>

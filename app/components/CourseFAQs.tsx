@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { sanityClient } from "../lib/sanity";
 
 const G = "var(--font-garamond)";
@@ -8,7 +9,15 @@ const cream = "#F7F2E8";
 
 type FaqItem = { question: string; answer: string };
 
-export default async function CourseFAQs({ categoryKey, heading }: { categoryKey: string; heading?: string }) {
+export default async function CourseFAQs({
+  categoryKey,
+  heading,
+  limit = 5,
+}: {
+  categoryKey: string;
+  heading?: string;
+  limit?: number;
+}) {
   const data = await sanityClient
     .fetch(
       `*[_type == "faqCategory" && key == $k][0]{ heading, intro, faqs[]{ question, answer } }`,
@@ -16,8 +25,10 @@ export default async function CourseFAQs({ categoryKey, heading }: { categoryKey
     )
     .catch(() => null);
 
-  const faqs: FaqItem[] = data?.faqs ?? [];
-  if (!faqs.length) return null;
+  const allFaqs: FaqItem[] = data?.faqs ?? [];
+  if (!allFaqs.length) return null;
+  const faqs = allFaqs.slice(0, limit);
+  const hasMore = allFaqs.length > limit;
 
   return (
     <section style={{ background: cream, padding: "clamp(56px, 7vw, 88px) 0" }}>
@@ -51,6 +62,13 @@ export default async function CourseFAQs({ categoryKey, heading }: { categoryKey
             </details>
           ))}
         </div>
+        {hasMore && (
+          <div style={{ marginTop: 36, display: "flex", justifyContent: "center" }}>
+            <Link href={`/faqs#${categoryKey}`} className="btn-gold">
+              View All FAQs
+            </Link>
+          </div>
+        )}
       </div>
     </section>
   );

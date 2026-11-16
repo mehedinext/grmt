@@ -7,8 +7,8 @@ export type Tutor = {
   _id: string;
   name: string;
   role: string;
-  bio: string;        // short bio — homepage / cards
-  bioFull: string[];  // full paragraphs — faculty detail page
+  bio: string;        // short bio - homepage / cards
+  bioFull: string[];  // full paragraphs - faculty detail page
   teaches: string;    // e.g. "Piano · Chamber Music"
   image: string;
 };
@@ -86,7 +86,7 @@ export const tutors: Tutor[] = [
     bioFull: [
       "Vivian Shiao, a native of Taipei, Taiwan, discovered her deep passion for the piano at the remarkable age of three, igniting a lifelong journey of musical dedication. Recognised as a prodigy in her field, she swiftly garnered international recognition as a concert pianist.",
       "Shiao completed her M.A. in Music Education from USC, supported by several prestigious scholarships, and enriched her education as a visiting scholar at Stanford University. She holds a Higher Education Teaching Certificate from Harvard University.",
-      "In 2015–2016, Vivian Shiao received the honour of being inducted into the NAPW (National Association of Professional Women) Woman of the Year Circle. Her appointment as a Steinway Educational Partner in 2018 marked another milestone in her career, and she took on the role of CAPMT Pasadena Chapter Chair for the Piano and Ensemble Festival.",
+      "In 2015-2016, Vivian Shiao received the honour of being inducted into the NAPW (National Association of Professional Women) Woman of the Year Circle. Her appointment as a Steinway Educational Partner in 2018 marked another milestone in her career, and she took on the role of CAPMT Pasadena Chapter Chair for the Piano and Ensemble Festival.",
       "In 2019, she was bestowed with the title of honorary music educator by Steinway & Sons, and in 2022, she earned the distinguished Steinway Top Teacher Award, further illuminating her exceptional contributions to the field of music education. In 2023, Ms. Shiao was honoured with the CAPMT Outstanding Member State Recognition Award.",
       "Vivian looks forward to her UK visit and to being GRMSC's Honorary Guest Visiting Lecturer.",
     ],
@@ -123,15 +123,15 @@ export const courses: Course[] = [
     heroColor: "#082F27",
     heroImage: "https://greenroomtheory.com/wp-content/uploads/2025/09/014-GreenRoomMusicTheorySummer2025-scaled.jpg",
     heroStats: [
-      { label: "Grade", value: "4–8" },
+      { label: "Grade", value: "4-8" },
       { label: "Duration", value: "5 Days" },
-      { label: "Ages", value: "10–17" },
+      { label: "Ages", value: "10-17" },
       { label: "Year", value: "2027" },
     ],
     aboutHeading: "About the Piano Course",
     about: [
       "The Green Room Piano course places students in an immersive, conservatoire-style environment for one transformative week at Stamford School. Each day combines individual lessons with group masterclasses, allowing students to learn from expert tutors and from hearing their peers play.",
-      "The week culminates in an evening recital — a highlight for students and families, and a genuine performance experience in a supportive setting.",
+      "The week culminates in an evening recital - a highlight for students and families, and a genuine performance experience in a supportive setting.",
     ],
     detailType: "schedule",
     schedule: [
@@ -175,14 +175,14 @@ export const courses: Course[] = [
     heroColor: "#0A2F47",
     heroImage: "https://greenroomtheory.com/wp-content/uploads/2025/09/012-GreenRoomMusicTheorySummer2025-scaled.jpg",
     heroStats: [
-      { label: "Level", value: "Gr. 5–8+" },
+      { label: "Level", value: "Gr. 5-8+" },
       { label: "Duration", value: "5 Days" },
-      { label: "Ages", value: "10–17" },
+      { label: "Ages", value: "10-17" },
       { label: "Year", value: "2027" },
     ],
     aboutHeading: "About the Music Theory Course",
     about: [
-      "Music theory is the foundation of musicianship — and this course goes far beyond exam preparation. Students explore the structures underpinning all music, from Bach chorales to contemporary composition, building skills that enhance every aspect of their musical life.",
+      "Music theory is the foundation of musicianship - and this course goes far beyond exam preparation. Students explore the structures underpinning all music, from Bach chorales to contemporary composition, building skills that enhance every aspect of their musical life.",
       "A dedicated ABRSM Grade 5 crash course stream runs alongside the broader programme, giving students a fast-tracked route to this essential qualification.",
     ],
     detailType: "topics",
@@ -193,7 +193,7 @@ export const courses: Course[] = [
       "Score reading",
       "Composition project",
       "Musical analysis",
-      "ABRSM Grade 5–8 preparation",
+      "ABRSM Grade 5-8 preparation",
       "Figured bass",
     ],
     includes: [
@@ -225,13 +225,13 @@ export const courses: Course[] = [
     heroStats: [
       { label: "Level", value: "All" },
       { label: "Duration", value: "5 Days" },
-      { label: "Ages", value: "10–17" },
+      { label: "Ages", value: "10-17" },
       { label: "Year", value: "2027" },
     ],
     aboutHeading: "About the Singing Performance Course",
     about: [
-      "Our Singing Performance course is a full vocal and performing arts experience. Students work across vocal technique, performance coaching, sight-singing and stagecraft — discovering and developing their unique voice in a supportive, creative environment.",
-      "The week builds toward a final showcase performance, giving students a real stage experience before an audience of families and fellow students. No prior performance experience required — only enthusiasm and a love of singing.",
+      "Our Singing Performance course is a full vocal and performing arts experience. Students work across vocal technique, performance coaching, sight-singing and stagecraft - discovering and developing their unique voice in a supportive, creative environment.",
+      "The week builds toward a final showcase performance, giving students a real stage experience before an audience of families and fellow students. No prior performance experience required - only enthusiasm and a love of singing.",
     ],
     detailType: "schedule",
     schedule: [
@@ -252,7 +252,7 @@ export const courses: Course[] = [
       "Pastoral support throughout",
     ],
     requirements:
-      "Open to all levels. No prior performance experience required — just enthusiasm, commitment and a love of singing.",
+      "Open to all levels. No prior performance experience required - just enthusiasm, commitment and a love of singing.",
     highlights: [
       "Individual vocal coaching",
       "Sight-singing & aural training",
@@ -283,7 +283,7 @@ export const faqs: Faq[] = [
   {
     _id: "faq-4",
     question: "Where do students stay and eat during the course?",
-    answer: "Students stay at Stamford School, a prestigious independent school in the heart of Stamford, Lincolnshire. Full board accommodation — including all meals — is included in the course fee.",
+    answer: "Students stay at Stamford School, a prestigious independent school in the heart of Stamford, Lincolnshire. Full board accommodation - including all meals - is included in the course fee.",
   },
   {
     _id: "faq-5",
@@ -308,12 +308,12 @@ export const faqs: Faq[] = [
   {
     _id: "faq-9",
     question: "What are the age requirements?",
-    answer: "GRMSC is open to students aged 10–17. Students must be within this age range on the first day of the course (19 July 2027).",
+    answer: "GRMSC is open to students aged 10-17. Students must be within this age range on the first day of the course (19 July 2027).",
   },
   {
     _id: "faq-10",
     question: "What level do students need to be?",
-    answer: "The Piano course requires a minimum standard of ABRSM Grade 5 equivalent. The Music Theory course is suitable from beginner through to Grade 5. The Singing Performance course is open to all levels — no prior stage experience is required.",
+    answer: "The Piano course requires a minimum standard of ABRSM Grade 5 equivalent. The Music Theory course is suitable from beginner through to Grade 5. The Singing Performance course is open to all levels - no prior stage experience is required.",
   },
   {
     _id: "faq-11",
@@ -333,7 +333,7 @@ export const faqs: Faq[] = [
   {
     _id: "faq-14",
     question: "Can GRMSC count towards DofE, Arts Award or the Congressional Award?",
-    answer: "Yes. Experiences at GRMSC may be eligible to contribute towards the Duke of Edinburgh's Award, Arts Award and the Congressional Award. Eligibility and requirements vary — please confirm suitability with the relevant Award Leader or awarding organisation.",
+    answer: "Yes. Experiences at GRMSC may be eligible to contribute towards the Duke of Edinburgh's Award, Arts Award and the Congressional Award. Eligibility and requirements vary - please confirm suitability with the relevant Award Leader or awarding organisation.",
   },
 ];
 

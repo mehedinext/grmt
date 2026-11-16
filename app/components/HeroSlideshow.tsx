@@ -7,8 +7,8 @@ const slides = [
   {
     id: 1,
     label: "Residential Course",
-    heading: "A residential music\nsummer course\nfor ages 10–17",
-    sub: "19–23 July 2027 · Stamford School",
+    heading: "A residential music\nsummer course\nfor ages 10-17",
+    sub: "19-23 July 2027 · Stamford School",
     cta: "Apply Now",
     href: "/apply",
     bg: "https://greenroomtheory.com/wp-content/uploads/2025/09/106-GreenRoomMusicTheorySummer2025-scaled.jpg",
@@ -123,7 +123,7 @@ export default function HeroSlideshow() {
 
           {/* Fact strip */}
           <div style={{ display: "flex", flexWrap: "wrap", gap: 32, marginTop: 56, paddingTop: 32, borderTop: "1px solid rgba(255,255,255,0.15)" }}>
-            {[["19–23 July 2027", "Dates"], ["Ages 10–17", "Open to"], ["Stamford School", "Venue"], ["3 Courses", "Disciplines"]].map(([val, label]) => (
+            {[["19-23 July 2027", "Dates"], ["Ages 10-17", "Open to"], ["Stamford School", "Venue"], ["3 Courses", "Disciplines"]].map(([val, label]) => (
               <div key={label}>
                 <div style={{ color: "#C89A3B", fontFamily: "var(--font-garamond)", fontSize: "1.1rem", fontWeight: 600 }}>{val}</div>
                 <div style={{ color: "rgba(255,255,255,0.45)", fontSize: "0.68rem", textTransform: "uppercase", letterSpacing: "0.14em", fontFamily: "var(--font-inter)" }}>{label}</div>

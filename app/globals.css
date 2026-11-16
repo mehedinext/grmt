@@ -124,7 +124,7 @@ body {
   transform: scale(1.04);
 }
 
-/* Staff grid — 4 col desktop, 2 col tablet, 1 col mobile */
+/* Staff grid - 4 col desktop, 2 col tablet, 1 col mobile */
 .staff-grid {
   grid-template-columns: repeat(4, 1fr) !important;
 }
@@ -139,7 +139,7 @@ body {
   }
 }
 
-/* Course grid — desktop 3-col */
+/* Course grid - desktop 3-col */
 .course-grid-desktop {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -195,7 +195,7 @@ body {
   border-bottom: 1px solid rgba(8,47,39,0.12);
 }
 
-/* Why GRMSC — 2 cols on mobile, 4 on desktop */
+/* Why GRMSC - 2 cols on mobile, 4 on desktop */
 .why-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -208,7 +208,7 @@ body {
   }
 }
 
-/* Residential — stacked on mobile, side-by-side on desktop */
+/* Residential - stacked on mobile, side-by-side on desktop */
 .res-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -219,7 +219,7 @@ body {
   }
 }
 
-/* Nav responsive — override Tailwind hidden/flex with media queries */
+/* Nav responsive - override Tailwind hidden/flex with media queries */
 .nav-desktop {
   display: none !important;
 }
@@ -237,7 +237,7 @@ body {
   }
 }
 
-/* Award cards — 3 col desktop, 1 col mobile */
+/* Award cards - 3 col desktop, 1 col mobile */
 .award-cards {
   display: flex;
   gap: 10px;
@@ -253,7 +253,7 @@ body {
   }
 }
 
-/* ── Hero new — 2-column dark navy + photo ── */
+/* ── Hero new - 2-column dark navy + photo ── */
 .hero-new-section {
   display: flex;
   flex-direction: row;

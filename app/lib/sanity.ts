@@ -8,7 +8,7 @@ export const sanityClient = createClient({
   useCdn: true,
 });
 
-// GROQ queries — one place to update when schema changes
+// GROQ queries - one place to update when schema changes
 export const queries = {
   siteSettings: `*[_type == "siteSettings"][0] {
     navCtaLabel, navCtaHref, navItems,
@@ -53,7 +53,7 @@ export const queries = {
     facultyMainSectionEyebrow, facultyMainSectionHeading, facultyMainSectionSubtext,
     facultyHonorarySectionEyebrow,
     facultyJuniorSectionEyebrow, facultyJuniorSectionHeading,
-    facultyBoardingSectionEyebrow, facultyBoardingSectionHeading,
+    facultyBoardingSectionEyebrow, facultyBoardingSectionHeading, facultyBoardingSectionIntro,
     safeguardingHeading, safeguardingBody,
 
     resLifeHeroEyebrow, resLifeHeroHeading, resLifeHeroBody,
@@ -130,7 +130,7 @@ export const queries = {
 
 };
 
-// Cached per-request fetch — safe to call from multiple components, only hits Sanity once
+// Cached per-request fetch - safe to call from multiple components, only hits Sanity once
 export const getSiteSettings = cache(async () => {
   return sanityClient.fetch(queries.siteSettings).catch(() => null);
 });
