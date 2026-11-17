@@ -77,7 +77,7 @@ export default async function PianoCoursePage() {
             <p style={{ color: gold, fontFamily: I, fontSize: "0.68rem", textTransform: "uppercase", letterSpacing: "0.22em", marginBottom: 16, fontWeight: 600 }}>Green Room Music Summer Camp</p>
             <h1 style={{ fontFamily: G, fontSize: "clamp(2.2rem, 4vw, 3.4rem)", fontWeight: 500, color: "#fff", lineHeight: 1.15, marginBottom: 20 }}>Piano Course</h1>
             <div style={{ width: 44, height: 2, background: gold, marginBottom: 22 }} />
-            <p style={{ color: gold, fontFamily: G, fontSize: "clamp(1rem, 1.3vw, 1.2rem)", marginBottom: 22, fontStyle: "italic" }}>Intermediate &amp; Advanced Pianists · Ages 10-17</p>
+            <p style={{ color: gold, fontFamily: G, fontSize: "clamp(1rem, 1.3vw, 1.2rem)", marginBottom: 22, fontStyle: "italic" }}>Intermediate &amp; Advanced Pianists · Ages 10-17 · Minimum Playing Standard: ABRSM Grade 5 Equivalent</p>
             <p style={{ color: "rgba(255,255,255,0.75)", fontFamily: I, fontSize: "clamp(0.92rem, 1vw, 1rem)", lineHeight: 1.8, marginBottom: 32 }}>
               Designed for intermediate and advanced young pianists, the Green Room Music Summer Camp Piano Course combines high-level musical training with performance, creativity and the energy of an international residential summer camp. The week culminates in the GRMSC Final Performance Celebration, bringing together students from both the Piano and Vocal Departments.
             </p>
@@ -98,7 +98,7 @@ export default async function PianoCoursePage() {
             </div>
           </div>
           <div style={{ position: "relative", overflow: "hidden" }}>
-            <img src="/gallery/269-Green_Room_Music_Concert_Summer_2025.jpg" alt="Piano performance"
+            <img src="/gallery/piano-hero-no-logo.jpg" alt="Piano performance"
               style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "75% center" }} />
           </div>
         </section>
@@ -143,15 +143,16 @@ export default async function PianoCoursePage() {
               <p style={{ color: "#3d5c51", fontFamily: I, fontSize: "0.9rem", lineHeight: 1.8, marginBottom: 16 }}>
                 Led by faculty director Will Fowler, students work with world-renowned faculty, distinguished educators and exciting rising performers, gaining insight from a range of teaching styles and musical perspectives throughout the week. A highlight of the programme is masterclasses and lectures with Honorary Guest, Vivian Shiao. Students also have the opportunities to learn from and hear performances by GRMSC Junior Teaching Artists - rising spotlight musicians appearing in this year's Green Room Piano Festival at St. Martin's Church, Stamford.
               </p>
-              {/* Vivian card */}
-              <div style={{ display: "flex", alignItems: "center", gap: 14, background: "#fff", border: `1px solid rgba(200,154,59,0.2)`, padding: "16px 18px", borderRadius: 4 }}>
+              {/* Vivian card - clickable to Faculty page */}
+              <Link href="/faculty" style={{ display: "flex", alignItems: "center", gap: 14, background: "#fff", border: `1px solid rgba(200,154,59,0.2)`, padding: "16px 18px", borderRadius: 4, textDecoration: "none", transition: "all 0.2s ease" }}>
                 <img src="/vivian-shiao.webp" alt="Vivian Shiao" style={{ width: 52, height: 52, borderRadius: "50%", objectFit: "cover", flexShrink: 0 }} />
-                <div>
+                <div style={{ flex: 1 }}>
                   <div style={{ fontFamily: G, fontSize: "1.05rem", color: green, fontStyle: "italic", marginBottom: 2 }}>Vivian Shiao</div>
                   <div style={{ fontFamily: I, fontSize: "0.6rem", textTransform: "uppercase", letterSpacing: "0.1em", color: gold, fontWeight: 700 }}>Steinway &amp; Sons</div>
                   <div style={{ fontFamily: I, fontSize: "0.6rem", textTransform: "uppercase", letterSpacing: "0.1em", color: "#7a9a8a" }}>Top Teacher Award Recipient</div>
                 </div>
-              </div>
+                <span style={{ color: gold, fontSize: "1.1rem", fontFamily: I, flexShrink: 0 }}>→</span>
+              </Link>
             </div>
 
             {/* The Piano Programme */}
@@ -165,10 +166,11 @@ export default async function PianoCoursePage() {
               <p style={{ color: "#3d5c51", fontFamily: I, fontSize: "0.9rem", lineHeight: 1.8, marginBottom: 18 }}>
                 A comprehensive programme designed to inspire and challenge every pianist.
               </p>
-              <ul style={{ listStyle: "none", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))", gap: "6px 12px", marginBottom: 20 }}>
+              <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 10, marginBottom: 20, padding: 0 }}>
                 {programme.map((item: string) => (
-                  <li key={item} style={{ display: "flex", alignItems: "flex-start", gap: 8, color: "#3d5c51", fontFamily: I, fontSize: "0.82rem", lineHeight: 1.5 }}>
-                    <span style={{ color: gold, flexShrink: 0, marginTop: 4, fontSize: "0.5rem" }}>◆</span>{item}
+                  <li key={item} style={{ display: "flex", alignItems: "flex-start", gap: 10, color: "#3d5c51", fontFamily: I, fontSize: "0.9rem", lineHeight: 1.55 }}>
+                    <span style={{ color: gold, flexShrink: 0, marginTop: 7, fontSize: "0.5rem", lineHeight: 1 }}>◆</span>
+                    <span>{item}</span>
                   </li>
                 ))}
               </ul>
@@ -177,23 +179,26 @@ export default async function PianoCoursePage() {
               </p>
             </div>
 
-            {/* Analysing the Greats */}
-            <div>
-              <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 20 }}>
-                <div style={{ width: 36, height: 36, borderRadius: "50%", background: "rgba(200,154,59,0.12)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={gold} strokeWidth="1.8"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
-                </div>
-                <h2 style={{ fontFamily: I, fontSize: "0.7rem", fontWeight: 700, color: green, textTransform: "uppercase", letterSpacing: "0.12em" }}>Analysing the Greats</h2>
+          </div>
+        </section>
+
+        {/* ── CLASSICAL + CONTEMPORARY IMAGE PAIR ── */}
+        <section style={{ background: cream, paddingBottom: "clamp(56px, 7vw, 88px)" }}>
+          <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 clamp(20px, 5vw, 72px)" }}>
+            <div className="piano-image-pair" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(12px, 2vw, 20px)" }}>
+              <div style={{ position: "relative", aspectRatio: "4/3", overflow: "hidden", borderRadius: 2 }}>
+                <img src="/gallery/406-Green_Room_Music_Concert_Summer_2025.jpg" alt="Grand piano performance" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
               </div>
-              <p style={{ color: gold, fontFamily: I, fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>Watch. Listen. Learn.</p>
-              <p style={{ color: "#3d5c51", fontFamily: I, fontSize: "0.9rem", lineHeight: 1.8, marginBottom: 20 }}>
-                In Analysing the Greats, students watch video performances by some of the world's leading concert pianists and explore what makes their playing so compelling. Guided by faculty, students learn to listen critically, compare different interpretations and take inspiration from the very best performers - helping them develop their own musical ideas and artistic identity.
-              </p>
-              <div style={{ position: "relative", borderRadius: 4, overflow: "hidden", aspectRatio: "16/9" }}>
-                <img src="/gallery/piano-red-keyboard.jpg" alt="Student playing a Nord contemporary keyboard" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+              <div style={{ position: "relative", aspectRatio: "4/3", overflow: "hidden", borderRadius: 2 }}>
+                <img src="/gallery/piano-red-keyboard.jpg" alt="Contemporary keyboard" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
               </div>
             </div>
           </div>
+          <style>{`
+            @media (max-width: 760px) {
+              .piano-image-pair { grid-template-columns: 1fr !important; }
+            }
+          `}</style>
         </section>
 
         {/* ── THREE COLUMNS: Approach · More Than Piano · Awards ── */}
@@ -263,12 +268,9 @@ export default async function PianoCoursePage() {
                   </div>
                 ))}
               </div>
-              <p style={{ color: "#9abaaa", fontFamily: I, fontSize: "0.72rem", lineHeight: 1.6, marginBottom: 16 }}>
+              <p style={{ color: "#9abaaa", fontFamily: I, fontSize: "0.72rem", lineHeight: 1.6 }}>
                 Eligibility and requirements vary. Parents and guardians should confirm suitability and any necessary approval with the relevant Award Leader, Adviser or awarding organisation.
               </p>
-              <Link href="/courses" style={{ color: gold, fontFamily: I, fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", textDecoration: "none" }}>
-                Explore Awards &amp; Qualifications →
-              </Link>
             </div>
           </div>
         </section>
@@ -306,7 +308,7 @@ export default async function PianoCoursePage() {
               <Link href="/apply" className="btn-gold">Apply for the Piano Course →</Link>
             </div>
             <div style={{ borderRadius: 4, overflow: "hidden", aspectRatio: "4/3" }}>
-              <img src="/gallery/269-Green_Room_Music_Concert_Summer_2025.jpg" alt="Piano performance"
+              <img src="/gallery/piano-hero-no-logo.jpg" alt="Piano performance"
                 style={{ width: "100%", height: "100%", objectFit: "cover" }} />
             </div>
           </div>
