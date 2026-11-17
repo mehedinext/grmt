@@ -22,8 +22,11 @@ const defaultWeek = [
   { day: "FRIDAY", date: "23 JULY", label: "Final Performance Celebration and Departure" },
 ];
 
-export default function ResidentialLifeClient({ settings }: { settings?: Settings; galleryImages?: string[]; features?: any[] }) {
+export default function ResidentialLifeClient({ settings, galleryImages }: { settings?: Settings; galleryImages?: string[]; features?: any[] }) {
   const img = (field: string, fallback: string) => settings?.[field] ?? fallback;
+  const gallery = galleryImages ?? [];
+  const galleryHeading = settings?.resLifeGalleryHeading ?? "Moments from Camp";
+  const gallerySubtext = settings?.resLifeGallerySubtext ?? "A glimpse into life at GRMSC - music, friendships, and shared moments from residential life at Stamford School.";
 
   const heroImg = img("resLifeHeroImage", FALLBACK_GROUP);
   const image1 = img("resLifeImage1", FALLBACK_ACTIVITY);
@@ -135,8 +138,9 @@ export default function ResidentialLifeClient({ settings }: { settings?: Setting
         {/* ── S4: WELCOME TO STAMFORD ── */}
         <section style={{ background: cream, padding: "clamp(40px, 6vw, 72px) 0" }}>
           <div className="rl-two-col" style={{ maxWidth: 1200, margin: "0 auto", padding: "0 clamp(20px, 4vw, 56px)", display: "grid", gridTemplateColumns: "1fr 1.3fr", gap: "clamp(32px, 5vw, 64px)", alignItems: "center" }}>
-            <div style={{ display: "flex", justifyContent: "center" }}>
-              <StamfordIllustration />
+            <div style={{ position: "relative", aspectRatio: "3/2", overflow: "hidden", borderRadius: 4 }}>
+              <img src="/gallery/stamford-street.jpg" alt="Historic Stamford street"
+                style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
             </div>
             <div>
               <h2 style={{ fontFamily: G, fontSize: "clamp(1.9rem, 3vw, 2.6rem)", color: green, fontWeight: 500, marginBottom: 18, lineHeight: 1.15 }}>{s4Heading}</h2>
@@ -195,7 +199,6 @@ export default function ResidentialLifeClient({ settings }: { settings?: Setting
             <p style={{ color: gold, fontFamily: I, fontSize: "0.82rem", textTransform: "uppercase", letterSpacing: "0.22em", fontWeight: 600, marginBottom: 32 }}>{joinMeta}</p>
             <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/apply" className="btn-gold">Apply Now</Link>
-              <Link href="/apply" className="btn-outline-white">Register Interest</Link>
             </div>
           </div>
         </section>
@@ -204,6 +207,10 @@ export default function ResidentialLifeClient({ settings }: { settings?: Setting
       <Footer settings={settings} />
 
       <style jsx global>{`
+        .rl-gallery-item:hover img { transform: scale(1.05); }
+        @media (max-width: 1024px) {
+          .rl-gallery-grid { grid-template-columns: repeat(3, 1fr) !important; }
+        }
         @media (max-width: 760px) {
           .rl-hero-grid,
           .rl-two-col { grid-template-columns: 1fr !important; }
@@ -211,6 +218,10 @@ export default function ResidentialLifeClient({ settings }: { settings?: Setting
           .rl-week { grid-template-columns: 1fr !important; }
           .rl-week > div { display: grid; grid-template-columns: 90px 1fr; gap: 14px; align-items: start; text-align: left !important; padding-left: 8px; }
           .rl-week > div > div:first-child { grid-row: 1 / span 3; margin: 6px 0 0 !important; }
+          .rl-gallery-grid { grid-template-columns: repeat(2, 1fr) !important; }
+        }
+        @media (max-width: 420px) {
+          .rl-gallery-grid { grid-template-columns: 1fr !important; }
         }
       `}</style>
     </>

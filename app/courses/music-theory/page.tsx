@@ -12,15 +12,16 @@ const gold = "#C89A3B";
 const cream = "#F7F2E8";
 
 const defaultGlance = [
-  { label: "Ages", value: "10-17" },
-  { label: "Focus", value: "ABRSM Music Theory\nExam Preparation" },
-  { label: "Levels", value: "Beginner → Grade 5" },
+  // Row 1
   { label: "Dates", value: "19-23 July 2027" },
   { label: "Location", value: "Stamford School" },
-  { label: "Format", value: "5 Days / 4 Nights\nFully Residential" },
+  { label: "Ages", value: "10-17" },
+  { label: "Levels", value: "Beginner - ABRSM Grade 5" },
+  // Row 2
+  { label: "Focus", value: "ABRSM Theory Exams\nGrade 5 - Our Most Popular" },
+  { label: "Exam Prep", value: "Past Papers & Mock Exams\nIncluded" },
   { label: "Boarding & Meals", value: "Included" },
-  { label: "Exam Prep", value: "Past Papers · Exam Technique\nMock Exams" },
-  { label: "Ideal For", value: "Students Preparing for\nGrades 1-5" },
+  { label: "Pass Rate", value: "100%" },
 ];
 
 const defaultExamItems = [
@@ -48,7 +49,7 @@ const defaultWhoFor = [
 
 const defaultExamStats = [
   { stat: "100%", label: "Pass Rate" },
-  { stat: "75%", label: "Merit or Distinction" },
+  { stat: "90%", label: "Distinction" },
   { stat: "100+", label: "Students Supported" },
 ];
 
@@ -90,23 +91,20 @@ export default async function MusicTheoryPage() {
       <Navbar settings={settings} />
       <main style={{ paddingTop: 68, background: cream }}>
 
-        {/* ── HERO ── */}
-        <section style={{ position: "relative", minHeight: "90vh", display: "flex", alignItems: "flex-end", overflow: "hidden" }}>
-          <img src="/gallery/020-GreenRoomMusicTheorySummer2025.jpg" alt="Music Theory class in session"
-            style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", zIndex: 0 }} />
-          <div style={{ position: "absolute", inset: 0, zIndex: 1, background: `linear-gradient(to top, ${green} 0%, rgba(8,47,39,0.8) 38%, rgba(8,47,39,0.35) 65%, rgba(8,47,39,0.1) 100%)` }} />
-
-          <div style={{ position: "relative", zIndex: 2, width: "100%", padding: "clamp(32px,6vw,80px) clamp(20px,5vw,72px) clamp(40px,7vw,88px)" }}>
-            <p style={{ color: gold, fontFamily: I, fontSize: "0.7rem", textTransform: "uppercase", letterSpacing: "0.2em", marginBottom: 12, fontWeight: 600 }}>Green Room Music Summer Camp</p>
-            <h1 style={{ fontFamily: G, fontSize: "clamp(3rem,6vw,5.5rem)", fontWeight: 500, color: "#fff", lineHeight: 1, marginBottom: 14 }}>Music Theory</h1>
-            <p style={{ color: gold, fontFamily: G, fontSize: "clamp(1rem,1.4vw,1.2rem)", fontStyle: "italic", marginBottom: 20 }}>{heroAlertTitle}</p>
-            <p style={{ color: "rgba(255,255,255,0.7)", fontFamily: I, fontSize: "clamp(0.85rem,1vw,0.96rem)", lineHeight: 1.75, marginBottom: 12, maxWidth: 560 }}>
-              An intensive five-day residential course for young musicians aged 10-17, preparing for ABRSM Music Theory examinations up to Grade 5.
+        {/* ── HERO (SPLIT: TEXT LEFT | IMAGE RIGHT) ── */}
+        <section className="theory-hero" style={{ background: green, display: "grid", gridTemplateColumns: "1fr 1fr", height: "calc(100vh - 68px)", minHeight: 580, maxHeight: 900 }}>
+          <div style={{ padding: "clamp(40px, 5vw, 72px) clamp(24px, 5vw, 56px)", display: "flex", flexDirection: "column", justifyContent: "center", maxWidth: 680, overflow: "auto" }}>
+            <p style={{ color: gold, fontFamily: I, fontSize: "0.68rem", textTransform: "uppercase", letterSpacing: "0.22em", marginBottom: 16, fontWeight: 600 }}>Green Room Music Summer Camp</p>
+            <h1 style={{ fontFamily: G, fontSize: "clamp(2.2rem, 4vw, 3.4rem)", fontWeight: 500, color: "#fff", lineHeight: 1.15, marginBottom: 20 }}>Music Theory</h1>
+            <div style={{ width: 44, height: 2, background: gold, marginBottom: 22 }} />
+            <p style={{ color: gold, fontFamily: G, fontSize: "clamp(1rem, 1.3vw, 1.2rem)", marginBottom: 22, fontStyle: "italic" }}>{heroAlertTitle}</p>
+            <p style={{ color: "rgba(255,255,255,0.78)", fontFamily: I, fontSize: "clamp(0.92rem, 1vw, 1rem)", lineHeight: 1.8, marginBottom: 18 }}>
+              An intensive five-day residential course for young musicians aged 10-17, preparing for ABRSM Music Theory examinations from Grades 1-5. Grade 5 is our most popular choice, but students working towards Grades 1-4 are equally welcome and regularly join us.
             </p>
-            <p style={{ color: "rgba(255,255,255,0.55)", fontFamily: I, fontSize: "clamp(0.82rem,0.95vw,0.9rem)", lineHeight: 1.75, marginBottom: 24, maxWidth: 560 }}>
-              From the fundamentals to Grade 5, students build strong foundations, fill gaps, practise exam technique and gain confidence through focused tuition, past papers and multiple mock examinations.
+            <p style={{ color: "rgba(255,255,255,0.65)", fontFamily: I, fontSize: "clamp(0.88rem, 0.95vw, 0.95rem)", lineHeight: 1.75, marginBottom: 20 }}>
+              From complete beginners to Grade 5 students, everyone benefits from focused tuition tailored to their level, building strong foundations, filling gaps in knowledge and developing exam confidence through past papers, exam technique and multiple mock examinations.
             </p>
-            <p style={{ color: gold, fontFamily: G, fontSize: "clamp(1rem,1.3vw,1.15rem)", fontStyle: "italic", marginBottom: 32 }}>
+            <p style={{ color: gold, fontFamily: G, fontSize: "clamp(1rem, 1.3vw, 1.15rem)", fontStyle: "italic", marginBottom: 28 }}>
               From zero to Grade 5 - in one immersive week.
             </p>
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
@@ -114,7 +112,19 @@ export default async function MusicTheoryPage() {
               <Link href="/residential-life" className="btn-outline-white">Explore Residential Life</Link>
             </div>
           </div>
+          <div style={{ position: "relative", overflow: "hidden" }}>
+            <img src="/gallery/020-GreenRoomMusicTheorySummer2025.jpg" alt="Music Theory class in session"
+              style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
+          </div>
         </section>
+
+        <style>{`
+          @media (max-width: 860px) {
+            .theory-hero { grid-template-columns: 1fr !important; height: auto !important; max-height: none !important; min-height: 0 !important; }
+            .theory-hero > div:first-child { overflow: visible !important; padding-top: 48px; padding-bottom: 48px; }
+            .theory-hero > div:last-child { min-height: 320px; order: -1; }
+          }
+        `}</style>
 
         {/* ── COURSE AT A GLANCE ── */}
         <section style={{ background: green }}>
@@ -142,10 +152,13 @@ export default async function MusicTheoryPage() {
               <p style={{ color: gold, fontFamily: I, fontSize: "0.65rem", textTransform: "uppercase", letterSpacing: "0.14em", fontWeight: 700, marginBottom: 8 }}>Build the knowledge. Prepare for the exam.</p>
               <h2 style={{ fontFamily: G, fontSize: "clamp(1.6rem,2.5vw,2.2rem)", fontWeight: 500, color: green, lineHeight: 1.2, marginBottom: 20 }}>From the Fundamentals<br />to Grade 5</h2>
               <p style={{ color: "#3d5c51", fontFamily: I, fontSize: "0.9rem", lineHeight: 1.8, marginBottom: 16 }}>
-                Music theory builds step by step. This course takes students through the essential knowledge required from the earliest grades through to ABRSM Grade 5 standard.
+                Music theory builds step by step. Our intensive five-day course takes students through the essential knowledge required from the earliest grades through to ABRSM Grade 5 standard.
+              </p>
+              <p style={{ color: "#3d5c51", fontFamily: I, fontSize: "0.9rem", lineHeight: 1.8, marginBottom: 16 }}>
+                Whether your child is a complete beginner, preparing for Grades 1-4 or working towards Grade 5, our structured approach ensures every student receives focused tuition tailored to their level, helping them make significant progress in just five days.
               </p>
               <p style={{ color: "#3d5c51", fontFamily: I, fontSize: "0.9rem", lineHeight: 1.8, marginBottom: 28 }}>
-                Whether your child is starting from the beginning or already preparing for Grade 5, our structured approach ensures every student makes significant progress in just five days.
+                With a <strong style={{ color: green }}>100% pass rate</strong> and <strong style={{ color: green }}>90% Distinction rate</strong>, our proven approach combines expert teaching, practical exercises and thorough exam preparation to give students the knowledge, skills and confidence to succeed in their ABRSM Music Theory examinations.
               </p>
               <div style={{ borderRadius: 4, overflow: "hidden", aspectRatio: "4/3" }}>
                 <img src="/gallery/037-GreenRoomMusicTheorySummer2025.jpg" alt="Student studying music theory"
@@ -191,13 +204,16 @@ export default async function MusicTheoryPage() {
               <p style={{ color: gold, fontFamily: I, fontSize: "0.65rem", textTransform: "uppercase", letterSpacing: "0.14em", fontWeight: 700, marginBottom: 8 }}>Practise before it counts.</p>
               <h2 style={{ fontFamily: G, fontSize: "clamp(1.6rem,2.5vw,2.2rem)", fontWeight: 500, color: green, lineHeight: 1.2, marginBottom: 20 }}>Mock Exams</h2>
               <p style={{ color: "#3d5c51", fontFamily: I, fontSize: "0.9rem", lineHeight: 1.8, marginBottom: 16 }}>
-                Students complete multiple mock examinations during the week, giving them the opportunity to experience exam-style conditions and become familiar with the structure and pace of an ABRSM Theory paper.
+                Throughout the course, students work extensively with past ABRSM Music Theory papers, developing their understanding of exam questions, marking requirements and effective exam technique from the very beginning.
               </p>
               <p style={{ color: "#3d5c51", fontFamily: I, fontSize: "0.9rem", lineHeight: 1.8, marginBottom: 16 }}>
-                Mock results allow faculty to identify weaker areas and target teaching throughout the course.
+                Students complete two mock examinations during the week: one paper-based and one online, giving them experience of both examination formats and the opportunity to practise under realistic exam conditions.
+              </p>
+              <p style={{ color: "#3d5c51", fontFamily: I, fontSize: "0.9rem", lineHeight: 1.8, marginBottom: 16 }}>
+                Results from these assessments allow our faculty to identify areas for improvement, provide personalised feedback and tailor teaching to each student's individual needs.
               </p>
               <p style={{ color: "#3d5c51", fontFamily: I, fontSize: "0.9rem", lineHeight: 1.8, marginBottom: 28 }}>
-                By the end of the week, students will have greater clarity, stronger exam technique and the confidence to succeed.
+                By the end of the week, students will have strengthened their knowledge, refined their exam technique and developed the confidence needed to approach their official ABRSM Music Theory examination with success.
               </p>
               <div style={{ borderRadius: 4, overflow: "hidden", aspectRatio: "4/3" }}>
                 <img src="/gallery/040-GreenRoomMusicTheorySummer2025.jpg" alt="Student completing mock exam"
@@ -255,22 +271,28 @@ export default async function MusicTheoryPage() {
 
             {/* Who Is This Course For? */}
             <div>
-              <h2 style={{ fontFamily: G, fontSize: "clamp(1.6rem,2.5vw,2.2rem)", fontWeight: 500, color: green, lineHeight: 1.2, marginBottom: 12 }}>Who Is This Course For?</h2>
+              <h2 style={{ fontFamily: G, fontSize: "clamp(1.6rem,2.5vw,2.2rem)", fontWeight: 500, color: green, lineHeight: 1.2, marginBottom: 16 }}>Who Is This Course For?</h2>
               <p style={{ color: "#3d5c51", fontFamily: I, fontSize: "0.9rem", lineHeight: 1.8, marginBottom: 16 }}>
-                The Music Theory Course is ideal for students who:
+                Our Music Theory Course is designed for any student aged 10-17 preparing for an ABRSM Music Theory examination (Grades 1-5), from complete beginners to those ready to sit their exam.
               </p>
-              <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 10, marginBottom: 20 }}>
-                {whoFor.map((item: string) => (
-                  <li key={item} style={{ display: "flex", alignItems: "flex-start", gap: 10, color: "#3d5c51", fontFamily: I, fontSize: "0.88rem", lineHeight: 1.55 }}>
-                    <span style={{ color: gold, flexShrink: 0, marginTop: 2 }}>
+              <p style={{ color: "#3d5c51", fontFamily: I, fontSize: "0.9rem", lineHeight: 1.8, marginBottom: 20 }}>
+                The course is particularly well suited to students who:
+              </p>
+              <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 16, marginBottom: 20, padding: 0 }}>
+                {[
+                  { title: "Want to complete their Grade 5 Theory quickly", body: "our intensive crash-course approach helps students cover the syllabus and prepare for their examination in just five days, rather than spreading their learning over months of weekly lessons." },
+                  { title: "Are preparing for ABRSM Grades 1-4", body: "students working towards earlier grades are equally welcome, with teaching tailored to their individual level and examination goals." },
+                  { title: "Want to save time and money on private tuition", body: "an intensive week of expert teaching can reduce the need for months of additional one-to-one theory lessons." },
+                  { title: "Would benefit from a stress-free approach for parents", body: "with tuition, supervised study, boarding and meals all taken care of, there's no need to organise weekly lessons alongside other commitments." },
+                ].map((item) => (
+                  <li key={item.title} style={{ display: "flex", alignItems: "flex-start", gap: 12, color: "#3d5c51", fontFamily: I, fontSize: "0.9rem", lineHeight: 1.65 }}>
+                    <span style={{ color: gold, flexShrink: 0, marginTop: 4 }}>
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="20,6 9,17 4,12"/></svg>
-                    </span>{item}
+                    </span>
+                    <span><strong style={{ color: green }}>{item.title}</strong> - {item.body}</span>
                   </li>
                 ))}
               </ul>
-              <p style={{ color: "#5a7a6a", fontFamily: I, fontSize: "0.85rem", lineHeight: 1.75 }}>
-                Students do not need to already be at Grade 5 standard before attending. The programme supports students working across earlier grades through to Grade 5.
-              </p>
             </div>
           </div>
         </section>
@@ -318,10 +340,9 @@ export default async function MusicTheoryPage() {
                   </div>
                 ))}
               </div>
-              <p style={{ color: "#9abaaa", fontFamily: I, fontSize: "0.72rem", lineHeight: 1.6, marginBottom: 20 }}>
+              <p style={{ color: "#9abaaa", fontFamily: I, fontSize: "0.72rem", lineHeight: 1.6 }}>
                 Eligibility and requirements vary. Parents and guardians should confirm suitability and any necessary approval with the relevant Award Leader, Adviser or awarding organisation.
               </p>
-              <Link href="/courses" className="btn-outline-green">Explore Awards &amp; Qualifications →</Link>
             </div>
           </div>
         </section>

@@ -96,6 +96,18 @@ export default function FacultyPageClient({ settings, tutors }: { settings: any;
   const open = useCallback((id: string) => setOpenId(id), []);
   const close = useCallback(() => setOpenId(null), []);
 
+  // Deep-link support: /faculty#tutor-vivian opens that tutor's profile modal
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const applyHash = () => {
+      const h = window.location.hash.replace(/^#/, "");
+      if (h && tutors.some((t) => t._id === h)) setOpenId(h);
+    };
+    applyHash();
+    window.addEventListener("hashchange", applyHash);
+    return () => window.removeEventListener("hashchange", applyHash);
+  }, [tutors]);
+
   useEffect(() => {
     if (!openId) return;
     const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") close(); };

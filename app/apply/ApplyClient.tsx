@@ -1,7 +1,7 @@
 "use client";
+import Link from "next/link";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { courses } from "../lib/data";
 
 const G = "var(--font-garamond)";
 const I = "var(--font-inter)";
@@ -11,115 +11,22 @@ const cream = "#F7F2E8";
 
 type Settings = any;
 
-const defaultApplyStats = [
-  { val: "19-23 July 2027", label: "Dates" },
-  { val: "Ages 10-17", label: "Who" },
-  { val: "Stamford School", label: "Venue" },
-  { val: "3 Courses", label: "Choice" },
-];
-
 export default function ApplyClient({ settings }: { settings?: Settings }) {
   return (
     <>
       <Navbar settings={settings} />
-      <main style={{ paddingTop: 68 }}>
-
-        <div style={{ background: green, padding: "72px 0 64px" }}>
-          <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 clamp(16px, 3vw, 40px)" }}>
-            <p style={{ color: gold, fontSize: "0.65rem", textTransform: "uppercase", letterSpacing: "0.22em", marginBottom: 14, fontFamily: I }}>
-              {settings?.applyPageEyebrow ?? "Summer 2027"}
+      <main style={{ paddingTop: 68, background: cream, minHeight: "100vh" }}>
+        <section style={{ background: green, padding: "clamp(72px, 10vw, 120px) 0" }}>
+          <div style={{ maxWidth: 820, margin: "0 auto", padding: "0 clamp(20px, 5vw, 56px)", textAlign: "center" }}>
+            <p style={{ color: gold, fontSize: "0.7rem", textTransform: "uppercase", letterSpacing: "0.24em", fontWeight: 600, fontFamily: I, marginBottom: 20 }}>Summer 2027</p>
+            <h1 style={{ fontFamily: G, fontSize: "clamp(2.2rem, 4vw, 3.4rem)", fontWeight: 500, color: "#fff", lineHeight: 1.15, marginBottom: 20 }}>Applications Opening Soon</h1>
+            <div style={{ width: 44, height: 2, background: gold, margin: "0 auto 26px" }} />
+            <p style={{ color: "rgba(255,255,255,0.72)", fontFamily: I, fontSize: "clamp(0.95rem, 1.1vw, 1.05rem)", lineHeight: 1.8, marginBottom: 36, maxWidth: 580, marginLeft: "auto", marginRight: "auto" }}>
+              Applications for Green Room Music Summer Camp 2027 will open in early 2027. In the meantime, if you have any questions about the camp, our courses or the audition process, please get in touch.
             </p>
-            <h1 style={{ fontFamily: G, fontSize: "clamp(2.2rem, 4vw, 3.4rem)", fontWeight: 500, color: "#fff", lineHeight: 1.15, marginBottom: 20 }}>
-              {settings?.applyPageHeading ?? "Register Your Interest"}
-            </h1>
-            <div style={{ width: 40, height: 2, background: gold, marginBottom: 20 }} />
-            <p style={{ color: "rgba(255,255,255,0.55)", fontSize: "0.92rem", lineHeight: 1.8, maxWidth: 500, fontFamily: I }}>
-              {settings?.applyPageSubtext ?? "Applications open in early 2027. Register now to be first in line - no payment required at this stage."}
-            </p>
-          </div>
-        </div>
-
-        <section style={{ background: cream, padding: "clamp(56px, 8vw, 96px) 0" }}>
-          <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 clamp(16px, 3vw, 40px)" }}>
-
-            <div style={{ background: "#fff", padding: "clamp(32px, 5vw, 56px)" }}>
-              <h2 style={{ fontFamily: G, fontSize: "1.6rem", fontWeight: 500, color: green, marginBottom: 8 }}>{settings?.applyPageFormHeading ?? "Interest Registration Form"}</h2>
-              <div style={{ width: 32, height: 2, background: gold, marginBottom: 32 }} />
-
-              <form
-                action="https://api.web3forms.com/submit"
-                method="POST"
-                style={{ display: "flex", flexDirection: "column", gap: 0 }}
-              >
-                {/* Web3Forms config */}
-                <input type="hidden" name="access_key" value="aae09377-f222-46dc-9807-d8cfd35ba5f5" />
-                <input type="hidden" name="subject" value="New Interest Registration - GRMSC" />
-                <input type="hidden" name="from_name" value="GRMSC Website" />
-                <input type="hidden" name="redirect" value="https://green-room-camp-tau.vercel.app/apply?submitted=1" />
-                {/* Honeypot */}
-                <input type="checkbox" name="botcheck" style={{ display: "none" }} tabIndex={-1} />
-
-                <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 2, marginBottom: 2 }}>
-                  <div style={{ background: cream, padding: "20px 24px" }}>
-                    <label style={{ display: "block", fontSize: "0.6rem", textTransform: "uppercase", letterSpacing: "0.16em", color: "#9aaa9e", marginBottom: 8, fontFamily: I }}>Student Name</label>
-                    <input required name="Student Name" type="text" placeholder="Full name" style={{ width: "100%", background: "none", border: "none", borderBottom: "1px solid #c4bdb0", padding: "8px 0", fontSize: "0.9rem", outline: "none", fontFamily: I, color: green }} />
-                  </div>
-                  <div style={{ background: cream, padding: "20px 24px" }}>
-                    <label style={{ display: "block", fontSize: "0.6rem", textTransform: "uppercase", letterSpacing: "0.16em", color: "#9aaa9e", marginBottom: 8, fontFamily: I }}>Age</label>
-                    <input required name="Age" type="number" min={10} max={17} placeholder="10-17" style={{ width: "100%", background: "none", border: "none", borderBottom: "1px solid #c4bdb0", padding: "8px 0", fontSize: "0.9rem", outline: "none", fontFamily: I, color: green }} />
-                  </div>
-                </div>
-
-                <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 2, marginBottom: 2 }}>
-                  <div style={{ background: cream, padding: "20px 24px" }}>
-                    <label style={{ display: "block", fontSize: "0.6rem", textTransform: "uppercase", letterSpacing: "0.16em", color: "#9aaa9e", marginBottom: 8, fontFamily: I }}>Parent / Guardian</label>
-                    <input required name="Parent / Guardian" type="text" placeholder="Full name" style={{ width: "100%", background: "none", border: "none", borderBottom: "1px solid #c4bdb0", padding: "8px 0", fontSize: "0.9rem", outline: "none", fontFamily: I, color: green }} />
-                  </div>
-                  <div style={{ background: cream, padding: "20px 24px" }}>
-                    <label style={{ display: "block", fontSize: "0.6rem", textTransform: "uppercase", letterSpacing: "0.16em", color: "#9aaa9e", marginBottom: 8, fontFamily: I }}>Email Address</label>
-                    <input required name="Email" type="email" placeholder="your@email.com" style={{ width: "100%", background: "none", border: "none", borderBottom: "1px solid #c4bdb0", padding: "8px 0", fontSize: "0.9rem", outline: "none", fontFamily: I, color: green }} />
-                  </div>
-                </div>
-
-                <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 2, marginBottom: 2 }}>
-                  <div style={{ background: cream, padding: "20px 24px" }}>
-                    <label style={{ display: "block", fontSize: "0.6rem", textTransform: "uppercase", letterSpacing: "0.16em", color: "#9aaa9e", marginBottom: 8, fontFamily: I }}>Course</label>
-                    <select required name="Course" style={{ width: "100%", background: "none", border: "none", borderBottom: "1px solid #c4bdb0", padding: "8px 0", fontSize: "0.9rem", outline: "none", fontFamily: I, color: green, appearance: "none" }}>
-                      <option value="">Select a course</option>
-                      {courses.map((c) => (
-                        <option key={c._id} value={c.title}>{c.title}</option>
-                      ))}
-                    </select>
-                  </div>
-                  <div style={{ background: cream, padding: "20px 24px" }}>
-                    <label style={{ display: "block", fontSize: "0.6rem", textTransform: "uppercase", letterSpacing: "0.16em", color: "#9aaa9e", marginBottom: 8, fontFamily: I }}>Current Level</label>
-                    <input name="Current Level" type="text" placeholder="e.g. Grade 6 Piano" style={{ width: "100%", background: "none", border: "none", borderBottom: "1px solid #c4bdb0", padding: "8px 0", fontSize: "0.9rem", outline: "none", fontFamily: I, color: green }} />
-                  </div>
-                </div>
-
-                <div style={{ background: cream, padding: "20px 24px", marginBottom: 2 }}>
-                  <label style={{ display: "block", fontSize: "0.6rem", textTransform: "uppercase", letterSpacing: "0.16em", color: "#9aaa9e", marginBottom: 8, fontFamily: I }}>Questions or Additional Information</label>
-                  <textarea name="Questions" rows={4} placeholder="Dietary requirements, accessibility needs, DofE or Arts Award queries..." style={{ width: "100%", background: "none", border: "none", borderBottom: "1px solid #c4bdb0", padding: "8px 0", fontSize: "0.9rem", outline: "none", resize: "none", fontFamily: I, color: green }} />
-                </div>
-
-                <div style={{ padding: "28px 0 0" }}>
-                  <button type="submit" className="btn-gold" style={{ width: "100%", textAlign: "center", cursor: "pointer" }}>{settings?.applyPageSubmitLabel ?? "Submit Registration"}</button>
-                  <p style={{ color: "#9aaa9e", fontSize: "0.72rem", textAlign: "center", marginTop: 14, fontFamily: I }}>{settings?.applyPageSubmitNote ?? "No payment required. We will be in touch when applications formally open for Summer 2027."}</p>
-                </div>
-              </form>
-            </div>
-          </div>
-
-          <div style={{ maxWidth: 1200, margin: "4px auto 0", padding: "0 clamp(16px, 3vw, 40px)", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: 2 }}>
-            {(settings?.applyPageInfoStats?.length ? settings.applyPageInfoStats : defaultApplyStats).map((s: any) => (
-              <div key={s.label} style={{ background: green, padding: "24px 28px" }}>
-                <div style={{ color: gold, fontFamily: G, fontSize: "1.05rem", marginBottom: 4 }}>{s.val}</div>
-                <div style={{ color: "rgba(255,255,255,0.4)", fontSize: "0.6rem", textTransform: "uppercase", letterSpacing: "0.14em", fontFamily: I }}>{s.label}</div>
-              </div>
-            ))}
+            <Link href="/contact" className="btn-gold">Contact Us</Link>
           </div>
         </section>
-
       </main>
       <Footer settings={settings} />
     </>

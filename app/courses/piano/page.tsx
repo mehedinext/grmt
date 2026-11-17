@@ -144,7 +144,7 @@ export default async function PianoCoursePage() {
                 Led by faculty director Will Fowler, students work with world-renowned faculty, distinguished educators and exciting rising performers, gaining insight from a range of teaching styles and musical perspectives throughout the week. A highlight of the programme is masterclasses and lectures with Honorary Guest, Vivian Shiao. Students also have the opportunities to learn from and hear performances by GRMSC Junior Teaching Artists - rising spotlight musicians appearing in this year's Green Room Piano Festival at St. Martin's Church, Stamford.
               </p>
               {/* Vivian card - clickable to Faculty page */}
-              <Link href="/faculty" style={{ display: "flex", alignItems: "center", gap: 14, background: "#fff", border: `1px solid rgba(200,154,59,0.2)`, padding: "16px 18px", borderRadius: 4, textDecoration: "none", transition: "all 0.2s ease" }}>
+              <Link href="/faculty#tutor-vivian" style={{ display: "flex", alignItems: "center", gap: 14, background: "#fff", border: `1px solid rgba(200,154,59,0.2)`, padding: "16px 18px", borderRadius: 4, textDecoration: "none", transition: "all 0.2s ease" }}>
                 <img src="/vivian-shiao.webp" alt="Vivian Shiao" style={{ width: 52, height: 52, borderRadius: "50%", objectFit: "cover", flexShrink: 0 }} />
                 <div style={{ flex: 1 }}>
                   <div style={{ fontFamily: G, fontSize: "1.05rem", color: green, fontStyle: "italic", marginBottom: 2 }}>Vivian Shiao</div>
@@ -187,7 +187,7 @@ export default async function PianoCoursePage() {
           <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 clamp(20px, 5vw, 72px)" }}>
             <div className="piano-image-pair" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(12px, 2vw, 20px)" }}>
               <div style={{ position: "relative", aspectRatio: "4/3", overflow: "hidden", borderRadius: 2 }}>
-                <img src="/gallery/406-Green_Room_Music_Concert_Summer_2025.jpg" alt="Grand piano performance" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
+                <img src="/gallery/piano-final-performance.jpg" alt="Grand piano performance" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
               </div>
               <div style={{ position: "relative", aspectRatio: "4/3", overflow: "hidden", borderRadius: 2 }}>
                 <img src="/gallery/piano-red-keyboard.jpg" alt="Contemporary keyboard" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
@@ -277,7 +277,7 @@ export default async function PianoCoursePage() {
 
         {/* ── THE FINAL CONCERT ── */}
         <section style={{ background: green, position: "relative", overflow: "hidden" }}>
-          <img src="/gallery/406-Green_Room_Music_Concert_Summer_2025.jpg" alt="Final concert"
+          <img src="/gallery/piano-final-performance.jpg" alt="Final concert"
             style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.18, zIndex: 0 }} />
           <div style={{ position: "relative", zIndex: 1, maxWidth: 1200, margin: "0 auto", padding: "clamp(56px,7vw,80px) clamp(24px,5vw,72px)", display: "grid", gridTemplateColumns: "auto 1fr", gap: 40, alignItems: "start" }}>
             <div style={{ width: 64, height: 64, borderRadius: "50%", border: `1.5px solid ${gold}`, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>

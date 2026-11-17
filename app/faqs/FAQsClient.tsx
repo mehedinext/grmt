@@ -155,10 +155,16 @@ export default function FAQsClient({
 }) {
   const data: Category[] = categories && categories.length ? categories : FALLBACK;
 
-  const [activeKey, setActiveKey] = useState<string>(data[0].key);
+  const [activeKey, setActiveKey] = useState<string>(() => {
+    if (typeof window !== "undefined") {
+      const h = window.location.hash.replace(/^#/, "");
+      if (h && data.some((c) => c.key === h)) return h;
+    }
+    return data[0].key;
+  });
   const [open, setOpen] = useState<number | null>(0);
 
-  // Deep-link support: /faqs#international-travellers → opens that tab
+  // Deep-link support: /faqs#piano, /faqs#music-theory, etc.
   useEffect(() => {
     if (typeof window === "undefined") return;
     const applyHash = () => {

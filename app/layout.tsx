@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { EB_Garamond, Inter } from "next/font/google";
 import "./globals.css";
+import CookieConsent from "./components/CookieConsent";
 
 const garamond = EB_Garamond({
   variable: "--font-garamond",
@@ -29,7 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${garamond.variable} ${inter.variable}`}>
-      <body className="min-h-screen flex flex-col" style={{ fontFamily: "var(--font-inter), sans-serif" }}>{children}</body>
+      <body className="min-h-screen flex flex-col" style={{ fontFamily: "var(--font-inter), sans-serif" }}>{children}<CookieConsent /></body>
     </html>
   );
 }
