@@ -37,7 +37,7 @@ export default function ContactClient({ settings }: { settings?: Settings }) {
 
             {/* Left - Contact info */}
             <div>
-              <h2 style={{ fontFamily: G, fontSize: "clamp(1.4rem, 2vw, 1.8rem)", color: green, fontWeight: 500, marginBottom: 20 }}>Reach GRMSC</h2>
+              <h2 style={{ fontFamily: G, fontSize: "clamp(1.4rem, 2vw, 1.8rem)", color: green, fontWeight: 500, marginBottom: 20 }}>Contact GRMSC</h2>
               <div style={{ width: 32, height: 2, background: gold, marginBottom: 22 }} />
 
               <div style={{ marginBottom: 26 }}>

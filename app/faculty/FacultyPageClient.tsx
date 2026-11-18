@@ -152,9 +152,16 @@ export default function FacultyPageClient({ settings, tutors }: { settings: any;
               </h1>
               <div style={{ width: 44, height: 2, background: gold, marginBottom: 24 }} />
               {settings?.facultyPageSubtext !== "" && (
-                <p style={{ color: "rgba(255,255,255,0.72)", fontSize: "clamp(0.9rem, 1.1vw, 1rem)", lineHeight: 1.8, maxWidth: 460, fontFamily: I }}>
-                  {settings?.facultyPageSubtext ?? "Our faculty are experienced musicians, educators and performing arts professionals, passionate about inspiring the next generation. Together, they create a supportive, creative and challenging environment where every student can grow."}
-                </p>
+                <div style={{ maxWidth: 520 }}>
+                  {(settings?.facultyPageSubtext ?? "Our faculty are experienced musicians, educators and performing arts professionals, passionate about inspiring the next generation. Together, they create a supportive, creative and challenging environment where every student can grow.")
+                    .split("\n\n")
+                    .filter(Boolean)
+                    .map((para: string, i: number) => (
+                      <p key={i} style={{ color: "rgba(255,255,255,0.72)", fontSize: "clamp(0.9rem, 1.1vw, 1rem)", lineHeight: 1.8, fontFamily: I, marginBottom: 14 }}>
+                        {para}
+                      </p>
+                    ))}
+                </div>
               )}
             </div>
             {settings?.facultyHeroImage && (
@@ -300,15 +307,15 @@ export default function FacultyPageClient({ settings, tutors }: { settings: any;
           </section>
         )}
 
-        {/* ─── BOARDING & PASTORAL TEAM ─── */}
+        {/* ─── BOARDING & WELFARE TEAM ─── */}
         {boarding.length > 0 && (
           <section style={{ background: cream, padding: "clamp(56px, 8vw, 96px) 0", borderTop: "1px solid #e8e3da" }}>
             <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 clamp(16px, 3vw, 40px)" }}>
               <p style={{ color: gold, fontSize: "0.68rem", textTransform: "uppercase", letterSpacing: "0.22em", marginBottom: 10, fontFamily: I, fontWeight: 600 }}>
-                {settings?.facultyBoardingSectionEyebrow ?? "BOARDING & PASTORAL TEAM"}
+                {settings?.facultyBoardingSectionEyebrow ?? "BOARDING & WELFARE TEAM"}
               </p>
               <h2 style={{ fontFamily: G, fontSize: "clamp(1.8rem, 3vw, 2.6rem)", fontWeight: 500, color: green, marginBottom: 10 }}>
-                {settings?.facultyBoardingSectionHeading ?? "Boarding & Pastoral Team"}
+                {settings?.facultyBoardingSectionHeading ?? "Boarding & Welfare Team"}
               </h2>
               <div style={{ width: 44, height: 2, background: gold, marginBottom: 20 }} />
               <p style={{ color: "#3d5c51", fontFamily: I, fontSize: "clamp(0.92rem, 1vw, 1rem)", lineHeight: 1.75, maxWidth: 720, marginBottom: 36 }}>

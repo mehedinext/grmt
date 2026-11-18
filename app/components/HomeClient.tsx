@@ -284,12 +284,7 @@ export default function HomeClient({ faqs, partnerLogos, courses: allCourses, se
                     </div>
                   ))}
                 </div>
-                {/* Buttons */}
-                <div className="hero-cta-btns" style={{ display: "flex", gap: 12, flexWrap: "wrap", marginBottom: 18 }}>
-                  <Link href={settings?.heroSlide3Cta1Href ?? "/courses"} className="hero-btn btn-gold">{settings?.heroSlide3Cta1Label ?? "Explore Awards & Qualifications →"}</Link>
-                  <Link href={settings?.heroSlide3Cta2Href ?? "/apply"} className="hero-btn btn-outline-white">{settings?.heroSlide3Cta2Label ?? "Learn More"}</Link>
-                </div>
-                <p style={{ color: "rgba(255,255,255,0.32)", fontFamily: I, fontSize: "0.66rem", lineHeight: 1.55, maxWidth: 480 }}>
+                <p style={{ color: "rgba(255,255,255,0.32)", fontFamily: I, fontSize: "0.66rem", lineHeight: 1.55, maxWidth: 480, marginTop: 18 }}>
                   {settings?.heroSlide3Disclaimer ?? "Participation at GRMSC does not automatically guarantee award completion. Eligibility should be confirmed with the relevant award provider."}
                 </p>
               </div>

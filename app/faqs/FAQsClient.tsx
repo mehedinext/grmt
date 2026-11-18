@@ -237,7 +237,9 @@ export default function FAQsClient({
               }}
             >
               {settings?.faqsPageSubtext ??
-                "Find answers to common questions about Green Room Music Summer Camp. If you can't find what you're looking for, please get in touch | we're always happy to help."}
+                "Everything you need to know about GRMSC 2027. Can't find your answer?"}
+              {" "}
+              <Link href="/contact" style={{ color: gold, textDecoration: "underline", fontWeight: 600 }}>Get in touch →</Link>
             </p>
           </div>
           {heroImage ? (
@@ -458,7 +460,7 @@ export default function FAQsClient({
                   </a>
                 </div>
               </div>
-              <Link href="/apply" className="btn-gold">
+              <Link href="/contact" className="btn-gold">
                 Get in Touch
               </Link>
             </div>

@@ -15,7 +15,7 @@ const FALLBACK_STAMFORD = "https://cdn.sanity.io/images/ji1ggnuz/production/d8a4
 const FALLBACK_GROUP = "https://cdn.sanity.io/images/ji1ggnuz/production/a9138015585895e4996170de2af9e2d5bd8fe928-1600x1067.jpg";
 
 const defaultStats = [
-  { val: "5 Days", label: "A Focused Summer Experience" },
+  { val: "5 Days / 4 Nights", label: "A Focused Summer Experience" },
   { val: "Residential Programme", label: "Stay, Learn and Make Music" },
   { val: "Pastoral Support", label: "A Safe and Caring Environment" },
   { val: "International Community", label: "Young Musicians Around the World" },
@@ -225,12 +225,14 @@ function FeatIcon({ idx }: { idx: number }) {
     <svg width="34" height="34" viewBox="0 0 24 24" {...s}><path d="M22 10L12 4 2 10l10 6 10-6z" /><path d="M6 12v5c3 2 9 2 12 0v-5" /></svg>
   );
   if (idx === 1) return (
-    <svg width="34" height="34" viewBox="0 0 24 24" {...s}><path d="M7 4c-1 4-3 5-3 8 0 5 4 9 8 9s8-4 8-9c0-3-2-4-3-8" /><path d="M9 14c0-2 1-4 3-4s3 2 3 4" /><circle cx="12" cy="17" r="1.5" /></svg>
+    // Trophy / award
+    <svg width="34" height="34" viewBox="0 0 24 24" {...s}><path d="M8 4h8v5a4 4 0 0 1-8 0V4z" /><path d="M8 5H5v2a3 3 0 0 0 3 3M16 5h3v2a3 3 0 0 1-3 3" /><path d="M12 13v4M9 21h6M10 17h4v4h-4z" /></svg>
   );
   if (idx === 2) return (
     <svg width="34" height="34" viewBox="0 0 24 24" {...s}><circle cx="12" cy="12" r="9" /><path d="M3 12h18" /><path d="M12 3a13 13 0 0 1 0 18M12 3a13 13 0 0 0 0 18" /></svg>
   );
   return (
-    <svg width="34" height="34" viewBox="0 0 24 24" {...s}><path d="M3 18V11a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v7" /><path d="M3 18h18" /><path d="M7 11V7a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v4" /></svg>
+    // School building with flag
+    <svg width="34" height="34" viewBox="0 0 24 24" {...s}><path d="M3 21V10l9-6 9 6v11" /><path d="M3 21h18" /><path d="M10 21v-6h4v6" /><path d="M8 11h2M14 11h2M8 14h2M14 14h2" /><path d="M12 4V2M12 2h3v2h-3" /></svg>
   );
 }

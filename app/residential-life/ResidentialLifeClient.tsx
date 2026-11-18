@@ -39,7 +39,7 @@ export default function ResidentialLifeClient({ settings, galleryImages }: { set
   const heroBody = settings?.resLifeHeroBody ?? "The residential experience at GRMSC is supportive, inspiring and fully immersive, where young musicians live, learn and create together in a safe, welcoming community.";
 
   const stats = settings?.resLifeStats?.length ? settings.resLifeStats : [
-    { val: "5 Days", label: "Full Residential Programme" },
+    { val: "5 Days / 4 Nights", label: "Full Residential Programme" },
     { val: "3 Meals", label: "Daily, All Diets Catered" },
     { val: "24/7", label: "Pastoral Support On Site" },
     { val: "DBS Checked", label: "All Staff, All Sessions" },
@@ -150,6 +150,32 @@ export default function ResidentialLifeClient({ settings, galleryImages }: { set
         </section>
 
         <TwoCol heading={s5Heading} body={s5Body} image={image3} imageAlt="Stamford School grounds" imageRight />
+
+        {/* ── BOARDING FACILITIES AT STAMFORD SCHOOL ── */}
+        <section style={{ background: "#fff", padding: "clamp(48px, 6vw, 88px) 0" }}>
+          <div style={{ maxWidth: 900, margin: "0 auto", padding: "0 clamp(20px, 4vw, 56px)" }}>
+            <p style={{ color: gold, fontFamily: I, fontSize: "0.68rem", textTransform: "uppercase", letterSpacing: "0.22em", fontWeight: 700, marginBottom: 14 }}>Our Residential Partner</p>
+            <h2 style={{ fontFamily: G, fontSize: "clamp(1.8rem, 2.8vw, 2.4rem)", color: green, fontWeight: 500, lineHeight: 1.2, marginBottom: 18 }}>Boarding Facilities at Stamford School</h2>
+            <div style={{ width: 40, height: 2, background: gold, marginBottom: 24 }} />
+            <p style={{ color: "#3d5c51", fontFamily: I, fontSize: "clamp(0.95rem, 1.05vw, 1.05rem)", lineHeight: 1.85, marginBottom: 16 }}>
+              Our students enjoy an exceptional residential experience at Stamford School, set in the heart of one of England's most beautiful historic towns.
+            </p>
+            <p style={{ color: "#3d5c51", fontFamily: I, fontSize: "clamp(0.95rem, 1.05vw, 1.05rem)", lineHeight: 1.85, marginBottom: 16 }}>
+              Stamford School offers outstanding boarding facilities, combining comfortable, welcoming accommodation with a warm and supportive environment. Its well-appointed boarding houses provide an ideal setting for students to relax, build friendships and enjoy the experience of living alongside fellow young students.
+            </p>
+            <p style={{ color: "#3d5c51", fontFamily: I, fontSize: "clamp(0.95rem, 1.05vw, 1.05rem)", lineHeight: 1.85, marginBottom: 26 }}>
+              We encourage parents and guardians to explore Stamford School's official website, where they can discover more about the boarding houses, view the facilities and gain a better understanding of the wonderful environment in which our residential course takes place.
+            </p>
+            <a href="https://stamfordschools.org.uk/boarding" target="_blank" rel="noopener noreferrer" className="btn-gold" style={{ display: "inline-block", marginBottom: 28 }}>
+              Explore Stamford School's Boarding Facilities →
+            </a>
+            <div style={{ borderLeft: `3px solid ${gold}`, padding: "14px 18px", background: cream, borderRadius: 2 }}>
+              <p style={{ color: "#3d5c51", fontFamily: I, fontSize: "0.85rem", lineHeight: 1.7, margin: 0 }}>
+                <strong style={{ color: green }}>Please note:</strong> This link takes you to Stamford School's external website. GRMSC students are accommodated in our designated residential facilities during the course, under the supervision of the GRMSC boarding and welfare team.
+              </p>
+            </div>
+          </div>
+        </section>
 
         {/* ── MEALS & SAFEGUARDING ── */}
         <section style={{ background: cream, padding: "clamp(40px, 6vw, 72px) 0" }}>

@@ -22,7 +22,7 @@ export default function ApplyClient({ settings }: { settings?: Settings }) {
             <h1 style={{ fontFamily: G, fontSize: "clamp(2.2rem, 4vw, 3.4rem)", fontWeight: 500, color: "#fff", lineHeight: 1.15, marginBottom: 20 }}>Applications Opening Soon</h1>
             <div style={{ width: 44, height: 2, background: gold, margin: "0 auto 26px" }} />
             <p style={{ color: "rgba(255,255,255,0.72)", fontFamily: I, fontSize: "clamp(0.95rem, 1.1vw, 1.05rem)", lineHeight: 1.8, marginBottom: 36, maxWidth: 580, marginLeft: "auto", marginRight: "auto" }}>
-              Applications for Green Room Music Summer Camp 2027 will open in early 2027. In the meantime, if you have any questions about the camp, our courses or the audition process, please get in touch.
+              Applications for Green Room Music Summer Camp 2027 will open on <strong style={{ color: "#fff", fontWeight: 600 }}>Monday 30th November, 2026</strong>. In the meantime, if you have any questions about the camp, our courses or the audition process, please get in touch.
             </p>
             <Link href="/contact" className="btn-gold">Contact Us</Link>
           </div>

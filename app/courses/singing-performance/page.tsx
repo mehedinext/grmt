@@ -103,6 +103,9 @@ export default async function SingingPerformancePage() {
             .singing-hero > div:first-child { overflow: visible !important; padding-top: 48px; padding-bottom: 48px; }
             .singing-hero > div:last-child { min-height: 320px; order: -1; }
           }
+          @media (max-width: 720px) {
+            .glance-grid { grid-template-columns: repeat(2, 1fr) !important; }
+          }
         `}</style>
 
         {/* ── COURSE AT A GLANCE ── */}
@@ -111,7 +114,7 @@ export default async function SingingPerformancePage() {
             <div style={{ textAlign: "center", marginBottom: 36 }}>
               <p style={{ color: gold, fontFamily: I, fontSize: "0.65rem", textTransform: "uppercase", letterSpacing: "0.22em", fontWeight: 600 }}>Course at a Glance</p>
             </div>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))", gap: 1, background: "rgba(255,255,255,0.06)" }}>
+            <div className="glance-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 1, background: "rgba(255,255,255,0.06)" }}>
               {glance.map((g: any) => (
                 <div key={g.label} style={{ padding: "20px 22px", background: green, borderBottom: "1px solid rgba(255,255,255,0.07)", borderRight: "1px solid rgba(255,255,255,0.07)" }}>
                   <div style={{ color: gold, fontFamily: I, fontSize: "0.6rem", textTransform: "uppercase", letterSpacing: "0.16em", marginBottom: 6, fontWeight: 600 }}>{g.label}</div>
@@ -218,7 +221,7 @@ export default async function SingingPerformancePage() {
               </p>
               <blockquote style={{ borderLeft: `3px solid ${gold}`, paddingLeft: 20, margin: 0 }}>
                 <p style={{ fontFamily: G, fontSize: "1.2rem", color: green, fontStyle: "italic", lineHeight: 1.5, marginBottom: 10 }}>
-                  "We take performance seriously. We just don't believe learning it has to be boring."
+                  "Some of the best learning happens when you're having so much fun, you don't even realise you're learning!"
                 </p>
                 <p style={{ fontFamily: I, fontSize: "0.75rem", color: gold, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase" }}>
                   - Rhiannon Bennett, GRMSC Acting Coach for Singing Performance

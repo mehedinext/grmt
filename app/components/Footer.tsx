@@ -45,7 +45,7 @@ export default function Footer({ settings }: { settings?: Settings }) {
   const facebook  = settings?.footerFacebook     ?? "https://m.facebook.com/people/Green-Room-Music-Theory/100088313820996/?locale=en_GB";
   const email     = settings?.footerContactEmail ?? "info@greenroomplace.com";
   const phone     = settings?.footerContactPhone ?? "+44 7540 875262";
-  const copyright = settings?.footerCopyright    ?? `© ${new Date().getFullYear()} Green Room Music Theory. All rights reserved.`;
+  const copyright = settings?.footerCopyright    ?? `© 2027 Green Room Music Summer Camp under Green Room Place, Ltd. All rights reserved.`;
   const legal     = settings?.footerLegalLine    ?? "Green Room Music Summer Camp · Stamford School · Lincolnshire";
   const columns   = settings?.footerColumns?.length ? settings.footerColumns : defaultColumns;
 
@@ -130,6 +130,7 @@ export default function Footer({ settings }: { settings?: Settings }) {
           </p>
           <div style={{ display: "flex", alignItems: "center", gap: 18, flexWrap: "wrap" }}>
             <Link href="/privacy-policy" style={{ color: "rgba(255,255,255,0.45)", fontSize: "0.75rem", fontFamily: "var(--font-inter)", textDecoration: "none" }}>Privacy Policy</Link>
+            <Link href="/privacy-policy" style={{ color: "rgba(255,255,255,0.45)", fontSize: "0.75rem", fontFamily: "var(--font-inter)", textDecoration: "none" }}>GRMSC Policies</Link>
             <Link href="/contact" style={{ color: "rgba(255,255,255,0.45)", fontSize: "0.75rem", fontFamily: "var(--font-inter)", textDecoration: "none" }}>Contact Us</Link>
             <p style={{ color: "rgba(255,255,255,0.2)", fontSize: "0.75rem", fontFamily: "var(--font-inter)", margin: 0 }}>{legal}</p>
           </div>

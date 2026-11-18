@@ -35,11 +35,11 @@ const PATCHES = {
 const NEW_TUTORS = [
   { _id: "tutor-conor",     order: 2, name: "Conor Mathers",      role: "Head of Singing Performance", category: "main",     teachesTags: ["Singing Performance", "Music Theory"],   bio: "", bioFull: [] },
   { _id: "tutor-serena",    order: 3, name: "Serena Shah",        role: "Head of Music Theory",         category: "main",     teachesTags: ["Music Theory", "Piano"],                 bio: "", bioFull: [] },
-  { _id: "tutor-rhiannon",  order: 4, name: "Rhiannon Bennett",   role: "Head of Boarding & Pastoral",  category: "main",     teachesTags: ["Singing Performance (Acting)"],          bio: "", bioFull: [], isDeputyDSL: true },
+  { _id: "tutor-rhiannon",  order: 4, name: "Rhiannon Bennett",   role: "Head of Boarding & Welfare",  category: "main",     teachesTags: ["Singing Performance (Acting)"],          bio: "", bioFull: [], isDeputyDSL: true },
   { _id: "tutor-leo",       order: 20, name: "Leo Little",        role: "Junior Teaching Artist",       category: "junior",   teachesTags: ["Piano"],                                 bio: "", bioFull: [] },
   { _id: "tutor-rebekah",   order: 21, name: "Rebekah Tan",       role: "Junior Teaching Artist",       category: "junior",   teachesTags: ["Piano"],                                 bio: "", bioFull: [] },
-  { _id: "tutor-sophie",    order: 30, name: "Sophie Wells",      role: "Nurse",                        category: "boarding", teachesTags: ["Boarding & Pastoral"],                   bio: "", bioFull: [], isDeputyDSL: true },
-  { _id: "tutor-elisabeth", order: 31, name: "Elisabeth Thompson",role: "Boarding & Pastoral",          category: "boarding", teachesTags: ["Boarding & Pastoral"],                   bio: "", bioFull: [] },
+  { _id: "tutor-sophie",    order: 30, name: "Sophie Wells",      role: "Nurse",                        category: "boarding", teachesTags: ["Boarding & Welfare"],                   bio: "", bioFull: [], isDeputyDSL: true },
+  { _id: "tutor-elisabeth", order: 31, name: "Elisabeth Thompson",role: "Boarding & Welfare",          category: "boarding", teachesTags: ["Boarding & Welfare"],                   bio: "", bioFull: [] },
 ];
 
 // ── SITE SETTINGS defaults ─────────────────────────────────────
@@ -53,8 +53,8 @@ const SETTINGS_DEFAULTS = {
   facultyHonorarySectionEyebrow: "HONORARY GUEST VISITING LECTURER",
   facultyJuniorSectionEyebrow: "PIANO DEPARTMENT",
   facultyJuniorSectionHeading: "Junior Teaching Artists",
-  facultyBoardingSectionEyebrow: "BOARDING & PASTORAL TEAM",
-  facultyBoardingSectionHeading: "Boarding & Pastoral Team",
+  facultyBoardingSectionEyebrow: "BOARDING & WELFARE TEAM",
+  facultyBoardingSectionHeading: "Boarding & Welfare Team",
   safeguardingHeading: "Safeguarding & Student Welfare",
   safeguardingBody: "The safety and wellbeing of our students is at the heart of Green Room Music Summer Camp. All members of staff working at the camp have enhanced DBS checks and are committed to providing a safe, supportive and inclusive environment.",
 };

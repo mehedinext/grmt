@@ -18,8 +18,8 @@ const defaultGlance = [
   { label: "Ages", value: "10-17" },
   { label: "Levels", value: "Beginner - ABRSM Grade 5" },
   // Row 2
-  { label: "Focus", value: "ABRSM Theory Exams\nGrade 5 - Our Most Popular" },
-  { label: "Exam Prep", value: "Past Papers & Mock Exams\nIncluded" },
+  { label: "Format", value: "5 Days / 4 Nights\nFully Residential" },
+  { label: "Exam Prep", value: "Past Papers & Mock Exams" },
   { label: "Boarding & Meals", value: "Included" },
   { label: "Pass Rate", value: "100%" },
 ];
@@ -124,6 +124,9 @@ export default async function MusicTheoryPage() {
             .theory-hero > div:first-child { overflow: visible !important; padding-top: 48px; padding-bottom: 48px; }
             .theory-hero > div:last-child { min-height: 320px; order: -1; }
           }
+          @media (max-width: 720px) {
+            .glance-grid { grid-template-columns: repeat(2, 1fr) !important; }
+          }
         `}</style>
 
         {/* ── COURSE AT A GLANCE ── */}
@@ -132,7 +135,7 @@ export default async function MusicTheoryPage() {
             <div style={{ textAlign: "center", marginBottom: 36 }}>
               <p style={{ color: gold, fontFamily: I, fontSize: "0.65rem", textTransform: "uppercase", letterSpacing: "0.22em", fontWeight: 600 }}>Course at a Glance</p>
             </div>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))", gap: 1, background: "rgba(255,255,255,0.06)" }}>
+            <div className="glance-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 1, background: "rgba(255,255,255,0.06)" }}>
               {glance.map((g: any) => (
                 <div key={g.label} style={{ padding: "20px 22px", background: green, borderBottom: "1px solid rgba(255,255,255,0.07)", borderRight: "1px solid rgba(255,255,255,0.07)" }}>
                   <div style={{ color: gold, fontFamily: I, fontSize: "0.6rem", textTransform: "uppercase", letterSpacing: "0.16em", marginBottom: 6, fontWeight: 600 }}>{g.label}</div>

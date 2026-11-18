@@ -143,6 +143,18 @@ export default async function PianoCoursePage() {
               <p style={{ color: "#3d5c51", fontFamily: I, fontSize: "0.9rem", lineHeight: 1.8, marginBottom: 16 }}>
                 Led by faculty director Will Fowler, students work with world-renowned faculty, distinguished educators and exciting rising performers, gaining insight from a range of teaching styles and musical perspectives throughout the week. A highlight of the programme is masterclasses and lectures with Honorary Guest, Vivian Shiao. Students also have the opportunities to learn from and hear performances by GRMSC Junior Teaching Artists - rising spotlight musicians appearing in this year's Green Room Piano Festival at St. Martin's Church, Stamford.
               </p>
+              {/* Will Fowler card - Faculty Director */}
+              <Link href="/faculty#tutor-will" style={{ display: "flex", alignItems: "center", gap: 14, background: "#fff", border: `1px solid rgba(200,154,59,0.2)`, padding: "16px 18px", borderRadius: 4, textDecoration: "none", transition: "all 0.2s ease", marginBottom: 12 }}>
+                <div style={{ width: 52, height: 52, borderRadius: "50%", background: "rgba(200,154,59,0.12)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={gold} strokeWidth="1.8"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+                </div>
+                <div style={{ flex: 1 }}>
+                  <div style={{ fontFamily: G, fontSize: "1.05rem", color: green, fontStyle: "italic", marginBottom: 2 }}>Will Fowler</div>
+                  <div style={{ fontFamily: I, fontSize: "0.6rem", textTransform: "uppercase", letterSpacing: "0.1em", color: gold, fontWeight: 700 }}>Faculty Director</div>
+                  <div style={{ fontFamily: I, fontSize: "0.6rem", textTransform: "uppercase", letterSpacing: "0.1em", color: "#7a9a8a" }}>Head of Piano</div>
+                </div>
+                <span style={{ color: gold, fontSize: "1.1rem", fontFamily: I, flexShrink: 0 }}>→</span>
+              </Link>
               {/* Vivian card - clickable to Faculty page */}
               <Link href="/faculty#tutor-vivian" style={{ display: "flex", alignItems: "center", gap: 14, background: "#fff", border: `1px solid rgba(200,154,59,0.2)`, padding: "16px 18px", borderRadius: 4, textDecoration: "none", transition: "all 0.2s ease" }}>
                 <img src="/vivian-shiao.webp" alt="Vivian Shiao" style={{ width: 52, height: 52, borderRadius: "50%", objectFit: "cover", flexShrink: 0 }} />

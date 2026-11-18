@@ -52,7 +52,7 @@ export default function CookieConsent() {
       }}
     >
       <p style={{ fontFamily: I, fontSize: "0.65rem", textTransform: "uppercase", letterSpacing: "0.2em", color: gold, fontWeight: 700, marginBottom: 10 }}>Cookies</p>
-      <p style={{ fontFamily: G, fontSize: "1.1rem", color: "#fff", lineHeight: 1.35, marginBottom: 10 }}>We use cookies on this site</p>
+      <p style={{ fontFamily: G, fontSize: "1.1rem", color: "#fff", lineHeight: 1.35, marginBottom: 10 }}>We use cookies on this site.</p>
       <p style={{ color: "rgba(255,255,255,0.75)", fontSize: "0.85rem", lineHeight: 1.6, marginBottom: 18 }}>
         We use essential cookies to make this site work and, with your consent, analytics cookies to understand how it is used. For details, see our{" "}
         <Link href="/privacy-policy" style={{ color: gold, textDecoration: "underline" }}>Privacy Policy</Link>.

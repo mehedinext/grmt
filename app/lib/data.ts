@@ -100,11 +100,11 @@ export const tutors: Tutor[] = [
 export const staffMembers: StaffMember[] = [
   { _id: "staff-conor", name: "Conor Mathers", role: "Director of Singing Performance", department: "Singing Performance · Theory" },
   { _id: "staff-serena", name: "Serena Shah", role: "Teaching Artist", department: "Piano · Theory" },
-  { _id: "staff-rhiannon", name: "Rhiannon Bennett", role: "Deputy DSL · Head of Boarding & Pastoral", department: "Singing Performance" },
+  { _id: "staff-rhiannon", name: "Rhiannon Bennett", role: "Deputy DSL · Head of Boarding & Welfare", department: "Singing Performance" },
   { _id: "staff-sophie", name: "Sophie Wells", role: "Deputy DSL · Resident Nurse", department: "Boarding & Wellbeing" },
   { _id: "staff-leo", name: "Leo Little", role: "Piano Teaching Artist", department: "Piano" },
   { _id: "staff-rebekah", name: "Rebekah Tan", role: "Piano Teaching Artist", department: "Piano" },
-  { _id: "staff-elisabeth", name: "Elisabeth Thompson", role: "Boarding Supervisor", department: "Boarding & Pastoral" },
+  { _id: "staff-elisabeth", name: "Elisabeth Thompson", role: "Boarding Supervisor", department: "Boarding & Welfare" },
 ];
 
 // ─── COURSES ──────────────────────────────────────────────────────────────────

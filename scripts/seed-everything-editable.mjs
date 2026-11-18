@@ -240,11 +240,11 @@ async function seedStaff() {
   const staff = [
     { name: "Conor Mathers", role: "Director of Vocal Performance", department: "Vocal Performance · Theory" },
     { name: "Serena Shah", role: "Teaching Artist", department: "Piano · Theory" },
-    { name: "Rhiannon Bennett", role: "Deputy DSL · Head of Boarding & Pastoral", department: "Vocal Performance" },
+    { name: "Rhiannon Bennett", role: "Deputy DSL · Head of Boarding & Welfare", department: "Vocal Performance" },
     { name: "Sophie Wells", role: "Deputy DSL · Resident Nurse", department: "Boarding & Wellbeing" },
     { name: "Leo Little", role: "Piano Teaching Artist", department: "Piano" },
     { name: "Rebekah Tan", role: "Piano Teaching Artist", department: "Piano" },
-    { name: "Elisabeth Thompson", role: "Boarding Supervisor", department: "Boarding & Pastoral" },
+    { name: "Elisabeth Thompson", role: "Boarding Supervisor", department: "Boarding & Welfare" },
   ];
   for (let i = 0; i < staff.length; i++) {
     await client.createOrReplace({
