@@ -53,9 +53,10 @@ const defaultAwards = [
 export const revalidate = 60;
 
 export default async function PianoCoursePage() {
-  const [settings, course] = await Promise.all([
+  const [settings, course, willImage] = await Promise.all([
     getSiteSettings(),
     sanityClient.fetch(`*[_type == "course" && slug.current == "piano"][0]{ glance, programme, heroAlertTitle, requirements, ctaHeading, ctaSubtext, ctaTagline, "awards": awards[]{ name, desc, "logo": logo.asset->url } }`).catch(() => null),
+    sanityClient.fetch<string | null>(`*[_id == "tutor-will"][0].image.asset->url`).catch(() => null),
   ]);
   const awards = course?.awards?.length ? course.awards : defaultAwards;
   const glance = course?.glance?.length ? course.glance : defaultGlance;
@@ -145,9 +146,13 @@ export default async function PianoCoursePage() {
               </p>
               {/* Will Fowler card - Faculty Director */}
               <Link href="/faculty#tutor-will" style={{ display: "flex", alignItems: "center", gap: 14, background: "#fff", border: `1px solid rgba(200,154,59,0.2)`, padding: "16px 18px", borderRadius: 4, textDecoration: "none", transition: "all 0.2s ease", marginBottom: 12 }}>
-                <div style={{ width: 52, height: 52, borderRadius: "50%", background: "rgba(200,154,59,0.12)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={gold} strokeWidth="1.8"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
-                </div>
+                {willImage ? (
+                  <img src={willImage} alt="Will Fowler" style={{ width: 52, height: 52, borderRadius: "50%", objectFit: "cover", objectPosition: "center top", flexShrink: 0 }} />
+                ) : (
+                  <div style={{ width: 52, height: 52, borderRadius: "50%", background: "rgba(200,154,59,0.12)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={gold} strokeWidth="1.8"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+                  </div>
+                )}
                 <div style={{ flex: 1 }}>
                   <div style={{ fontFamily: G, fontSize: "1.05rem", color: green, fontStyle: "italic", marginBottom: 2 }}>Will Fowler</div>
                   <div style={{ fontFamily: I, fontSize: "0.6rem", textTransform: "uppercase", letterSpacing: "0.1em", color: gold, fontWeight: 700 }}>Faculty Director</div>
