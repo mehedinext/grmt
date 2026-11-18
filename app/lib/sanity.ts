@@ -71,7 +71,7 @@ export const queries = {
     intlHeroEyebrow, intlHeroHeading, intlHeroBody, "intlHeroImage": intlHeroImage.asset->url,
     intlStats,
     intlS1Heading, intlS1Body, "intlS1Image": intlS1Image.asset->url,
-    intlFeatures, intlQuoteText, "intlQuoteImage": intlQuoteImage.asset->url,
+    intlFeatures, intlQuoteText, intlQuoteAuthor, "intlQuoteImage": intlQuoteImage.asset->url,
     intlDetails, intlFaqCardHeading, intlFaqCardBody,
     intlJoinHeading, intlJoinBody,
     resPageEyebrow, resPageHeading, resPageSubtext, resPageGalleryHeading,
