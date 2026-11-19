@@ -48,10 +48,6 @@ export default async function CoursesPage() {
                     src={urlFor(c.image)} alt={c.title}
                     style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: c.imagePosition, display: "block", position: "absolute", inset: 0 }}
                   />
-                  {/* Subtle number overlay */}
-                  <div style={{ position: "absolute", bottom: 24, left: 28, fontFamily: G, fontSize: "5rem", fontWeight: 500, color: "rgba(255,255,255,0.15)", lineHeight: 1 }}>
-                    {c.num}
-                  </div>
                 </div>
 
                 {/* Text side */}

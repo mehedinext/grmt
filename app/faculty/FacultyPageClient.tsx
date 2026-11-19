@@ -182,7 +182,7 @@ export default function FacultyPageClient({ settings, tutors }: { settings: any;
                     {settings?.facultyMainSectionEyebrow ?? "MAIN FACULTY"}
                   </p>
                   <h2 style={{ fontFamily: G, fontSize: "clamp(1.8rem, 3vw, 2.6rem)", fontWeight: 500, color: green, lineHeight: 1.15 }}>
-                    {settings?.facultyMainSectionHeading ?? "Artistic Leadership & Teaching Faculty"}
+                    {settings?.facultyMainSectionHeading ?? "Artistic Leadership & Department Heads"}
                   </h2>
                   <div style={{ width: 44, height: 2, background: gold, marginTop: 14 }} />
                 </div>
@@ -234,7 +234,12 @@ export default function FacultyPageClient({ settings, tutors }: { settings: any;
                   <p style={{ color: gold, fontSize: "0.68rem", textTransform: "uppercase", letterSpacing: "0.22em", marginBottom: 14, fontFamily: I, fontWeight: 600 }}>
                     {settings?.facultyHonorarySectionEyebrow ?? "HONORARY GUEST VISITING LECTURER"}
                   </p>
-                  <h2 style={{ fontFamily: G, fontSize: "clamp(2rem, 4vw, 3.2rem)", fontWeight: 500, color: green, lineHeight: 1.1, marginBottom: 24 }}>{t.name}</h2>
+                  <h2 style={{ fontFamily: G, fontSize: "clamp(2rem, 4vw, 3.2rem)", fontWeight: 500, color: green, lineHeight: 1.1, marginBottom: 10 }}>{t.name}</h2>
+                  {t.profileTags?.length ? (
+                    <p style={{ color: gold, fontFamily: I, fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", marginBottom: 24 }}>
+                      {t.profileTags.join(" & ")}
+                    </p>
+                  ) : <div style={{ marginBottom: 24 }} />}
                   <p style={{ color: "#3d5c51", fontSize: "0.95rem", lineHeight: 1.85, marginBottom: 28, fontFamily: I }}>
                     {t.shortBio ?? t.bio ?? ""}
                   </p>
