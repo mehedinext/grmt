@@ -59,10 +59,17 @@ const defaultCtaSubtext = "Students arrive with different starting points. Acros
 const defaultCtaTagline = "From the fundamentals to Grade 5. Faster, clearer and more engaging.";
 
 const defaultAwards = [
-  { logo: "/partners/dofe.png", name: "The Duke of Edinburgh's Award", desc: "Including eligible Gold Residential and Skills activity." },
-  { logo: "/partners/arts-award.png", name: "Arts Award", desc: "Creative and musical experiences may contribute towards an existing Arts Award journey." },
-  { logo: "/partners/congressional-award.jpeg", name: "The Congressional Award", desc: "For US students, eligible activity may contribute towards Personal Development." },
+  { logo: "/partners/dofe.png", name: "The Duke of Edinburgh's Award", desc: "Including eligible Gold Residential and Skills activity.", href: "https://www.dukeofed.org/" },
+  { logo: "/partners/arts-award.png", name: "Arts Award", desc: "Creative and musical experiences may contribute towards an existing Arts Award journey.", href: "https://www.artsaward.org.uk/site/?id=64" },
+  { logo: "/partners/congressional-award.jpeg", name: "The Congressional Award", desc: "For US students, eligible activity may contribute towards Personal Development.", href: "https://congressionalaward.org/" },
 ];
+
+const awardHrefByName: Record<string, string> = {
+  "Duke of Edinburgh's Award": "https://www.dukeofed.org/",
+  "The Duke of Edinburgh's Award": "https://www.dukeofed.org/",
+  "Arts Award": "https://www.artsaward.org.uk/site/?id=64",
+  "The Congressional Award": "https://congressionalaward.org/",
+};
 
 export const revalidate = 60;
 
@@ -333,15 +340,23 @@ export default async function MusicTheoryPage() {
                 Experiences at GRMSC may also support students working towards recognised external awards and qualifications.
               </p>
               <div style={{ display: "flex", flexDirection: "column", gap: 18, marginBottom: 24 }}>
-                {awards.map((a: any) => (
-                  <div key={a.name} style={{ display: "flex", alignItems: "flex-start", gap: 14 }}>
-                    <img src={urlFor(a.logo)} alt={a.name} style={{ width: 40, height: 40, objectFit: "contain", flexShrink: 0 }} />
-                    <div>
-                      <div style={{ color: green, fontFamily: I, fontSize: "0.82rem", fontWeight: 700, marginBottom: 2 }}>{a.name}</div>
-                      <div style={{ color: "#5a7a6a", fontFamily: I, fontSize: "0.78rem", lineHeight: 1.55 }}>{a.desc}</div>
-                    </div>
-                  </div>
-                ))}
+                {awards.map((a: any) => {
+                  const href = a.href ?? awardHrefByName[a.name];
+                  const inner = (
+                    <>
+                      <img src={urlFor(a.logo)} alt={a.name} style={{ width: 40, height: 40, objectFit: "contain", flexShrink: 0 }} />
+                      <div>
+                        <div style={{ color: green, fontFamily: I, fontSize: "0.82rem", fontWeight: 700, marginBottom: 2 }}>{a.name}</div>
+                        <div style={{ color: "#5a7a6a", fontFamily: I, fontSize: "0.78rem", lineHeight: 1.55 }}>{a.desc}</div>
+                      </div>
+                    </>
+                  );
+                  return href ? (
+                    <a key={a.name} href={href} target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "flex-start", gap: 14, textDecoration: "none" }}>{inner}</a>
+                  ) : (
+                    <div key={a.name} style={{ display: "flex", alignItems: "flex-start", gap: 14 }}>{inner}</div>
+                  );
+                })}
               </div>
               <p style={{ color: "#9abaaa", fontFamily: I, fontSize: "0.72rem", lineHeight: 1.6 }}>
                 Eligibility and requirements vary. Parents and guardians should confirm suitability and any necessary approval with the relevant Award Leader, Adviser or awarding organisation.

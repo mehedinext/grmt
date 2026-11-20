@@ -56,7 +56,7 @@ export default async function CoursesPage() {
                   display: "flex", flexDirection: "column", justifyContent: "center",
                   order: i % 2 === 1 ? 1 : 2,
                 }}>
-                  <p style={{ color: gold, fontSize: "0.62rem", textTransform: "uppercase", letterSpacing: "0.2em", fontFamily: I, fontWeight: 600, marginBottom: 12 }}>{c.grade}</p>
+                  <p style={{ color: gold, fontSize: "0.62rem", textTransform: "uppercase", letterSpacing: "0.2em", fontFamily: I, fontWeight: 600, marginBottom: 12, whiteSpace: "pre-line", lineHeight: 1.7 }}>{c.grade}</p>
                   <h2 style={{ fontFamily: G, fontSize: "clamp(1.8rem, 2.8vw, 2.4rem)", fontWeight: 500, color: green, marginBottom: 16, lineHeight: 1.15 }}>{c.title}</h2>
                   <div style={{ width: 32, height: 2, background: gold, marginBottom: 20 }} />
                   <p style={{ color: "#5a7a6a", fontSize: "0.9rem", lineHeight: 1.82, marginBottom: 28 }}>{c.excerpt}</p>

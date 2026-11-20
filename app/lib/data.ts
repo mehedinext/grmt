@@ -115,7 +115,7 @@ export const courses: Course[] = [
     slug: { current: "piano" },
     num: "01",
     title: "Piano",
-    grade: "Piano Assessment Video Audition Required",
+    grade: "Piano Assessment Video Audition Required\nMinimum Playing Standard: ABRSM Grade 5 Equivalent",
     tagline: "Master the keys in one transformative week.",
     excerpt: "More than traditional piano tuition, our Piano Course brings together classical excellence, creative exploration and the art of performance. Led by our specialist faculty, with Honorary Guest Visiting Lecturer Vivian Shiao, students develop their individual artistry through an ambitious and engaging programme.",
     image: "/gallery/281-Green_Room_Music_Concert_Summer_2025.jpg",
@@ -214,7 +214,7 @@ export const courses: Course[] = [
     slug: { current: "singing-performance" },
     num: "03",
     title: "Singing Performance",
-    grade: "Singing Assessment Video Audition Required",
+    grade: "Singing Assessment Video Audition Required\nNo Prior Singing Experience Required",
     tagline: "Find your voice and perform with confidence.",
     excerpt:
       "Discover your voice and develop your confidence through an exciting blend of vocal training, musical expression and performance. Covering classical, musical theatre and jazz repertoire, our specialist faculty guide students through solo and ensemble singing, complemented by acting and stagecraft workshops. Students collaborate to develop musical performances for our Final Performance Celebration.",

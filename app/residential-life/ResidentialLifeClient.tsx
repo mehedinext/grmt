@@ -40,9 +40,9 @@ export default function ResidentialLifeClient({ settings, galleryImages }: { set
 
   const stats = settings?.resLifeStats?.length ? settings.resLifeStats : [
     { val: "5 Days / 4 Nights", label: "Full Residential Programme" },
-    { val: "3 Meals", label: "Daily, All Diets Catered" },
-    { val: "24/7", label: "Pastoral Support On Site" },
-    { val: "DBS Checked", label: "All Staff, All Sessions" },
+    { val: "Nutritional Meals", label: "All Diets Catered" },
+    { val: "24/7", label: "Welfare Support On Site" },
+    { val: "DBS Checked", label: "All GRMSC Staff" },
   ];
 
   const s1Heading = settings?.resLifeS1Heading ?? "Three Courses. One Summer Camp.";

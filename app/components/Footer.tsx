@@ -74,7 +74,7 @@ export default function Footer({ settings }: { settings?: Settings }) {
             <p style={{ color: "#C89A3B", fontSize: "0.7rem", textTransform: "uppercase", letterSpacing: "0.18em", marginBottom: 10, fontFamily: "var(--font-inter)" }}>
               {tagline}
             </p>
-            <p style={{ color: "rgba(255,255,255,0.45)", fontSize: "0.85rem", lineHeight: 1.7, maxWidth: 280, marginBottom: 24, whiteSpace: "pre-line" }}>
+            <p style={{ color: "rgba(255,255,255,0.45)", fontSize: "0.85rem", lineHeight: 1.7, maxWidth: 360, marginBottom: 24, whiteSpace: "pre" }}>
               {desc}
             </p>
             <div style={{ display: "flex", gap: 12 }}>
