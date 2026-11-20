@@ -62,6 +62,7 @@ export const siteSettingsSchema = defineType({
         { name: "name", type: "string", title: "Name" },
         { name: "sub", type: "string", title: "Sub-text" },
         { name: "tag", type: "string", title: "Tag (e.g. UK Students)" },
+        { name: "href", type: "string", title: "External Link (e.g. https://www.dukeofed.org/)" },
       ]}],
     }),
 

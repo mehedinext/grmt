@@ -29,7 +29,7 @@ export const queries = {
     "heroSlide3Image": heroSlide3Image.asset->url,
     heroSlide3Disclaimer,
     heroSlide3Cta1Label, heroSlide3Cta1Href, heroSlide3Cta2Label, heroSlide3Cta2Href,
-    "heroSlide3Awards": heroSlide3Awards[]{ name, sub, tag, "logo": logo.asset->url },
+    "heroSlide3Awards": heroSlide3Awards[]{ name, sub, tag, href, "logo": logo.asset->url },
 
     stats,
     coursesSectionHeading,

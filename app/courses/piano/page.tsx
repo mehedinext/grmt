@@ -86,6 +86,11 @@ export default async function PianoCoursePage() {
             <h1 style={{ fontFamily: G, fontSize: "clamp(2.2rem, 4vw, 3.4rem)", fontWeight: 500, color: "#fff", lineHeight: 1.15, marginBottom: 20 }}>Piano Course</h1>
             <div style={{ width: 44, height: 2, background: gold, marginBottom: 22 }} />
             <p style={{ color: gold, fontFamily: G, fontSize: "clamp(1rem, 1.3vw, 1.2rem)", marginBottom: 22, fontStyle: "italic" }}>Intermediate &amp; Advanced Pianists · Ages 10-17 · Minimum Playing Standard: ABRSM Grade 5 Equivalent</p>
+            <div style={{ background: "rgba(200,154,59,0.1)", borderLeft: `3px solid ${gold}`, padding: "12px 16px", borderRadius: 2, marginBottom: 22 }}>
+              <p style={{ color: "rgba(255,255,255,0.85)", fontFamily: I, fontSize: "0.82rem", lineHeight: 1.65, margin: 0 }}>
+                <strong style={{ color: gold, letterSpacing: "0.05em" }}>PLEASE NOTE:</strong> A Piano Assessment Video (Audition) is required as part of the application process. The minimum playing standard required is ABRSM Grade 5 Equivalent.
+              </p>
+            </div>
             <p style={{ color: "rgba(255,255,255,0.75)", fontFamily: I, fontSize: "clamp(0.92rem, 1vw, 1rem)", lineHeight: 1.8, marginBottom: 32 }}>
               Designed for intermediate and advanced young pianists, the Green Room Music Summer Camp Piano Course combines high-level musical training with performance, creativity and the energy of an international residential summer camp. The week culminates in the GRMSC Final Performance Celebration, bringing together students from both the Piano and Vocal Departments.
             </p>

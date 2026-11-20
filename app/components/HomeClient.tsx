@@ -269,13 +269,22 @@ export default function HomeClient({ faqs, partnerLogos, courses: allCourses, se
                     { logo: "/partners/dofe.png", name: "Duke of Edinburgh's Award", sub: "Gold Residential + Skills", tag: "UK Students", href: "https://www.dukeofed.org/" },
                     { logo: "/partners/arts-award.png", name: "Arts Award", sub: "Creative portfolio evidence", tag: "UK Students", href: "https://www.artsaward.org.uk/site/?id=64" },
                     { logo: "/partners/congressional-award.jpeg", name: "The Congressional Award", sub: "Personal Development", tag: "US Students", href: "https://congressionalaward.org/" },
-                  ]).map((a: any) => (
-                    <a key={a.name} href={a.href} target="_blank" rel="noopener noreferrer" style={{ flex: "1 1 150px", background: "rgba(0,0,0,0.42)", border: "1px solid rgba(255,255,255,0.14)", borderRadius: 6, padding: "14px 14px 10px", backdropFilter: "blur(6px)", textDecoration: "none", display: "block", transition: "border-color 0.2s, background 0.2s" }}
+                  ]).map((a: any) => {
+                    const awardHrefByName: Record<string, string> = {
+                      "Duke of Edinburgh's Award": "https://www.dukeofed.org/",
+                      "The Duke of Edinburgh's Award": "https://www.dukeofed.org/",
+                      "Arts Award": "https://www.artsaward.org.uk/site/?id=64",
+                      "The Congressional Award": "https://congressionalaward.org/",
+                    };
+                    const href = a.href || awardHrefByName[a.name];
+                    const logoSrc = typeof a.logo === "string" ? a.logo : urlFor(a.logo);
+                    return (
+                    <a key={a.name} href={href} target="_blank" rel="noopener noreferrer" style={{ flex: "1 1 150px", background: "rgba(0,0,0,0.42)", border: "1px solid rgba(255,255,255,0.14)", borderRadius: 6, padding: "14px 14px 10px", backdropFilter: "blur(6px)", textDecoration: "none", display: "block", transition: "border-color 0.2s, background 0.2s" }}
                       onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = "rgba(200,154,59,0.55)"; (e.currentTarget as HTMLElement).style.background = "rgba(0,0,0,0.55)"; }}
                       onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.14)"; (e.currentTarget as HTMLElement).style.background = "rgba(0,0,0,0.42)"; }}
                     >
                       <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10 }}>
-                        <img src={a.logo} alt={a.name} style={{ height: 36, width: 36, objectFit: "contain", filter: "invert(1)", mixBlendMode: "screen", flexShrink: 0 }} />
+                        <img src={logoSrc} alt={a.name} style={{ height: 36, width: 36, objectFit: "contain", filter: "invert(1)", mixBlendMode: "screen", flexShrink: 0 }} />
                         <div>
                           <div style={{ color: "#fff", fontFamily: I, fontSize: "0.78rem", fontWeight: 700, lineHeight: 1.3 }}>{a.name}</div>
                           <div style={{ color: "rgba(255,255,255,0.5)", fontFamily: I, fontSize: "0.68rem", marginTop: 2 }}>{a.sub}</div>
@@ -285,7 +294,8 @@ export default function HomeClient({ faqs, partnerLogos, courses: allCourses, se
                         <span style={{ color: gold, fontFamily: I, fontSize: "0.58rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase" }}>{a.tag}</span>
                       </div>
                     </a>
-                  ))}
+                    );
+                  })}
                 </div>
                 <p style={{ color: "rgba(255,255,255,0.32)", fontFamily: I, fontSize: "0.66rem", lineHeight: 1.55, maxWidth: 480, marginTop: 18 }}>
                   {settings?.heroSlide3Disclaimer ?? "Participation at GRMSC does not automatically guarantee award completion. Eligibility should be confirmed with the relevant award provider."}
@@ -335,7 +345,11 @@ export default function HomeClient({ faqs, partnerLogos, courses: allCourses, se
                     <img src={urlFor(c.image)} alt={c.title} className="course-img" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: c.imagePosition, display: "block", transition: "transform 0.55s ease" }} />
                   </div>
                   <div style={{ padding: "28px 32px 32px" }}>
-                    <p style={{ color: gold, fontSize: "0.6rem", textTransform: "uppercase", letterSpacing: "0.18em", fontFamily: I, fontWeight: 600, marginBottom: 10, whiteSpace: "pre-line", lineHeight: 1.7 }}>{c.grade}</p>
+                    <div style={{ marginBottom: 10 }}>
+                      {(c.grade ?? "").split("\n").map((line: string, li: number) => (
+                        <p key={li} style={{ color: gold, fontSize: "0.6rem", textTransform: "uppercase", letterSpacing: "0.18em", fontFamily: I, fontWeight: 600, marginTop: li === 0 ? 0 : 8, lineHeight: 1.35 }}>{line}</p>
+                      ))}
+                    </div>
                     <h3 style={{ fontFamily: G, fontSize: "1.45rem", fontWeight: 500, color: green, marginBottom: 12 }}>{c.title}</h3>
                     <p style={{ color: "#5a7a6a", fontSize: "0.87rem", lineHeight: 1.78, marginBottom: 22 }}>{c.excerpt}</p>
                     <Link href={`/courses/${c.slug.current}`} style={{ color: gold, fontSize: "0.8rem", fontFamily: I, fontWeight: 600, textDecoration: "none", letterSpacing: "0.04em" }}>Learn More →</Link>

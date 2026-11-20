@@ -56,7 +56,11 @@ export default async function CoursesPage() {
                   display: "flex", flexDirection: "column", justifyContent: "center",
                   order: i % 2 === 1 ? 1 : 2,
                 }}>
-                  <p style={{ color: gold, fontSize: "0.62rem", textTransform: "uppercase", letterSpacing: "0.2em", fontFamily: I, fontWeight: 600, marginBottom: 12, whiteSpace: "pre-line", lineHeight: 1.7 }}>{c.grade}</p>
+                  <div style={{ marginBottom: 12 }}>
+                    {(c.grade ?? "").split("\n").map((line: string, li: number) => (
+                      <p key={li} style={{ color: gold, fontSize: "0.62rem", textTransform: "uppercase", letterSpacing: "0.2em", fontFamily: I, fontWeight: 600, marginTop: li === 0 ? 0 : 8, lineHeight: 1.35 }}>{line}</p>
+                    ))}
+                  </div>
                   <h2 style={{ fontFamily: G, fontSize: "clamp(1.8rem, 2.8vw, 2.4rem)", fontWeight: 500, color: green, marginBottom: 16, lineHeight: 1.15 }}>{c.title}</h2>
                   <div style={{ width: 32, height: 2, background: gold, marginBottom: 20 }} />
                   <p style={{ color: "#5a7a6a", fontSize: "0.9rem", lineHeight: 1.82, marginBottom: 28 }}>{c.excerpt}</p>
@@ -88,7 +92,7 @@ export default async function CoursesPage() {
             </div>
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap", justifyContent: "flex-end" }}>
               <Link href="/apply" className="btn-gold">Apply Now</Link>
-              <Link href="/fees" className="btn-outline">View Fees</Link>
+              <Link href="/fees" className="btn-outline">View Tuition &amp; Fees</Link>
             </div>
           </div>
         </section>
