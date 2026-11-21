@@ -331,7 +331,7 @@ export default async function SingingPerformancePage() {
               <Link href="/apply" className="btn-gold">Apply for Singing Performance →</Link>
             </div>
             <div style={{ borderRadius: 4, overflow: "hidden", aspectRatio: "4/3" }}>
-              <img src="/gallery/singing-performance.jpg" alt="Singing performance"
+              <img src="/gallery/singing-cta-group.jpg" alt="Students at GRMSC"
                 style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top" }} />
             </div>
           </div>
