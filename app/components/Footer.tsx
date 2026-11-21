@@ -130,7 +130,7 @@ export default function Footer({ settings }: { settings?: Settings }) {
           </p>
           <div style={{ display: "flex", alignItems: "center", gap: 18, flexWrap: "wrap" }}>
             <Link href="/privacy-policy" style={{ color: "rgba(255,255,255,0.45)", fontSize: "0.75rem", fontFamily: "var(--font-inter)", textDecoration: "none" }}>Privacy Policy</Link>
-            <Link href="/privacy-policy" style={{ color: "rgba(255,255,255,0.45)", fontSize: "0.75rem", fontFamily: "var(--font-inter)", textDecoration: "none" }}>GRMSC Policies</Link>
+            <Link href="/policies" style={{ color: "rgba(255,255,255,0.45)", fontSize: "0.75rem", fontFamily: "var(--font-inter)", textDecoration: "none" }}>GRMSC Policies</Link>
             <Link href="/contact" style={{ color: "rgba(255,255,255,0.45)", fontSize: "0.75rem", fontFamily: "var(--font-inter)", textDecoration: "none" }}>Contact Us</Link>
             <p style={{ color: "rgba(255,255,255,0.2)", fontSize: "0.75rem", fontFamily: "var(--font-inter)", margin: 0 }}>{legal}</p>
           </div>
