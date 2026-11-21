@@ -56,9 +56,10 @@ const awardHrefByName: Record<string, string> = {
 export const revalidate = 60;
 
 export default async function SingingPerformancePage() {
-  const [settings, course] = await Promise.all([
+  const [settings, course, conorImage] = await Promise.all([
     getSiteSettings(),
     sanityClient.fetch(`*[_type == "course" && slug.current == "singing-performance"][0]{ glance, programme, ctaHeading, ctaSubtext, ctaTagline, "awards": awards[]{ name, desc, "logo": logo.asset->url } }`).catch(() => null),
+    sanityClient.fetch<string | null>(`*[_id == "tutor-conor"][0].image.asset->url`).catch(() => null),
   ]);
   const awards = course?.awards?.length ? course.awards : defaultAwards;
   const glance = course?.glance?.length ? course.glance : defaultGlance;
@@ -78,7 +79,7 @@ export default async function SingingPerformancePage() {
             <p style={{ color: gold, fontFamily: I, fontSize: "0.68rem", textTransform: "uppercase", letterSpacing: "0.22em", marginBottom: 16, fontWeight: 600 }}>Green Room Music Summer Camp</p>
             <h1 style={{ fontFamily: G, fontSize: "clamp(2.2rem, 4vw, 3.4rem)", fontWeight: 500, color: "#fff", lineHeight: 1.15, marginBottom: 20 }}>Singing Performance</h1>
             <div style={{ width: 44, height: 2, background: gold, marginBottom: 22 }} />
-            <p style={{ color: gold, fontFamily: G, fontSize: "clamp(1rem, 1.3vw, 1.2rem)", marginBottom: 22, fontStyle: "italic" }}>Musical Theatre · Classical · Jazz</p>
+            <p style={{ color: gold, fontFamily: G, fontSize: "clamp(1rem, 1.3vw, 1.2rem)", marginBottom: 22, fontStyle: "italic" }}>Musical Theatre · Classical · Jazz · Ages 10-17 · No Prior Singing Experience Required</p>
             <div style={{ background: "rgba(200,154,59,0.1)", borderLeft: `3px solid ${gold}`, padding: "12px 16px", borderRadius: 2, marginBottom: 22 }}>
               <p style={{ color: "rgba(255,255,255,0.85)", fontFamily: I, fontSize: "0.82rem", lineHeight: 1.65, margin: 0 }}>
                 <strong style={{ color: gold, letterSpacing: "0.05em" }}>PLEASE NOTE:</strong> A Singing Assessment Video (Audition) is required as part of the application process. No previous singing or performance experience is necessary.
@@ -152,9 +153,13 @@ export default async function SingingPerformancePage() {
               </p>
               {/* Conor card - clickable to Faculty page profile */}
               <Link href="/faculty#tutor-conor" style={{ display: "flex", alignItems: "center", gap: 14, background: "#fff", border: `1px solid rgba(200,154,59,0.2)`, padding: "16px 18px", borderRadius: 4, textDecoration: "none", transition: "all 0.2s ease" }}>
-                <div style={{ width: 52, height: 52, borderRadius: "50%", background: "rgba(200,154,59,0.12)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={gold} strokeWidth="1.8"><path d="M12 2a3 3 0 00-3 3v7a3 3 0 006 0V5a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2M12 19v4M8 23h8"/></svg>
-                </div>
+                {conorImage ? (
+                  <img src={conorImage} alt="Conor Mathers" style={{ width: 52, height: 52, borderRadius: "50%", objectFit: "cover", flexShrink: 0 }} />
+                ) : (
+                  <div style={{ width: 52, height: 52, borderRadius: "50%", background: "rgba(200,154,59,0.12)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={gold} strokeWidth="1.8"><path d="M12 2a3 3 0 00-3 3v7a3 3 0 006 0V5a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2M12 19v4M8 23h8"/></svg>
+                  </div>
+                )}
                 <div style={{ flex: 1 }}>
                   <div style={{ fontFamily: G, fontSize: "1.05rem", color: green, fontStyle: "italic", marginBottom: 2 }}>Conor Mathers</div>
                   <div style={{ fontFamily: I, fontSize: "0.6rem", textTransform: "uppercase", letterSpacing: "0.1em", color: gold, fontWeight: 700 }}>Course Director</div>
@@ -196,7 +201,7 @@ export default async function SingingPerformancePage() {
           <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 clamp(20px, 5vw, 72px)" }}>
             <div className="singing-image-pair" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(12px, 2vw, 20px)" }}>
               <div style={{ position: "relative", aspectRatio: "4/3", overflow: "hidden", borderRadius: 2 }}>
-                <img src="/gallery/241-Green_Room_Music_Concert_Summer_2025.jpg" alt="Concert performance" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
+                <img src="/gallery/singing-solo-performer.jpg" alt="Solo singer performing" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
               </div>
               <div style={{ position: "relative", aspectRatio: "4/3", overflow: "hidden", borderRadius: 2 }}>
                 <img src="/gallery/singing-performance.jpg" alt="Singing performance" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />

@@ -345,7 +345,7 @@ export default async function PianoCoursePage() {
               <Link href="/apply" className="btn-gold">Apply for the Piano Course →</Link>
             </div>
             <div style={{ borderRadius: 4, overflow: "hidden", aspectRatio: "4/3" }}>
-              <img src="/gallery/piano-hero-no-logo.jpg" alt="Piano performance"
+              <img src="/gallery/piano-cta-concert.jpg" alt="Grand piano in church"
                 style={{ width: "100%", height: "100%", objectFit: "cover" }} />
             </div>
           </div>

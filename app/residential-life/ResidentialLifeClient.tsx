@@ -108,7 +108,7 @@ export default function ResidentialLifeClient({ settings, galleryImages }: { set
           </div>
         </section>
 
-        <TwoCol heading={s1Heading} body={s1Body} image={image1} imageAlt="Students together outside the classroom" imageRight />
+        <TwoCol heading={s1Heading} body={s1Body} image={image1} imageAlt="Students together outside the classroom" imageRight narrow />
 
         {/* ── S2: TWO TEXT COLUMNS ── */}
         <section style={{ background: cream, padding: "clamp(12px, 3vw, 24px) 0 clamp(40px, 6vw, 72px)" }}>
@@ -133,7 +133,7 @@ export default function ResidentialLifeClient({ settings, galleryImages }: { set
           </div>
         </section>
 
-        <TwoCol heading={s3Heading} body={s3Body} image={image2} imageAlt="Outdoor activities" imageRight />
+        <TwoCol heading={s3Heading} body={s3Body} image={image2} imageAlt="Outdoor activities" imageRight narrow />
 
         {/* ── S4: WELCOME TO STAMFORD ── */}
         <section style={{ background: cream, padding: "clamp(40px, 6vw, 72px) 0" }}>
@@ -149,7 +149,7 @@ export default function ResidentialLifeClient({ settings, galleryImages }: { set
           </div>
         </section>
 
-        <TwoCol heading={s5Heading} body={s5Body} image={image3} imageAlt="Stamford School grounds" imageRight />
+        <TwoCol heading={s5Heading} body={s5Body} image={image3} imageAlt="Stamford School grounds" imageRight narrow />
 
         {/* ── BOARDING FACILITIES AT STAMFORD SCHOOL ── */}
         <section style={{ background: "#fff", padding: "clamp(48px, 6vw, 88px) 0" }}>
@@ -254,7 +254,7 @@ export default function ResidentialLifeClient({ settings, galleryImages }: { set
   );
 }
 
-function TwoCol({ heading, body, image, imageAlt, imageRight }: { heading: string; body: string; image: string; imageAlt: string; imageRight?: boolean }) {
+function TwoCol({ heading, body, image, imageAlt, imageRight, narrow }: { heading: string; body: string; image: string; imageAlt: string; imageRight?: boolean; narrow?: boolean }) {
   return (
     <section style={{ background: cream, padding: "clamp(40px, 6vw, 72px) 0" }}>
       <div className="rl-two-col" style={{ maxWidth: 1200, margin: "0 auto", padding: "0 clamp(20px, 4vw, 56px)", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(32px, 5vw, 72px)", alignItems: "center" }}>
@@ -262,8 +262,10 @@ function TwoCol({ heading, body, image, imageAlt, imageRight }: { heading: strin
           <h2 style={{ fontFamily: G, fontSize: "clamp(1.9rem, 3vw, 2.6rem)", color: green, fontWeight: 500, marginBottom: 20, lineHeight: 1.15 }}>{heading}</h2>
           <p style={{ color: "#3d5c51", fontFamily: I, fontSize: "clamp(0.92rem, 1vw, 1rem)", lineHeight: 1.85 }}>{body}</p>
         </div>
-        <div style={{ order: imageRight ? 2 : 1, position: "relative", aspectRatio: "4/3", overflow: "hidden", borderRadius: 2 }}>
-          <img src={image} alt={imageAlt} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
+        <div style={{ order: imageRight ? 2 : 1, display: "flex", justifyContent: narrow ? (imageRight ? "flex-start" : "flex-end") : "stretch" }}>
+          <div style={{ position: "relative", aspectRatio: "4/3", overflow: "hidden", borderRadius: 2, width: "100%", maxWidth: narrow ? 440 : "none" }}>
+            <img src={image} alt={imageAlt} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
+          </div>
         </div>
       </div>
     </section>

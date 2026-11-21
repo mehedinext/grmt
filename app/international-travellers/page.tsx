@@ -127,8 +127,8 @@ export default async function InternationalTravellersPage() {
             <img src={quoteImage} alt="Students at Stamford" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
           </div>
           <div style={{ background: green, padding: "clamp(40px, 6vw, 72px) clamp(28px, 5vw, 60px)", display: "flex", flexDirection: "column", justifyContent: "center" }}>
-            <div style={{ color: gold, fontFamily: G, fontSize: "3rem", lineHeight: 1, marginBottom: 14 }}>“</div>
-            <p style={{ fontFamily: G, fontStyle: "italic", fontSize: "clamp(1.2rem, 1.8vw, 1.5rem)", color: "#fff", lineHeight: 1.45, marginBottom: 20 }}>{quoteText}</p>
+            <div style={{ color: gold, fontFamily: G, fontSize: "3rem", lineHeight: 0.8, marginBottom: -6 }}>“</div>
+            <p style={{ fontFamily: G, fontStyle: "italic", fontSize: "clamp(1.2rem, 1.8vw, 1.5rem)", color: "#fff", lineHeight: 1.45, marginBottom: 20, marginTop: 0 }}>{quoteText}</p>
             <div style={{ width: 44, height: 2, background: gold, marginBottom: quoteAuthor ? 16 : 0 }} />
             {quoteAuthor && (
               <p style={{ fontFamily: I, fontSize: "0.82rem", letterSpacing: "0.12em", textTransform: "uppercase", color: gold, fontWeight: 600 }}>{quoteAuthor}</p>
