@@ -159,7 +159,7 @@ export default function HomeClient({ faqs, partnerLogos, courses: allCourses, se
         <div className="hero-wrap" style={{ position: "relative", height: "calc(100svh - 68px)", minHeight: 600, overflow: "hidden" }}>
 
           {/* ══ SLIDE 1: Main GRMSC - full-bleed photo + left green gradient overlay ══ */}
-          <section style={{
+          <section className="hero-slide-1" style={{
             position: "absolute", inset: 0,
             opacity: heroSlide === 0 ? 1 : 0, transition: "opacity 0.8s ease",
             zIndex: heroSlide === 0 ? 1 : 0, pointerEvents: heroSlide === 0 ? "auto" : "none",

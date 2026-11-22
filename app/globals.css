@@ -264,6 +264,23 @@ body {
     height: auto !important;
     min-height: 860px !important;
   }
+  /* Slide 1: move content up from bottom + shrink Steinway badge so heading + CTAs are visible */
+  .hero-slide-1 > div {
+    justify-content: center !important;
+  }
+  .hero-slide-1 > div > div {
+    padding-bottom: 32px !important;
+    padding-top: 24px !important;
+  }
+  .hero-slide-1 img[alt="Steinway Educational Partner"] {
+    height: 72px !important;
+    margin-bottom: 14px !important;
+  }
+  .hero-slide-1 h1 {
+    font-size: clamp(2rem, 7vw, 2.8rem) !important;
+    line-height: 1.08 !important;
+    margin-bottom: 14px !important;
+  }
   .hero-new-section {
     flex-direction: column !important;
     min-height: 100% !important;
