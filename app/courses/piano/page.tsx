@@ -83,7 +83,7 @@ export default async function PianoCoursePage() {
         <section className="piano-hero" style={{ background: green, display: "grid", gridTemplateColumns: "1fr 1fr", height: "calc(100vh - 68px)", minHeight: 580, maxHeight: 900 }}>
           <div style={{ padding: "clamp(40px, 5vw, 72px) clamp(24px, 5vw, 56px)", display: "flex", flexDirection: "column", justifyContent: "center", maxWidth: 680, overflow: "auto" }}>
             <p style={{ color: gold, fontFamily: I, fontSize: "0.68rem", textTransform: "uppercase", letterSpacing: "0.22em", marginBottom: 16, fontWeight: 600 }}>Green Room Music Summer Camp</p>
-            <h1 style={{ fontFamily: G, fontSize: "clamp(2.2rem, 4vw, 3.4rem)", fontWeight: 500, color: "#fff", lineHeight: 1.15, marginBottom: 20 }}>Piano Course</h1>
+            <h1 style={{ fontFamily: G, fontSize: "clamp(2.2rem, 4vw, 3.4rem)", fontWeight: 500, color: "#fff", lineHeight: 1.15, marginBottom: 20 }}>Piano</h1>
             <div style={{ width: 44, height: 2, background: gold, marginBottom: 22 }} />
             <p style={{ color: gold, fontFamily: G, fontSize: "clamp(1rem, 1.3vw, 1.2rem)", marginBottom: 22, fontStyle: "italic" }}>Intermediate &amp; Advanced Pianists · Ages 10-17 · Minimum Playing Standard: ABRSM Grade 5 Equivalent</p>
             <div style={{ background: "rgba(200,154,59,0.1)", borderLeft: `3px solid ${gold}`, padding: "12px 16px", borderRadius: 2, marginBottom: 22 }}>

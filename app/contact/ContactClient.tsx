@@ -101,8 +101,8 @@ export default function ContactClient({ settings }: { settings?: Settings }) {
                     <option>Music Theory Course</option>
                     <option>Singing Performance Course</option>
                     <option>International Travellers</option>
-                    <option>Tuition and Fees</option>
-                    <option>Audition Process</option>
+                    <option>Tuition, Fees and Payment Plans</option>
+                    <option>Audition Process (Piano &amp; Singing Performance)</option>
                     <option>Other</option>
                   </select>
                 </div>

@@ -120,7 +120,7 @@ export default async function MusicTheoryPage() {
             </div>
           </div>
           <div style={{ position: "relative", overflow: "hidden" }}>
-            <img src="/gallery/020-GreenRoomMusicTheorySummer2025.jpg" alt="Music Theory class in session"
+            <img src="/gallery/music-theory-hero.jpg" alt="Music Theory class in session"
               style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
           </div>
         </section>
@@ -171,7 +171,7 @@ export default async function MusicTheoryPage() {
                 With a <strong style={{ color: green }}>100% pass rate</strong> and <strong style={{ color: green }}>90% Distinction rate</strong>, our proven approach combines expert teaching, practical exercises and thorough exam preparation to give students the knowledge, skills and confidence to succeed in their ABRSM Music Theory examinations.
               </p>
               <div style={{ borderRadius: 4, overflow: "hidden", aspectRatio: "4/3" }}>
-                <img src="/gallery/037-GreenRoomMusicTheorySummer2025.jpg" alt="Student studying music theory"
+                <img src="/gallery/music-theory-engaged-students.jpg" alt="Music theory students writing exercises"
                   style={{ width: "100%", height: "100%", objectFit: "cover" }} />
               </div>
             </div>
@@ -381,7 +381,7 @@ export default async function MusicTheoryPage() {
               <Link href="/apply" className="btn-gold">Apply for Music Theory →</Link>
             </div>
             <div style={{ borderRadius: 4, overflow: "hidden", aspectRatio: "4/3" }}>
-              <img src="/gallery/036-GreenRoomMusicTheorySummer2025.jpg" alt="Music theory student"
+              <img src="/gallery/music-theory-cta.jpg" alt="Music theory students working together"
                 style={{ width: "100%", height: "100%", objectFit: "cover" }} />
             </div>
           </div>

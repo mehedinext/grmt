@@ -156,7 +156,7 @@ export default function HomeClient({ faqs, partnerLogos, courses: allCourses, se
       <main style={{ paddingTop: 68 }}>
 
         {/* ─── HERO WRAPPER - fixed height so all 3 slides are identical size (prevents CLS) ─── */}
-        <div style={{ position: "relative", height: "calc(100svh - 68px)", minHeight: 600, overflow: "hidden" }}>
+        <div className="hero-wrap" style={{ position: "relative", height: "calc(100svh - 68px)", minHeight: 600, overflow: "hidden" }}>
 
           {/* ══ SLIDE 1: Main GRMSC - full-bleed photo + left green gradient overlay ══ */}
           <section style={{
@@ -345,9 +345,12 @@ export default function HomeClient({ faqs, partnerLogos, courses: allCourses, se
                     <img src={urlFor(c.image)} alt={c.title} className="course-img" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: c.imagePosition, display: "block", transition: "transform 0.55s ease" }} />
                   </div>
                   <div style={{ padding: "28px 32px 32px" }}>
-                    <div style={{ marginBottom: 10 }}>
-                      {(c.grade ?? "").split("\n").map((line: string, li: number) => (
-                        <p key={li} style={{ color: gold, fontSize: "0.6rem", textTransform: "uppercase", letterSpacing: "0.18em", fontFamily: I, fontWeight: 600, marginTop: li === 0 ? 0 : 8, lineHeight: 1.35 }}>{line}</p>
+                    <div style={{ marginBottom: 14 }}>
+                      {(c.grade ?? "").split("\n").filter(Boolean).map((line: string, li: number, arr: string[]) => (
+                        <div key={li}>
+                          {li > 0 && <div style={{ height: 1, background: "rgba(200,154,59,0.35)", margin: "8px 0", width: 28 }} />}
+                          <p style={{ color: gold, fontSize: "0.6rem", textTransform: "uppercase", letterSpacing: "0.18em", fontFamily: I, fontWeight: li === 0 ? 700 : 500, lineHeight: 1.35, opacity: li === 0 ? 1 : 0.82 }}>{line}</p>
+                        </div>
                       ))}
                     </div>
                     <h3 style={{ fontFamily: G, fontSize: "1.45rem", fontWeight: 500, color: green, marginBottom: 12 }}>{c.title}</h3>

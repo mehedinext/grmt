@@ -260,9 +260,13 @@ body {
 }
 
 @media (max-width: 767px) {
+  .hero-wrap {
+    height: auto !important;
+    min-height: 860px !important;
+  }
   .hero-new-section {
     flex-direction: column !important;
-    min-height: 100svh !important;
+    min-height: 100% !important;
   }
   .hero-left-panel {
     flex: none !important;

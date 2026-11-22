@@ -12,8 +12,8 @@ export const revalidate = 60;
 
 const policies = [
   { title: "Safeguarding & Child Protection Policy", file: "/policies/safeguarding-and-child-protection-policy.pdf" },
-  { title: "Anti-Bullying Policy", file: "/policies/anti-bullying-policy.pdf" },
   { title: "Health & Safety Policy", file: "/policies/health-and-safety-policy.pdf" },
+  { title: "Anti-Bullying Policy", file: "/policies/anti-bullying-policy.pdf" },
   { title: "Complaints Policy", file: "/policies/complaints-policy.pdf" },
   { title: "Equal Opportunities Policy", file: "/policies/equal-opportunities-policy.pdf" },
   { title: "Special Educational Needs, Disabilities & Reasonable Adjustments Policy", file: "/policies/send-and-reasonable-adjustments-policy.pdf" },

@@ -56,9 +56,12 @@ export default async function CoursesPage() {
                   display: "flex", flexDirection: "column", justifyContent: "center",
                   order: i % 2 === 1 ? 1 : 2,
                 }}>
-                  <div style={{ marginBottom: 12 }}>
-                    {(c.grade ?? "").split("\n").map((line: string, li: number) => (
-                      <p key={li} style={{ color: gold, fontSize: "0.62rem", textTransform: "uppercase", letterSpacing: "0.2em", fontFamily: I, fontWeight: 600, marginTop: li === 0 ? 0 : 8, lineHeight: 1.35 }}>{line}</p>
+                  <div style={{ marginBottom: 14 }}>
+                    {(c.grade ?? "").split("\n").filter(Boolean).map((line: string, li: number) => (
+                      <div key={li}>
+                        {li > 0 && <div style={{ height: 1, background: "rgba(200,154,59,0.35)", margin: "8px 0", width: 32 }} />}
+                        <p style={{ color: gold, fontSize: "0.62rem", textTransform: "uppercase", letterSpacing: "0.2em", fontFamily: I, fontWeight: li === 0 ? 700 : 500, lineHeight: 1.35, opacity: li === 0 ? 1 : 0.82 }}>{line}</p>
+                      </div>
                     ))}
                   </div>
                   <h2 style={{ fontFamily: G, fontSize: "clamp(1.8rem, 2.8vw, 2.4rem)", fontWeight: 500, color: green, marginBottom: 16, lineHeight: 1.15 }}>{c.title}</h2>
