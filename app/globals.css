@@ -266,16 +266,16 @@ body {
 }
 @media (max-width: 767px) {
   .hero-wrap {
-    height: auto !important;
-    min-height: 860px !important;
+    height: calc(100svh - 68px) !important;
+    min-height: 620px !important;
   }
-  /* Slide 1 mobile: center-ish positioning with richer badge, all content in-viewport */
+  /* Slide 1 mobile: pin content to the bottom of viewport so no dead image space below CTAs */
   .hero-slide-1 > div {
-    justify-content: center !important;
+    justify-content: flex-end !important;
   }
   .hero-slide-1 > div > div {
-    padding-bottom: 40px !important;
-    padding-top: 40px !important;
+    padding-bottom: 28px !important;
+    padding-top: 0 !important;
   }
   .hero-slide-1 img[alt="Steinway Educational Partner"] {
     height: 120px !important;
@@ -285,6 +285,21 @@ body {
     font-size: clamp(2.1rem, 7.2vw, 2.9rem) !important;
     line-height: 1.08 !important;
     margin-bottom: 14px !important;
+  }
+  /* Slide 2 mobile: tighten content so everything fits viewport */
+  .hero-new-section .hero-right-panel {
+    max-height: 200px !important;
+  }
+  .hero-new-section .hero-left-panel {
+    padding: 24px 20px 28px !important;
+  }
+  .hero-new-section h1 {
+    font-size: clamp(1.9rem, 7vw, 2.4rem) !important;
+    line-height: 1.04 !important;
+    margin-bottom: 14px !important;
+  }
+  .hero-new-section .hero-left-panel > div:first-child {
+    margin-bottom: 18px !important;
   }
   .hero-new-section {
     flex-direction: column !important;
