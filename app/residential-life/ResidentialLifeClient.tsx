@@ -203,7 +203,7 @@ export default function ResidentialLifeClient({ settings, galleryImages }: { set
             <h2 style={{ fontFamily: G, fontSize: "clamp(1.9rem, 3vw, 2.6rem)", color: green, fontWeight: 500, marginBottom: 14 }}>{weekHeading}</h2>
             <p style={{ color: "#3d5c51", fontFamily: I, fontSize: "clamp(0.92rem, 1vw, 1rem)", lineHeight: 1.75, marginBottom: 48, maxWidth: 640, marginLeft: "auto", marginRight: "auto" }}>{weekSubtext}</p>
             <div className="rl-week" style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: "clamp(8px, 1.5vw, 20px)", position: "relative" }}>
-              <div style={{ position: "absolute", top: 16, left: "10%", right: "10%", height: 1, background: gold, opacity: 0.5, zIndex: 0 }} />
+              <div className="rl-week-line" style={{ position: "absolute", top: 16, left: "10%", right: "10%", height: 1, background: gold, opacity: 0.5, zIndex: 0 }} />
               {week.map((d: any, i: number) => (
                 <div key={i} style={{ position: "relative", zIndex: 1, textAlign: "center" }}>
                   <div style={{ width: 16, height: 16, borderRadius: "50%", border: `1.5px solid ${gold}`, background: cream, margin: "0 auto 16px" }} />
@@ -224,7 +224,7 @@ export default function ResidentialLifeClient({ settings, galleryImages }: { set
             <h2 style={{ fontFamily: G, fontSize: "clamp(2rem, 3.4vw, 2.8rem)", color: "#fff", fontWeight: 500, marginBottom: 14 }}>{joinHeading}</h2>
             <p style={{ color: gold, fontFamily: I, fontSize: "0.82rem", textTransform: "uppercase", letterSpacing: "0.22em", fontWeight: 600, marginBottom: 32 }}>{joinMeta}</p>
             <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
-              <Link href="/apply" className="btn-gold">Apply Now</Link>
+              <Link href="https://docs.google.com/forms/d/e/1FAIpQLScMZ4lqBWovMnSUA0X7bh6HZOnb0bWPjQzsqVlHLZfx6IYh2Q/viewform" target="_blank" rel="noopener noreferrer" className="btn-gold">Apply Now</Link>
             </div>
           </div>
         </section>
@@ -242,7 +242,8 @@ export default function ResidentialLifeClient({ settings, galleryImages }: { set
           .rl-two-col { grid-template-columns: 1fr !important; }
           .rl-stats-grid { grid-template-columns: repeat(2, 1fr) !important; row-gap: 32px !important; }
           .rl-week { grid-template-columns: 1fr !important; }
-          .rl-week > div { display: grid; grid-template-columns: 90px 1fr; gap: 14px; align-items: start; text-align: left !important; padding-left: 8px; }
+          .rl-week-line { display: none !important; }
+          .rl-week > div:not(.rl-week-line) { display: grid; grid-template-columns: 90px 1fr; gap: 14px; align-items: start; text-align: left !important; padding-left: 8px; }
           .rl-week > div > div:first-child { grid-row: 1 / span 3; margin: 6px 0 0 !important; }
           .rl-gallery-grid { grid-template-columns: repeat(2, 1fr) !important; }
         }

@@ -95,7 +95,7 @@ export default async function SingingPerformancePage() {
               Across five immersive days, students explore Musical Theatre, Classical and Jazz performance, developing the skills needed to become more confident, expressive and well-rounded young performers.
             </p>
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-              <Link href="/apply" className="btn-gold">Apply for Singing Performance</Link>
+              <Link href="https://docs.google.com/forms/d/e/1FAIpQLScMZ4lqBWovMnSUA0X7bh6HZOnb0bWPjQzsqVlHLZfx6IYh2Q/viewform" target="_blank" rel="noopener noreferrer" className="btn-gold">Apply for Singing Performance</Link>
               <Link href="/residential-life" className="btn-outline-white">Explore Residential Life</Link>
             </div>
           </div>
@@ -328,7 +328,7 @@ export default async function SingingPerformancePage() {
               <p style={{ color: gold, fontFamily: G, fontSize: "1.05rem", fontStyle: "italic", marginBottom: 32 }}>
                 {ctaTagline}
               </p>
-              <Link href="/apply" className="btn-gold">Apply for Singing Performance →</Link>
+              <Link href="https://docs.google.com/forms/d/e/1FAIpQLScMZ4lqBWovMnSUA0X7bh6HZOnb0bWPjQzsqVlHLZfx6IYh2Q/viewform" target="_blank" rel="noopener noreferrer" className="btn-gold">Apply for Singing Performance →</Link>
             </div>
             <div style={{ borderRadius: 4, overflow: "hidden", aspectRatio: "4/3" }}>
               <img src="/gallery/singing-cta-group.jpg" alt="Students at GRMSC"

@@ -10,7 +10,7 @@ const slides = [
     heading: "A residential music\nsummer course\nfor ages 10-17",
     sub: "19-23 July 2027 · Stamford School",
     cta: "Apply Now",
-    href: "/apply",
+    href: "https://docs.google.com/forms/d/e/1FAIpQLScMZ4lqBWovMnSUA0X7bh6HZOnb0bWPjQzsqVlHLZfx6IYh2Q/viewform",
     bg: "https://greenroomtheory.com/wp-content/uploads/2025/09/106-GreenRoomMusicTheorySummer2025-scaled.jpg",
   },
   {

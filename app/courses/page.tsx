@@ -37,10 +37,10 @@ export default async function CoursesPage() {
         <section style={{ background: cream, padding: "clamp(56px, 8vw, 96px) 0" }}>
           <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 clamp(16px, 3vw, 40px)", display: "flex", flexDirection: "column", gap: 4 }}>
             {courses.map((c, i) => (
-              <div key={c.title} style={{ background: "#fff", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", overflow: "hidden" }}>
+              <div key={c.title} className="course-row" style={{ background: "#fff", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", overflow: "hidden" }}>
 
                 {/* Photo side */}
-                <div style={{
+                <div className="course-row-photo" style={{
                   position: "relative", minHeight: 360, overflow: "hidden",
                   order: i % 2 === 1 ? 2 : 1,
                 }}>
@@ -51,7 +51,7 @@ export default async function CoursesPage() {
                 </div>
 
                 {/* Text side */}
-                <div style={{
+                <div className="course-row-text" style={{
                   padding: "48px clamp(28px, 4vw, 56px)",
                   display: "flex", flexDirection: "column", justifyContent: "center",
                   order: i % 2 === 1 ? 1 : 2,
@@ -94,7 +94,7 @@ export default async function CoursesPage() {
               <p style={{ color: "#5a7a6a", fontSize: "0.9rem", lineHeight: 1.8, fontFamily: I }}>{settings?.coursesPageCtaSubtext ?? "Applications for Summer 2027 open soon. Register your interest now to be first in line."}</p>
             </div>
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap", justifyContent: "flex-end" }}>
-              <Link href="/apply" className="btn-gold">Apply Now</Link>
+              <Link href="https://docs.google.com/forms/d/e/1FAIpQLScMZ4lqBWovMnSUA0X7bh6HZOnb0bWPjQzsqVlHLZfx6IYh2Q/viewform" target="_blank" rel="noopener noreferrer" className="btn-gold">Apply Now</Link>
               <Link href="/fees" className="btn-outline">View Tuition &amp; Fees</Link>
             </div>
           </div>

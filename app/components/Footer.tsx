@@ -33,7 +33,7 @@ const defaultColumns: FooterColumn[] = [
       { href: "/faqs", label: "FAQs" },
       { href: "/residential-life", label: "Residential Life" },
       { href: "/fees", label: "Fees" },
-      { href: "/apply", label: "Apply Now" },
+      { href: "https://docs.google.com/forms/d/e/1FAIpQLScMZ4lqBWovMnSUA0X7bh6HZOnb0bWPjQzsqVlHLZfx6IYh2Q/viewform", label: "Apply Now" },
     ],
   },
 ];
@@ -106,10 +106,17 @@ export default function Footer({ settings }: { settings?: Settings }) {
               <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 10 }}>
                 {col.links?.map((l) => (
                   <li key={l.href + l.label}>
-                    <Link href={l.href} style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.85rem", textDecoration: "none", transition: "color 0.2s", fontFamily: "var(--font-inter)" }}
-                      onMouseEnter={e => (e.currentTarget.style.color = "#fff")}
-                      onMouseLeave={e => (e.currentTarget.style.color = "rgba(255,255,255,0.5)")}
-                    >{l.label}</Link>
+                    {l.href.startsWith("http") ? (
+                      <a href={l.href} target="_blank" rel="noopener noreferrer" style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.85rem", textDecoration: "none", transition: "color 0.2s", fontFamily: "var(--font-inter)" }}
+                        onMouseEnter={e => (e.currentTarget.style.color = "#fff")}
+                        onMouseLeave={e => (e.currentTarget.style.color = "rgba(255,255,255,0.5)")}
+                      >{l.label}</a>
+                    ) : (
+                      <Link href={l.href} style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.85rem", textDecoration: "none", transition: "color 0.2s", fontFamily: "var(--font-inter)" }}
+                        onMouseEnter={e => (e.currentTarget.style.color = "#fff")}
+                        onMouseLeave={e => (e.currentTarget.style.color = "rgba(255,255,255,0.5)")}
+                      >{l.label}</Link>
+                    )}
                   </li>
                 ))}
               </ul>

@@ -260,24 +260,29 @@ body {
 }
 
 @media (max-width: 767px) {
+  /* /courses: always image above text on mobile */
+  .course-row-photo { order: 1 !important; }
+  .course-row-text { order: 2 !important; }
+}
+@media (max-width: 767px) {
   .hero-wrap {
     height: auto !important;
     min-height: 860px !important;
   }
-  /* Slide 1: move content up from bottom + shrink Steinway badge so heading + CTAs are visible */
+  /* Slide 1 mobile: center-ish positioning with richer badge, all content in-viewport */
   .hero-slide-1 > div {
     justify-content: center !important;
   }
   .hero-slide-1 > div > div {
-    padding-bottom: 32px !important;
-    padding-top: 24px !important;
+    padding-bottom: 40px !important;
+    padding-top: 40px !important;
   }
   .hero-slide-1 img[alt="Steinway Educational Partner"] {
-    height: 72px !important;
+    height: 120px !important;
     margin-bottom: 14px !important;
   }
   .hero-slide-1 h1 {
-    font-size: clamp(2rem, 7vw, 2.8rem) !important;
+    font-size: clamp(2.1rem, 7.2vw, 2.9rem) !important;
     line-height: 1.08 !important;
     margin-bottom: 14px !important;
   }

@@ -126,7 +126,7 @@ export default async function FeesPage() {
                         ))}
                       </ul>
                       <div style={{ marginTop: "auto", paddingTop: 6 }}>
-                        <Link href="/apply" style={{
+                        <Link href="https://docs.google.com/forms/d/e/1FAIpQLScMZ4lqBWovMnSUA0X7bh6HZOnb0bWPjQzsqVlHLZfx6IYh2Q/viewform" target="_blank" rel="noopener noreferrer" style={{
                           display: "block", textAlign: "center",
                           background: gold, color: "#fff",
                           padding: "12px 20px",

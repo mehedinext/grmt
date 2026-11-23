@@ -30,7 +30,7 @@ export default function Navbar({ settings }: { settings?: Settings }) {
   const pathname = usePathname();
 
   const ctaLabel  = settings?.navCtaLabel    ?? "Apply Now";
-  const ctaHref   = settings?.navCtaHref     ?? "/apply";
+  const ctaHref   = settings?.navCtaHref     ?? "https://docs.google.com/forms/d/e/1FAIpQLScMZ4lqBWovMnSUA0X7bh6HZOnb0bWPjQzsqVlHLZfx6IYh2Q/viewform";
   const navLinks  = settings?.navItems?.length ? settings.navItems : defaultNavLinks;
 
   useEffect(() => {
@@ -67,7 +67,7 @@ export default function Navbar({ settings }: { settings?: Settings }) {
               {l.label}
             </Link>
           ))}
-          <Link href={ctaHref} style={{
+          <a href={ctaHref} target="_blank" rel="noopener noreferrer" style={{
             border: "1px solid rgba(255,255,255,0.45)",
             color: "#fff", fontSize: "0.75rem",
             padding: "8px 20px", textDecoration: "none",
@@ -78,7 +78,7 @@ export default function Navbar({ settings }: { settings?: Settings }) {
             onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.45)"; (e.currentTarget as HTMLElement).style.color = "#fff"; }}
           >
             {ctaLabel}
-          </Link>
+          </a>
         </div>
 
         {/* Mobile toggle */}
@@ -114,12 +114,12 @@ export default function Navbar({ settings }: { settings?: Settings }) {
                 {l.label}
               </Link>
             ))}
-            <Link href={ctaHref} className="btn-gold"
+            <a href={ctaHref} target="_blank" rel="noopener noreferrer" className="btn-gold"
               style={{ textAlign: "center", marginTop: 20, display: "block" }}
               onClick={() => setMobileOpen(false)}
             >
               {ctaLabel}
-            </Link>
+            </a>
           </div>
         </div>
       )}

@@ -95,7 +95,7 @@ export default async function PianoCoursePage() {
               Designed for intermediate and advanced young pianists, the Green Room Music Summer Camp Piano Course combines high-level musical training with performance, creativity and the energy of an international residential summer camp. The week culminates in the GRMSC Final Performance Celebration, bringing together students from both the Piano and Vocal Departments.
             </p>
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginBottom: 32 }}>
-              <Link href="/apply" className="btn-gold">Apply for the Piano Course</Link>
+              <Link href="https://docs.google.com/forms/d/e/1FAIpQLScMZ4lqBWovMnSUA0X7bh6HZOnb0bWPjQzsqVlHLZfx6IYh2Q/viewform" target="_blank" rel="noopener noreferrer" className="btn-gold">Apply for the Piano Course</Link>
               <Link href="/residential-life" className="btn-outline-white">Explore Residential Life</Link>
             </div>
             {/* Minimum standard card (inline, cleaner) */}
@@ -342,7 +342,7 @@ export default async function PianoCoursePage() {
               <p style={{ color: gold, fontFamily: G, fontSize: "1.05rem", fontStyle: "italic", marginBottom: 32 }}>
                 {ctaTagline}
               </p>
-              <Link href="/apply" className="btn-gold">Apply for the Piano Course →</Link>
+              <Link href="https://docs.google.com/forms/d/e/1FAIpQLScMZ4lqBWovMnSUA0X7bh6HZOnb0bWPjQzsqVlHLZfx6IYh2Q/viewform" target="_blank" rel="noopener noreferrer" className="btn-gold">Apply for the Piano Course →</Link>
             </div>
             <div style={{ borderRadius: 4, overflow: "hidden", aspectRatio: "4/3" }}>
               <img src="/gallery/piano-cta-concert.jpg" alt="Grand piano in church"

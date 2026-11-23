@@ -177,8 +177,8 @@ export default async function InternationalTravellersPage() {
             <div style={{ width: 44, height: 2, background: gold, margin: "0 auto 22px" }} />
             <p style={{ color: "rgba(255,255,255,0.75)", fontFamily: I, fontSize: "clamp(0.95rem, 1.1vw, 1.05rem)", lineHeight: 1.75, marginBottom: 36 }}>{joinBody}</p>
             <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
-              <Link href="/apply" className="btn-gold">Contact GRMSC →</Link>
-              <Link href="/apply" className="btn-outline-white">Apply Now →</Link>
+              <Link href="https://docs.google.com/forms/d/e/1FAIpQLScMZ4lqBWovMnSUA0X7bh6HZOnb0bWPjQzsqVlHLZfx6IYh2Q/viewform" target="_blank" rel="noopener noreferrer" className="btn-gold">Contact GRMSC →</Link>
+              <Link href="https://docs.google.com/forms/d/e/1FAIpQLScMZ4lqBWovMnSUA0X7bh6HZOnb0bWPjQzsqVlHLZfx6IYh2Q/viewform" target="_blank" rel="noopener noreferrer" className="btn-outline-white">Apply Now →</Link>
             </div>
           </div>
         </section>

@@ -115,7 +115,7 @@ export default async function MusicTheoryPage() {
               From zero to Grade 5 - in one immersive week.
             </p>
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-              <Link href="/apply" className="btn-gold">Apply for Music Theory</Link>
+              <Link href="https://docs.google.com/forms/d/e/1FAIpQLScMZ4lqBWovMnSUA0X7bh6HZOnb0bWPjQzsqVlHLZfx6IYh2Q/viewform" target="_blank" rel="noopener noreferrer" className="btn-gold">Apply for Music Theory</Link>
               <Link href="/residential-life" className="btn-outline-white">Explore Residential Life</Link>
             </div>
           </div>
@@ -378,7 +378,7 @@ export default async function MusicTheoryPage() {
               <p style={{ color: gold, fontFamily: G, fontSize: "1.05rem", fontStyle: "italic", marginBottom: 32 }}>
                 {ctaTagline}
               </p>
-              <Link href="/apply" className="btn-gold">Apply for Music Theory →</Link>
+              <Link href="https://docs.google.com/forms/d/e/1FAIpQLScMZ4lqBWovMnSUA0X7bh6HZOnb0bWPjQzsqVlHLZfx6IYh2Q/viewform" target="_blank" rel="noopener noreferrer" className="btn-gold">Apply for Music Theory →</Link>
             </div>
             <div style={{ borderRadius: 4, overflow: "hidden", aspectRatio: "4/3" }}>
               <img src="/gallery/music-theory-cta.jpg" alt="Music theory students working together"

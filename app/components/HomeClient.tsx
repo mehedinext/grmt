@@ -186,7 +186,7 @@ export default function HomeClient({ faqs, partnerLogos, courses: allCourses, se
                   </p>
                   <div className="hero-cta-btns" style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
                     <Link href={settings?.heroCta1Href ?? "/courses"} className="hero-btn btn-gold">{settings?.heroCta1Label ?? "Explore Courses"}</Link>
-                    <Link href={settings?.heroCta2Href ?? "/apply"} className="hero-btn btn-outline-white">{settings?.heroCta2Label ?? "Apply Now"}</Link>
+                    <Link href={settings?.heroCta2Href ?? "https://docs.google.com/forms/d/e/1FAIpQLScMZ4lqBWovMnSUA0X7bh6HZOnb0bWPjQzsqVlHLZfx6IYh2Q/viewform"} className="hero-btn btn-outline-white">{settings?.heroCta2Label ?? "Apply Now"}</Link>
                   </div>
                 </div>
               </div>
@@ -227,7 +227,7 @@ export default function HomeClient({ faqs, partnerLogos, courses: allCourses, se
               {/* Pill button */}
               <div className="hero-cta-btns" style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
                 <Link href={settings?.heroSlide2Cta1Href ?? "/courses/music-theory"} className="hero-btn" style={{ border: `1.5px solid ${gold}`, color: gold, padding: "13px 30px", borderRadius: 999, fontSize: "0.78rem", fontFamily: I, fontWeight: 600, textDecoration: "none", letterSpacing: "0.07em", textTransform: "uppercase", display: "inline-block" }}>{settings?.heroSlide2Cta1Label ?? "Learn More"}</Link>
-                <Link href={settings?.heroSlide2Cta2Href ?? "/apply"} className="hero-btn btn-outline-white">{settings?.heroSlide2Cta2Label ?? "Apply Now"}</Link>
+                <Link href={settings?.heroSlide2Cta2Href ?? "https://docs.google.com/forms/d/e/1FAIpQLScMZ4lqBWovMnSUA0X7bh6HZOnb0bWPjQzsqVlHLZfx6IYh2Q/viewform"} className="hero-btn btn-outline-white">{settings?.heroSlide2Cta2Label ?? "Apply Now"}</Link>
               </div>
             </div>
             <div className="hero-right-panel" style={{ flex: 1, position: "relative", overflow: "hidden" }}>
@@ -590,7 +590,7 @@ export default function HomeClient({ faqs, partnerLogos, courses: allCourses, se
               {settings?.ctaSubtext ?? "19th-23rd July 2027 at Stamford School, UK. Three specialist courses, world-class tutors, and a residential experience unlike any other."}
             </p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 16, justifyContent: "center", alignItems: "center" }}>
-              <Link href={settings?.ctaCta1Href ?? "/apply"} className="btn-gold">
+              <Link href={settings?.ctaCta1Href ?? "https://docs.google.com/forms/d/e/1FAIpQLScMZ4lqBWovMnSUA0X7bh6HZOnb0bWPjQzsqVlHLZfx6IYh2Q/viewform"} className="btn-gold">
                 {settings?.ctaCta1Label ?? "Register Your Interest →"}
               </Link>
               <Link href={settings?.ctaCta2Href ?? "/courses"} className="btn-outline-white">
